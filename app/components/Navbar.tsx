@@ -84,7 +84,8 @@ export const Navbar = () => {
 				justify="end"
 			>
 				{/* Social media */}
-				<NavbarItem className="hidden sm:flex gap-4">
+				<NavbarItem className="hidden sm:flex gap-3">
+					{/* Add other socials later */}
 					{/* <Link isExternal href={siteConfig.links.twitter} aria-label="Twitter">
 						<TwitterIcon className="text-default-500" />
 					</Link> */}
@@ -99,21 +100,29 @@ export const Navbar = () => {
 				{/* Add search bar later: */}
 				{/* <NavbarItem className="hidden lg:flex">{searchInput}</NavbarItem> */}
 				
+				{/* Change into a dropdown */}
 				<NavbarItem className="hidden sm:flex">
-					<Button
+					<Button color="primary"
             			isExternal
 						as={Link}
-						className="text-sm font-normal text-default-600 bg-default-100"
+						className={"text-sm font-normal"}
 						href={siteConfig.links.sponsor}
-						startContent={<HeartFilledIcon className="text-danger" />}
-						variant="flat"
+						// startContent={<HeartFilledIcon className="text-danger" />}
+						variant="solid"
 					>
-						Sponsor
+						Login / Sign Up
 					</Button>
 				</NavbarItem>
 			</NavbarContent>
 
 			<NavbarContent className="sm:hidden basis-1 pl-4" justify="end">
+				{/* Add other socials later */}
+				{/* <Link isExternal href={siteConfig.links.twitter} aria-label="Twitter">
+					<TwitterIcon className="text-default-500" />
+				</Link> */}
+				<Link isExternal href={siteConfig.links.discord} aria-label="Discord">
+					<DiscordIcon className="text-default-500" />
+				</Link>
 				<Link isExternal href={siteConfig.links.github} aria-label="Github">
 					<GithubIcon className="text-default-500" />
 				</Link>
@@ -122,7 +131,8 @@ export const Navbar = () => {
 			</NavbarContent>
 
 			<NavbarMenu>
-				{searchInput}
+				{/* Add search bar later */}
+				{/* {searchInput} */}
 				<div className="mx-4 mt-2 flex flex-col gap-2">
 					{siteConfig.navMenuItems.map((item, index) => (
 						<NavbarMenuItem key={`${item}-${index}`}>
