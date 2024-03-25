@@ -54,14 +54,14 @@ export const Navbar = () => {
 	return (
 		<NextUINavbar maxWidth="xl" position="sticky">
 			<NavbarContent className="basis-1/5 sm:basis-full" justify="start">
-				<NavbarBrand as="li" className="gap-3 max-w-fit">
+				<NavbarBrand as="li" className="gap-2 max-w-fit">
 					<NextLink className="flex justify-start items-center gap-1" href="/">
 						<Logo />
 						<p className="font-bold text-inherit">Hackpost</p>
 						<p className="text-inherit">Guide</p>
 					</NextLink>
 				</NavbarBrand>
-				<ul className="hidden lg:flex gap-6 justify-start ml-2">
+				<ul className="hidden sm:flex gap-6 justify-start ml-2">
 					{siteConfig.navItems.map((item) => (
 						<NavbarItem key={item.href}>
 							<NextLink
@@ -134,24 +134,36 @@ export const Navbar = () => {
 				{/* Add search bar later */}
 				{/* {searchInput} */}
 				<div className="mx-4 mt-2 flex flex-col gap-2">
-					{siteConfig.navMenuItems.map((item, index) => (
-						<NavbarMenuItem key={`${item}-${index}`}>
-							<Link
-								color={
-									index === 2
-										? "primary"
-										: index === siteConfig.navMenuItems.length - 1
-										? "danger"
-										: "foreground"
-								}
-								href="#"
-								size="lg"
-							>
-								{item.label}
-							</Link>
-						</NavbarMenuItem>
-					))}
-				</div>
+    {siteConfig.navMenuItems.map((item, index) => (
+        <NavbarMenuItem key={`${item}-${index}`}>
+            {index === siteConfig.navMenuItems.length - 1 ? (
+                // Render a Button for the last item
+                <Button
+                    color="primary" // or any color you wish to use for the button
+                    size="lg"
+                    // auto // for automatic width based on content
+                    // add the onClick or href prop as needed
+                >
+                    {item.label}
+                </Button>
+            ) : (
+                // Render a Link for all other items
+                <Link
+                    color={
+                        index === 2
+                            ? "primary"
+                            : "foreground"
+                    }
+                    href="#"
+                    size="lg"
+                >
+                    {item.label}
+                </Link>
+            )}
+        </NavbarMenuItem>
+    ))}
+</div>
+
 			</NavbarMenu>
 		</NextUINavbar>
 	);
