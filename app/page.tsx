@@ -4,20 +4,16 @@ import { Code } from "@nextui-org/code"
 import { button as buttonStyles } from "@nextui-org/theme";
 import { siteConfig } from "@/app/config/site";
 import { title, subtitle } from "@/app/components/Primitives";
-import { GithubIcon } from "@/app/components/Icons";
+import { DiscordIcon } from "@/app/components/Icons";
 
 export default function Home() {
 	return (
 		<section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10">
 			<div className="inline-block max-w-lg text-center justify-center">
-				<h1 className={title()}>Make&nbsp;</h1>
-				<h1 className={title({ color: "violet" })}>beautiful&nbsp;</h1>
-				<br />
-				<h1 className={title()}>
-					websites regardless of your design experience.
-				</h1>
+				<h1 className={title()}>The premier resource hub for&nbsp;</h1>
+				<h1 className={title({ color: "violet" })}>hackathon participants.&nbsp;</h1>
 				<h2 className={subtitle({ class: "mt-4" })}>
-					Beautiful, fast and modern React UI library.
+					Free. Open Source. Community Driven.
 				</h2>
 			</div>
 
@@ -25,27 +21,21 @@ export default function Home() {
 				<Link
 					isExternal
 					href={siteConfig.links.docs}
-					className={buttonStyles({ color: "primary", radius: "full", variant: "shadow" })}
+					className={buttonStyles({ color: "secondary", radius: "md", variant: "shadow" })}
 				>
-					Documentation
+					Start Posting
 				</Link>
 				<Link
 					isExternal
-					className={buttonStyles({ variant: "bordered", radius: "full" })}
-					href={siteConfig.links.github}
+					className={buttonStyles({ variant: "bordered", radius: "md" })}
+					href={siteConfig.links.discord}
 				>
-					<GithubIcon size={20} />
-					GitHub
+					<DiscordIcon size={20} />
+					Join our Discord
 				</Link>
 			</div>
 
-			<div className="mt-8">
-				<Snippet hideSymbol hideCopyButton variant="flat">
-					<span>
-						Get started by editing <Code color="primary">app/page.tsx</Code>
-					</span>
-				</Snippet>
-			</div>
+
 		</section>
 	);
 }
