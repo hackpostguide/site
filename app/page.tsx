@@ -8,6 +8,7 @@ import { DiscordIcon } from "@/app/components/Icons";
 
 export default function Home() {
 	return (
+		// Align the hero page text to the left later
 		<section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10">
 			<div className="inline-block max-w-lg text-center justify-center">
 				<h1 className={title()}>The premier resource hub for&nbsp;</h1>
