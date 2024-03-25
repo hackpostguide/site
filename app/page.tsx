@@ -1,3 +1,4 @@
+import { Button } from "@nextui-org/button";
 import Image from "next/image";
 
 export default function Home() {
@@ -7,6 +8,9 @@ export default function Home() {
       <p className="text-xl">
         A guide to hacking the planet
       </p>
+      <Button color="primary">
+        Button
+      </Button>
       {/* <Image
         src="/images/hackpost.png"
         alt="Hackpost logo"
