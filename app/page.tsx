@@ -11,7 +11,7 @@ export default function Home() {
 		// Align the hero page text to the left later
 		<section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10">
 			<div className="inline-block max-w-lg text-center justify-center">
-				<h1 className={title()}>The premier resource hub for&nbsp;</h1>
+				<h1 className={title()}>Jump right in into the premier resource hub for&nbsp;</h1>
 				<h1 className={title({ color: "violet" })}>hackathon participants.&nbsp;</h1>
 				<h2 className={subtitle({ class: "mt-4" })}>
 					Free. Open Source. Community Driven.
