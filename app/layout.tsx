@@ -6,8 +6,8 @@ import { Providers } from "./providers";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Hackpost Guide",
-  description: "A guide to hacking the planet",
+  title: "Hackpost Guide - Jump Right In",
+  description: "The premier resource hub for hackathon participants. Free. Open Source. Community Driven.",
 };
 
 export default function RootLayout({
