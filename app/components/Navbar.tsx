@@ -59,7 +59,7 @@ export default function App() {
       </NavbarContent>
 
       <NavbarContent justify="end">
-        <NavbarItem className="hidden lg:flex">
+        <NavbarItem className="flex">
           <Link href="#">Login</Link>
         </NavbarItem>
         <NavbarItem>

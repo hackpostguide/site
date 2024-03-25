@@ -3,7 +3,7 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
+    <main className="flex min-h-screen flex-col items-start justify-between px-6">
       <h1 className="text-6xl font-bold">Welcome to Hackpost</h1>
       <p className="text-xl">
         A guide to hacking the planet
