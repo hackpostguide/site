@@ -57,10 +57,11 @@ export const Navbar = () => {
 				<NavbarBrand as="li" className="gap-3 max-w-fit">
 					<NextLink className="flex justify-start items-center gap-1" href="/">
 						<Logo />
-						<p className="font-bold text-inherit">ACME</p>
+						<p className="font-bold text-inherit">Hackpost</p>
+						<p className="text-inherit">Guide</p>
 					</NextLink>
 				</NavbarBrand>
-				<ul className="hidden lg:flex gap-4 justify-start ml-2">
+				<ul className="hidden lg:flex gap-6 justify-start ml-2">
 					{siteConfig.navItems.map((item) => (
 						<NavbarItem key={item.href}>
 							<NextLink
@@ -82,10 +83,11 @@ export const Navbar = () => {
 				className="hidden sm:flex basis-1/5 sm:basis-full"
 				justify="end"
 			>
-				<NavbarItem className="hidden sm:flex gap-2">
-					<Link isExternal href={siteConfig.links.twitter} aria-label="Twitter">
+				{/* Social media */}
+				<NavbarItem className="hidden sm:flex gap-4">
+					{/* <Link isExternal href={siteConfig.links.twitter} aria-label="Twitter">
 						<TwitterIcon className="text-default-500" />
-					</Link>
+					</Link> */}
 					<Link isExternal href={siteConfig.links.discord} aria-label="Discord">
 						<DiscordIcon className="text-default-500" />
 					</Link>
@@ -94,10 +96,12 @@ export const Navbar = () => {
 					</Link>
 					<ThemeSwitch />
 				</NavbarItem>
-				<NavbarItem className="hidden lg:flex">{searchInput}</NavbarItem>
-				<NavbarItem className="hidden md:flex">
+				{/* Add search bar later: */}
+				{/* <NavbarItem className="hidden lg:flex">{searchInput}</NavbarItem> */}
+				
+				<NavbarItem className="hidden sm:flex">
 					<Button
-            isExternal
+            			isExternal
 						as={Link}
 						className="text-sm font-normal text-default-600 bg-default-100"
 						href={siteConfig.links.sponsor}
