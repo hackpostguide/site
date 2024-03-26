@@ -16,7 +16,7 @@ export default function Home() {
 				<h1 className={title()}>Jump right in into the premier resource hub for&nbsp;</h1>
 				<h1 className={title({ color: "violet" })}>hackathon participants.&nbsp;</h1>
 				<h2 className={subtitle({ class: "mt-4" })}>
-					Free. Open Source. Community Driven.
+					Guiding your journey. Free. Open Source. Community Driven.
 				</h2>
 			</div>
 
