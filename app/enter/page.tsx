@@ -9,6 +9,7 @@ import { auth, firestore } from '@/app/lib/firebase';
 import { UserContext } from '@/app/lib/context';
 import { Button } from '@nextui-org/button';
 import { Input } from '@nextui-org/react';
+import toast from 'react-hot-toast';
 
 export default function Enter(props: any) {
   const { user, username } = useContext(UserContext);
@@ -70,17 +71,17 @@ function SignInButton() {
 // Sign out button
 function SignOutButton() {
     console.log('signed out with Google');
-  return (
-    <Button
-      color="default"
-      variant="bordered"
+    return (
+      <Button
+        color="default"
+        variant="bordered"
 
-      onClick={() => signOut(auth)}
-      className="font-sm space-y-6"
-    >
-      Sign Out
-    </Button>
-  );
+        onClick={() => signOut(auth)}
+        className="font-sm space-y-6"
+      >
+        Sign Out
+      </Button>
+    );
 }
 
 function UsernameForm() {
@@ -102,6 +103,7 @@ function UsernameForm() {
 
     await batch.commit();
     console.log('Username created!');
+    toast.success('Logged in successfully!');
   };
 
   const onChange = (e: any) => {

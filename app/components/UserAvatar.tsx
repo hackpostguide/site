@@ -1,7 +1,7 @@
 import { Dropdown, DropdownTrigger, Avatar, DropdownMenu, DropdownItem } from '@nextui-org/react'
 import React from 'react'
 
-const UserAvatar = () => {
+const UserAvatar = ({ user }: { user: any }) => {
   return (
     <Dropdown placement="bottom-end">
         <DropdownTrigger>
@@ -18,7 +18,7 @@ const UserAvatar = () => {
         <DropdownMenu aria-label="Profile Actions" variant="flat">
             <DropdownItem key="profile" className="h-14 gap-2">
             <p className="font-semibold">Signed in as</p>
-            <p className="font-semibold">zoey@example.com</p>
+            <p className="font-semibold">{user?.email}</p>
             </DropdownItem>
             <DropdownItem key="settings">My Settings</DropdownItem>
             <DropdownItem key="team_settings">Team Settings</DropdownItem>
