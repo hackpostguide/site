@@ -12,6 +12,7 @@ import { Button } from "@nextui-org/button";
 import { Kbd } from "@nextui-org/kbd";
 import { Link } from "@nextui-org/link";
 import { Input } from "@nextui-org/input";
+import { Icon } from '@iconify/react';
 
 import { link as linkStyles } from "@nextui-org/theme";
 
@@ -89,7 +90,7 @@ export const Navbar = () => {
 
 			<NavbarContent className="hidden sm:flex basis-1/5 sm:basis-full" justify="end">
 				{/* Social media and avatar */}
-				<div className="flex items-center gap-3">
+				<div className="flex items-center gap-5">
 					{/* Social media */}
 					<div className="hidden sm:flex gap-3">
 					<Link isExternal href={siteConfig.links.discord} aria-label="Discord">
@@ -102,8 +103,14 @@ export const Navbar = () => {
 					</div>
 
 					{/* User has signed in AND completed onboarding (has username) */}
+
 					{username && (
-						<UserAvatar />
+						<>
+							<Button isIconOnly color="secondary" aria-label="Dashboard" variant="faded">
+								<Icon icon="bi:folder" width="1.2rem" height="1.2rem"/> 
+							</Button> 
+							<UserAvatar />
+						</>
 					)}
 				</div>
 
