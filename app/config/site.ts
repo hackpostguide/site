@@ -6,11 +6,11 @@ export const siteConfig = {
 	navItems: [
     {
       label: "About",
-      href: "/",
+      href: "/about",
     },
     {
       label: "Updates",
-      href: "/",
+      href: "/updates",
     },
 	],
 	navMenuItems: [
@@ -20,11 +20,11 @@ export const siteConfig = {
 		},
 		{
 			label: "About",
-			href: "/",
+			href: "/about",
 		},
 		{
 			label: "Updates",
-			href: "/",
+			href: "/updates",
 		},
 		{
 			label: "Login / Sign Up",
@@ -36,6 +36,5 @@ export const siteConfig = {
 		twitter: "https://twitter.com/getnextui",
 		docs: "https://nextui.org",
 		discord: "https://discord.gg",
-    	sponsor: "https://patreon.com/jrgarciadev"
 	},
 };

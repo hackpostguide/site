@@ -106,7 +106,14 @@ export const Navbar = () => {
 
 					{username && (
 						<>
-							<Button isIconOnly color="secondary" aria-label="Dashboard" variant="faded">
+							<Button 
+								isIconOnly 
+								color="secondary" 
+								aria-label="Dashboard" 
+								variant="faded"
+								as={Link}
+								href={'/dashboard'}
+							>
 								<Icon icon="bi:folder" width="1.2rem" height="1.2rem"/> 
 							</Button> 
 							<UserAvatar />
