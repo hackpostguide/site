@@ -61,7 +61,6 @@ export default function RootLayout({
 
 				<Link
                 isExternal
-                className="flex items-center gap-1 text-current"
                 href="https://nextui.org"
                 title="nextui.org"
               >
