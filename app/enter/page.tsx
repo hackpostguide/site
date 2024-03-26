@@ -1,6 +1,6 @@
 'use client'
 import React, { useContext, useEffect, useState, useCallback } from 'react';
-import { signInWithPopup, GoogleAuthProvider, signOut } from 'firebase/auth';
+import { signInWithPopup, GoogleAuthProvider, signOut, signInWithRedirect } from 'firebase/auth';
 import { doc, getDoc, writeBatch } from 'firebase/firestore';
 import Image from 'next/image';
 import debounce from 'lodash.debounce';
@@ -40,7 +40,7 @@ function SignInButton() {
   const signInWithGoogle = async () => {
     const provider = new GoogleAuthProvider();
     try {
-      await signInWithPopup(auth, provider);
+      await signInWithRedirect(auth, provider);
       console.log('Signed in with Google');
     } catch (error) {
       console.error('Error signing in with Google:', error);
