@@ -8,6 +8,7 @@ import debounce from 'lodash.debounce';
 import { auth, firestore } from '@/app/lib/firebase';
 import { UserContext } from '@/app/lib/context';
 import { Button } from '@nextui-org/button';
+import { Input } from '@nextui-org/react';
 
 export default function Enter(props: any) {
   const { user, username } = useContext(UserContext);
@@ -140,10 +141,25 @@ function UsernameForm() {
   if (!username) {
     return (
       <section>
-        <h3>Choose Username</h3>
+        <h3 className='text-xl mb-3'>You are almost there!</h3>
+        <p>Choose a Username:</p>
         <form onSubmit={onSubmit} className="space-y-6" action="#" method="POST">
           <div>
-            <label htmlFor="username" className="block text-sm font-medium leading-6 text-gray-900">
+            <Input 
+              className="my-2"
+              // label="Username"
+              id="username"
+              name="username"
+              type="text"
+              autoComplete="username"
+              value={formValue}
+              onChange={onChange}
+              variant="faded"
+              isRequired 
+              placeholder="eg: john-doe" 
+
+            />
+            {/* <label htmlFor="username" className="block text-sm font-medium leading-6 text-gray-900">
               Username
             </label>
             <div className="mt-2">
@@ -158,19 +174,21 @@ function UsernameForm() {
                 required
                 className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
               />
-            </div>
+            </div> */}
           </div>
 
           <UsernameMessage username={formValue} isValid={isValid} loading={loading} />
 
           <div>
-            <button
+            <Button
+              color="primary"
               type="submit"
-              disabled={!isValid}
-              className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+              isDisabled ={!isValid}
+              className="flex w-full"
+              // className="flex w-full justify-center rounded-md bg-primary px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
             >
               Choose
-            </button>
+            </Button>
           </div>
 
           <h3>Debug State</h3>
@@ -194,6 +212,8 @@ function UsernameMessage({ username, isValid, loading }: { username: string, isV
     return <p>Checking...</p>;
   } else if (isValid) {
     return <p className="text-success">{username} is available!</p>;
+  } else if (username && username.length < 3) {
+    return <p className="text-danger">Username must be at least 3 characters long.</p>;
   } else if (username && !isValid) {
     return <p className="text-danger">Username is unavailable.</p>;
   } else {
