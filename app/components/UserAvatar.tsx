@@ -4,7 +4,7 @@ import React from 'react'
 import { auth } from '../lib/firebase'
 import toast from 'react-hot-toast'
 
-const UserAvatar = ({ user }: { user: any }) => {
+const UserAvatar = ({ user, username }: { user: any; username: string }) => {
   return (
     <Dropdown placement="bottom-end">
         <DropdownTrigger>
@@ -23,7 +23,7 @@ const UserAvatar = ({ user }: { user: any }) => {
             <p className="font-semibold">Signed in as</p>
             <p className="font-semibold">{user?.email}</p>
             </DropdownItem>
-            <DropdownItem key="settings" href="/">My Profile</DropdownItem>
+            <DropdownItem key="settings" href={`/users/${username}`}>My Profile</DropdownItem>
             <DropdownItem key="team_settings" href="/">My Dashboard</DropdownItem>
             <DropdownItem key="analytics" href="/">My Settings</DropdownItem>
             <DropdownItem key="logout" color="danger" 
