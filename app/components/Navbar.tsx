@@ -107,14 +107,16 @@ export const Navbar = () => {
 					{username && (
 						<>
 							<Button 
-								isIconOnly 
+								// isIconOnly 
+								startContent={<Icon icon="bi:plus-lg" width="1.2rem" height="1.2rem"/> }
 								color="secondary" 
 								aria-label="Dashboard" 
 								variant="faded"
+								className="text-sm font-bold"
 								as={Link}
 								href={'/dashboard'}
 							>
-								<Icon icon="bi:folder" width="1.2rem" height="1.2rem"/> 
+								Create New
 							</Button> 
 							<UserAvatar/>
 						</>
