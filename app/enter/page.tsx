@@ -12,10 +12,23 @@ export default function Enter(props: any) {
   const { user, username } = useContext(UserContext);
 
   return (
-    <main>
-        <p>Sign in soon</p>
-      {/* {user ? (!username ? <UsernameForm /> : <SignOutButton />) : <SignInButton />} */}
-    </main>
+    <div className="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
+      <div className="sm:mx-auto sm:w-full sm:max-w-sm">
+        <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">Sign in to your account</h2>
+      </div>
+
+      <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
+        {user ? (
+          !username ? (
+            <UsernameForm />
+          ) : (
+            <SignOutButton />
+          )
+        ) : (
+          <SignInButton />
+        )}
+      </div>
+    </div>
   );
 }
 
@@ -32,16 +45,31 @@ function SignInButton() {
   };
 
   return (
-    <button className="btn-google" onClick={signInWithGoogle}>
-      <Image src="/google-icon-logo-png-transparent.png" alt="Google" width="30" height="30" />
-      Sign in with Google
-    </button>
+    <form className="space-y-6" action="#" method="POST">
+      <div>
+        <button
+          type="button"
+          onClick={signInWithGoogle}
+          className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+        >
+          <Image src="/google-icon-logo-png-transparent.png" alt="Google" width="30" height="30" />
+          Sign in with Google
+        </button>
+      </div>
+    </form>
   );
 }
 
 // Sign out button
 function SignOutButton() {
-  return <button onClick={() => signOut(auth)}>Sign Out</button>;
+  return (
+    <button
+      onClick={() => signOut(auth)}
+      className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+    >
+      Sign Out
+    </button>
+  );
 }
 
 function UsernameForm() {
@@ -98,16 +126,41 @@ function UsernameForm() {
     []
   );
 
-  return (
-    !username && (
+  if (!username) {
+    return (
       <section>
         <h3>Choose Username</h3>
-        <form onSubmit={onSubmit}>
-          <input name="username" placeholder="myname" value={formValue} onChange={onChange} />
+        <form onSubmit={onSubmit} className="space-y-6" action="#" method="POST">
+          <div>
+            <label htmlFor="username" className="block text-sm font-medium leading-6 text-gray-900">
+              Username
+            </label>
+            <div className="mt-2">
+              <input
+                id="username"
+                name="username"
+                type="text"
+                autoComplete="username"
+                placeholder="myname"
+                value={formValue}
+                onChange={onChange}
+                required
+                className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+              />
+            </div>
+          </div>
+
           <UsernameMessage username={formValue} isValid={isValid} loading={loading} />
-          <button type="submit" className="btn-green" disabled={!isValid}>
-            Choose
-          </button>
+
+          <div>
+            <button
+              type="submit"
+              disabled={!isValid}
+              className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+            >
+              Choose
+            </button>
+          </div>
 
           <h3>Debug State</h3>
           <div>
@@ -119,8 +172,10 @@ function UsernameForm() {
           </div>
         </form>
       </section>
-    )
-  );
+    );
+  }
+
+  return null;
 }
 
 function UsernameMessage({ username, isValid, loading }: { username: string, isValid: boolean, loading: boolean }) {
