@@ -13,7 +13,8 @@ export default function Enter(props: any) {
 
   return (
     <main>
-      {user ? (!username ? <UsernameForm /> : <SignOutButton />) : <SignInButton />}
+        <p>Sign in soon</p>
+      {/* {user ? (!username ? <UsernameForm /> : <SignOutButton />) : <SignInButton />} */}
     </main>
   );
 }
