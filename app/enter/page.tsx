@@ -28,6 +28,9 @@ export default function Enter(props: any) {
           <SignInButton />
         )}
       </div>
+      <SignOutButton /> 
+    <p>User: {String(user)}</p>
+    <p>Username: {username}</p>
     </div>
   );
 }
@@ -62,6 +65,7 @@ function SignInButton() {
 
 // Sign out button
 function SignOutButton() {
+    console.log('signed out with Google');
   return (
     <button
       onClick={() => signOut(auth)}
@@ -86,15 +90,16 @@ function UsernameForm() {
     const usernameDocRef = doc(firestore, `usernames/${formValue}`);
 
     const batch = writeBatch(firestore);
-    batch.set(userDocRef, { username: formValue, photoURL: user?.photoURL, displayName: user?.displayName });
+    batch.set(userDocRef, { bio: "", username: formValue, email: user?.email, photoURL: user?.photoURL, displayName: user?.displayName });
     batch.set(usernameDocRef, { uid: user?.uid });
 
     await batch.commit();
+    console.log('Username created!');
   };
 
   const onChange = (e: any) => {
     const val = e.target.value.toLowerCase();
-    const re = /^(?=[a-zA-Z0-9._]{3,15}$)(?!.*[_.]{2})[^_.].*[^_.]$/;
+    const re = /^[a-zA-Z0-9-]{3,15}$/;
 
     if (val.length < 3) {
       setFormValue(val);
@@ -184,7 +189,7 @@ function UsernameMessage({ username, isValid, loading }: { username: string, isV
   } else if (isValid) {
     return <p className="text-success">{username} is available!</p>;
   } else if (username && !isValid) {
-    return <p className="text-danger">That username is taken!</p>;
+    return <p className="text-danger">Username is unavailable.</p>;
   } else {
     return <p></p>;
   }
