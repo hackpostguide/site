@@ -1,3 +1,4 @@
+'use client';
 import {
 	Navbar as NextUINavbar,
 	NavbarContent,
@@ -28,8 +29,14 @@ import {
 } from "@/app/components/Icons";
 
 import { Logo } from "@/app/components/Icons";
+import { useContext } from "react";
+import { UserContext } from "../lib/context";
+import { Dropdown, DropdownTrigger, Avatar, DropdownMenu, DropdownItem, User } from "@nextui-org/react";
+import UserAvatar from "./UserAvatar";
 
 export const Navbar = () => {
+	const { user, username } = useContext(UserContext);
+
 	// Implement search later
 	const searchInput = (
 		<Input
@@ -80,16 +87,11 @@ export const Navbar = () => {
 				</ul>
 			</NavbarContent>
 
-			<NavbarContent
-				className="hidden sm:flex basis-1/5 sm:basis-full"
-				justify="end"
-			>
-				{/* Social media */}
-				<NavbarItem className="hidden sm:flex gap-3">
-					{/* Add other socials later */}
-					{/* <Link isExternal href={siteConfig.links.twitter} aria-label="Twitter">
-						<TwitterIcon className="text-default-500" />
-					</Link> */}
+			<NavbarContent className="hidden sm:flex basis-1/5 sm:basis-full" justify="end">
+				{/* Social media and avatar */}
+				<div className="flex items-center gap-3">
+					{/* Social media */}
+					<div className="hidden sm:flex gap-3">
 					<Link isExternal href={siteConfig.links.discord} aria-label="Discord">
 						<DiscordIcon className="text-default-500" />
 					</Link>
@@ -97,12 +99,22 @@ export const Navbar = () => {
 						<GithubIcon className="text-default-500" />
 					</Link>
 					<ThemeSwitch />
-				</NavbarItem>
+					</div>
+
+					{/* User has signed in AND completed onboarding (has username) */}
+					{username && (
+						<UserAvatar />
+					)}
+				</div>
+
 				{/* Add search bar later: */}
 				{/* <NavbarItem className="hidden lg:flex">{searchInput}</NavbarItem> */}
-				
-				<NavbarItem className="hidden sm:flex">
-					<Button color="primary"
+
+				{/* User has not signed in OR has not completed onboarding (has not created a username) */}
+				{!username && (
+					<NavbarItem className="hidden sm:flex">
+					<Button
+						color="primary"
 						as={Link}
 						className={"text-sm font-normal"}
 						href={'/enter'}
@@ -110,7 +122,8 @@ export const Navbar = () => {
 					>
 						Login / Sign Up
 					</Button>
-				</NavbarItem>
+					</NavbarItem>
+				)}
 			</NavbarContent>
 
 			<NavbarContent className="sm:hidden basis-1 pl-4" justify="end">
@@ -125,16 +138,23 @@ export const Navbar = () => {
 					<GithubIcon className="text-default-500" />
 				</Link>
 				<ThemeSwitch />
+				{/* User has signed in AND completed onboarding (has username) */}
+				{username && (
+					<UserAvatar />
+				)}
+				
 				<NavbarMenuToggle />
 			</NavbarContent>
 
 			<NavbarMenu>
 				{/* Add search bar later */}
 				{/* {searchInput} */}
+
+
 				<div className="mx-4 mt-2 flex flex-col gap-2">
-    {siteConfig.navMenuItems.map((item, index) => (
-        <NavbarMenuItem key={`${item}-${index}`}>
-            {index === siteConfig.navMenuItems.length - 1 ? (
+    			{siteConfig.navMenuItems.map((item, index) => (
+        		<NavbarMenuItem key={`${item}-${index}`}>
+            	{index === siteConfig.navMenuItems.length - 1 ? (
                 // Render a Button for the last item
                 <Button
                     color="primary" // or any color you wish to use for the button
