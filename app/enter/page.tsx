@@ -7,6 +7,7 @@ import debounce from 'lodash.debounce';
 
 import { auth, firestore } from '@/app/lib/firebase';
 import { UserContext } from '@/app/lib/context';
+import { Button } from '@nextui-org/button';
 
 export default function Enter(props: any) {
   const { user, username } = useContext(UserContext);
@@ -50,14 +51,17 @@ function SignInButton() {
   return (
     <form className="space-y-6" action="#" method="POST">
       <div>
-        <button
-          type="button"
+        <Button
+          color="default"
+          variant="bordered"
+  
           onClick={signInWithGoogle}
-          className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+          className="font-sm"
+
+          startContent={<Image src="/google-icon-logo-png-transparent.png" alt="Google" width="20" height="20" />}
         >
-          <Image src="/google-icon-logo-png-transparent.png" alt="Google" width="30" height="30" />
-          Sign in with Google
-        </button>
+          Sign Up/In with Google
+        </Button>
       </div>
     </form>
   );
