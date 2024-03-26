@@ -30,6 +30,7 @@ import {
 import { Logo } from "@/app/components/Icons";
 
 export const Navbar = () => {
+	// Implement search later
 	const searchInput = (
 		<Input
 			aria-label="Search"
@@ -100,14 +101,11 @@ export const Navbar = () => {
 				{/* Add search bar later: */}
 				{/* <NavbarItem className="hidden lg:flex">{searchInput}</NavbarItem> */}
 				
-				{/* Change into a dropdown */}
 				<NavbarItem className="hidden sm:flex">
 					<Button color="primary"
-            			isExternal
 						as={Link}
 						className={"text-sm font-normal"}
-						href={siteConfig.links.sponsor}
-						// startContent={<HeartFilledIcon className="text-danger" />}
+						href={'/enter'}
 						variant="solid"
 					>
 						Login / Sign Up

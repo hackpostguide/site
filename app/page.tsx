@@ -27,6 +27,15 @@ export default function Home() {
 				>
 					Start Exploring
 				</Button>
+				<Button color="primary"
+					as={Link}
+					className={"text-sm font-normal"}
+					href={'/enter'}
+					variant="solid"
+				>
+					Login / Sign Up
+				</Button>
+				
 				<Link
 					isExternal
 					className={buttonStyles({ variant: "bordered", radius: "md" })}
@@ -35,10 +44,10 @@ export default function Home() {
 					<DiscordIcon size={20} />
 					Join our Discord
 				</Link>
-				<ToastButton />
+				{/* <ToastButton /> */}
 			</div>
 			<div className="flex gap-3">
-				<ToastButton />
+				{/* <ToastButton /> */}
 			</div>
 			
 
