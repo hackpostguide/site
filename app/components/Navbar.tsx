@@ -116,7 +116,7 @@ export const Navbar = () => {
 							>
 								<Icon icon="bi:folder" width="1.2rem" height="1.2rem"/> 
 							</Button> 
-							<UserAvatar user={user} username={username}/>
+							<UserAvatar/>
 						</>
 					)}
 				</div>
@@ -154,7 +154,7 @@ export const Navbar = () => {
 				<ThemeSwitch />
 				{/* User has signed in AND completed onboarding (has username) */}
 				{username && (
-					<UserAvatar user={user} username={username}/>
+					<UserAvatar />
 				)}
 				
 				<NavbarMenuToggle />

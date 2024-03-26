@@ -103,7 +103,7 @@ function UsernameForm() {
     const usernameDocRef = doc(firestore, `usernames/${formValue}`);
 
     const batch = writeBatch(firestore);
-    batch.set(userDocRef, { bio: "", username: formValue, email: user?.email, photoURL: user?.photoURL, displayName: user?.displayName, isBanned: false, isAdmin: false, banReason: "null"});
+    batch.set(userDocRef, { bio: "No bio found", username: formValue, email: user?.email, photoURL: user?.photoURL, displayName: user?.displayName, isBanned: false, isAdmin: false, banReason: "null"});
     batch.set(usernameDocRef, { uid: user?.uid });
 
     await batch.commit();

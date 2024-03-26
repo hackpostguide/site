@@ -1,10 +1,14 @@
+'use client';
 import { Dropdown, DropdownTrigger, Avatar, DropdownMenu, DropdownItem } from '@nextui-org/react'
 import { signOut } from 'firebase/auth'
-import React from 'react'
+import React, { useContext } from 'react'
 import { auth } from '../lib/firebase'
 import toast from 'react-hot-toast'
+import { UserContext } from '../lib/context';
 
-const UserAvatar = ({ user, username }: { user: any; username: string }) => {
+const UserAvatar = () => {
+  const { user, username } = useContext(UserContext);
+
   return (
     <Dropdown placement="bottom-end">
         <DropdownTrigger>
@@ -13,9 +17,9 @@ const UserAvatar = ({ user, username }: { user: any; username: string }) => {
             as="button"
             className="hidden sm:flex transition-transform"
             color="primary"
-            name={user?.displayName}
+            name={user?.displayName ?? ''}
             size="sm"
-            src={user?.photoURL}
+            src={user?.photoURL ?? ''}
         />
         </DropdownTrigger>
         <DropdownMenu aria-label="Profile Actions" variant="flat">

@@ -11,11 +11,11 @@ function PostItem({ post, admin }: { post: any, admin: boolean }) {
 
     return (
         <div className="card">
-            <Link passHref href={`/${post.username}`}>
+            <Link passHref href={`/users/${post.username}`}>
                 <strong>By @{post.username}</strong>
             </Link>
 
-            <Link passHref href={`/${post.username}/${post.slug}`}>
+            <Link passHref href={`/users/${post.username}/${post.slug}`}>
                 <h2>
                     {post.title}
                 </h2>
@@ -31,7 +31,7 @@ function PostItem({ post, admin }: { post: any, admin: boolean }) {
             {/* If admin view, show extra controls for user */}
             {admin && (
                 <>
-                    <Link passHref href={`/admin/${post.slug}`}>
+                    <Link passHref href={`/dashboard/${post.slug}`}>
                         <h3>
                             <button className="btn-blue">Edit</button>
                         </h3>
