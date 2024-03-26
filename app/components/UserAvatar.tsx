@@ -1,5 +1,8 @@
 import { Dropdown, DropdownTrigger, Avatar, DropdownMenu, DropdownItem } from '@nextui-org/react'
+import { signOut } from 'firebase/auth'
 import React from 'react'
+import { auth } from '../lib/firebase'
+import toast from 'react-hot-toast'
 
 const UserAvatar = ({ user }: { user: any }) => {
   return (
@@ -10,9 +13,9 @@ const UserAvatar = ({ user }: { user: any }) => {
             as="button"
             className="hidden sm:flex transition-transform"
             color="primary"
-            name="Jason Hughes"
+            name={user?.displayName}
             size="sm"
-            src="https://i.pravatar.cc/150?u=a042581f4e29026704d"
+            src={user?.photoURL}
         />
         </DropdownTrigger>
         <DropdownMenu aria-label="Profile Actions" variant="flat">
@@ -20,13 +23,15 @@ const UserAvatar = ({ user }: { user: any }) => {
             <p className="font-semibold">Signed in as</p>
             <p className="font-semibold">{user?.email}</p>
             </DropdownItem>
-            <DropdownItem key="settings">My Settings</DropdownItem>
-            <DropdownItem key="team_settings">Team Settings</DropdownItem>
-            <DropdownItem key="analytics">Analytics</DropdownItem>
-            <DropdownItem key="system">System</DropdownItem>
-            <DropdownItem key="configurations">Configurations</DropdownItem>
-            <DropdownItem key="help_and_feedback">Help & Feedback</DropdownItem>
-            <DropdownItem key="logout" color="danger">
+            <DropdownItem key="settings" href="/">My Profile</DropdownItem>
+            <DropdownItem key="team_settings" href="/">My Dashboard</DropdownItem>
+            <DropdownItem key="analytics" href="/">My Settings</DropdownItem>
+            <DropdownItem key="logout" color="danger" 
+                onClick={() => {
+                    signOut(auth)
+                    toast.success('Signed out successfully!');
+                }
+            }>
             Log Out
             </DropdownItem>
         </DropdownMenu>

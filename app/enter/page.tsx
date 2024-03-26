@@ -44,6 +44,7 @@ function SignInButton() {
     try {
       await signInWithRedirect(auth, provider);
       console.log('Signed in with Google');
+      toast.success('Logged in successfully!');
     } catch (error) {
       console.error('Error signing in with Google:', error);
     }
@@ -76,7 +77,11 @@ function SignOutButton() {
         color="default"
         variant="bordered"
 
-        onClick={() => signOut(auth)}
+        onClick={() => {
+            signOut(auth)
+            toast.success('Signed out successfully!');
+          }
+        }
         className="font-sm space-y-6"
       >
         Sign Out
@@ -103,7 +108,7 @@ function UsernameForm() {
 
     await batch.commit();
     console.log('Username created!');
-    toast.success('Logged in successfully!');
+    toast.success('Signed up successfully!');
   };
 
   const onChange = (e: any) => {
