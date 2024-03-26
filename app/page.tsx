@@ -5,6 +5,7 @@ import { button as buttonStyles } from "@nextui-org/theme";
 import { siteConfig } from "@/app/config/site";
 import { title, subtitle } from "@/app/components/Primitives";
 import { DiscordIcon } from "@/app/components/Icons";
+import ToastButton from "./components/ToastButton";
 
 export default function Home() {
 	return (
@@ -20,8 +21,7 @@ export default function Home() {
 
 			<div className="flex gap-3">
 				<Link
-					isExternal
-					href={siteConfig.links.docs}
+					
 					className={buttonStyles({ color: "secondary", radius: "md", variant: "shadow" })}
 				>
 					Start Posting
@@ -34,7 +34,12 @@ export default function Home() {
 					<DiscordIcon size={20} />
 					Join our Discord
 				</Link>
+				<ToastButton />
 			</div>
+			<div className="flex gap-3">
+				<ToastButton />
+			</div>
+			
 
 
 		</section>
