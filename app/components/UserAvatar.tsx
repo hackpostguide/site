@@ -13,6 +13,7 @@ const UserAvatar = () => {
     <Dropdown placement="bottom-end">
         <DropdownTrigger>
         <Avatar
+            showFallback // Show fallback avatar if src is not provided
             isBordered
             as="button"
             className="hidden sm:flex transition-transform"
@@ -23,9 +24,9 @@ const UserAvatar = () => {
         />
         </DropdownTrigger>
         <DropdownMenu aria-label="Profile Actions" variant="flat">
-            <DropdownItem key="profile" className="h-14 gap-2">
-            <p className="font-semibold">Signed in as</p>
-            <p className="font-semibold">{user?.email}</p>
+            <DropdownItem key="profile" className="h-14 gap-2" href={`/users/${username}`}>
+                <p className="font-semibold">Signed in as</p>
+                <p className="font-semibold">{user?.email}</p>
             </DropdownItem>
             <DropdownItem key="settings" href={`/users/${username}`}>My Profile</DropdownItem>
             <DropdownItem key="team_settings" href="/">My Dashboard</DropdownItem>
