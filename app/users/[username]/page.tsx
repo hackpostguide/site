@@ -12,7 +12,7 @@ export default async function UserProfilePage({ params }: { params: { username: 
     console.log('username: ', username);
     const userData = await getUserData(username);
 
-    console.log('userData: ', userData);
+    console.log('userData from [username]/page.tsx: ', userData);
 
   //if no user, return 404 page
   if (!userData) {

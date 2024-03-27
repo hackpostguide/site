@@ -1,7 +1,7 @@
 import Img from 'next/image';
 
 export default function UserProfile({ user }: { user: any }) {
-    console.log('user from UserProfile', user);
+    // console.log('user from UserProfile', user);
   return (
     <div className="box-center">
         {/* Add alternate src for photoURL later */}
