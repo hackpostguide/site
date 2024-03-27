@@ -37,7 +37,7 @@ return (
         {/* <Metatags title={user.username} description={`${user.username}'s public profile`} /> */}
         <UserProfile user={user} />
         <PostFeed posts={posts} />
-        <p>User Profile page</p>
+        {/* <p>User Profile page</p> */}
         {/* <p>{JSON.stringify(userData)}</p> */}
     </main>
 );
