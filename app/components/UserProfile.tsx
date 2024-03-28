@@ -10,7 +10,7 @@ export default function UserProfile({ user }: { user: any }) {
             <Avatar
               showFallback // Show fallback avatar if src is not provided
               color="primary"
-              name={user?.displayName ?? ''}
+              // name={user?.displayName ?? ''}
               // size=""
               src={user?.photoURL ?? ''}
               className="w-40 h-40 mb-4"

@@ -10,9 +10,17 @@ import { UserContext } from '@/app/lib/context';
 import { Button } from '@nextui-org/button';
 import { Input } from '@nextui-org/react';
 import toast from 'react-hot-toast';
+import { useRouter } from 'next/navigation';
 
 export default function Enter(props: any) {
   const { user, username } = useContext(UserContext);
+  const router = useRouter()
+
+  useEffect(() => {
+    if (user && username) {
+      router.push('/dashboard');
+    }
+  }, [user, username, router]);
 
   return (
     <div className="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
