@@ -9,6 +9,8 @@ import { Button } from '@nextui-org/button';
 import { Input } from '@nextui-org/react';
 import toast from 'react-hot-toast';
 import { useRouter } from 'next/navigation';
+import { signOut } from 'firebase/auth';
+import { Icon } from '@iconify/react/dist/iconify.js';
 
 export default function Onboarding(props: any) {
   const { user, username } = useContext(UserContext);
@@ -31,13 +33,33 @@ export default function Onboarding(props: any) {
 
       <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
         <UsernameForm />
+        <SignOutButton />
       </div>
-    <p>User: {String(user)}</p>
-    <p>Username: {username}</p>
+
     </div>
   );
 }
 
+// Sign out button
+function SignOutButton() {
+  console.log('signed out with Google');
+  return (
+    <Button
+      color="default"
+      variant="bordered"
+      startContent={<Icon icon="radix-icons:chevron-left" className="text-lg" />}
+
+      onClick={() => {
+          signOut(auth)
+          toast.success('Signed out successfully!');
+        }
+      }
+      className="font-sm space-y-6"
+    >
+      Sign up with a different account
+    </Button>
+  );
+}
 
 function UsernameForm() {
   const [formValue, setFormValue] = useState('');
