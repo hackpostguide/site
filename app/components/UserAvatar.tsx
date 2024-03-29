@@ -1,4 +1,5 @@
 'use client';
+import Link from 'next/link';
 import { Dropdown, DropdownTrigger, Avatar, DropdownMenu, DropdownItem } from '@nextui-org/react'
 import { signOut } from 'firebase/auth'
 import React, { useContext } from 'react'
@@ -24,13 +25,26 @@ const UserAvatar = () => {
         />
         </DropdownTrigger>
         <DropdownMenu aria-label="Profile Actions" variant="flat">
-            <DropdownItem key="profile" className="h-14 gap-2" href={`/users/${username}`}>
-                <p className="font-semibold">Signed in as</p>
-                <p className="font-semibold">{user?.email}</p>
+            <DropdownItem key="signedInProfile" className="h-14 gap-2">
+                <Link href={`/users/${username}`} color="foreground">
+                    <p className="font-semibold">Signed in as {user?.email}</p>
+                </Link>
             </DropdownItem>
-            <DropdownItem key="settings" href={`/users/${username}`}>My Profile</DropdownItem>
-            <DropdownItem key="team_settings" href="/">My Dashboard</DropdownItem>
-            <DropdownItem key="analytics" href="/">My Settings</DropdownItem>
+            <DropdownItem key="profile">
+                <Link href={`/users/${username}`} color="foreground">
+                    <p>My Profile</p>
+                </Link>
+            </DropdownItem>
+            <DropdownItem key="dashboard">
+                <Link href="/dashboard" color="foreground">
+                    <p>My Dashboard</p>
+                </Link>
+            </DropdownItem>
+            <DropdownItem key="settings">
+                <Link href="/" color="foreground">
+                    <p>My Settings</p>
+                </Link>
+            </DropdownItem>
             <DropdownItem key="logout" color="danger" 
                 onClick={() => {
                     signOut(auth)

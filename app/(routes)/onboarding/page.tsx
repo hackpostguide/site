@@ -18,7 +18,7 @@ export default function Onboarding(props: any) {
     if (user && username) {
       router.push('/dashboard');
     }
-    else if(!user) {
+    else if(!auth.currentUser) {
       router.push('/enter');
     }
   }, [user, username, router]);

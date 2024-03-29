@@ -34,6 +34,7 @@ import { useContext } from "react";
 import { UserContext } from "../lib/context";
 import { Dropdown, DropdownTrigger, Avatar, DropdownMenu, DropdownItem, User } from "@nextui-org/react";
 import UserAvatar from "./UserAvatar";
+import { auth } from "../lib/firebase";
 
 export const Navbar = () => {
 	const { user, username } = useContext(UserContext);
@@ -104,7 +105,7 @@ export const Navbar = () => {
 
 					{/* User has signed in AND completed onboarding (has username) */}
 
-					{username && (
+					{auth.currentUser && (
 						<>
 							<Button 
 								// isIconOnly 
@@ -127,7 +128,7 @@ export const Navbar = () => {
 				{/* <NavbarItem className="hidden lg:flex">{searchInput}</NavbarItem> */}
 
 				{/* User has not signed in OR has not completed onboarding (has not created a username) */}
-				{!username && (
+				{!auth.currentUser && (
 					<NavbarItem className="hidden sm:flex">
 					<Button
 						color="primary"

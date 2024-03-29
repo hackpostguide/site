@@ -14,13 +14,13 @@ export default function Enter(props: any) {
   const router = useRouter()
 
   useEffect(() => {
-    if (user && username) {
+    if (auth.currentUser && username) {
       router.push('/dashboard');
     }
-    else if(user && !username) {
+    else if(auth.currentUser && !username) {
       router.push('/onboarding');
     }
-  }, [user, username, router]);
+  }, [username, router]);
 
   return (
     <div className="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
