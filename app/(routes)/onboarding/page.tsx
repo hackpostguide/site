@@ -12,7 +12,7 @@ import { Input } from '@nextui-org/react';
 import toast from 'react-hot-toast';
 import { useRouter } from 'next/navigation';
 
-export default function Enter(props: any) {
+export default function Onboarding(props: any) {
   const { user, username } = useContext(UserContext);
   const router = useRouter()
 
@@ -20,8 +20,8 @@ export default function Enter(props: any) {
     if (user && username) {
       router.push('/dashboard');
     }
-    else if(user && !username) {
-      router.push('/onboarding');
+    else if(!user) {
+      router.push('/enter');
     }
   }, [user, username, router]);
 
@@ -32,7 +32,7 @@ export default function Enter(props: any) {
       </div>
 
       <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-        <SignInButton />
+        <UsernameForm />
         {/* {user ? (
           !username ? (
             <UsernameForm />
