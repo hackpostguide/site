@@ -105,7 +105,7 @@ export const Navbar = () => {
 
 					{/* User has signed in AND completed onboarding (has username) */}
 
-					{auth.currentUser && (
+					{username && (
 						<>
 							<Button 
 								// isIconOnly 
@@ -128,7 +128,7 @@ export const Navbar = () => {
 				{/* <NavbarItem className="hidden lg:flex">{searchInput}</NavbarItem> */}
 
 				{/* User has not signed in OR has not completed onboarding (has not created a username) */}
-				{!auth.currentUser && (
+				{!username && (
 					<NavbarItem className="hidden sm:flex">
 					<Button
 						color="primary"
