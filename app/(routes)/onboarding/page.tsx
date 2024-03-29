@@ -1,8 +1,6 @@
 'use client'
 import React, { useContext, useEffect, useState, useCallback } from 'react';
-import { signInWithPopup, GoogleAuthProvider, signOut, signInWithRedirect } from 'firebase/auth';
 import { doc, getDoc, writeBatch } from 'firebase/firestore';
-import Image from 'next/image';
 import debounce from 'lodash.debounce';
 
 import { auth, firestore } from '@/app/lib/firebase';
@@ -33,15 +31,6 @@ export default function Onboarding(props: any) {
 
       <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
         <UsernameForm />
-        {/* {user ? (
-          !username ? (
-            <UsernameForm />
-          ) : (
-            <SignOutButton />
-          )
-        ) : (
-          <SignInButton />
-        )} */}
       </div>
     <p>User: {String(user)}</p>
     <p>Username: {username}</p>
@@ -49,57 +38,6 @@ export default function Onboarding(props: any) {
   );
 }
 
-// Sign in with Google button
-function SignInButton() {
-  const signInWithGoogle = async () => {
-    const provider = new GoogleAuthProvider();
-    try {
-      await signInWithRedirect(auth, provider);
-      console.log('Signed in with Google');
-      toast.success('Logged in successfully!');
-    } catch (error) {
-      console.error('Error signing in with Google:', error);
-    }
-  };
-
-  return (
-    <form className="space-y-6" action="#" method="POST">
-      <div>
-        <Button
-          color="default"
-          variant="bordered"
-  
-          onClick={signInWithGoogle}
-          className="font-sm"
-
-          startContent={<Image src="/google-icon-logo-png-transparent.png" alt="Google" width="20" height="20" />}
-        >
-          Sign Up/In with Google
-        </Button>
-      </div>
-    </form>
-  );
-}
-
-// Sign out button
-function SignOutButton() {
-    console.log('signed out with Google');
-    return (
-      <Button
-        color="default"
-        variant="bordered"
-
-        onClick={() => {
-            signOut(auth)
-            toast.success('Signed out successfully!');
-          }
-        }
-        className="font-sm space-y-6"
-      >
-        Sign Out
-      </Button>
-    );
-}
 
 function UsernameForm() {
   const [formValue, setFormValue] = useState('');
