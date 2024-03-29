@@ -19,7 +19,7 @@ export default async function UserProfilePage({ params }: { params: { username: 
     // return notFound();
     return <main>
       <h1>404 - That page does not seem to exist...</h1>
-      <Link href="/">
+      <Link href="/public">
         <button className="btn-blue">Go home</button>
       </Link>
     </main>;
