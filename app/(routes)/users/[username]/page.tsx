@@ -1,5 +1,5 @@
 import UserProfile from "@/app/components/UserProfile";
-import PostFeed from "@/app/components/PostFeed";
+import PostFeed from "@/app/components/(postComponents)/PostFeed";
 import { getUserData } from "./getUserData";
 import Link from "next/link";
 import { notFound } from "next/navigation";
