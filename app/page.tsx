@@ -8,6 +8,7 @@ import { DiscordIcon } from "@/app/components/Icons";
 import ToastButton from "./components/ToastButton";
 import { Button } from "@nextui-org/button";
 import ExploreFeed from "./components/(postComponents)/ExploreFeed";
+import StartExploringButton from "./components/(homePage)/StartExploringButton";
 
 export default function Home() {
 	return (
@@ -23,16 +24,10 @@ export default function Home() {
 			</div>
 
 			<div className="flex gap-3">
-				<Button
-					
-					className={buttonStyles({ color: "secondary", radius: "md", variant: "shadow" })}
-					href='#'
-				>
-					Start Exploring
-				</Button>
+				<StartExploringButton />
 				<Button color="primary"
 					as={Link}
-					className={"text-sm font-normal"}
+					className={"text-xs sm:text-sm font-normal"}
 					href={'/enter'}
 					variant="solid"
 				>
@@ -41,7 +36,7 @@ export default function Home() {
 				
 				<Link
 					isExternal
-					className={buttonStyles({ variant: "bordered", radius: "md" })}
+					className={`${buttonStyles({ variant: "bordered" })} text-xs sm:text-sm`}
 					href={siteConfig.links.discord}
 				>
 					<DiscordIcon size={20} />
@@ -54,7 +49,7 @@ export default function Home() {
 			</div>
 		</section>
 
-		<section id="explore">
+		<section id="explore" className="py-8 md:py-10">
 			<div>
 				<h1 className={title({ size: "sm" })}>
 					Explore new posts
