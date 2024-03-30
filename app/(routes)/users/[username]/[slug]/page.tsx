@@ -3,7 +3,7 @@
 import styles from '@/app/styles/Post.module.css';
 import PostContent from '@/app/components/(postComponents)/PostContent';
 import { firestore, getUserWithUsername, postToJSON } from '@/app/lib/firebase';
-import { getFirestore, doc, getDoc } from 'firebase/firestore';
+import { getFirestore, doc, getDoc, increment, updateDoc } from 'firebase/firestore';
 import { useDocumentData } from 'react-firebase-hooks/firestore';
 import { UserContext } from '@/app/lib/context';
 import { useContext } from 'react';
@@ -22,6 +22,11 @@ async function getPost(username: string, slug: string) {
     const postRef = doc(getFirestore(), userDoc.ref.path, 'posts', slug);
     post = postToJSON(await getDoc(postRef));
     path = postRef.path;
+
+    // Increment the "views" count
+    await updateDoc(postRef, {
+      views: increment(1),
+    });
   }
 
   return {

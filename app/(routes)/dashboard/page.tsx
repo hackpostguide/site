@@ -90,6 +90,7 @@ const CreateNewPost = (): JSX.Element => {
       createdAt: serverTimestamp(),
       updatedAt: serverTimestamp(),
       heartCount: 0,
+      views: 0, // Initialize views to 0
     };
     await setDoc(ref, data);
     toast.success('Post created!');

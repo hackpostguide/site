@@ -19,8 +19,9 @@ const HeartCard = ({ post, path }: { post: any; path: any }) => {
 
     return (
         <aside className="card">
+            <p>Views: {updatedPost.views}</p>
             <p>
-            <strong>{updatedPost.heartCount || 0} 🤍</strong>
+                <strong>{updatedPost.heartCount || 0} 🤍</strong>
             </p>
 
             <AuthCheck
