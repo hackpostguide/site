@@ -46,22 +46,38 @@ const PostList = (): JSX.Element => {
 }
 
 const CreateNewPost = (): JSX.Element => {
-  const router = useRouter()
-  const { username } = useContext(UserContext)
-  const [title, setTitle] = useState('')
+  const router = useRouter();
+  const { username } = useContext(UserContext);
+  const [title, setTitle] = useState('');
 
-  // Ensure slug is URL safe
-  const slug = encodeURI(kebabCase(title))
+  // // Get the server timestamp
+  // const serverTime = serverTimestamp();
+  // console.log('serverTime', serverTime.toString());
+
+  // // Use the number of seconds since 1/1/2000 as the slug
+  // const slug = serverTime.toString();
+
+  
+  // Get the current timestamp in milliseconds
+  const currentTimestamp = Date.now();
+
+  // Convert milliseconds to seconds
+  const secondsSinceEpoch = Math.floor(currentTimestamp / 1000);
+
+  // Subtract the number of seconds between 1/1/1970 and 1/1/2000
+  const secondsSince2000 = secondsSinceEpoch - 946684800;
+
+  // Use the number of seconds since 1/1/2000 as the slug
+  const slug = secondsSince2000.toString();
 
   // Validate length
-  const isValid = title.length > 3 && title.length < 100
+  const isValid = title.length > 3 && title.length < 100;
 
   // Create a new post in firestore
   const createPost = async (e: any): Promise<void> => {
-    e.preventDefault()
-    const uid: any = auth?.currentUser?.uid
-    const ref = doc(getFirestore(), 'users', uid, 'posts', slug)
-
+    e.preventDefault();
+    const uid: any = auth?.currentUser?.uid;
+    const ref = doc(getFirestore(), 'users', uid, 'posts', slug);
     // Tip: give all fields a default value here
     const data = {
       title,
@@ -73,14 +89,12 @@ const CreateNewPost = (): JSX.Element => {
       createdAt: serverTimestamp(),
       updatedAt: serverTimestamp(),
       heartCount: 0,
-    }
-
-    await setDoc(ref, data)
-    toast.success('Post created!')
-
+    };
+    await setDoc(ref, data);
+    toast.success('Post created!');
     // Imperative navigation after doc is set
-    router.push(`/admin/${slug}`)
-  }
+    router.push(`/admin/${slug}`);
+  };
 
   return (
     <form onSubmit={createPost}>
@@ -97,5 +111,5 @@ const CreateNewPost = (): JSX.Element => {
         Create New Post
       </button>
     </form>
-  )
-}
+  );
+};
