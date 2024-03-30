@@ -7,10 +7,12 @@ import { title, subtitle } from "@/app/components/Primitives";
 import { DiscordIcon } from "@/app/components/Icons";
 import ToastButton from "./components/ToastButton";
 import { Button } from "@nextui-org/button";
+import ExploreFeed from "./components/(postComponents)/ExploreFeed";
 
 export default function Home() {
 	return (
-		// Align the hero page text to the left later
+		<>
+		{/* Align the hero page text to the left later */}
 		<section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10">
 			<div className="inline-block max-w-lg text-center justify-center">
 				<h1 className={title()}>Jump right in into the premier resource hub for&nbsp;</h1>
@@ -49,9 +51,16 @@ export default function Home() {
 			<div className="flex gap-3">
 				{/* <ToastButton /> */}
 			</div>
-			
-
-
 		</section>
+
+		<section>
+			<div>
+				<h2>
+					Explore New Posts:
+				</h2>
+				<ExploreFeed />
+			</div>
+		</section>
+		</>
 	);
 }
