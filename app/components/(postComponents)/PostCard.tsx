@@ -1,6 +1,7 @@
 import Link from 'next/link';
+import {Card, CardHeader, CardBody, CardFooter} from "@nextui-org/react";
 
-export default function PostFeed({ posts, admin = false }: { posts: any[], admin?: boolean }) {
+export default function PostCard({ posts, admin = false }: { posts: any[], admin?: boolean }) {
     return posts && posts.length ? <>{posts.map((post: any, i: number) => <PostItem post={post} key={i} admin={admin} />)}</> : <></>;
 }
 

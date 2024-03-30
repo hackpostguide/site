@@ -1,7 +1,7 @@
 'use client'
 import type { GetServerSideProps, NextPage } from 'next';
 
-import PostFeed from '@/app/components/(postComponents)/PostFeed';
+import PostCard from '@/app/components/(postComponents)/PostCard';
 import Loader from '@/app/components/Loader';
 import { postToJSON } from '@/app/lib/firebase';
 import { Timestamp, query, where, orderBy, limit, collectionGroup, getDocs, startAfter, getFirestore } from 'firebase/firestore';
@@ -66,7 +66,7 @@ const Home = () => {
         <p>Sign up for an 👨‍🎤 account, ✍️ write posts, then 💞 heart content created by other users. All public content is server-rendered and search-engine optimized.</p>
       </div>
 
-      <PostFeed posts={posts} />
+      <PostCard posts={posts} />
 
       {!loading && !postsEnd && <button onClick={getMorePosts}>Load more</button>}
 

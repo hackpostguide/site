@@ -1,6 +1,6 @@
 'use client';
 
-import PostFeed from './PostFeed';
+import PostCard from './PostCard';
 import Loader from '@/app/components/Loader';
 import { postToJSON } from '@/app/lib/firebase';
 import { query, where, orderBy, limit, collectionGroup, getDocs, getFirestore } from 'firebase/firestore';
@@ -38,7 +38,7 @@ const ExploreFeed = () => {
       {/* <Metatags title="Home Page" description="Get the latest posts on our site" /> */}
 
       <div className="grid grid-cols-5 gap-4">
-        <PostFeed posts={posts} />
+        <PostCard posts={posts} />
       </div>
       <Loader show={loading} />
     </main>
