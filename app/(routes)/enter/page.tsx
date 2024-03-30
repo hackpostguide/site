@@ -28,11 +28,19 @@ export default function Enter(props: any) {
         <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-foreground">Join a community of hackers!</h2>
       </div>
 
-      <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
+      <div className="mt-10 font-bold sm:mx-auto sm:w-full sm:max-w-sm">
+        <p>Continue with:</p>
+      </div>
+
+      <div className="mt-5 sm:mx-auto sm:w-full sm:max-w-sm">
         <SignInButton />
       </div>
-    <p>User: {String(user)}</p>
-    <p>Username: {username}</p>
+
+      <div className="mt-5 sm:mx-auto sm:w-full sm:max-w-sm">
+        <p>We only offer signing in with Google as of right now. More options are coming soon!</p>
+      </div>
+    {/* <p>User: {String(user)}</p>
+    <p>Username: {username}</p> */}
     </div>
   );
 }
