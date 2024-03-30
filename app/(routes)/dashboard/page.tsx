@@ -50,6 +50,7 @@ const CreateNewPost = (): JSX.Element => {
   const { username } = useContext(UserContext);
   const [title, setTitle] = useState('');
 
+  //use server timestamp to generate a unique slug in the future
   // // Get the server timestamp
   // const serverTime = serverTimestamp();
   // console.log('serverTime', serverTime.toString());
@@ -57,7 +58,7 @@ const CreateNewPost = (): JSX.Element => {
   // // Use the number of seconds since 1/1/2000 as the slug
   // const slug = serverTime.toString();
 
-  
+
   // Get the current timestamp in milliseconds
   const currentTimestamp = Date.now();
 
