@@ -12,7 +12,7 @@ function PostItem({ post, admin }: { post: any, admin: boolean }) {
     const minutesToRead = (wordCount / 100 + 1).toFixed(0);
 
     return (
-        <Card className="max-w-[300px]" isPressable>
+        <Card className="max-w-[400px]" isPressable>
             <CardHeader className="flex gap-3">
                 <Link passHref href={`/users/${post.username}`}>
                     <strong>By @{post.username}</strong>
@@ -21,12 +21,16 @@ function PostItem({ post, admin }: { post: any, admin: boolean }) {
             <Divider/>
             <Link passHref href={`/users/${post.username}/${post.slug}`}>
                 <CardBody>
-                    <h2>
+                    <h2 className='text-xl'>
                         {post.title}
                     </h2> 
 
+                    <p className="text-default-600">
+                        {post.content}
+                    </p>
+
                 </CardBody>
-                <Divider/>
+
                 <CardFooter>
                     <span>
                         {minutesToRead} min read

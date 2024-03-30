@@ -26,6 +26,7 @@ export default function Home() {
 				<Button
 					
 					className={buttonStyles({ color: "secondary", radius: "md", variant: "shadow" })}
+					href='#'
 				>
 					Start Exploring
 				</Button>
@@ -53,10 +54,13 @@ export default function Home() {
 			</div>
 		</section>
 
-		<section>
+		<section id="explore">
 			<div>
-				<h2>
-					Explore New Posts:
+				<h1 className={title({ size: "sm" })}>
+					Explore new posts
+				</h1>
+				<h2 className={subtitle()}>
+					Discover the latest posts from the community.
 				</h2>
 				<ExploreFeed />
 			</div>
