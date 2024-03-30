@@ -11,12 +11,13 @@ import { useDocumentDataOnce } from "react-firebase-hooks/firestore";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import ReactMarkdown from "react-markdown";
-import ImageUploader from '@/app/components/ImageUploader';
+import ImageUploader from '@/app/components/(dashboard)/ImageUploader';
 
 export default function AdminPostEdit() {
     return (
         <AuthCheck>
             <PostManager />
+            <p>Hello world</p>
         </AuthCheck>
     );
 }

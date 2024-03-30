@@ -1,7 +1,7 @@
 // app/admin/page.tsx
 'use client';
 import React from 'react'
-// import styles from '../styles/Admin.module.css'
+import styles from '@/app/styles/Admin.module.css'
 import AuthCheck from '@/app/components/(dashboard)/AuthCheck'
 import PostFeed from '@/app/components/(postComponents)/PostCard'
 import { UserContext } from '@/app/lib/context'
@@ -88,7 +88,7 @@ const CreateNewPost = (): JSX.Element => {
         value={title}
         onChange={(e) => setTitle(e.target.value)}
         placeholder="My Awesome Article!"
-        // className={styles.input}
+        className={styles.input}
       />
       <p>
         <strong>Slug:</strong> {slug}
