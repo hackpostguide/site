@@ -57,6 +57,20 @@ export default function Home() {
 				<h2 className={subtitle()}>
 					Discover the latest posts from the community.
 				</h2>
+				<div className="p-0">
+					<ExploreFeed />
+				</div>
+			</div>
+		</section>
+
+		<section className="py-8 md:py-10 ">
+			<div>
+				<h1 className={title({ size: "sm", color: "cyan" })}>
+					Explore official guides
+				</h1>
+				<h2 className={subtitle()}>
+					Check out the latest guides from the official hackpost guide account.
+				</h2>
 				<ExploreFeed />
 			</div>
 		</section>
