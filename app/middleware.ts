@@ -3,9 +3,15 @@ import type { NextRequest } from 'next/server'
 import { getAuth } from 'firebase/auth'
 import { auth } from '@/app/lib/firebase'
 
+console.log('Middleware loaded')
+
 export async function middleware(request: NextRequest) {
+  console.log('Request URL:', request.nextUrl.toString())
+
   const { pathname, origin } = request.nextUrl
   const currentUser = auth.currentUser
+
+  console.log('Current user:', currentUser)
 
   // If the user is not signed in and trying to access /dashboard, redirect to /enter
   if (!currentUser && pathname.startsWith('/dashboard')) {
@@ -27,5 +33,5 @@ export async function middleware(request: NextRequest) {
 
 // Specify which routes this middleware should be applied to
 export const config = {
-  matcher: ['/', '/dashboard/:path', '/enter/:path'],
+  matcher: ['/', '/about/:path*', '/dashboard/:path*', '/enter/:path*'],
 }
