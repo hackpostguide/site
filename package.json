@@ -13,6 +13,7 @@
     "firebase": "^10.9.0",
     "framer-motion": "^11.0.20",
     "lodash.debounce": "^4.0.8",
+    "lodash.kebabcase": "^4.1.1",
     "next": "14.1.4",
     "next-themes": "^0.3.0",
     "react": "^18",
@@ -23,6 +24,7 @@
   "devDependencies": {
     "@iconify/react": "^4.1.1",
     "@types/lodash.debounce": "^4.0.9",
+    "@types/lodash.kebabcase": "^4.1.9",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
