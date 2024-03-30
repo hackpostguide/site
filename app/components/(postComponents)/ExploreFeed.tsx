@@ -37,8 +37,9 @@ const ExploreFeed = () => {
     <main>
       {/* <Metatags title="Home Page" description="Get the latest posts on our site" /> */}
 
-      <div className="col-start-2 col-end-12 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-4">
+      <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-4">
         <PostCard posts={posts} />
+        {/* <Spacer x={4} /> */}
       </div>
       <Loader show={loading} />
     </main>
