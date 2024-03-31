@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import ReactMarkdown from 'react-markdown';
 import { useUpdateViews } from '@/app/components/(postComponents)/hooks/useUpdateViews';
+import { MarkdownComponents } from './MarkdownComponents';
 
 export default function PostContent({ post, path }: { post: any, path: string }) {
   const createdAt = typeof post?.createdAt === 'number' ? new Date(post.createdAt) : post.createdAt.toDate();
@@ -17,8 +18,8 @@ export default function PostContent({ post, path }: { post: any, path: string })
         </Link>{' '}
         on {createdAt.toISOString()}
       </span>
-      <ReactMarkdown>{post?.content}</ReactMarkdown>
-      <p>Views: {post.views}</p>
+      <ReactMarkdown components={MarkdownComponents}>{post?.content}</ReactMarkdown>
+      {/* <p>Views: {post.views}</p> */}
     </div>
   );
 }
