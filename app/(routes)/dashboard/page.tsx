@@ -20,12 +20,12 @@ export default function Dashboard() {
     <main>
       <AuthCheck>
         <h1
-          className={'text-2xl mb-10 text-center sm:text-3xl md:text-4xl lg:text-5xl'}
+          className={'text-2xl mb-10 text-center md:text-3xl lg:text-4xl'}
         >
-          Dashboard
+          My dashboard
         </h1>
         <div>
-          <h2 className={`${title({ size: "sm" })}`}>
+          <h2 className={`${title({ size: "xs" })}`}>
             Create new post
           </h2>
           <div className='my-6'>
@@ -33,7 +33,15 @@ export default function Dashboard() {
           </div>
         </div>
         
-        <PostList />
+        <div>
+          <h2 className={`${title({ size: "sm" })}`}>
+            My posts
+          </h2>
+          <div className='my-6'>
+            <PostList /> 
+          </div>
+        </div>
+        
       </AuthCheck>
     </main>
   )
