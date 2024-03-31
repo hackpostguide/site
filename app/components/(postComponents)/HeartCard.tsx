@@ -25,17 +25,17 @@ const HeartCard = ({ post, path }: { post: any; path: any }) => {
             </p>
 
             <AuthCheck
-            fallback={
-                <Link passHref href="/enter">
-                <button>💗 Sign Up</button>
-                </Link>
-            }
-            >
-            <HeartButton postRef={postRef} />
+                fallback={
+                    <Link passHref href="/enter">
+                    <button>💗 Sign Up</button>
+                    </Link>
+                }
+                >
+                <HeartButton postRef={postRef} />
             </AuthCheck>
 
             {currentUser?.uid === updatedPost.uid && (
-            <Link passHref href={`/admin/${updatedPost.slug}`}>
+            <Link passHref href={`/dashboard/${updatedPost.slug}`}>
                 <button className="btn-blue">Edit Post</button>
             </Link>
             )}

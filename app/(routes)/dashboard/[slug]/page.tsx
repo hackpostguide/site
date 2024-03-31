@@ -129,7 +129,7 @@ function DeletePostButton({ postRef }: { postRef: any }) {
         const doIt = confirm('are you sure!');
         if (doIt) {
             await deleteDoc(postRef);
-            router.push('/admin');
+            router.push('/dashboard');
             toast('post annihilated ', { icon: '🗑️' });
         }
     };
