@@ -8,6 +8,7 @@ import { Timestamp, query, where, orderBy, limit, collectionGroup, getDocs, star
 
 import { useEffect, useState } from 'react';
 import { Button } from '@nextui-org/react';
+import GridFeed from '@/app/components/(postComponents)/GridFeed';
 // import Metatags from './components/Metatags';
 
 // Max post to query per page
@@ -63,9 +64,7 @@ const Home = () => {
 
       <h2>All posts from the community:</h2>
 
-      <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 my-4">
-        <PostCard posts={posts} />
-      </div>
+      <GridFeed posts={posts} />
 
       {!loading && !postsEnd && <Button color="primary" onClick={getMorePosts}>Load more</Button>}
 

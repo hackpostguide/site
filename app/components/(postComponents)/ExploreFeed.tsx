@@ -5,6 +5,9 @@ import Loader from '@/app/components/Loader';
 import { postToJSON } from '@/app/lib/firebase';
 import { query, where, orderBy, limit, collectionGroup, getDocs, getFirestore } from 'firebase/firestore';
 import { useEffect, useState } from 'react';
+import GridFeed from './GridFeed';
+
+// This component is very repetitive and unnecessary, remove + optimize later
 
 // Max post to query
 const LIMIT = 5;
@@ -37,10 +40,7 @@ const ExploreFeed = () => {
     <main>
       {/* <Metatags title="Home Page" description="Get the latest posts on our site" /> */}
 
-      <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-4">
-        <PostCard posts={posts} />
-        {/* <Spacer x={4} /> */}
-      </div>
+      <GridFeed posts={posts} />
       <Loader show={loading} />
     </main>
   );
