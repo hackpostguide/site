@@ -12,6 +12,7 @@ import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import ReactMarkdown from "react-markdown";
 import ImageUploader from '@/app/components/(dashboard)/ImageUploader';
+import { MarkdownComponents } from '@/app/components/(postComponents)/MarkdownComponents';
 
 export default function AdminPostEdit() {
     return (
@@ -91,7 +92,7 @@ function PostForm({ defaultValues, postRef, preview }: { defaultValues: any, pos
         <form onSubmit={handleSubmit(updatePost)}>
             {preview && (
                 <div className="card">
-                    <ReactMarkdown>{watch('content')}</ReactMarkdown>
+                    <ReactMarkdown components={MarkdownComponents}>{watch('content')}</ReactMarkdown>
                 </div>
             )}
 
