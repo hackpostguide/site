@@ -51,7 +51,7 @@ const UserAvatar = () => {
                     toast.success('Signed out successfully!');
                 }
             }>
-            Log Out
+                <p>Log Out</p>
             </DropdownItem>
         </DropdownMenu>
     </Dropdown>
