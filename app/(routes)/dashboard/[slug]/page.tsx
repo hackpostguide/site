@@ -1,5 +1,4 @@
 'use client';
-import styles from '@/app/styles/Admin.module.css'
 import AuthCheck from "@/app/components/(dashboard)/AuthCheck";
 import { auth } from "@/app/lib/firebase";
 import { doc, getFirestore, updateDoc, serverTimestamp, deleteDoc } from "firebase/firestore";
@@ -105,7 +104,7 @@ function PostForm({ defaultValues, postRef, preview }: { defaultValues: any, pos
                 minLength: { value: 10, message: 'content is too short' },
                 required: { value: true, message: 'content is required' },
               })}
-              className="textArea h-60 bg-gray-800 text-white p-4 rounded-md resize focus:outline-none"
+              className="textArea h-60 bg-default text-white p-4 rounded-md resize focus:outline-none"
             ></textarea>
     
             {errors.content && typeof errors.content === 'string' && <p className="text-red-500">{errors.content}</p>}
