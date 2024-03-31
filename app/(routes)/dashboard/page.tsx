@@ -69,7 +69,7 @@ const CreateNewPost = (): JSX.Element => {
   const secondsSince2000 = secondsSinceEpoch - 946684800;
 
   // Use the number of seconds since 1/1/2000 as the slug
-  const slug = secondsSince2000.toString();
+  const slug = "post-" + secondsSince2000.toString();
 
   // Validate length
   const isValid = title.length > 3 && title.length < 100;
