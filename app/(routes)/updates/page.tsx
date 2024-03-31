@@ -6,6 +6,10 @@ const Updates = () => {
       <h1>
         Welcome to the Updates page!
       </h1>
+
+      <h2>h2 tag</h2>
+
+      <h3>h3 tag</h3>
       <p>
         This page page is where you can find the latest updates about the Hackpost Guide app, and trust me, there are a lot of updates coming soon!
         This project was made in early 2024 and is still in development, so there are a lot of features that are still being worked on.
