@@ -7,10 +7,11 @@ import { postToJSON } from '@/app/lib/firebase';
 import { Timestamp, query, where, orderBy, limit, collectionGroup, getDocs, startAfter, getFirestore } from 'firebase/firestore';
 
 import { useEffect, useState } from 'react';
+import { Button } from '@nextui-org/react';
 // import Metatags from './components/Metatags';
 
 // Max post to query per page
-const LIMIT = 5;
+const LIMIT = 3;
 
 const Home = () => {
   const [posts, setPosts] = useState<any[]>([]);
@@ -60,15 +61,13 @@ const Home = () => {
     <main>
       {/* <Metatags title="Home Page" description="Get the latest posts on our site" /> */}
 
-      <div className="card card-info">
-        <h2>💡 Hackpost Guide Demo </h2>
-        <p>Welcome! This app is built with Next.js and Firebase and is loosely inspired by Dev.to and Reddit.</p>
-        <p>Sign up for an 👨‍🎤 account, ✍️ write posts, then 💞 heart content created by other users. All public content is server-rendered and search-engine optimized.</p>
+      <h2>All posts from the community:</h2>
+
+      <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 my-4">
+        <PostCard posts={posts} />
       </div>
 
-      <PostCard posts={posts} />
-
-      {!loading && !postsEnd && <button onClick={getMorePosts}>Load more</button>}
+      {!loading && !postsEnd && <Button color="primary" onClick={getMorePosts}>Load more</Button>}
 
       <Loader show={loading} />
 
