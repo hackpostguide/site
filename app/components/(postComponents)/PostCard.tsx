@@ -11,7 +11,7 @@ function PostItem({ post, admin }: { post: any, admin: boolean }) {
   const minutesToRead = (wordCount / 100 + 1).toFixed(0);
 
   return (
-    <Card className="max-w-[400px]" isPressable>
+    <Card className="max-w-[400px] p-3" isPressable>
       <CardHeader className="flex gap-3 justify-between">
         <Link passHref href={`/users/${post.username}`}>
           <strong>By @{post.username}</strong>
