@@ -107,9 +107,9 @@ export const Navbar = () => {
 
 					{username && (
 						<>
-							<Button 
+							<Button
 								// isIconOnly 
-								startContent={<Icon icon="bi:plus-lg" width="1.2rem" height="1.2rem"/> }
+								startContent={<Icon icon="gravity-ui:folder" width="1.2rem" height="1.2rem"/> }
 								color="secondary" 
 								aria-label="Dashboard" 
 								variant="faded"
@@ -117,7 +117,7 @@ export const Navbar = () => {
 								as={Link}
 								href={'/dashboard'}
 							>
-								Create New
+								My dashboard
 							</Button> 
 							<UserAvatar/>
 						</>
