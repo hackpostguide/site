@@ -30,7 +30,7 @@ function PostItem({ post, admin }: { post: any, admin: boolean }) {
         <CardBody>
           <h2 className='text-xl font-bold'>{post.title}</h2>
           <p className="text-default-600">{post.content}</p>
-          {post.published ? <p className="text-success">Published</p> : <p className="text-danger">Unpublished</p>}
+          {admin && (post.published ? <p className="text-success">Published</p> : <p className="text-danger">Unpublished</p>)}
         </CardBody>
         <CardFooter className='flex justify-between'>
           <span>{minutesToRead} min read</span>
