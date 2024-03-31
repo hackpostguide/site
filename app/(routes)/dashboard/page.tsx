@@ -63,7 +63,11 @@ const PostList = (): JSX.Element => {
 
   return (
     <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-4">
-      <PostCard posts={posts} admin />
+      {posts && posts.length > 0 ? (
+        <PostCard posts={posts} admin />
+      ) : (
+        <p>You have yet to create your first post</p>
+      )}
     </div>
   )
 }
@@ -111,7 +115,7 @@ const CreateNewPost = (): JSX.Element => {
     await setDoc(ref, data);
     toast.success('Post created!');
     // Imperative navigation after doc is set
-    router.push(`/admin/${slug}`);
+    router.push(`/dashboard/${slug}`);
   };
 
   return (
