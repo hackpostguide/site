@@ -125,7 +125,7 @@ function PostForm({ defaultValues, postRef, preview }: { defaultValues: any, pos
                     control={control}
                     defaultValue={defaultValues.published}
                     render={({ field: { onChange, value, ref } }) => (
-                    <Switch onValueChange={onChange} checked={value} ref={ref} />
+                    <Switch defaultSelected={defaultValues.published} onValueChange={onChange} checked={value} ref={ref} />
                     )}
                 />
                 <label className="ml-2">Published</label>
