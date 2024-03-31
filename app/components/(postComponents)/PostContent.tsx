@@ -12,7 +12,7 @@ export default function PostContent({ post, path }: { post: any, path: string })
       <h1>{post?.title}</h1>
       <span className="text-sm">
         Written by{' '}
-        <Link href={`/${post.username}/`} className="text-info">
+        <Link href={`/users/${post.username}/`} className="text-info">
           @{post.username}
         </Link>{' '}
         on {createdAt.toISOString()}
