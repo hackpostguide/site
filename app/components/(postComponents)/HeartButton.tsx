@@ -2,12 +2,13 @@ import { auth } from '@/app/lib/firebase';
 // import { useDocument } from '@/app/lib/hooks';
 import { useDocument } from 'react-firebase-hooks/firestore';
 import { increment, writeBatch, doc, getFirestore } from "firebase/firestore";
+import { Button } from '@nextui-org/react';
 
 
 // Allows user to heart or like a post
 export default function Heart({ postRef }: any) {
 
-    console.log('postRef from HeartButton:', postRef);
+    // console.log('postRef from HeartButton:', postRef);
 
     const uid: any = auth?.currentUser?.uid;
 
@@ -37,8 +38,8 @@ export default function Heart({ postRef }: any) {
     };
 
     return heartDoc?.exists() ? (
-        <button onClick={removeHeart}>💔 Unheart</button>
+        <Button className="m-3" color="secondary" variant="bordered" onClick={removeHeart}>💔 Unheart</Button>
     ) : (
-        <button onClick={addHeart}>💗 Heart</button>
+        <Button className="m-3" color="secondary" variant="bordered" onClick={addHeart}>💖 Heart</Button>
     );
 }

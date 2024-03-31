@@ -7,6 +7,7 @@ import { UserContext } from '@/app/lib/context'
 import { doc, getFirestore } from 'firebase/firestore';
 import { firestore } from '@/app/lib/firebase';
 import { useDocumentData } from 'react-firebase-hooks/firestore';
+import { Button, Card, CardBody } from '@nextui-org/react';
 
 const HeartCard = ({ post, path }: { post: any; path: any }) => {
 
@@ -18,27 +19,31 @@ const HeartCard = ({ post, path }: { post: any; path: any }) => {
     const updatedPost = realtimePost || post;
 
     return (
-        <aside className="card">
-            <p>Views: {updatedPost.views}</p>
-            <p>
-                <strong>{updatedPost.heartCount || 0} 🤍</strong>
-            </p>
+        <aside className="">
+            <Card className="w-[200px] h-[600px]">
+                <CardBody>
+                    <p className="m-3">Views: {updatedPost.views}</p>
+                    <p className="m-3">
+                        <strong>{updatedPost.heartCount || 0} 💖</strong>
+                    </p>
 
-            <AuthCheck
-                fallback={
-                    <Link passHref href="/enter">
-                    <button>💗 Sign Up</button>
-                    </Link>
-                }
-                >
-                <HeartButton postRef={postRef} />
-            </AuthCheck>
+                    <AuthCheck
+                        fallback={
+                            <Button className="m-3" color="secondary" variant="bordered" as={Link} href="/enter">
+                                💖 Sign Up
+                            </Button>
+                        }
+                        >
+                        <HeartButton postRef={postRef} />
+                    </AuthCheck>
 
-            {currentUser?.uid === updatedPost.uid && (
-            <Link passHref href={`/dashboard/${updatedPost.slug}`}>
-                <button className="btn-blue">Edit Post</button>
-            </Link>
-            )}
+                    {currentUser?.uid === updatedPost.uid && (
+                    <Button className="m-3" as={Link} color="primary" href={`/dashboard/${updatedPost.slug}`}>
+                        Edit Post
+                    </Button>
+                    )}
+                </CardBody>
+            </Card>
         </aside>
     )
 }

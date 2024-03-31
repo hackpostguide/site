@@ -49,7 +49,7 @@ export default async function Post({ params }: { params: { username: string; slu
   // const { user: currentUser } = useContext(UserContext);
 
   return (
-    <main className={styles.container}>
+    <main className={`${styles.container} mb-[100px]`}>
       {/* <Metatags title={post.title} description={post.title} /> */}
 
       {/* DEBUG */}
