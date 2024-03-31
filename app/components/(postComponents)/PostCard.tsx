@@ -1,12 +1,6 @@
 import Link from 'next/link';
 import { Card, CardHeader, CardBody, CardFooter, Divider, Button } from "@nextui-org/react";
 
-// renders text, only first 200 characters of a post
-const LimitedTextRenderer: React.FC<{ value: string }> = ({ value }) => {
-  return value.length > 200 ? `${value.substring(0, 200)}...` : value;
-};
-
-
 export default function PostCard({ posts, admin = false }: { posts: any[], admin?: boolean }) {
   return posts && posts.length ? <>{posts.map((post: any, i: number) => <PostItem post={post} key={i} admin={admin} />)}</> : <></>;
 }
