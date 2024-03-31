@@ -1,8 +1,11 @@
 import Link from 'next/link';
 import ReactMarkdown from 'react-markdown';
+import { useUpdateViews } from '@/app/components/(postComponents)/hooks/useUpdateViews';
 
-export default function PostContent({ post }: { post: any }) {
+export default function PostContent({ post, path }: { post: any, path: string }) {
   const createdAt = typeof post?.createdAt === 'number' ? new Date(post.createdAt) : post.createdAt.toDate();
+
+  // useUpdateViews(post.slug, path); 
 
   return (
     <div className="card">
@@ -15,6 +18,7 @@ export default function PostContent({ post }: { post: any }) {
         on {createdAt.toISOString()}
       </span>
       <ReactMarkdown>{post?.content}</ReactMarkdown>
+      <p>Views: {post.views}</p>
     </div>
   );
 }

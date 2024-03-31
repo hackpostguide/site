@@ -24,9 +24,9 @@ async function getPost(username: string, slug: string) {
     path = postRef.path;
 
     // Increment the "views" count
-    await updateDoc(postRef, {
-      views: increment(1),
-    });
+    // await updateDoc(postRef, {
+    //   views: increment(1),
+    // });
   }
 
   return {
@@ -59,7 +59,7 @@ export default async function Post({ params }: { params: { username: string; slu
       {/* <p>postRef.path: {postRef?.path}</p> */}
 
       <section>
-        <PostContent post={post} />
+        <PostContent post={post} path={path || ''} />
       </section>
 
       <HeartCard post={post} path={path} />

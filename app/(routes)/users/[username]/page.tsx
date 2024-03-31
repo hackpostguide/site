@@ -5,8 +5,8 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 
 export default async function UserProfilePage({ params }: { params: { username: string } }) {
-    console.log('hello from user profile page')
-    console.log('params: ', params);
+    // console.log('hello from user profile page')
+    // console.log('params: ', params);
 
     const { username } = params;
     console.log('username: ', username);

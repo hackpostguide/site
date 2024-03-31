@@ -1,0 +1,1 @@
+export { useUpdateViews } from './useUpdateViews';
