@@ -1,5 +1,5 @@
 import UserProfile from "@/app/components/UserProfile";
-import PostFeed from "@/app/components/(postComponents)/PostCard";
+import GridFeed from "@/app/components/(postComponents)/GridFeed";
 import { getUserData } from "@/app/components/getUserData";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -35,10 +35,14 @@ const { user, posts } = userData;
 return (
     <main>
         {/* <Metatags title={user.username} description={`${user.username}'s public profile`} /> */}
-        <UserProfile user={user} />
-        <PostFeed posts={posts} />
-        {/* <p>User Profile page</p> */}
-        {/* <p>{JSON.stringify(userData)}</p> */}
+        <div>
+          <UserProfile user={user} />
+        </div>
+
+        <div className="my-16">
+          <h3>Posts by {user.username}:</h3>
+          <GridFeed posts={posts} />
+        </div>
     </main>
 );
 }
