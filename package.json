@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@nextui-org/react": "^2.2.10",
+    "@tailwindcss/typography": "^0.5.12",
     "firebase": "^10.9.0",
     "framer-motion": "^11.0.20",
     "lodash.debounce": "^4.0.8",

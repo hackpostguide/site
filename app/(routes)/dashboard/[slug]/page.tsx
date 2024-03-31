@@ -17,7 +17,6 @@ export default function AdminPostEdit() {
     return (
         <AuthCheck>
             <PostManager />
-            <p>Hello world</p>
         </AuthCheck>
     );
 }
