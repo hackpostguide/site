@@ -12,13 +12,28 @@ import { useRouter } from 'next/navigation'
 import { useCollection } from 'react-firebase-hooks/firestore'
 import kebabCase from 'lodash.kebabcase' //implement kebabCase for slug later?
 import toast from 'react-hot-toast'
+import { title, subtitle } from "@/app/components/Primitives";
+import { Button, Input } from '@nextui-org/react';
 
 export default function Dashboard() {
   return (
     <main>
       <AuthCheck>
+        <h1
+          className={'text-2xl mb-10 text-center sm:text-3xl md:text-4xl lg:text-5xl'}
+        >
+          Dashboard
+        </h1>
+        <div>
+          <h2 className={`${title({ size: "sm" })}`}>
+            Create new post
+          </h2>
+          <div className='my-6'>
+            <CreateNewPost />
+          </div>
+        </div>
+        
         <PostList />
-        <CreateNewPost />
       </AuthCheck>
     </main>
   )
@@ -33,7 +48,6 @@ const PostList = (): JSX.Element => {
 
   return (
     <>
-      <h1>Manage your Posts</h1>
       <PostFeed posts={posts} admin />
     </>
   )
@@ -86,18 +100,21 @@ const CreateNewPost = (): JSX.Element => {
 
   return (
     <form onSubmit={createPost}>
-      <input
-        value={title}
-        onChange={(e) => setTitle(e.target.value)}
-        placeholder="My Awesome Article!"
-        className={styles.input}
-      />
-      <p>
-        <strong>Slug:</strong> {slug}
-      </p>
-      <button type="submit" disabled={!isValid} className="btn-green">
-        Create New Post
-      </button>
+      <div className="flex items-center">
+        <Input
+          size="lg"
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
+          label="Your title here..."
+          className="flex-grow mr-2"
+        />
+        {/* <p>
+          <strong>Slug:</strong> {slug}
+        </p> */}
+        <Button type="submit" color="success" isDisabled={!isValid} size="lg" className="h-16">
+          Create New
+        </Button>
+      </div>
     </form>
   );
 };
