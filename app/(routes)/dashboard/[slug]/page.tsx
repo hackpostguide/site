@@ -89,35 +89,44 @@ function PostForm({ defaultValues, postRef, preview }: { defaultValues: any, pos
     };
 
     return (
-        <form onSubmit={handleSubmit(updatePost)}>
-            {preview && (
-                <div className="card">
-                    <ReactMarkdown components={MarkdownComponents}>{watch('content')}</ReactMarkdown>
-                </div>
-            )}
-
-            <div className={preview ? styles.hidden : styles.controls}>
-                <ImageUploader />
-
-                <textarea
-                    {...register("content", {
-                        maxLength: { value: 20000, message: 'content is too long' },
-                        minLength: { value: 10, message: 'content is too short' },
-                        required: { value: true, message: 'content is required' },
-                    })}
-                ></textarea>
-
-                {errors.content && typeof errors.content === 'string' && <p className="text-danger">{errors.content}</p>}
-
-                <fieldset>
-                    <input className={styles.checkbox} type="checkbox" {...register("published")} />
-                    <label>Published</label>
-                </fieldset>
-
-                <button type="submit" className="btn-green" disabled={!isDirty || !isValid}>
-                    Save Changes
-                </button>
+        <form onSubmit={handleSubmit(updatePost)} className="flex flex-col gap-4">
+          {preview && (
+            <div className="card">
+              <ReactMarkdown components={MarkdownComponents}>{watch('content')}</ReactMarkdown>
             </div>
+          )}
+    
+          <div className={`${preview ? 'hidden' : 'flex flex-col gap-4'}`}>
+            <ImageUploader />
+    
+            <textarea
+              {...register("content", {
+                maxLength: { value: 20000, message: 'content is too long' },
+                minLength: { value: 10, message: 'content is too short' },
+                required: { value: true, message: 'content is required' },
+              })}
+              className="textArea h-60 bg-gray-800 text-white p-4 rounded-md resize focus:outline-none"
+            ></textarea>
+    
+            {errors.content && typeof errors.content === 'string' && <p className="text-red-500">{errors.content}</p>}
+    
+            <div className="flex items-center">
+              <input
+                className="mr-2 h-4 w-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500"
+                type="checkbox"
+                {...register("published")}
+              />
+              <label>Published</label>
+            </div>
+    
+            <button
+              type="submit"
+              className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded disabled:opacity-50 disabled:cursor-not-allowed"
+              disabled={!isDirty || !isValid}
+            >
+              Save Changes
+            </button>
+          </div>
         </form>
     );
 }
