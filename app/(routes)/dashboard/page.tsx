@@ -3,7 +3,7 @@
 import React from 'react'
 import styles from '@/app/styles/Admin.module.css'
 import AuthCheck from '@/app/components/(dashboard)/AuthCheck'
-import PostFeed from '@/app/components/(postComponents)/PostCard'
+import PostCard from '@/app/components/(postComponents)/PostCard'
 import { UserContext } from '@/app/lib/context'
 import { auth } from '@/app/lib/firebase'
 import { serverTimestamp, query, collection, orderBy, getFirestore, setDoc, doc } from 'firebase/firestore'
@@ -55,9 +55,9 @@ const PostList = (): JSX.Element => {
   const posts: any = querySnapshot?.docs.map((doc: any) => doc.data())
 
   return (
-    <>
-      <PostFeed posts={posts} admin />
-    </>
+    <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-4">
+      <PostCard posts={posts} admin />
+    </div>
   )
 }
 
