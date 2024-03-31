@@ -7,11 +7,12 @@ import { useRouter, useSearchParams, usePathname, useSelectedLayoutSegments } fr
 // import { useRouter } from "next/router";
 import { useState } from "react";
 import { useDocumentDataOnce } from "react-firebase-hooks/firestore";
-import { useForm } from "react-hook-form";
+import { Controller, useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import ReactMarkdown from "react-markdown";
 import ImageUploader from '@/app/components/(dashboard)/ImageUploader';
 import { MarkdownComponents } from '@/app/components/(postComponents)/MarkdownComponents';
+import { Button, Switch } from "@nextui-org/react";
 
 export default function AdminPostEdit() {
     return (
@@ -46,32 +47,41 @@ function PostManager() {
     const [post] = useDocumentDataOnce(postRef);
 
     return (
-        <main className={styles.container}>
-            {post && (
-                <>
-                    <section>
-                        <h1>{post.title}</h1>
-                        <p>ID: {post.slug}</p>
-
-                        <PostForm postRef={postRef} defaultValues={post} preview={preview} />
-                    </section>
-
-                    <aside>
-                        <h3>Tools</h3>
-                        <button onClick={() => setPreview(!preview)}>{preview ? 'Edit' : 'Preview'}</button>
-                        <Link passHref href={`/users/${post.username}/${post.slug}`}>
-                            <button className="btn-blue">Live view</button>
-                        </Link>
-                        <DeletePostButton postRef={postRef} />
-                    </aside>
-                </>
-            )}
+        <main className="flex flex-col md:flex-row gap-4 p-4">
+          {post && (
+            <>
+              <section className="flex-1">
+                <h1 className="text-3xl font-bold mb-2">{post.title}</h1>
+                <p className="mb-4">ID: {post.slug}</p>
+                <PostForm postRef={postRef} defaultValues={post} preview={preview} />
+              </section>
+              <aside className="flex flex-col bg-default px-8 py-4 rounded-md items-start">
+                <Button 
+                  onClick={() => setPreview(!preview)}
+                  color="primary"
+                  className="mb-4"
+                >
+                  {preview ? 'Edit' : 'Preview'}
+                </Button>
+                <Button 
+                    as={Link} 
+                    href={`/users/${post.username}/${post.slug}`}
+                    color="primary"
+                    className="mb-4"
+                >
+                    Live View
+                </Button>
+                <DeletePostButton postRef={postRef} />
+              </aside>
+            </>
+          )}
         </main>
-    );
+      );
 }
 
 function PostForm({ defaultValues, postRef, preview }: { defaultValues: any, postRef: any, preview: boolean }) {
-    const { register, formState: { errors }, handleSubmit, formState, reset, watch } = useForm({ defaultValues, mode: 'onChange' });
+    const { control, register, formState: { errors }, handleSubmit, formState, reset, watch } = useForm({ defaultValues, mode: 'onChange' });
+
 
     const { isValid, isDirty } = formState;
 
@@ -104,27 +114,31 @@ function PostForm({ defaultValues, postRef, preview }: { defaultValues: any, pos
                 minLength: { value: 10, message: 'content is too short' },
                 required: { value: true, message: 'content is required' },
               })}
-              className="textArea h-60 bg-default text-white p-4 rounded-md resize focus:outline-none"
+              className="textArea h-60 bg-default text-foreground p-4 rounded-md resize-y focus:outline-none"
             ></textarea>
     
-            {errors.content && typeof errors.content === 'string' && <p className="text-red-500">{errors.content}</p>}
+            {errors.content && typeof errors.content === 'string' && <p className="text-danger">{errors.content}</p>}
     
             <div className="flex items-center">
-              <input
-                className="mr-2 h-4 w-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500"
-                type="checkbox"
-                {...register("published")}
-              />
-              <label>Published</label>
+                <Controller
+                    name="published"
+                    control={control}
+                    defaultValue={defaultValues.published}
+                    render={({ field: { onChange, value, ref } }) => (
+                    <Switch onValueChange={onChange} checked={value} ref={ref} />
+                    )}
+                />
+                <label className="ml-2">Published</label>
             </div>
     
-            <button
+            <Button
               type="submit"
-              className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded disabled:opacity-50 disabled:cursor-not-allowed"
-              disabled={!isDirty || !isValid}
+              color="success"
+              className="w-full"
+              isDisabled={!isDirty || !isValid}
             >
-              Save Changes
-            </button>
+              {isDirty ? 'Save Changes' : 'Saved!'}
+            </Button>
           </div>
         </form>
     );
@@ -143,8 +157,12 @@ function DeletePostButton({ postRef }: { postRef: any }) {
     };
 
     return (
-        <button className="btn-red" onClick={deletePost}>
+        <Button 
+            color="danger" 
+            onClick={deletePost}
+            variant="ghost"
+        >
             Delete
-        </button>
+        </Button>
     );
 }
