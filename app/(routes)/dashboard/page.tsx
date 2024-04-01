@@ -32,8 +32,7 @@ export default function Dashboard() {
             <CreateNewPost />
           </div>
           <p className='my-6'>
-            Note: 
-            the title has to be at least 3 characters long and less than 100 characters long.
+            The title has to be at least 3 characters long and less than 100 characters long.
             You will also <strong>not</strong> be able to edit the title after creating the post - we&apos;re adding this feature soon!
             <br />
             After creating your post, you will be able to edit the content.
@@ -42,7 +41,7 @@ export default function Dashboard() {
         
         <div>
           <h2 className={`${title({ size: "sm" })}`}>
-            My posts
+            Existing posts:
           </h2>
           <div className='my-6'>
             <PostList /> 
