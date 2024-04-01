@@ -4,11 +4,27 @@ import { useDocument } from 'react-firebase-hooks/firestore';
 import { increment, writeBatch, doc, getFirestore } from "firebase/firestore";
 import { Button } from '@nextui-org/react';
 import confetti from 'canvas-confetti';
+import { useEffect, useRef, useState } from 'react';
 
 // Allows user to heart or like a post
 export default function Heart({ postRef }: any) {
 
-    // console.log('postRef from HeartButton:', postRef);
+    const buttonRef = useRef<HTMLButtonElement>(null);
+    const [windowSize, setWindowSize] = useState({ width: 0, height: 0 });
+
+    useEffect(() => {
+        const handleResize = () => {
+          setWindowSize({
+            width: window.innerWidth,
+            height: window.innerHeight,
+          });
+        };
+    
+        window.addEventListener('resize', handleResize);
+        handleResize();
+    
+        return () => window.removeEventListener('resize', handleResize);
+      }, []);
 
     const uid: any = auth?.currentUser?.uid;
 
@@ -37,9 +53,38 @@ export default function Heart({ postRef }: any) {
         await batch.commit();
     };
 
-    return heartDoc?.exists() ? (
-        <Button className="m-3" color="secondary" variant="bordered" onClick={removeHeart}>💔 Unheart</Button>
-    ) : (
-        <Button className="m-3" color="secondary" variant="bordered" onClick={addHeart}>💖 Heart</Button>
-    );
-}
+    const handleConfetti = () => {
+        const buttonRect = buttonRef.current?.getBoundingClientRect();
+        if (buttonRect) {
+          const origin = {
+            x: (buttonRect.left + buttonRect.width / 2) / windowSize.width,
+            y: (buttonRect.top + buttonRect.height / 2) / windowSize.height,
+          };
+          confetti({ particleCount: 100, spread: 70, origin });
+        }
+      };
+    
+      return heartDoc?.exists() ? (
+        <Button
+          className="m-3"
+          size="lg"
+          color="secondary"
+          variant="bordered"
+          onClick={removeHeart}
+        >
+          💔 Unheart
+        </Button>
+      ) : (
+        <Button
+          ref={buttonRef}
+          className="m-3"
+          size="lg"
+          onPress={handleConfetti}
+          color="secondary"
+          variant="bordered"
+          onClick={addHeart}
+        >
+          💖 Heart
+        </Button>
+      );
+    }
