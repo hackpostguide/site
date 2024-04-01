@@ -24,15 +24,15 @@ function PostItem({ post, admin }: { post: any, admin: boolean }) {
             </Button>
           </>
         )}
-      </CardHeader>
+      </CardHeader> 
       <Divider />
       <Link passHref href={`/users/${post.username}/${post.slug}`}>
-        <CardBody>
+        <CardBody className="">
           <h2 className='text-xl font-bold'>{post.title}</h2>
           <p className="text-default-600">{post.content.length > 200 ? `${post.content.substring(0, 200)}...` : post.content}</p>
           {admin && (post.published ? <p className="text-success">Published</p> : <p className="text-danger">Unpublished</p>)}
         </CardBody>
-        <CardFooter className='flex justify-between'>
+        <CardFooter className='flex justify-start gap-12'>
           <span>{minutesToRead} min read</span>
           <span className="">💗 {post.heartCount || 0} Hearts</span>
           <span>Views: {post.views}</span>
