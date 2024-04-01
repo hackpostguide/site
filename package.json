@@ -27,6 +27,7 @@
   },
   "devDependencies": {
     "@iconify/react": "^4.1.1",
+    "@types/canvas-confetti": "^1.6.4",
     "@types/lodash.debounce": "^4.0.9",
     "@types/lodash.kebabcase": "^4.1.9",
     "@types/node": "^20",

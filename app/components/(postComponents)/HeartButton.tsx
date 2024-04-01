@@ -3,7 +3,7 @@ import { auth } from '@/app/lib/firebase';
 import { useDocument } from 'react-firebase-hooks/firestore';
 import { increment, writeBatch, doc, getFirestore } from "firebase/firestore";
 import { Button } from '@nextui-org/react';
-
+import confetti from 'canvas-confetti';
 
 // Allows user to heart or like a post
 export default function Heart({ postRef }: any) {
