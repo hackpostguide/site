@@ -32,10 +32,11 @@ function PostItem({ post, admin }: { post: any, admin: boolean }) {
           <p className="text-default-600">{post.content.length > 200 ? `${post.content.substring(0, 200)}...` : post.content}</p>
           {admin && (post.published ? <p className="text-success">Published</p> : <p className="text-danger">Unpublished</p>)}
         </CardBody>
-        <CardFooter className='flex justify-start gap-12'>
+        {/* <CardFooter className='flex justify-start gap-12'> */}
+        <CardFooter className='flex justify-start gap-40'>
           <span>{minutesToRead} min read</span>
           <span className="">💗 {post.heartCount || 0} Hearts</span>
-          <span>Views: {post.views}</span>
+          {/* <span>Views: {post.views}</span> */}
         </CardFooter>
       </Link>
     </Card>
