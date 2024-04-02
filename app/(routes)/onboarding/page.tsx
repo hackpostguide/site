@@ -28,7 +28,7 @@ export default function Onboarding(props: any) {
   return (
     <div className="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
       <div className="sm:mx-auto sm:w-full sm:max-w-sm">
-        <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-foreground">Join a community of hackers!</h2>
+        <h2 className="mt-10 text-center text-3xl leading-9 tracking-tight">Create an account today!</h2>
       </div>
 
       <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
@@ -54,7 +54,7 @@ function SignOutButton() {
           toast.success('Signed out successfully!');
         }
       }
-      className="font-sm space-y-6"
+      className="font-sm space-y-6 my-6"
     >
       Sign up with a different account
     </Button>
@@ -158,6 +158,8 @@ function UsernameForm() {
 
           <UsernameMessage username={formValue} isValid={isValid} loading={loading} />
 
+          <p className="text-sm">Usernames can only include alphanumeric characters (letters A-Z, numbers 0-9) and dashes (-) and must be 3-15 characters long. No spaces or special characters allowed.</p>
+          
           <div>
             <Button
               color="primary"
