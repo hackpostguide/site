@@ -1,5 +1,7 @@
 import React from 'react'
 
+// TODO: Add a link to the GitHub repository, and a link to the Discord server. 
+
 const AboutPage = () => {
     return (
       <div>
