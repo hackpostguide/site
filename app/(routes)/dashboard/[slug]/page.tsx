@@ -106,7 +106,7 @@ function PostForm({ defaultValues, postRef, preview }: { defaultValues: any, pos
           )}
     
           <div className={`${preview ? 'hidden' : 'flex flex-col gap-4'}`}>
-            <ImageUploader />
+            {/* <ImageUploader /> */}
     
             <textarea
               {...register("content", {
