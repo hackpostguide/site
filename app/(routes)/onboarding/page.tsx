@@ -169,7 +169,7 @@ function UsernameForm() {
               Choose
             </Button>
           </div>
-
+{/* 
           <h3>Debug State</h3>
           <div>
             Username: {formValue}
@@ -177,7 +177,7 @@ function UsernameForm() {
             Loading: {loading.toString()}
             <br />
             Username Valid: {isValid.toString()}
-          </div>
+          </div> */}
         </form>
       </section>
     );
