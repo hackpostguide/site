@@ -35,6 +35,8 @@ import { UserContext } from "../lib/context";
 import { Dropdown, DropdownTrigger, Avatar, DropdownMenu, DropdownItem, User } from "@nextui-org/react";
 import UserAvatar from "./UserAvatar";
 import { auth } from "../lib/firebase";
+import { signOut } from "firebase/auth";
+import toast from "react-hot-toast";
 
 export const Navbar = () => {
 	const { user, username } = useContext(UserContext);
@@ -159,47 +161,67 @@ export const Navbar = () => {
 				{username && (
 					<UserAvatar />
 				)}
-				
 				<NavbarMenuToggle />
 			</NavbarContent>
 
+			{/* The navbar structure is so bad... I need to fix this later */}
+
 			<NavbarMenu>
-				{/* Add search bar later */}
-				{/* {searchInput} */}
+			{/* Add search bar later */}
+			{/* {searchInput} */}
 
-
-				<div className="mx-4 mt-2 flex flex-col gap-2">
-    			{siteConfig.navMenuItems.map((item, index) => (
-        		<NavbarMenuItem key={`${item}-${index}`}>
-            	{index === siteConfig.navMenuItems.length - 1 ? (
-                // Render a Button for the last item
-                <Button
-                    color="primary" // or any color you wish to use for the button
-                    size="lg"
-                    // auto // for automatic width based on content
-                    // add the onClick or href prop as needed
-                >
-                    {item.label}
-                </Button>
-            ) : (
-                // Render a Link for all other items
-                <Link
-                    color={
-                        index === 2
-                            ? "primary"
-                            : "foreground"
-                    }
-                    href="#"
-                    size="lg"
-                >
-                    {item.label}
-                </Link>
-            )}
-        </NavbarMenuItem>
-    ))}
-</div>
-
+			<div className="mx-4 mt-2 flex flex-col gap-2">
+				{username
+				? siteConfig.navMenuItemsLoggedIn.map((item, index) => (
+					<NavbarMenuItem key={`${item}-${index}`}>
+						{index === siteConfig.navMenuItemsLoggedIn.length - 1 ? (
+						// Render a Button for the last item
+						<Button
+							color="danger"
+							className="mt-2"
+							onClick={() => {
+							signOut(auth);
+							toast.success('Signed out successfully!');
+							}}
+							size="lg"
+						>
+							<p>Log Out</p>
+						</Button>
+						) : (
+						// Render a Link for all other items
+						<Link
+							color={index === 2 ? "primary" : "foreground"}
+							href={item.href}
+							size="lg"
+						>
+							<p>{item.label}</p>
+						</Link>
+						)}
+					</NavbarMenuItem>
+					))
+				: siteConfig.navMenuItems.map((item, index) => (
+					<NavbarMenuItem key={`${item}-${index}`}>
+						{index === siteConfig.navMenuItems.length - 1 ? (
+						// Render a Button for the last item
+						<Button color="primary" className="mt-2" size="lg" as={Link} href="/enter">
+							Login / Sign Up
+						</Button>
+						) : (
+						// Render a Link for all other items
+						///users/${username}`
+						<Link
+							color={index === 2 ? "primary" : "foreground"}
+							href={item.label === "My Profile" ? `${item.href}/${username}` : item.href} //does not work TODO: fix
+							size="lg"
+						>
+							<p>{item.label}</p>
+						</Link>
+						)}
+					</NavbarMenuItem>
+					))}
+			</div>
 			</NavbarMenu>
+
 		</NextUINavbar>
 	);
 };

@@ -28,6 +28,32 @@ export const siteConfig = {
 		},
 		{
 			label: "Login / Sign Up",
+			href: "/enter",
+		},
+	],
+	navMenuItemsLoggedIn: [
+		{
+			label: "Home",
+			href: "/",
+		},
+		{
+			label: "About",
+			href: "/about",
+		},
+		{
+			label: "Updates",
+			href: "/updates",
+		},
+		// {
+		// 	label: "My Profile",
+		// 	href: "/users",
+		// },
+		{
+			label: "My Dashboard",
+			href: "/dashboard",
+		},
+		{
+			label: "Log Out",
 			href: "/",
 		},
 	],
