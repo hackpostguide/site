@@ -63,7 +63,7 @@ export default function Home() {
 			</div>
 		</section>
 
-		<section className="py-8 md:py-10 ">
+		{/* <section className="py-8 md:py-10 ">
 			<div>
 				<h1 className={title({ size: "sm", color: "cyan" })}>
 					Explore official guides
@@ -73,7 +73,7 @@ export default function Home() {
 				</h2>
 				<ExploreFeed />
 			</div>
-		</section>
+		</section> */}
 		</>
 	);
 }
