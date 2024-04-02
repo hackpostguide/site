@@ -40,11 +40,11 @@ const UserAvatar = () => {
                     <p>My Dashboard</p>
                 </Link>
             </DropdownItem>
-            <DropdownItem key="settings">
+            {/* <DropdownItem key="settings">
                 <Link href="/" color="foreground">
                     <p>My Settings</p>
                 </Link>
-            </DropdownItem>
+            </DropdownItem> */}
             <DropdownItem key="logout" color="danger" 
                 onClick={() => {
                     signOut(auth)
