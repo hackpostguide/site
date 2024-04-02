@@ -190,7 +190,7 @@ export const Navbar = () => {
 						) : (
 						// Render a Link for all other items
 						<Link
-							color={index === 2 ? "primary" : "foreground"}
+							color={"foreground"}
 							href={item.href}
 							size="lg"
 						>
@@ -210,7 +210,7 @@ export const Navbar = () => {
 						// Render a Link for all other items
 						///users/${username}`
 						<Link
-							color={index === 2 ? "primary" : "foreground"}
+							color={"foreground"}
 							href={item.label === "My Profile" ? `${item.href}/${username}` : item.href} //does not work TODO: fix
 							size="lg"
 						>
