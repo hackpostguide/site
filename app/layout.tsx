@@ -47,28 +47,17 @@ export default function RootLayout({
             <main className="container mx-auto max-w-7xl pt-16 px-6 flex-grow">
               {children}
             </main>
-            <footer className="w-full flex items-center justify-center py-3">
-              <p className="flex items-center gap-1 text-current">
-                &copy; 2023 - {currentYear} HackPost Guide
-                &bull; 
-				<Link
-					isExternal
-					href="https://www.gnu.org/licenses/gpl-3.0.html#license-text/"
-					title="GNU General Public License v3.0"
-				>
-					<span className="text-default-600">Licensed under GNU General Public License v3.0</span>
-				</Link>
-				&bull; 
-
-				<Link
-                isExternal
-                href="https://nextui.org"
-                title="nextui.org"
-              >
-                <span className="text-default-600">Powered by NextUI</span>
-                {/* <p className="text-primary">NextUI</p> */}
-              </Link>
-			  </p>
+            <footer className="w-full flex flex-col items-center justify-center py-3 sm:flex-row px-6 mt-5">
+              <p className="flex flex-wrap items-center justify-center gap-1 text-current text-base">
+                &copy; 2023 - {currentYear} HackPost Guide &bull;
+                <Link isExternal href="https://www.gnu.org/licenses/gpl-3.0.html#license-text/" title="GNU General Public License v3.0">
+                  <span className="text-default-600">Licensed under GNU General Public License v3.0</span>
+                </Link>
+                &bull;
+                <Link isExternal href="https://nextui.org" title="nextui.org">
+                  <span className="text-default-600">Powered by NextUI</span>
+                </Link>
+              </p>
             </footer>
           </div>
 		  <Toaster />
