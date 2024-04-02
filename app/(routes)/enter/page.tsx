@@ -25,7 +25,7 @@ export default function Enter(props: any) {
   return (
     <div className="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
       <div className="sm:mx-auto sm:w-full sm:max-w-sm">
-        <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-foreground">Join a community of hackers!</h2>
+        <h2 className="mt-10 text-center text-3xl leading-9 tracking-tight">Create an account today!</h2>
       </div>
 
       <div className="mt-10 font-bold sm:mx-auto sm:w-full sm:max-w-sm">
