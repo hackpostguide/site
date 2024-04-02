@@ -40,8 +40,12 @@ return (
         </div>
 
         <div className="my-16">
-          <h3>Posts by {user.username}:</h3>
-          <GridFeed posts={posts} />
+          <h3 className="my-4">Posts by {user.username}:</h3>
+          {posts.length > 0 ? (
+              <GridFeed posts={posts} />
+          ) : (
+              <p>No posts found</p> 
+          )}
         </div>
     </main>
 );
