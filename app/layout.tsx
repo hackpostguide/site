@@ -7,6 +7,7 @@ import { Navbar } from "@/app/components/Navbar";
 import { Link } from "@nextui-org/link";
 import clsx from "clsx";
 import { Toaster } from "react-hot-toast";
+import { Analytics } from "@vercel/analytics/react"
 
 export const metadata: Metadata = {
   title: {
@@ -61,7 +62,8 @@ export default function RootLayout({
               </p>
             </footer>
           </div>
-		  <Toaster />
+		      <Toaster />
+          <Analytics />
         </Providers>
       </body>
     </html>
