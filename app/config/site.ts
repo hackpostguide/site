@@ -44,10 +44,10 @@ export const siteConfig = {
 			label: "Updates",
 			href: "/updates",
 		},
-		// {
-		// 	label: "My Profile",
-		// 	href: "/users",
-		// },
+		{
+			label: "My Profile",
+			href: "/users",
+		},
 		{
 			label: "My Dashboard",
 			href: "/dashboard",

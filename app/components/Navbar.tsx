@@ -30,7 +30,7 @@ import {
 } from "@/app/components/Icons";
 
 import { Logo } from "@/app/components/Icons";
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { UserContext } from "../lib/context";
 import { Dropdown, DropdownTrigger, Avatar, DropdownMenu, DropdownItem, User } from "@nextui-org/react";
 import UserAvatar from "./UserAvatar";
@@ -40,6 +40,12 @@ import toast from "react-hot-toast";
 
 export const Navbar = () => {
 	const { user, username } = useContext(UserContext);
+	const [menuOpen, setMenuOpen] = useState(false);
+
+	//debugging:
+	useEffect(() => {
+		console.log('Menu Open:', menuOpen);
+	  }, [menuOpen]);
 
 	// Implement search later
 	const searchInput = (
@@ -64,7 +70,7 @@ export const Navbar = () => {
 	);
 
 	return (
-		<NextUINavbar maxWidth="xl" position="sticky" isBordered>
+		<NextUINavbar maxWidth="xl" position="sticky" isBordered isMenuOpen={menuOpen}>
 			<NavbarContent className="basis-1/5 sm:basis-full" justify="start">
 				<NavbarBrand as="li" className="gap-3 max-w-fit">
 					<NextLink className="flex justify-start items-center gap-2" href="/">
@@ -161,7 +167,10 @@ export const Navbar = () => {
 				{username && (
 					<UserAvatar />
 				)}
-				<NavbarMenuToggle />
+				<NavbarMenuToggle 
+					onChange={() => setMenuOpen(!menuOpen)} 
+					aria-label={menuOpen ? "Close menu" : "Open menu"} 
+				/>
 			</NavbarContent>
 
 			{/* The navbar structure is so bad... I need to fix this later */}
@@ -171,6 +180,7 @@ export const Navbar = () => {
 			{/* {searchInput} */}
 
 			<div className="mx-4 mt-2 flex flex-col gap-2">
+				{/* User is logged in */}
 				{username
 				? siteConfig.navMenuItemsLoggedIn.map((item, index) => (
 					<NavbarMenuItem key={`${item}-${index}`}>
@@ -180,22 +190,24 @@ export const Navbar = () => {
 							color="danger"
 							className="mt-2"
 							onClick={() => {
-							signOut(auth);
-							toast.success('Signed out successfully!');
+								signOut(auth);
+								toast.success('Signed out successfully!');
+								setMenuOpen(false);
 							}}
 							size="lg"
 						>
 							<p>Log Out</p>
 						</Button>
 						) : (
-						// Render a Link for all other items
-						<Link
-							color={"foreground"}
-							href={item.href}
-							size="lg"
-						>
-							<p>{item.label}</p>
-						</Link>
+							// Render a Link for all other items
+							<Link
+								color={"foreground"}
+								href={item.label === "My Profile" ? `${item.href}/${username}` : item.href} 
+								size="lg"
+								onClick={() => setMenuOpen(false)} 
+							>
+								<p>{item.label}</p>
+							</Link>
 						)}
 					</NavbarMenuItem>
 					))
@@ -203,16 +215,16 @@ export const Navbar = () => {
 					<NavbarMenuItem key={`${item}-${index}`}>
 						{index === siteConfig.navMenuItems.length - 1 ? (
 						// Render a Button for the last item
-						<Button color="primary" className="mt-2" size="lg" as={Link} href="/enter">
+						<Button onClick={() => setMenuOpen(false)}  color="primary" className="mt-2" size="lg" as={Link} href="/enter">
 							Login / Sign Up
 						</Button>
 						) : (
 						// Render a Link for all other items
-						///users/${username}`
 						<Link
 							color={"foreground"}
-							href={item.label === "My Profile" ? `${item.href}/${username}` : item.href} //does not work TODO: fix
+							href={item.href}
 							size="lg"
+							onClick={() => setMenuOpen(false)} 
 						>
 							<p>{item.label}</p>
 						</Link>
