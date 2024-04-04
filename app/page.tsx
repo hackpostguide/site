@@ -23,9 +23,11 @@ export default function Home() {
 				</h2>
 			</div>
 
-			<div className="flex gap-3">
+			<div className="flex flex-wrap justify-center gap-3">
+				<div className="flex flex-col justify-center gap-3 sm:flex-row">
 				<StartExploringButton />
-				<Button color="primary"
+				<Button
+					color="primary"
 					as={Link}
 					className={"text-xs sm:text-sm font-normal"}
 					href={'/enter'}
@@ -33,19 +35,14 @@ export default function Home() {
 				>
 					Login / Sign Up
 				</Button>
-				
 				<Link
 					isExternal
 					className={`${buttonStyles({ variant: "bordered" })} text-xs sm:text-sm`}
 					href={siteConfig.links.discord}
 				>
-					<DiscordIcon size={20} />
-					Join our Discord
+					<DiscordIcon size={20} /> Join our Discord
 				</Link>
-				{/* <ToastButton /> */}
-			</div>
-			<div className="flex gap-3">
-				{/* <ToastButton /> */}
+				</div>
 			</div>
 		</section>
 
