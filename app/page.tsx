@@ -50,30 +50,6 @@ export default function Home() {
 		<section id="explore" className="py-8 md:py-10">
 			<div>
 				<div className="flex flex-col sm:flex-row items-center justify-between mb-4">
-					<h1 className={title({ size: "sm", color: "yellow" })}>New Posts</h1>
-					<Button
-						as={Link}
-						href={'/explore'}
-						variant="ghost"
-						size="md"
-						color="warning"
-						className="text-xs sm:text-sm"
-					>
-						Explore All Posts
-					</Button>
-					</div>
-					<h2 className={subtitle()}>
-					Discover the latest posts from the community.
-					</h2>
-					<div className="p-0">
-					<ExploreFeed />
-				</div>
-			</div>
-		</section>
-
-		<section id="explore" className="py-8 md:py-10">
-			<div>
-				<div className="flex flex-col sm:flex-row items-center justify-between mb-4">
 					<h1 className={title({ size: "sm", color: "cyan" })}>Top Posts</h1>
 					<Button
 						as={Link}
@@ -91,6 +67,30 @@ export default function Home() {
 					</h2> */}
 					<div className="p-0">
 					<PopularFeed />
+				</div>
+			</div>
+		</section>
+
+		<section className="py-8 md:py-10">
+			<div>
+				<div className="flex flex-col sm:flex-row items-center justify-between mb-4">
+					<h1 className={title({ size: "sm", color: "yellow" })}>New Posts</h1>
+					<Button
+						as={Link}
+						href={'/explore'}
+						variant="ghost"
+						size="md"
+						color="warning"
+						className="text-xs sm:text-sm"
+					>
+						Explore All Posts
+					</Button>
+					</div>
+					<h2 className={subtitle()}>
+					Discover the latest posts from the community.
+					</h2>
+					<div className="p-0">
+					<ExploreFeed />
 				</div>
 			</div>
 		</section>
