@@ -1,7 +1,5 @@
-'use client';
 import Link from 'next/link';
 import { Card, CardHeader, CardBody, CardFooter, Divider, Button } from "@nextui-org/react";
-import toast from 'react-hot-toast';
 
 export default function PostCard({ posts, admin = false }: { posts: any[], admin?: boolean }) {
   return posts && posts.length ? <>{posts.map((post: any, i: number) => <PostItem post={post} key={i} admin={admin} />)}</> : <></>;
@@ -12,12 +10,9 @@ function PostItem({ post, admin }: { post: any, admin: boolean }) {
   const wordCount = post?.content.trim().split(/\s+/g).length;
   const minutesToRead = (wordCount / 100 + 1).toFixed(0);
 
-  const handleCardClick = () => {
-    toast.success('Redirecting');
-  };
 
   return (
-    <Card className="max-w-[400px] p-3 relative overflow-visible hover:-translate-y-1 after:content-[''] after:absolute after:inset-0 after:bg-background/40 after:z-[-1] after:transition after:!duration-500 hover:after:scale-150 hover:after:opacity-0" isPressable onClick={handleCardClick}>
+    <Card className="max-w-[400px] p-3 relative hover:-translate-y-1 after:content-[''] after:absolute after:inset-0 after:bg-background/40 after:z-[-1] after:transition after:!duration-500 hover:after:scale-150 hover:after:opacity-0" isPressable>
       <CardHeader className="flex gap-3 justify-between">
         <Link passHref href={`/users/${post.username}`}>
           <strong>By @{post.username}</strong>
