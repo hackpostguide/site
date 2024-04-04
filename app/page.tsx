@@ -90,7 +90,7 @@ export default function Home() {
 						Discover the latest posts from the community.
 					</h2> */}
 					<div className="p-0">
-					<ExploreFeed />
+					<PopularFeed />
 				</div>
 			</div>
 		</section>
