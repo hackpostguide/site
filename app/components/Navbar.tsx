@@ -112,9 +112,9 @@ export const Navbar = () => {
 							<Button
 								// isIconOnly 
 								startContent={<Icon icon="gravity-ui:folder" width="1.2rem" height="1.2rem"/> }
-								color="secondary" 
+								color="warning" 
 								aria-label="Dashboard" 
-								variant="faded"
+								variant="ghost"
 								className="text-sm font-bold"
 								as={Link}
 								href={'/dashboard'}
