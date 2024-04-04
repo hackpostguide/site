@@ -8,6 +8,7 @@ import { Link } from "@nextui-org/link";
 import clsx from "clsx";
 import { Toaster } from "react-hot-toast";
 import { Analytics } from "@vercel/analytics/react"
+import NextTopLoader from 'nextjs-toploader';
 
 export const metadata: Metadata = {
   title: {
@@ -42,6 +43,7 @@ export default function RootLayout({
           fontSans.variable
         )}
       >
+        <NextTopLoader />
         <Providers themeProps={{ attribute: "class", defaultTheme: "dark", children }}>
           <div className="relative flex flex-col h-screen">
             <Navbar />
