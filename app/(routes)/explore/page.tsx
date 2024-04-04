@@ -9,7 +9,7 @@ import { Timestamp, query, where, orderBy, limit, collectionGroup, getDocs, star
 import { useEffect, useState } from 'react';
 import { Button } from '@nextui-org/react';
 import GridFeed from '@/app/components/(postComponents)/GridFeed';
-// import Metatags from './components/Metatags';
+import Metatags from '@/app/components/Metatags';
 
 // Max post to query per page
 const LIMIT = 3;
@@ -60,7 +60,7 @@ const Home = () => {
 
   return (
     <main>
-      {/* <Metatags title="Home Page" description="Get the latest posts on our site" /> */}
+      <Metatags title="Explore All" description="All posts from the community" />
       <div className='py-9'>
         <h3>All posts from the community:</h3>
       </div>

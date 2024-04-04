@@ -7,7 +7,7 @@ import { getFirestore, doc, getDoc, increment, updateDoc } from 'firebase/firest
 import { useDocumentData } from 'react-firebase-hooks/firestore';
 import { UserContext } from '@/app/lib/context';
 import { useContext } from 'react';
-// import Metatags from '@/app/components/Metatags';
+import Metatags from '@/app/components/Metatags';
 // import AuthCheck from '@/app/components/AuthCheck';
 import HeartButton from '@/app/components/(postComponents)/HeartButton';
 import Link from 'next/link';
@@ -50,7 +50,7 @@ export default async function Post({ params }: { params: { username: string; slu
 
   return (
     <main className={`${styles.container} mb-[100px]`}>
-      {/* <Metatags title={post.title} description={post.title} /> */}
+      <Metatags title={post.title} description={post.title} />
 
       {/* DEBUG */}
       {/* <p>post: {post}</p> */}

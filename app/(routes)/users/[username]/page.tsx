@@ -3,6 +3,7 @@ import GridFeed from "@/app/components/(postComponents)/GridFeed";
 import { getUserData } from "@/app/components/getUserData";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import Metatags from "@/app/components/Metatags";
 
 export default async function UserProfilePage({ params }: { params: { username: string } }) {
     // console.log('hello from user profile page')
@@ -34,7 +35,7 @@ const { user, posts } = userData;
 
 return (
     <main>
-        {/* <Metatags title={user.username} description={`${user.username}'s public profile`} /> */}
+        <Metatags title={user.username} description={`${user.username}'s public profile`} />
         <div>
           <UserProfile user={user} />
         </div>

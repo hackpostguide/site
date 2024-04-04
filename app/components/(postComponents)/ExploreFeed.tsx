@@ -6,6 +6,7 @@ import { postToJSON } from '@/app/lib/firebase';
 import { query, where, orderBy, limit, collectionGroup, getDocs, getFirestore } from 'firebase/firestore';
 import { useEffect, useState } from 'react';
 import GridFeed from './GridFeed';
+import Metatags from '../Metatags';
 
 // This component is very repetitive and unnecessary, remove + optimize later
 
@@ -38,7 +39,7 @@ const ExploreFeed = () => {
 
   return (
     <main>
-      {/* <Metatags title="Home Page" description="Get the latest posts on our site" /> */}
+      <Metatags title="Explore New Posts" description="New posts from the community" />
 
       <GridFeed posts={posts} />
       <Loader show={loading} />
