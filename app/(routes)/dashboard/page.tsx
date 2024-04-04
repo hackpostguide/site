@@ -111,8 +111,12 @@ const CreateNewPost = (): JSX.Element => {
       views: 0, // Initialize views to 0
       tags: [],
     };
-    await setDoc(ref, data);
-    toast.success('Post created!');
+    toast.promise(setDoc(ref, data), {
+      loading: 'Creating post...',
+      success: 'Post created!',
+      error: 'Failed to create post',
+    })
+    // toast.success('Post created!');
     // Imperative navigation after doc is set
     router.push(`/dashboard/${slug}`);
   };
