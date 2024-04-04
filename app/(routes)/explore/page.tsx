@@ -62,7 +62,7 @@ const Home = () => {
     <main>
       {/* <Metatags title="Home Page" description="Get the latest posts on our site" /> */}
 
-      <h2>All posts from the community:</h2>
+      <h3>All posts from the community:</h3>
 
       <GridFeed posts={posts} />
 

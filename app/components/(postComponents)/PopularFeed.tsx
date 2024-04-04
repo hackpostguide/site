@@ -12,7 +12,7 @@ import GridFeed from './GridFeed';
 // Max post to query
 const LIMIT = 3;
 
-const ExploreFeed = () => {
+const PopularFeed = () => {
   const [posts, setPosts] = useState<any[]>([]);
   const [loading, setLoading] = useState(false);
 
@@ -23,7 +23,7 @@ const ExploreFeed = () => {
     const postsQuery = query(
       ref,
       where('published', '==', true),
-      orderBy('createdAt', 'desc'),
+      orderBy('heartCount', 'desc'),
       limit(LIMIT)
     );
     const querySnapshot = await getDocs(postsQuery);
@@ -46,4 +46,4 @@ const ExploreFeed = () => {
   );
 };
 
-export default ExploreFeed;
+export default PopularFeed;

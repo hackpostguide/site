@@ -9,6 +9,7 @@ import ToastButton from "./components/ToastButton";
 import { Button } from "@nextui-org/button";
 import ExploreFeed from "./components/(postComponents)/ExploreFeed";
 import StartExploringButton from "./components/(homePage)/StartExploringButton";
+import PopularFeed from "./components/(postComponents)/PopularFeed";
 
 export default function Home() {
 	return (
@@ -49,7 +50,7 @@ export default function Home() {
 		<section id="explore" className="py-8 md:py-10">
 			<div>
 				<h1 className={title({ size: "sm" })}>
-					Explore new posts
+					New Posts
 				</h1>
 				<h2 className={subtitle()}>
 					Discover the latest posts from the community.
@@ -60,17 +61,17 @@ export default function Home() {
 			</div>
 		</section>
 
-		{/* <section className="py-8 md:py-10 ">
+		<section className="py-8 md:py-10 ">
 			<div>
 				<h1 className={title({ size: "sm", color: "cyan" })}>
-					Explore official guides
+					Top Posts
 				</h1>
-				<h2 className={subtitle()}>
+				{/* <h2 className={subtitle()}>
 					Check out the latest guides from the official hackpost guide account.
-				</h2>
-				<ExploreFeed />
+				</h2> */}
+				<PopularFeed />
 			</div>
-		</section> */}
+		</section>
 		</>
 	);
 }
