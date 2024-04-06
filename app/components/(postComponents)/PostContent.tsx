@@ -23,7 +23,7 @@ export default function PostContent({ post, path }: { post: any, path: string })
         </CardBody>
         
       </Card>
-      <ReactMarkdown components={MarkdownComponents}>{post?.content}</ReactMarkdown>
+      <ReactMarkdown components={MarkdownComponents} className="my-5">{post?.content}</ReactMarkdown>
       {/* <p>Views: {post.views}</p> */}
     </div>
   );
