@@ -2,7 +2,15 @@
 
 The new, updated website for hackpost.guide - the premier resource hub for hackathoners - made with Next.JS and Firebase. Free. Open Source. Community Driven.
 
-Note: The web app is still work in progress.
+Note: The project is still work in progress.
+
+## Web app:
+
+[https://www.hackpost.guide](https://www.hackpost.guide)
+
+## Discord:
+
+Join our discord server here! [https://discord.gg/UjZDQcTMjD](https://discord.gg/UjZDQcTMjD)
 
 ## Documentation + Contributing
 
@@ -35,5 +43,3 @@ npm run dev
 ## Contact
 
 If you have any questions, please reach out to us at [hackpost.guide@gmail.com](hackpost.guide@gmail.com).
-
-Our discord server: [https://discord.gg/UjZDQcTMjD](https://discord.gg/UjZDQcTMjD)
