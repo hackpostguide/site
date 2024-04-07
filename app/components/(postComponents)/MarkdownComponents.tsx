@@ -6,7 +6,7 @@ export const MarkdownComponents = {
   ol: (props: React.HTMLAttributes<HTMLOListElement>) => <ol className="text-lg list-decimal list-inside py-4 pl-4" {...props} />,
   blockquote: (props: React.HTMLAttributes<HTMLQuoteElement>) => <blockquote className="text-lg border-l-4 pl-4 py-2 italic" {...props} />,
   code: (props: React.HTMLAttributes<HTMLElement>) => <code className="bg-gray-200 px-2 py-1 rounded" {...props} />,
-  h1: (props: React.HTMLAttributes<HTMLHeadingElement>) => <h1 className="py-6" {...props} />,
-  h2: (props: React.HTMLAttributes<HTMLHeadingElement>) => <h2 className="py-6" {...props} />,
-  h3: (props: React.HTMLAttributes<HTMLHeadingElement>) => <h3 className="py-6" {...props} />,
+  h1: (props: React.HTMLAttributes<HTMLHeadingElement>) => <h1 className="pt-16" {...props} />,
+  h2: (props: React.HTMLAttributes<HTMLHeadingElement>) => <h2 className="pt-8" {...props} />,
+  h3: (props: React.HTMLAttributes<HTMLHeadingElement>) => <h3 className="pt-6" {...props} />,
 };
