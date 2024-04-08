@@ -13,17 +13,17 @@ import { signOut } from 'firebase/auth';
 import { Icon } from '@iconify/react/dist/iconify.js';
 
 export default function Onboarding(props: any) {
-  const { user, username } = useContext(UserContext);
+  const { username } = useContext(UserContext);
   const router = useRouter()
 
   useEffect(() => {
-    if (user && username) {
+    if (auth.currentUser && username) {
       router.push('/dashboard');
     }
     else if(!auth.currentUser) {
       router.push('/enter');
     }
-  }, [user, username, router]);
+  }, [username, router]);
 
   return (
     <div className="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
@@ -66,7 +66,8 @@ function UsernameForm() {
   const [isValid, setIsValid] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  const { user, username } = useContext(UserContext);
+  const { username } = useContext(UserContext);
+  const user = auth.currentUser;
 
   const onSubmit = async (e: any) => {
     e.preventDefault();

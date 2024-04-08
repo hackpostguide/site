@@ -39,7 +39,7 @@ import { signOut } from "firebase/auth";
 import toast from "react-hot-toast";
 
 export const Navbar = () => {
-	const { user, username } = useContext(UserContext);
+	const { username } = useContext(UserContext);
 	const [menuOpen, setMenuOpen] = useState(false);
 
 	//debugging:

@@ -8,7 +8,8 @@ import toast from 'react-hot-toast'
 import { UserContext } from '../lib/context';
 
 const UserAvatar = () => {
-  const { user, username } = useContext(UserContext);
+  const { username } = useContext(UserContext);
+  const user = auth.currentUser;
 
   return (
     <Dropdown placement="bottom-end">

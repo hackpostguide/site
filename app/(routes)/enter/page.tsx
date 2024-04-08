@@ -10,7 +10,7 @@ import toast from 'react-hot-toast';
 import { useRouter } from 'next/navigation';
 
 export default function Enter(props: any) {
-  const { user, username } = useContext(UserContext);
+  const { username } = useContext(UserContext);
   const router = useRouter()
 
   useEffect(() => {

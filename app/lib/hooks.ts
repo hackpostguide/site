@@ -29,5 +29,5 @@ export function useUserData() {
     return unsubscribe;
   }, [user]);
 
-  return { user, username };
+  return { username };
 }
