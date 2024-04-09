@@ -37,6 +37,17 @@ export const MarkdownComponents = {
       </code>
     );
   },
+  a: (props: React.HTMLAttributes<HTMLAnchorElement>) => {
+    const isExternal = true; //add ability to have internal links later 
+    return (
+      <a
+        className="text-blue-500 hover:text-blue-700 underline"
+        target="_blank"
+        rel="noopener noreferrer"
+        {...props}
+      />
+    );
+  },
   h1: (props: React.HTMLAttributes<HTMLHeadingElement>) => <h1 className="pt-16" {...props} />,
   h2: (props: React.HTMLAttributes<HTMLHeadingElement>) => <h2 className="pt-8" {...props} />,
   h3: (props: React.HTMLAttributes<HTMLHeadingElement>) => <h3 className="pt-6" {...props} />,

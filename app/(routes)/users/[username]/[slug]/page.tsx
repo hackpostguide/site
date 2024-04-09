@@ -50,7 +50,7 @@ export default async function Post({ params }: { params: { username: string; slu
 
   return (
     <main className={`${styles.container} mb-[100px]`}>
-      <Metatags title={post.title} description={post.title} />
+      <Metatags title={post?.title} description={post?.title} />
 
       {/* DEBUG */}
       {/* <p>post: {post}</p> */}
