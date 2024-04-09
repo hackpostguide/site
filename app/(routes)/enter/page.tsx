@@ -74,6 +74,13 @@ function SignInButton() {
         >
           Sign Up/In with Google
         </Button>
+
+        {/* Debugging:
+        <p>
+          User: {String(auth.currentUser)}
+          <br />
+          Username: {username}; 
+        </p> */}
       </div>
     </form>
   );
