@@ -43,6 +43,13 @@ export const Navbar = () => {
 	const [menuOpen, setMenuOpen] = useState(false);
 	const router = useRouter();
 
+	const handleLogout = async () => {
+		await signOut(auth);
+		toast.success('Signed out successfully!');
+		router.push('/');
+		setMenuOpen(false);
+	  };
+
 	//debugging:
 	useEffect(() => {
 		console.log('Menu Open:', menuOpen);
@@ -98,10 +105,10 @@ export const Navbar = () => {
 				</ul>
 			</NavbarContent>
 
+			{/* NonMobile Screen */}
 			<NavbarContent className="hidden sm:flex basis-1/5 sm:basis-full" justify="end">
-				{/* Social media and avatar */}
 				<div className="flex items-center gap-5">
-					{/* Social media */}
+
 					<div className="hidden sm:flex gap-3">
 					<Link isExternal href={siteConfig.links.discord} aria-label="Discord">
 						<DiscordIcon className="text-default-500" />
@@ -109,11 +116,12 @@ export const Navbar = () => {
 					<Link isExternal href={siteConfig.links.github} aria-label="Github">
 						<GithubIcon className="text-default-500" />
 					</Link>
+
 					<ThemeSwitch />
 					</div>
 
-					{/* User has signed in AND completed onboarding (has username) */}
 
+					{/* User has signed in AND completed onboarding (has username) */}
 					{username && (
 						<>
 							<Button
@@ -152,6 +160,8 @@ export const Navbar = () => {
 				)}
 			</NavbarContent>
 
+
+			{/* Mobile screens */}
 			<NavbarContent className="sm:hidden basis-1 pl-4" justify="end">
 				{/* Add other socials later */}
 				{/* <Link isExternal href={siteConfig.links.twitter} aria-label="Twitter">
@@ -174,8 +184,6 @@ export const Navbar = () => {
 				/>
 			</NavbarContent>
 
-			{/* The navbar structure is so bad... I need to fix this later */}
-
 			<NavbarMenu>
 			{/* Add search bar later */}
 			{/* {searchInput} */}
@@ -190,12 +198,7 @@ export const Navbar = () => {
 						<Button
 							color="danger"
 							className="mt-2"
-							onClick={() => {
-								signOut(auth);
-								router.push('/');
-								toast.success('Signed out successfully!');
-								setMenuOpen(false);
-							}}
+							onClick={handleLogout}
 							size="lg"
 						>
 							<p>Log Out</p>
