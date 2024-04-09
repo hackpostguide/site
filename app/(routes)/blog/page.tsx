@@ -4,7 +4,7 @@ const Updates = () => {
   return (
     <div>
       <h1>
-        Welcome to the Updates page!
+        Welcome to the Hackpost Blog!
       </h1>
       
       <p>

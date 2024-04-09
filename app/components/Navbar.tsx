@@ -32,7 +32,6 @@ import {
 import { Logo } from "@/app/components/Icons";
 import { useContext, useEffect, useState } from "react";
 import { UserContext } from "../lib/context";
-import { Dropdown, DropdownTrigger, Avatar, DropdownMenu, DropdownItem, User } from "@nextui-org/react";
 import UserAvatar from "./UserAvatar";
 import { auth } from "../lib/firebase";
 import { signOut } from "firebase/auth";
