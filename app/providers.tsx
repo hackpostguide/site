@@ -24,7 +24,7 @@ export function Providers({ children, themeProps }: ProvidersProps) {
 		<UserContext.Provider value={userData}>
 			<ProgressBar
 				height="4px"
-				color="#FF0080"
+				color="#006FEE"
 				options={{ showSpinner: false }}
 				shallowRouting
 			/>
