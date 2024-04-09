@@ -62,8 +62,10 @@ const Home = () => {
     <main>
       <Metatags title="Explore All" description="All posts from the community" />
       <div className='py-9'>
-        <h3>All posts from the community:</h3>
+        <h2>Explore Community Posts</h2>
       </div>
+
+      {/* Put tags here, search bar, etc. */}
       
 
       <GridFeed posts={posts} />
