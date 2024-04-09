@@ -14,7 +14,7 @@ function PostItem({ post, admin }: { post: any, admin: boolean }) {
   return (
     <Card className="max-w-[400px] p-3 relative hover:-translate-y-1 after:content-[''] after:absolute after:inset-0 after:bg-background/40 after:z-[-1] after:transition after:!duration-500 hover:after:scale-150 hover:after:opacity-0" isPressable>
       <CardHeader className="flex gap-3 justify-between">
-        <Link passHref href={`/users/${post.username}`}>
+        <Link color="warning" passHref href={`/users/${post.username}`}>
           <strong>By @{post.username}</strong>
         </Link>
         {/* If admin view, show extra controls for user */}
