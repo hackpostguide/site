@@ -6,10 +6,12 @@ import React, { useContext } from 'react'
 import { auth } from '../lib/firebase'
 import toast from 'react-hot-toast'
 import { UserContext } from '../lib/context';
+import { useRouter } from 'next/navigation';
 
 const UserAvatar = () => {
   const { username } = useContext(UserContext);
   const user = auth.currentUser;
+  const router = useRouter()
 
   return (
     <Dropdown placement="bottom-end">
@@ -49,6 +51,7 @@ const UserAvatar = () => {
             <DropdownItem key="logout" color="danger" 
                 onClick={() => {
                     signOut(auth)
+                    router.push('/')
                     toast.success('Signed out successfully!');
                 }
             }>

@@ -37,10 +37,12 @@ import UserAvatar from "./UserAvatar";
 import { auth } from "../lib/firebase";
 import { signOut } from "firebase/auth";
 import toast from "react-hot-toast";
+import { useRouter } from "next/navigation";
 
 export const Navbar = () => {
 	const { username } = useContext(UserContext);
 	const [menuOpen, setMenuOpen] = useState(false);
+	const router = useRouter();
 
 	//debugging:
 	useEffect(() => {
@@ -191,6 +193,7 @@ export const Navbar = () => {
 							className="mt-2"
 							onClick={() => {
 								signOut(auth);
+								router.push('/');
 								toast.success('Signed out successfully!');
 								setMenuOpen(false);
 							}}

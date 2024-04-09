@@ -87,21 +87,22 @@ function SignInButton() {
 }
 
 // Sign out button
-function SignOutButton() {
-    console.log('signed out with Google');
-    return (
-      <Button
-        color="default"
-        variant="bordered"
+// function SignOutButton() {
+//     console.log('signed out with Google');
+//     return (
+//       <Button
+//         color="default"
+//         variant="bordered"
 
-        onClick={() => {
-            signOut(auth)
-            toast.success('Signed out successfully!');
-          }
-        }
-        className="font-sm space-y-6"
-      >
-        Sign Out
-      </Button>
-    );
-}
+//         onClick={() => {
+//             signOut(auth)
+//             router.push('/');
+//             toast.success('Signed out successfully!');
+//           }
+//         }
+//         className="font-sm space-y-6"
+//       >
+//         Sign Out
+//       </Button>
+//     );
+// }
