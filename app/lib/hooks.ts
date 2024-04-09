@@ -9,6 +9,7 @@ const firestore = getFirestore();
 // Custom hook to read auth record and user profile doc
 export function useUserData() {
   const [user] = useAuthState(auth);
+  // const user = auth.currentUser;
   const [username, setUsername] = useState<string | null>(null);
 
   useEffect(() => {

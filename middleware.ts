@@ -1,6 +1,5 @@
 import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
-import { getAuth } from 'firebase/auth'
 import { auth } from '@/app/lib/firebase'
 
 console.log('Middleware loaded')
@@ -9,6 +8,7 @@ export async function middleware(request: NextRequest) {
   console.log('Request URL:', request.nextUrl.toString())
 
   const { pathname, origin } = request.nextUrl
+  
   const currentUser = auth.currentUser
 
   console.log('Current user:', currentUser)
@@ -17,6 +17,7 @@ export async function middleware(request: NextRequest) {
   if (!currentUser && pathname.startsWith('/dashboard')) {
     const url = request.nextUrl.clone()
     url.pathname = '/enter'
+    console.log('signed in, user:', currentUser)
     return NextResponse.redirect(url)
   }
 

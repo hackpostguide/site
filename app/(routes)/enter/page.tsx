@@ -68,7 +68,9 @@ function SignInButton() {
           onClick={signInWithGoogle}
           className="font-sm"
 
-          startContent={<Image src="/google-icon-logo-png-transparent.png" alt="Google" width="20" height="20" />}
+          startContent={<Image src="/google-icon-logo-png-transparent.png" alt="Google" width={20}
+          height={20}
+          style={{ width: 'auto', height: 'auto' }} />}
         >
           Sign Up/In with Google
         </Button>

@@ -180,15 +180,17 @@ function UsernameForm() {
               Choose
             </Button>
           </div>
-{/* 
+
           <h3>Debug State</h3>
           <div>
+            UID: {user?.uid}
+            <br />
             Username: {formValue}
             <br />
             Loading: {loading.toString()}
             <br />
             Username Valid: {isValid.toString()}
-          </div> */}
+          </div>
         </form>
       </section>
     );
