@@ -104,7 +104,7 @@ const CreateNewPost = (): JSX.Element => {
       uid,
       username,
       published: false,
-      content: '# hello world!',
+      content: "# hello world! \nPosts use markdown - if you are unfamiliar with markdown, check out [this guide](https://guides.github.com/features/mastering-markdown/). You can click on the link after previewing your post (using the preview button). After publishing, you may view your post's public page using the 'Live Post' button. \n\nHappy writing! 🚀" ,
       createdAt: serverTimestamp(),
       updatedAt: serverTimestamp(),
       heartCount: 0,
