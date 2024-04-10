@@ -17,33 +17,32 @@ export default function Home() {
 		{/* Align the hero page text to the left later */}
 		<section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10">
 			<div className="inline-block max-w-lg text-center justify-center">
-				<h1 className={title()}>Jump right in into the premier resource hub for&nbsp;</h1>
+				<h1 className={title()}>Jump right in into the &nbsp;</h1>
+				<h1 className={title({color: "cyan" })}>open source&nbsp;</h1>
+				<h1 className={title()}>resource hub for&nbsp;</h1>
 				<h1 className={title({ color: "violet" })}>hackathon participants.&nbsp;</h1>
 				<h2 className={subtitle({ class: "mt-4" })}>
-					Guiding your journey. Free. Open Source. Community Driven.
+				Guiding your journey. Free. Open Source. Community Driven.
 				</h2>
 			</div>
-
-			<div className="flex flex-wrap justify-center gap-3">
-				<div className="flex flex-col justify-center gap-3 sm:flex-row">
+			<div className="w-full flex flex-col items-center gap-3 md:flex-row md:justify-center md:gap-3">
 				<StartExploringButton />
 				<Button
-					color="primary"
-					as={Link}
-					className={"text-xs sm:text-sm font-normal"}
-					href={'/enter'}
-					variant="solid"
+				color="primary"
+				as={Link}
+				className="text-xs font-normal md:text-sm"
+				href={'/enter'}
+				variant="solid"
 				>
-					Login / Sign Up
+				Login / Sign Up
 				</Button>
 				<Link
-					isExternal
-					className={`${buttonStyles({ variant: "bordered" })} text-xs sm:text-sm`}
-					href={siteConfig.links.discord}
+				isExternal
+				className={`${buttonStyles({ variant: "bordered" })} text-xs font-normal md:text-sm`}
+				href={siteConfig.links.discord}
 				>
-					<DiscordIcon size={20} /> Join our Discord
+				<DiscordIcon size={20} /> Join our Discord
 				</Link>
-				</div>
 			</div>
 		</section>
 
