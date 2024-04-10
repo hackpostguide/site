@@ -7,7 +7,8 @@ export const MarkdownComponents = {
   ul: (props: React.HTMLAttributes<HTMLUListElement>) => <ul className="text-lg list-disc list-inside py-4 pl-4" {...props} />,
   ol: (props: React.HTMLAttributes<HTMLOListElement>) => <ol className="text-lg list-decimal list-inside py-4 pl-4" {...props} />,
   blockquote: (props: React.HTMLAttributes<HTMLQuoteElement>) => <blockquote className="text-lg border-l-4 pl-4 py-2 italic" {...props} />,
-  code: ({ node, inline, className, children, ...props }: { node: React.ReactNode, inline: boolean, className: string, children: React.ReactNode }) => {
+  code: (props: any) => {
+    const { node, inline, className, children, ...rest } = props;
     const match = /language-(\w+)/.exec(className || '');
     return !inline && match ? (
       <SyntaxHighlighter
@@ -17,28 +18,17 @@ export const MarkdownComponents = {
         className="bg-gray-100 px-4 py-2 rounded"
         wrapLines={true}
         wrapLongLines={true}
-        // showLineNumbers -> this messes up wrapLongLines
-        // lineNumberContainerStyle={{
-        //   backgroundColor: '#282c34',
-        //   color: '#abb2bf',
-        //   borderRight: '1px solid #abb2bf',
-        //   paddingRight: '0.5rem',
-        // }}
-        {...props}
+        {...rest}
       >
         {String(children).replace(/\n$/, '')}
       </SyntaxHighlighter>
     ) : (
-      <code
-        className="bg-gray-100 px-2 py-1 rounded inline-block"
-        {...props}
-      >
+      <code className="bg-gray-100 px-2 py-1 rounded inline-block" {...rest}>
         {children}
       </code>
     );
   },
   a: (props: React.HTMLAttributes<HTMLAnchorElement>) => {
-    const isExternal = true; //add ability to have internal links later 
     return (
       <a
         className="text-blue-500 hover:text-blue-700 underline"
