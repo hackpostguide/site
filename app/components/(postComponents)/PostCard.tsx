@@ -33,7 +33,7 @@ function PostItem({ post, admin }: { post: any, admin: boolean }) {
         <Divider />
         <Link passHref href={`/users/${post.username}/${post.slug}`}>
           <CardBody className="p-3">
-            <h2 className="text-xl font-bold text-primary">{post.title}</h2>
+            <h2 className="text-xl font-bold text-primary-500">{post.title}</h2>
             <p className="text-default-600 line-clamp-5">{post.content}</p>
             {admin && (post.published ? <p className="text-success">Published</p> : <p className="text-danger">Unpublished</p>)}
           </CardBody>
