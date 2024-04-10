@@ -70,7 +70,10 @@ const Home = () => {
 
       <GridFeed posts={posts} />
 
-      {!loading && !postsEnd && <Button color="primary" onClick={getMorePosts}>Load more</Button>}
+      {!loading && !postsEnd && 
+        <div className="flex justify-center my-5">
+          <Button variant="ghost" color="secondary" onClick={getMorePosts}>Load more</Button>
+        </div>}
 
       <Loader show={loading} />
 
