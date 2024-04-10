@@ -12,38 +12,38 @@ function PostItem({ post, admin }: { post: any, admin: boolean }) {
 
 
   return (
-    <Card className="max-w-[400px] p-3 relative hover:-translate-y-1 after:content-[''] after:absolute after:inset-0 after:bg-background/40 after:z-[-1] after:transition after:!duration-500 hover:after:scale-150 hover:after:opacity-0 flex flex-col justify-between" isPressable>
-      <div>
-        <CardHeader className="text-secondary flex gap-3 justify-between">
+    <Card
+      className="max-w-[400px] p-3 relative hover:-translate-y-1 after:content-[''] after:absolute after:inset-0 after:bg-background/40 after:z-[-1] after:transition after:!duration-500 hover:after:scale-150 hover:after:opacity-0 flex flex-col justify-between"
+      isPressable
+    >
+      <div className="w-full">
+        <CardHeader className="text-secondary flex gap-3 justify-between items-center">
           <Link passHref href={`/users/${post.username}`}>
             <strong>By @{post.username}</strong>
           </Link>
           {/* If admin view, show extra controls for user */}
           {admin && (
             <>
-              <Button as={Link} href={`/dashboard/${post.slug}`} size="sm">
+              <Button as={Link} href={`/dashboard/${post.slug}`} size="sm" className="whitespace-nowrap">
                 Edit
               </Button>
             </>
           )}
-        </CardHeader> 
+        </CardHeader>
         <Divider />
         <Link passHref href={`/users/${post.username}/${post.slug}`}>
-          <CardBody className="">
-            <h2 className='text-xl font-bold text-primary'>{post.title}</h2>
-            <p className="text-default-600">{post.content.length > 200 ? `${post.content.substring(0, 200)}...` : post.content}</p>
+          <CardBody className="p-3">
+            <h2 className="text-xl font-bold text-primary">{post.title}</h2>
+            <p className="text-default-600 line-clamp-5">{post.content}</p>
             {admin && (post.published ? <p className="text-success">Published</p> : <p className="text-danger">Unpublished</p>)}
           </CardBody>
         </Link>
       </div>
-      
-      {/* <CardFooter className='flex justify-start gap-12'> */}
-      <CardFooter className='flex justify-start gap-40 text-warning font-bold'>
+      <CardFooter className="flex justify-between text-warning font-bold mt-4">
         <span>{minutesToRead} min read</span>
         <span className="">💖 {post.heartCount || 0} Hearts</span>
         {/* <span>Views: {post.views}</span> */}
       </CardFooter>
-      
     </Card>
   );
 }
