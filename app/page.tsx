@@ -7,7 +7,7 @@ import { title, subtitle } from "@/app/components/Primitives";
 import { DiscordIcon } from "@/app/components/Icons";
 import ToastButton from "./components/ToastButton";
 import { Button } from "@nextui-org/button";
-import ExploreFeed from "./components/(postComponents)/ExploreFeed";
+import ExploreFeed from "./components/(postComponents)/NewFeed";
 import StartExploringButton from "./components/(homePage)/StartExploringButton";
 import PopularFeed from "./components/(postComponents)/PopularFeed";
 

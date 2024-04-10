@@ -13,7 +13,7 @@ import Metatags from '../Metatags';
 // Max post to query
 const LIMIT = 3;
 
-const ExploreFeed = () => {
+const NewFeed = () => {
   const [posts, setPosts] = useState<any[]>([]);
   const [loading, setLoading] = useState(false);
 
@@ -47,4 +47,4 @@ const ExploreFeed = () => {
   );
 };
 
-export default ExploreFeed;
+export default NewFeed;
