@@ -4,7 +4,7 @@ import { siteConfig } from '../config/site';
 export default function Metatags({
     title = siteConfig.name,
     description = siteConfig.description,
-    image = '', //put an image later
+    image = 'public\apple-touch-icon.png',
 }): JSX.Element {
     return (
         <Head>
@@ -13,11 +13,11 @@ export default function Metatags({
             {/* <meta name="twitter:site" content="@" /> */}
             <meta name="twitter:title" content={title} />
             <meta name="twitter:description" content={description} />
-            {/* <meta name="twitter:image" content={image} /> */}
+            <meta name="twitter:image" content={image} />
 
             <meta property="og:title" content={title} />
             <meta property="og:description" content={description} />
-            {/* <meta property="og:image" content={image} /> */}
+            <meta property="og:image" content={image} />
         </Head>
     );
 }

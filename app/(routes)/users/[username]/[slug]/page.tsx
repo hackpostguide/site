@@ -46,11 +46,14 @@ export default async function Post({ params }: { params: { username: string; slu
 
   // const postData = post;
 
+  // console.log('post title:', post?.title);
+
   // const { user: currentUser } = useContext(UserContext);
 
   return (
     <main className={`${styles.container} mb-[100px]`}>
-      <Metatags title={post?.title} description={post?.title} />
+      <Metatags title={post?.title} description={post?.title} image='' />
+      {/* Metatags do not work for some reason */}
 
       {/* DEBUG */}
       {/* <p>post: {post}</p> */}
