@@ -8,10 +8,10 @@ export const siteConfig = {
       label: "About",
       href: "/about",
     },
-    {
-      label: "Blog",
-      href: "/blog",
-    },
+    // {
+    //   label: "Blog",
+    //   href: "/blog",
+    // },
 	],
 	navMenuItems: [
 		{
@@ -22,10 +22,10 @@ export const siteConfig = {
 			label: "About",
 			href: "/about",
 		},
-		{
-			label: "Blog",
-			href: "/blog",
-		},
+		// {
+		// 	label: "Blog",
+		// 	href: "/blog",
+		// },
 		{
 			label: "Login / Sign Up",
 			href: "/enter",
@@ -40,10 +40,10 @@ export const siteConfig = {
 			label: "About",
 			href: "/about",
 		},
-		{
-			label: "Blog",
-			href: "/blog",
-		},
+		// {
+		// 	label: "Blog",
+		// 	href: "/blog",
+		// },
 		{
 			label: "My Profile",
 			href: "/users",
@@ -59,7 +59,6 @@ export const siteConfig = {
 	],
 	links: {
 		github: "https://github.com/hackpostguide/site",
-		twitter: "https://twitter.com/",
 		discord: "https://discord.gg/UjZDQcTMjD",
 	},
 };

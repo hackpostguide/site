@@ -16,4 +16,4 @@ const Updates = () => {
   )
 }
 
-export default Updates
+// export default Updates
