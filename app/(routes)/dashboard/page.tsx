@@ -33,7 +33,7 @@ export default function Dashboard() {
           </div>
           <p className='my-6'>
             The title has to be at least 3 characters long and less than 100 characters long.
-            You will also <strong>not</strong> be able to edit the title after creating the post - we&apos;re adding this feature soon!
+            You will also <strong>not</strong> be able to edit the title after creating the post - make sure it is concise and informative!
             <br />
             After creating your post, you will be able to edit the content.
           </p>

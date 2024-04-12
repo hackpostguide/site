@@ -18,11 +18,11 @@ export default function Home() {
 		<section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10">
 			<div className="inline-block max-w-lg text-center justify-center">
 				<h1 className={title()}>Jump right in into the &nbsp;</h1>
-				<h1 className={title({color: "cyan" })}>open source&nbsp;</h1>
+				<h1 className={title({color: "blue" })}>open source&nbsp;</h1>
 				<h1 className={title()}>resource hub for&nbsp;</h1>
 				<h1 className={title({ color: "violet" })}>hackathon participants.&nbsp;</h1>
 				<h2 className={subtitle({ class: "mt-4" })}>
-				Guiding your journey. Free. Open Source. Community Driven.
+					The one-stop resource hub to help YOU ace your next hackathon. 
 				</h2>
 			</div>
 			<div className="w-full flex flex-col items-center gap-3 md:flex-row md:justify-center md:gap-3">
@@ -48,7 +48,7 @@ export default function Home() {
 
 		<section id="explore" className="py-8 md:py-10">
 			<div className="flex flex-col sm:flex-row items-center justify-between mb-4">
-				<h1 className={title({ size: "sm", color: "cyan" })}>Top Posts</h1>
+				<h1 className={title({ size: "sm", color: "yellow" })}>Top Posts & Guides</h1>
 			</div>
 			<div className="p-0">
 				<PopularFeed />
