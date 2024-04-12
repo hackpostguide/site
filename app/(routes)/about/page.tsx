@@ -5,7 +5,7 @@ import React from 'react'
 const AboutPage = () => {
     return (
       <div>
-        <h1>About this project</h1>
+        <h1>About Hackpost Guide</h1>
         <p>
         🚀 Hackpost Guide was developed to consolidate resources for hackathons and foster a community passionate about creating various things - apps, games, websites, and more. The resource hub is designed to resemble scratch.mit.edu and dev.to. We look forward to seeing your contributions to this expanding community! 🌐
         <br /> <br />
