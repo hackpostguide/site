@@ -48,6 +48,7 @@ function SignOutButton() {
       color="default"
       variant="bordered"
       startContent={<Icon icon="radix-icons:chevron-left" className="text-lg" />}
+      radius="sm"
 
       onClick={() => {
           signOut(auth)
@@ -144,6 +145,7 @@ function UsernameForm() {
               onChange={onChange}
               variant="faded"
               isRequired 
+              radius="sm"
               placeholder="eg: john-doe" 
 
             />
@@ -167,12 +169,13 @@ function UsernameForm() {
 
           <UsernameMessage username={formValue} isValid={isValid} loading={loading} />
 
-          <p className="text-sm">Usernames can only include alphanumeric characters (letters A-Z, numbers 0-9) and dashes (-) and must be 3-15 characters long. No spaces or special characters allowed.</p>
+          <p className="text-sm">Usernames can only include alphanumeric characters (letters A-Z, numbers 0-9) and dashes (-) and must be 3-15 characters long. <br/> No spaces or special characters allowed. Profanity and obscene usernames are not allowed. You will not be able to change your username after you create your account.</p>
           
           <div>
             <Button
               color="primary"
               type="submit"
+              radius="sm"
               isDisabled ={!isValid}
               className="flex w-full"
               // className="flex w-full justify-center rounded-md bg-primary px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
@@ -181,7 +184,7 @@ function UsernameForm() {
             </Button>
           </div>
 
-          <h3>Debug State</h3>
+          {/* <h3>Debug State</h3>
           <div>
             UID: {user?.uid}
             <br />
@@ -190,7 +193,7 @@ function UsernameForm() {
             Loading: {loading.toString()}
             <br />
             Username Valid: {isValid.toString()}
-          </div>
+          </div> */}
         </form>
       </section>
     );

@@ -5,9 +5,10 @@ import Image from 'next/image';
 
 import { auth, firestore } from '@/app/lib/firebase';
 import { UserContext } from '@/app/lib/context';
-import { Button } from '@nextui-org/button';
+import { Button, Card, CardBody } from '@nextui-org/react';
 import toast from 'react-hot-toast';
 import { useRouter } from 'next/navigation';
+import { Logo } from "@/app/components/Icons";
 
 export default function Enter(props: any) {
   const { username } = useContext(UserContext);
@@ -24,21 +25,18 @@ export default function Enter(props: any) {
 
   return (
     <div className="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
-      <div className="sm:mx-auto sm:w-full sm:max-w-sm">
-        <h2 className="mt-10 text-center text-3xl leading-9 tracking-tight">Create an account today!</h2>
-      </div>
-
-      <div className="mt-10 font-bold sm:mx-auto sm:w-full sm:max-w-sm">
-        <p>Continue with:</p>
-      </div>
-
-      <div className="mt-5 sm:mx-auto sm:w-full sm:max-w-sm">
-        <SignInButton />
-      </div>
-
-      <div className="mt-5 sm:mx-auto sm:w-full sm:max-w-sm">
-        <p>We only offer signing in with Google as of right now. More options are coming soon!</p>
-      </div>
+      <Card className="mx-auto w-full max-w-md p-10">
+        <CardBody>
+          <Logo size={50} className="mx-auto my-4" />
+          <h2 className="text-center mb-4">Welcome to Hackpost Guide</h2>
+          <p className="mb-4">Join our community of friendly developers creating and sharing free resources for hackathons.</p>
+          <SignInButton />
+          <p className="text-gray-500 text-sm my-4">
+            We only offer signing in with Google as of right now. More options are
+            coming soon!
+          </p>
+        </CardBody>
+      </Card>
     {/* <p>User: {String(user)}</p>
     <p>Username: {username}</p> */}
     </div>
@@ -63,8 +61,10 @@ function SignInButton() {
       <div>
         <Button
           color="default"
-          variant="bordered"
-  
+          variant="ghost"
+          fullWidth
+          size="lg"
+          radius="sm"
           onClick={signInWithGoogle}
           className="font-sm"
 
