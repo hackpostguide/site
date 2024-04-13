@@ -7,9 +7,12 @@ import { Navbar } from "@/app/components/Navbar";
 import { Link } from "@nextui-org/link";
 import clsx from "clsx";
 import { Toaster } from "react-hot-toast";
+import type { Viewport } from 'next';
+
 import { Analytics } from "@vercel/analytics/react"
 import { SpeedInsights } from "@vercel/speed-insights/next"
-import type { Viewport } from 'next'
+import { GoogleTagManager } from '@next/third-parties/google'
+
 
 export const metadata: Metadata = {
   title: {
@@ -49,6 +52,7 @@ export default function RootLayout({
           fontSans.variable
         )}
       >
+        <GoogleTagManager gtmId="G-WTDDS3XCDR" />
         <Providers themeProps={{ attribute: "class", defaultTheme: "dark", children }}>
           <div className="relative flex flex-col h-screen">
             <Navbar />
