@@ -10,7 +10,7 @@ import { serverTimestamp, query, collection, orderBy, getFirestore, setDoc, doc 
 import { useContext, useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { useCollection } from 'react-firebase-hooks/firestore'
-import kebabCase from 'lodash.kebabcase' //implement kebabCase for slug later?
+import kebabCase from 'lodash.kebabcase'
 import toast from 'react-hot-toast'
 import { title, subtitle } from "@/app/components/Primitives";
 import { Button, Input } from '@nextui-org/react';
@@ -86,7 +86,9 @@ const CreateNewPost = (): JSX.Element => {
   // Subtract the number of seconds between 1/1/1970 and 1/1/2000
   const secondsSince2000 = secondsSinceEpoch - 946684800;
   // Use the number of seconds since 1/1/2000 as the slug
-  const slug = "post-" + secondsSince2000.toString();
+  // Ensure slug is URL safe
+  const kebabTitle = encodeURI(kebabCase(title))
+  const slug = secondsSince2000.toString() + "-" + kebabTitle;
 
 
   // Validate length
