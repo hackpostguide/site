@@ -18,6 +18,10 @@ const HeartCard = ({ post, path }: { post: any; path: any }) => {
 
     const updatedPost = realtimePost || post;
 
+    if (!updatedPost.published) {
+        return null;
+    }
+
     return (
         <aside className="">
             <Card className="w-[200px] h-[600px]">

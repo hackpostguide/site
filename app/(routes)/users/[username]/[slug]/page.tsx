@@ -33,12 +33,12 @@ export default async function Post({ params }: { params: { username: string; slu
         {post?.published ? (
           <div>
             <PostContent post={post} path={path || ''} />
-            <HeartCard post={post} path={path} />
           </div>
         ) : (
           <p>This post is currently private.</p>
         )}
       </section>
+      <HeartCard post={post} path={path} />
     </main>
   );
 }
