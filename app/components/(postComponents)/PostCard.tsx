@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { Card, CardHeader, CardBody, CardFooter, Divider, Button } from "@nextui-org/react";
+import markdownToTxt from 'markdown-to-txt';
 
 export default function PostCard({ posts, admin = false }: { posts: any[], admin?: boolean }) {
   return posts && posts.length ? <>{posts.map((post: any, i: number) => <PostItem post={post} key={i} admin={admin} />)}</> : <></>;
@@ -34,7 +35,7 @@ function PostItem({ post, admin }: { post: any, admin: boolean }) {
         <Link passHref href={`/users/${post.username}/${post.slug}`}>
           <CardBody className="p-3">
             <h2 className="text-xl font-bold text-primary-500">{post.title}</h2>
-            <p className="text-default-600 line-clamp-5">{post.content}</p>
+            <p className="text-default-600 line-clamp-5">{markdownToTxt(post.content)}</p>
             {admin && (post.published ? <p className="text-success">Published</p> : <p className="text-danger">Unpublished</p>)}
           </CardBody>
         </Link>
