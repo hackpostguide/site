@@ -69,7 +69,7 @@ export default function Heart({ postRef }: any) {
           className="m-3"
           size="lg"
           color="secondary"
-          variant="bordered"
+          variant="ghost"
           onClick={removeHeart}
         >
           💔 Unheart
@@ -81,7 +81,7 @@ export default function Heart({ postRef }: any) {
           size="lg"
           onPress={handleConfetti}
           color="secondary"
-          variant="bordered"
+          variant="ghost"
           onClick={addHeart}
         >
           💖 Heart
