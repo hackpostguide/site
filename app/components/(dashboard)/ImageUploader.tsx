@@ -3,6 +3,7 @@ import { auth, storage, STATE_CHANGED } from '@/app/lib/firebase';
 import Loader from '@/app/components/Loader';
 import { ref, uploadBytesResumable, getDownloadURL } from 'firebase/storage';
 import { Button } from '@nextui-org/react';
+import { Icon } from '@iconify/react';
 
 // Uploads images to Firebase Storage
 export default function ImageUploader(): JSX.Element {
@@ -44,8 +45,12 @@ export default function ImageUploader(): JSX.Element {
         <Loader show={uploading} />
         {uploading && <h3>{progress}%</h3>}
         {!uploading && (
-            <Button onClick={() => fileInputRef?.click()}>
-            📸 Upload Img
+            <Button 
+                color="success" 
+                endContent={<Icon icon="bi:image" width="1.2em" height="1.2em" />}
+                onClick={() => fileInputRef?.click()}
+            >
+            Upload Img
             <input
                 type="file"
                 ref={setFileInputRef}
