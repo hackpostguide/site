@@ -46,11 +46,11 @@ export default function ImageUploader(): JSX.Element {
         {uploading && <h3>{progress}%</h3>}
         {!uploading && (
             <Button 
-                color="success" 
-                endContent={<Icon icon="bi:image" width="1.2em" height="1.2em" />}
+                color="secondary" 
+                endContent={<Icon icon="tabler:camera-plus" width="24" height="24" />}
                 onClick={() => fileInputRef?.click()}
             >
-            Upload Img
+            Upload Image
             <input
                 type="file"
                 ref={setFileInputRef}
