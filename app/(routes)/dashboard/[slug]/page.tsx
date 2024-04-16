@@ -63,7 +63,7 @@ function PostManager() {
                   </div>
                 )}
                 <h1 className="text-3xl font-bold mb-2">{post.title}</h1>
-                <p className="mb-4">ID: {post.slug}</p>
+                {/* <p className="mb-4">ID: {post.slug}</p> */}
                 <PostForm postRef={postRef} defaultValues={post} preview={preview} setPublished={setPublished} setIsDirty={setIsDirty} />
               </section>
               <aside className="flex flex-col bg-default px-8 py-4 rounded-md items-start">
@@ -125,7 +125,7 @@ function PostForm({ defaultValues, postRef, preview, setPublished, setIsDirty }:
           )}
     
           <div className={`${preview ? 'hidden' : 'flex flex-col gap-4'}`}>
-            {/* <ImageUploader /> */}
+            <ImageUploader />
     
             <textarea
               {...register("content", {
