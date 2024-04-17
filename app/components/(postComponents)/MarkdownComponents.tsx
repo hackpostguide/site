@@ -23,7 +23,7 @@ export const MarkdownComponents = {
         {String(children).replace(/\n$/, '')}
       </SyntaxHighlighter>
     ) : (
-      <code className="bg-gray-100 px-2 py-1 rounded inline-block" {...rest}>
+      <code className="bg-gray-800 text-gray-100 px-2 py-1 rounded inline-block" {...rest}>
         {children}
       </code>
     );
