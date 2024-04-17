@@ -10,12 +10,12 @@ export const MarkdownComponents = {
   code: (props: any) => {
     const { node, inline, className, children, ...rest } = props;
     const match = /language-(\w+)/.exec(className || '');
-    return !inline && match ? (
+    return !inline && (match || className) ? (
       <SyntaxHighlighter
         style={prismTheme}
-        language={match[1]}
+        language={match ? match[1] : 'bash'}
         PreTag="div"
-        className="bg-gray-100 px-4 py-2 rounded"
+        className="bg-gray-800 text-gray-100 px-4 py-2 rounded"
         wrapLines={true}
         wrapLongLines={true}
         {...rest}
@@ -30,12 +30,7 @@ export const MarkdownComponents = {
   },
   a: (props: React.HTMLAttributes<HTMLAnchorElement>) => {
     return (
-      <a
-        className="text-blue-500 hover:text-blue-700 underline"
-        target="_blank"
-        rel="noopener noreferrer"
-        {...props}  
-      />
+      <a className="text-blue-500 hover:text-blue-700 underline" target="_blank" rel="noopener noreferrer" {...props} />
     );
   },
   h1: (props: React.HTMLAttributes<HTMLHeadingElement>) => <h1 className="pt-16" {...props} />,
