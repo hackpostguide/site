@@ -47,7 +47,7 @@ export default function ImageUploader(): JSX.Element {
     };
 
     return (
-        <div className="box">
+        <div className="box max-w-6xl">
         <Loader show={uploading} />
         {uploading && <h3>{progress}%</h3>}
         {!uploading && (
@@ -69,8 +69,11 @@ export default function ImageUploader(): JSX.Element {
             </Tooltip>
         )}
         {downloadURL && 
-            <div className='flex flex-wrap'>
-                <Code color="success">{`![alt](${downloadURL})`}</Code>
+            <div className="rounded-md p-4 my-4 bg-neutral-300 dark:bg-gray-800 text-gray-800 dark:text-gray-200 max-w-6xl w-full">
+                <p className='font-bold'>
+                    Uploaded! Paste the following into the editor:
+                </p>
+                <code>{`![alt](${downloadURL})`}</code>
             </div>
             
         }
