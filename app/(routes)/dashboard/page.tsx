@@ -24,7 +24,7 @@ export default function Dashboard() {
         >
           My dashboard
         </h1>
-        <div>
+        <div className='mb-16'>
           <h2 className={`${title({ size: "sm" })}`}>
             Create new post
           </h2>
