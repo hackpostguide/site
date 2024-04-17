@@ -2,7 +2,7 @@ import { useRef, useState } from 'react';
 import { auth, storage, STATE_CHANGED } from '@/app/lib/firebase';
 import Loader from '@/app/components/Loader';
 import { ref, uploadBytesResumable, getDownloadURL } from 'firebase/storage';
-import { Button, Tooltip } from '@nextui-org/react';
+import { Button, Code, Tooltip } from '@nextui-org/react';
 import { Icon } from '@iconify/react';
 
 // Uploads images to Firebase Storage
@@ -54,7 +54,7 @@ export default function ImageUploader(): JSX.Element {
             <Tooltip 
                 offset={15}
                 placement= "top-end"
-                content="I am a tooltip"
+                content="After you upload your image, you will be able to copy-paste markdown code to insert your image"
             >
                 <Button color="secondary" onClick={handleFileChange} endContent={<Icon icon="tabler:camera-plus" width="24" height="24" />}>
                     Upload Image
@@ -68,7 +68,12 @@ export default function ImageUploader(): JSX.Element {
                 </Button>
             </Tooltip>
         )}
-        {downloadURL && <code className="upload-snippet">{`![alt](${downloadURL})`}</code>}
+        {downloadURL && 
+            <div className='flex flex-wrap'>
+                <Code color="success">{`![alt](${downloadURL})`}</Code>
+            </div>
+            
+        }
         </div>
     );
 }
