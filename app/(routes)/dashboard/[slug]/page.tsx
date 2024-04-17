@@ -62,7 +62,12 @@ function PostManager() {
                     </Card>
                   </div>
                 )}
-                <h1 className="text-3xl font-bold mb-2">{post.title}</h1>
+                <Card className='p-5 my-5'>
+                  <CardBody className="flex text-center">
+                    <h2 className='text-center mb-6'>{post?.title}</h2>
+                    <p className="text-warning">Preview/Editing Mode</p>
+                  </CardBody>
+                </Card>
                 {/* <p className="mb-4">ID: {post.slug}</p> */}
                 <PostForm postRef={postRef} defaultValues={post} preview={preview} setPublished={setPublished} setIsDirty={setIsDirty} />
               </section>
@@ -119,7 +124,7 @@ function PostForm({ defaultValues, postRef, preview, setPublished, setIsDirty }:
     return (
         <form onSubmit={handleSubmit(updatePost)} className="flex flex-col gap-4">
           {preview && (
-            <div className="card">
+            <div className="max-w-3xl mx-auto">
               <ReactMarkdown components={MarkdownComponents}>{watch('content')}</ReactMarkdown>
             </div>
           )}
