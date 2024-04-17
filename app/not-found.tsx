@@ -1,17 +1,14 @@
-import Link from 'next/link'
+import { Link } from "@nextui-org/react";
+
  
 export default function NotFound() {
   return (
     <div>
-      <h2>Not Found</h2>
-      {/* <iframe
-        src="https://giphy.com/embed/l2JehQ2GitHGdVG9y"
-        width="360"
-        height="271.5"
-        allowFullScreen
-      ></iframe> */}
-      <p>Could not find requested resource</p>
-      <Link href="/">Return Home</Link>
+      <h3>404 - Page Not Found</h3>
+      <p className="mb-4">Could not find requested resource</p>
+      <Link href="/">
+        <p>Go back home</p>
+      </Link>
     </div>
   )
 }
