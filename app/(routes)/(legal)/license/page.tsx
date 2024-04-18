@@ -2,7 +2,10 @@ import React from 'react'
 
 const License = () => {
   return (
-    <div>License</div>
+    <div>
+      <h2>License and Usage</h2>
+
+    </div>
   )
 }
 
