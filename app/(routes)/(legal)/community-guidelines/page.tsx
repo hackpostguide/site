@@ -2,7 +2,7 @@ import React from 'react'
 
 const CommunityGuidelines = () => {
   return (
-    <div>CommunityGuidelines</div>
+    <div>Community Guidelines</div>
   )
 }
 
