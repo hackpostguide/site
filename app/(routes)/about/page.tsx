@@ -13,7 +13,7 @@ const AboutPage = () => {
         <br /><br />
         For now, feel free to make an account and check out some posts/guides that others have created! Make sure to follow the community guidelines and maintain a positive and respectful environment. 
         <br /><br />
-        This project is still VERY much a work in progress and in its early stages. If you find a bug, or if you would like to contribute, check out our <Link isExternal href={siteConfig.links.github} aria-label="Discord"> <p>Github</p> </Link>. Make sure to also join our <Link isExternal href={siteConfig.links.discord} aria-label="Discord"> <p>Discord Server</p> </Link>.
+        This project is still VERY much a work in progress and in its early stages. If you find a bug, or if you would like to contribute, check out our <Link className="text-lg leading-7" isExternal href={siteConfig.links.github} aria-label="Discord">Github </Link>. Make sure to also join our <Link className="text-lg leading-7" isExternal href={siteConfig.links.discord} aria-label="Discord"> Discord Server </Link>.
       </p>
     </div>
   )
