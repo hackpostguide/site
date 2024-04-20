@@ -11,7 +11,7 @@ import Metatags from '../Metatags';
 // This component is very repetitive and unnecessary, remove + optimize later
 
 // Max post to query
-const LIMIT = 3;
+const LIMIT = 6;
 
 const PopularFeed = () => {
   const [posts, setPosts] = useState<any[]>([]);

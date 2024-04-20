@@ -62,7 +62,7 @@ export default function Home() {
 					color="primary"
 					className="text-xs sm:text-sm"
 				>
-					Explore All Posts
+					Explore All
 				</Button>
 			</div>
 		</section>

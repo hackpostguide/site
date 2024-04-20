@@ -41,7 +41,7 @@ function PostItem({ post, admin }: { post: any, admin: boolean }) {
         </Link>
       </div>
       <CardFooter className="flex justify-between text-warning font-bold mt-4">
-        <span>~ {minutesToRead} min</span>
+        <span>~{minutesToRead} min</span>
         <span className="">💖 {post.heartCount || 0} Hearts</span>
         {/* <span>Views: {post.views}</span> */}
       </CardFooter>
