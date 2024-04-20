@@ -12,7 +12,7 @@ import GridFeed from '@/app/components/(postComponents)/GridFeed';
 import Metatags from '@/app/components/Metatags';
 
 // Max post to query per page
-const LIMIT = 6;
+const LIMIT = 9;
 
 const Home = () => {
   const [posts, setPosts] = useState<any[]>([]);
