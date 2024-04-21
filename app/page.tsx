@@ -10,6 +10,7 @@ import { Button } from "@nextui-org/button";
 import ExploreFeed from "./components/(postComponents)/NewFeed";
 import StartExploringButton from "./components/(homePage)/StartExploringButton";
 import PopularFeed from "./components/(postComponents)/PopularFeed";
+import About from "./components/(homePage)/About";
 
 export default function Home() {
 	return (
@@ -67,6 +68,9 @@ export default function Home() {
 			</div>
 		</section>
 
+		<section className="py-8 md:py-10 mb-16">
+			<About />
+		</section>
 
 		</>
 	);
