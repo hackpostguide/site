@@ -29,9 +29,9 @@ export default function Enter(props: any) {
         <CardBody>
           <Logo size={50} className="mx-auto my-4" />
           <h3 className="text-center mb-4">Welcome to Hackpost Guide</h3>
-          <p className="mb-4">Join our community of friendly developers creating and sharing free resources for hackathons.</p>
+          <p className="mb-6">Join our community of friendly developers creating and sharing free resources for hackathons.</p>
           <SignInButton />
-          <p className="text-gray-500 text-sm my-4">
+          <p className="text-gray-500 text-sm my-6">
             We only offer signing in with Google as of right now. More options are
             coming soon!
           </p>
