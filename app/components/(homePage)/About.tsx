@@ -11,11 +11,9 @@ const About = () => {
         <p className="mb-4">
           The codebase is open source, and we welcome contributions from the community. If you find a bug, have a feature request, or want to contribute improvements, check out our GitHub repository.
         </p>
-        <div className="flex justify-between items-center">
         <Button color="secondary" size='lg' as={Link} className='text-xs font-normal md:text-sm' variant='ghost' href={siteConfig.links.github}>
           <GithubIcon size={20} /> Github
-          </Button>
-        </div>
+        </Button>
       </div>
       <div className="md:w-2/3 md:ml-auto md:text-right">
         <p className="mb-4">

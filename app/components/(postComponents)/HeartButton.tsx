@@ -1,3 +1,4 @@
+'use client';
 import { auth } from '@/app/lib/firebase';
 // import { useDocument } from '@/app/lib/hooks';
 import { useDocument } from 'react-firebase-hooks/firestore';
