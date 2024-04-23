@@ -5,21 +5,27 @@ import { ref, uploadBytesResumable, getDownloadURL } from 'firebase/storage';
 import { Button, Code, Tooltip } from '@nextui-org/react';
 import { Icon } from '@iconify/react';
 
-// Uploads images to Firebase Storage
 export default function ImageUploader(): JSX.Element {
     const [uploading, setUploading] = useState(false);
     const [progress, setProgress] = useState(0);
     const [downloadURL, setDownloadURL] = useState(null);
+    const [error, setError] = useState<string | null>(null);
     const fileInputRef = useRef<HTMLInputElement>(null);
   
     // Creates a Firebase Upload Task
     const uploadFile = async () => {
         if (fileInputRef.current) {
         const file = fileInputRef.current.files?.[0] as Blob;
+        if (file.size > 500 * 1024 * 1024) {
+            setError('File size must be less than 500 MB');
+            return;
+        }
+
         const extension = file?.type.split('/')[1];
         const uid: any = auth?.currentUser?.uid;
         const fileRef = ref(storage, `uploads/${uid}/${Date.now()}.${extension}`);
         setUploading(true);
+        setError(null);
 
         // Starts the upload
         const task = uploadBytesResumable(fileRef, file);
@@ -28,6 +34,9 @@ export default function ImageUploader(): JSX.Element {
         task.on(STATE_CHANGED, (snapshot) => {
             const pct: any = ((snapshot.bytesTransferred / snapshot.totalBytes) * 100).toFixed(0);
             setProgress(pct);
+        }, (error) => {
+            setError('Upload failed: ' + error.message);
+            setUploading(false);
         });
 
         // Get downloadURL AFTER task resolves (Note: this is not a native Promise)
@@ -36,6 +45,10 @@ export default function ImageUploader(): JSX.Element {
             .then((url: any) => {
             setDownloadURL(url);
             setUploading(false);
+            })
+            .catch((error) => {
+                setError('Failed to get download URL: ' + error.message);
+                setUploading(false);
             });
         }
     };
@@ -50,6 +63,7 @@ export default function ImageUploader(): JSX.Element {
         <div className="box max-w-6xl">
         <Loader show={uploading} />
         {uploading && <h3>{progress}%</h3>}
+        {error && <div className="text-danger">{error}</div>}
         {!uploading && (
             <Tooltip 
                 offset={15}
