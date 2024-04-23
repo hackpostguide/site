@@ -11,7 +11,7 @@ const About = () => {
         <p className="mb-4">
           The codebase is open source, and we welcome contributions from the community. If you find a bug, have a feature request, or want to contribute improvements, check out our GitHub repository.
         </p>
-        <Button color="secondary" size='lg' as={Link} className='text-xs font-normal md:text-sm' variant='ghost' href={siteConfig.links.github}>
+        <Button isExternal color="secondary" size='lg' as={Link} className='text-xs font-normal md:text-sm' variant='ghost' href={siteConfig.links.github}>
           <GithubIcon size={20} /> Github
         </Button>
       </div>
@@ -19,7 +19,7 @@ const About = () => {
         <p className="mb-4">
           Likewise, make sure to also join our discord server! Our Discord server is a great place to get support, share knowledge, and be part of a vibrant community.
         </p>
-        <Button color="primary" size='lg' as={Link} className='text-xs font-normal md:text-sm' variant='ghost' href={siteConfig.links.discord}>
+        <Button isExternal color="primary" size='lg' as={Link} className='text-xs font-normal md:text-sm' variant='ghost' href={siteConfig.links.discord}>
           <DiscordIcon size={20} /> Join our Discord
         </Button>
       </div>
