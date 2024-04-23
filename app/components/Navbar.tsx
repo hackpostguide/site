@@ -51,9 +51,9 @@ export const Navbar = () => {
 	  };
 
 	//debugging:
-	useEffect(() => {
-		console.log('Menu Open:', menuOpen);
-	  }, [menuOpen]);
+	// useEffect(() => {
+	// 	console.log('Menu Open:', menuOpen);
+	//   }, [menuOpen]);
 
 	// Implement search later
 	const searchInput = (
