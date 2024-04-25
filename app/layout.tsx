@@ -41,7 +41,7 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const currentYear = new Date().getFullYear();
+  const currentYear = 2024;
 
   return (
     <html lang="en" suppressHydrationWarning={true}>
