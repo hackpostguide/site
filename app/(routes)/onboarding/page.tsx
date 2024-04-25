@@ -6,7 +6,7 @@ import debounce from 'lodash.debounce';
 import { auth, firestore } from '@/app/lib/firebase';
 import { UserContext } from '@/app/lib/context';
 import { Button } from '@nextui-org/button';
-import { Input } from '@nextui-org/react';
+import { Checkbox, Input } from '@nextui-org/react';
 import toast from 'react-hot-toast';
 import { useRouter } from 'next/navigation';
 import { signOut } from 'firebase/auth';
@@ -66,12 +66,19 @@ function UsernameForm() {
   const [formValue, setFormValue] = useState('');
   const [isValid, setIsValid] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [isOver13, setIsOver13] = useState(false);
+  const [agreedToTerms, setAgreedToTerms] = useState(false);
 
   const { username } = useContext(UserContext);
   const user = auth.currentUser;
 
   const onSubmit = async (e: any) => {
     e.preventDefault();
+
+    if (!isOver13 || !agreedToTerms) {
+      toast.error('Please agree to the age and terms requirements to continue.');
+      return;
+    }
 
     const userDocRef = doc(firestore, `users/${user?.uid}`);
     const usernameDocRef = doc(firestore, `usernames/${formValue}`);
@@ -149,28 +156,37 @@ function UsernameForm() {
               placeholder="eg: john-doe" 
 
             />
-            {/* <label htmlFor="username" className="block text-sm font-medium leading-6 text-gray-900">
-              Username
-            </label>
-            <div className="mt-2">
-              <input
-                id="username"
-                name="username"
-                type="text"
-                autoComplete="username"
-                placeholder="myname"
-                value={formValue}
-                onChange={onChange}
-                required
-                className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-              />
-            </div> */}
           </div>
 
           <UsernameMessage username={formValue} isValid={isValid} loading={loading} />
 
           <p className="text-sm">Usernames can only include alphanumeric characters (letters A-Z, numbers 0-9) and dashes (-) and must be 3-15 characters long. <br/> No spaces or special characters allowed. Profanity and obscene usernames are not allowed. You will not be able to change your username after you create your account.</p>
           
+          {/* Age requirement checkbox */}
+          <div className="flex items-center">
+            <Checkbox isSelected={isOver13} onValueChange={setIsOver13}>
+              I am 13 years old or older.
+            </Checkbox>
+          </div>
+
+          {/* Terms and guidelines checkbox */}
+          <div className="flex items-center">
+            <Checkbox isSelected={agreedToTerms} onValueChange={setAgreedToTerms}>
+              I have read and agree to the Terms of Service, Privacy Policy, and Community Guidelines.
+            </Checkbox>
+            {/* <input
+              id="terms"
+              type="checkbox"
+              checked={agreedToTerms}
+              onChange={(e) => setAgreedToTerms(e.target.checked)}
+              required
+              className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600"
+            />
+            <label htmlFor="terms" className="ml-2 block text-sm text-gray-900">
+              I have read and agree to the <a href="#" className="text-indigo-600 hover:text-indigo-500">Terms of Service</a>, <a href="#" className="text-indigo-600 hover:text-indigo-500">Privacy Policy</a>, and <a href="#" className="text-indigo-600 hover:text-indigo-500">Community Guidelines</a>.
+            </label> */}
+          </div>
+
           <div>
             <Button
               color="primary"
@@ -184,7 +200,7 @@ function UsernameForm() {
             </Button>
           </div>
 
-          {/* <h3>Debug State</h3>
+          <h3>Debug State</h3>
           <div>
             UID: {user?.uid}
             <br />
@@ -193,7 +209,9 @@ function UsernameForm() {
             Loading: {loading.toString()}
             <br />
             Username Valid: {isValid.toString()}
-          </div> */}
+            <br />
+            Selected IsOver13: {isOver13 ? "true" : "false"}
+          </div>
         </form>
       </section>
     );
