@@ -27,13 +27,8 @@ export default function Onboarding(props: any) {
 
   return (
     <div className="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
-      <div className="sm:mx-auto sm:w-full sm:max-w-sm">
-        <h2 className="mt-10 text-center text-3xl leading-9 tracking-tight">Create an account today!</h2>
-      </div>
-
       <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
         <UsernameForm />
-        <SignOutButton />
       </div>
 
     </div>
@@ -96,8 +91,8 @@ function UsernameForm() {
     batch.set(usernameDocRef, { uid: user?.uid });
 
     await batch.commit();
-    console.log('Username created!');
-    toast.success('Signed up successfully!');
+    // console.log('Username created!');
+    toast.success('Signed up successfully! Redirecting to dashboard...');
   };
 
   const onChange = (e: any) => {
@@ -136,6 +131,10 @@ function UsernameForm() {
 
   if (!username) {
     return (
+      <div>
+      <div className="sm:mx-auto sm:w-full sm:max-w-sm">
+        <h2 className="py-10 text-center text-3xl leading-9 tracking-tight">Create an account today!</h2>
+      </div>
       <section>
         <h3 className='text-xl mb-3'>You are almost there!</h3>
         <p>Choose a Username:</p>
@@ -172,19 +171,8 @@ function UsernameForm() {
           {/* Terms and guidelines checkbox */}
           <div className="flex items-center">
             <Checkbox isSelected={agreedToTerms} onValueChange={setAgreedToTerms}>
-              I have read and agree to the <Link href='terms' isExternal>Terms of Service</Link>, Privacy Policy, and Community Guidelines.
+              I have read and agree to the <Link href='terms' isExternal>Terms of Service</Link>, <Link href='privacy' isExternal>Privacy Policy</Link>, and <Link href='community-guidelines' isExternal>Community Guidelines</Link>.
             </Checkbox>
-            {/* <input
-              id="terms"
-              type="checkbox"
-              checked={agreedToTerms}
-              onChange={(e) => setAgreedToTerms(e.target.checked)}
-              required
-              className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600"
-            />
-            <label htmlFor="terms" className="ml-2 block text-sm text-gray-900">
-              I have read and agree to the <a href="#" className="text-indigo-600 hover:text-indigo-500">Terms of Service</a>, <a href="#" className="text-indigo-600 hover:text-indigo-500">Privacy Policy</a>, and <a href="#" className="text-indigo-600 hover:text-indigo-500">Community Guidelines</a>.
-            </label> */}
           </div>
 
           <div>
@@ -200,7 +188,7 @@ function UsernameForm() {
             </Button>
           </div>
 
-          <h3>Debug State</h3>
+          {/* <h3>Debug State</h3>
           <div>
             UID: {user?.uid}
             <br />
@@ -211,9 +199,11 @@ function UsernameForm() {
             Username Valid: {isValid.toString()}
             <br />
             Selected IsOver13: {isOver13 ? "true" : "false"}
-          </div>
+          </div> */}
         </form>
       </section>
+      <SignOutButton />
+      </div>
     );
   }
 
