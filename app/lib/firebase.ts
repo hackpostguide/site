@@ -1,7 +1,7 @@
 // Firebase v9+ imports use the new modular syntax
 import { initializeApp, getApp, getApps, FirebaseOptions } from 'firebase/app';
 import { getAuth, GoogleAuthProvider } from 'firebase/auth';
-import { collection, getDoc, getDocs, getFirestore, limit, query, where } from 'firebase/firestore';
+import { collection, collectionGroup, getDoc, getDocs, getFirestore, limit, orderBy, query, QueryConstraint, where } from 'firebase/firestore';
 import { getStorage } from 'firebase/storage';
 import { getAnalytics, isSupported } from "firebase/analytics";
 
@@ -73,3 +73,16 @@ export function postToJSON(doc: any) {
 // }
 
 // export { analytics };
+
+export const fetchPopularPosts = async (limit: (arg0: any) => QueryConstraint) => {
+  const ref = collectionGroup(getFirestore(), 'posts');
+  const postsQuery = query(
+    ref,
+    where('published', '==', true),
+    orderBy('heartCount', 'desc'),
+    limit(limit)
+  );
+  const querySnapshot = await getDocs(postsQuery);
+  const posts = querySnapshot.docs.map(doc => postToJSON(doc));
+  return posts;
+};
