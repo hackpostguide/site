@@ -1,10 +1,8 @@
 'use server';
-
-import PostCard from '../PostCard';
 import GridFeed from '../GridFeed';
 import Metatags from '../../Metatags';
 import { postToJSON, fetchPopularPosts } from '@/app/lib/firebase';
-import { limit, QueryConstraint } from 'firebase/firestore';
+import { limit } from 'firebase/firestore';
 
 // Max post to query: 6
 const LIMIT = 6;

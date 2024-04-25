@@ -1,13 +1,9 @@
 import { Link } from "@nextui-org/link";
-import { Snippet } from "@nextui-org/snippet";
-import { Code } from "@nextui-org/code"
 import { button as buttonStyles } from "@nextui-org/theme";
 import { siteConfig } from "@/app/config/site";
 import { title, subtitle } from "@/app/components/Primitives";
 import { DiscordIcon } from "@/app/components/Icons";
-import ToastButton from "./components/ToastButton";
 import { Button } from "@nextui-org/button";
-import ExploreFeed from "./components/(postComponents)/(Feeds)/NewFeed";
 import StartExploringButton from "./components/(homePage)/StartExploringButton";
 import PopularFeed from "./components/(postComponents)/(Feeds)/PopularFeed";
 import About from "./components/(homePage)/About";

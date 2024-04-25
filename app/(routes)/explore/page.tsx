@@ -1,7 +1,4 @@
 'use client'
-import type { GetServerSideProps, NextPage } from 'next';
-
-import PostCard from '@/app/components/(postComponents)/PostCard';
 import Loader from '@/app/components/Loader';
 import { fetchNewPosts, postToJSON } from '@/app/lib/firebase';
 import { Timestamp, query, where, orderBy, limit, collectionGroup, getDocs, startAfter, getFirestore } from 'firebase/firestore';
