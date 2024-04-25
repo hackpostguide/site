@@ -21,6 +21,6 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "app/utils/mdxComponents.js"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "app/utils/mdxComponents.js", "app/(routes)/(legal)/terms/page.mdx"],
   "exclude": ["node_modules"]
 }
