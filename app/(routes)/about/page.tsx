@@ -17,9 +17,9 @@ const AboutPage = () => {
       <div className="text-lg leading-7">
         This project is still very much a work in progress and in its early stages. If you encounter a bug, or if you would like to contribute, please check out our <Link className="text-lg leading-7" isExternal href={siteConfig.links.github} aria-label="Github">Github</Link>. Be sure to also join our <Link className="text-lg leading-7" isExternal href={siteConfig.links.discord} aria-label="Discord">Discord Server</Link>.
       </div>
-      <div className='my-4'>
-        <h2 className='my-2'>Known Bugs</h2>
-        <p>Sometimes, the homepage and explore page do not render; instead, an <u>Application error: a client-side exception has occurred</u> appears, indicating a problem with hydration (Minified React error #423) along with a TypeError: Cannot destructure property &apos;parallelRouterKey&apos; of &apos;param&apos; as it is null. This bug is still present and being addressed. If you would like to assist, please visit our GitHub repository.</p>
+      <div className='mt-16'>
+        <h3 className='my-2'>Known Bugs</h3>
+        <p>Sometimes, the homepage and explore page do not render; instead, an <u>Application error: a client-side exception has occurred</u> appears, indicating a problem with hydration (<u>Minified React error #423</u>) along with a <u>TypeError: Cannot destructure property &apos;parallelRouterKey&apos; of &apos;param&apos; as it is null</u>. This bug is still present and being addressed. If you would like to assist, please visit our GitHub repository.</p>
         <br />        
         <p>If you discover more bugs or issues, let us know either in our Discord Server or on Github.</p>
       </div>
