@@ -3,7 +3,7 @@ import type { GetServerSideProps, NextPage } from 'next';
 
 import PostCard from '@/app/components/(postComponents)/PostCard';
 import Loader from '@/app/components/Loader';
-import { postToJSON } from '@/app/lib/firebase';
+import { fetchNewPosts, postToJSON } from '@/app/lib/firebase';
 import { Timestamp, query, where, orderBy, limit, collectionGroup, getDocs, startAfter, getFirestore } from 'firebase/firestore';
 
 import { useEffect, useState } from 'react';
@@ -47,7 +47,12 @@ const Explore = () => {
   };
 
   useEffect(() => {
-    fetchPosts();
+    const fetchInitialPosts = async () => {
+      const posts = await fetchNewPosts(() => limit(LIMIT));
+      setPosts(posts);
+    };
+    fetchInitialPosts();
+    // fetchPosts();
   }, []);
 
   // Get next page in pagination query
