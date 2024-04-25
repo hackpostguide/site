@@ -9,9 +9,13 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@mdx-js/loader": "^3.0.1",
+    "@mdx-js/react": "^3.0.1",
+    "@next/mdx": "^14.2.3",
     "@next/third-parties": "^14.2.1",
     "@nextui-org/react": "^2.2.10",
     "@tailwindcss/typography": "^0.5.12",
+    "@types/mdx": "^2.0.13",
     "@vercel/analytics": "^1.2.2",
     "@vercel/speed-insights": "^1.0.10",
     "canvas-confetti": "^1.9.2",
