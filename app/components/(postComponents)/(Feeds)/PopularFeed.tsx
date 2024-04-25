@@ -1,19 +1,19 @@
 'use client';
 
-import PostCard from './PostCard';
+import PostCard from '../PostCard';
 import Loader from '@/app/components/Loader';
 import { postToJSON } from '@/app/lib/firebase';
 import { query, where, orderBy, limit, collectionGroup, getDocs, getFirestore } from 'firebase/firestore';
 import { useEffect, useState } from 'react';
-import GridFeed from './GridFeed';
-import Metatags from '../Metatags';
+import GridFeed from '../GridFeed';
+import Metatags from '../../Metatags';
 
 // This component is very repetitive and unnecessary, remove + optimize later
 
 // Max post to query
-const LIMIT = 3;
+const LIMIT = 6;
 
-const NewFeed = () => {
+const PopularFeed = () => {
   const [posts, setPosts] = useState<any[]>([]);
   const [loading, setLoading] = useState(false);
 
@@ -24,7 +24,7 @@ const NewFeed = () => {
     const postsQuery = query(
       ref,
       where('published', '==', true),
-      orderBy('createdAt', 'desc'),
+      orderBy('heartCount', 'desc'),
       limit(LIMIT)
     );
     const querySnapshot = await getDocs(postsQuery);
@@ -39,7 +39,7 @@ const NewFeed = () => {
 
   return (
     <main>
-      <Metatags title="Explore New Posts" description="New posts from the community" />
+      <Metatags title="Explore Popular Posts" description="Popular posts from the community" />
 
       <GridFeed posts={posts} />
       <Loader show={loading} />
@@ -47,4 +47,4 @@ const NewFeed = () => {
   );
 };
 
-export default NewFeed;
+export default PopularFeed;
