@@ -18,12 +18,15 @@ export default async function UserProfilePage({ params }: { params: { username: 
   //if no user, return 404 page
   if (!userData) {
     // return notFound();
-    return <main>
-      <h1>404 - That page does not seem to exist...</h1>
-      <Link href="/public">
-        <button className="btn-blue">Go home</button>
-      </Link>
-    </main>;
+    return (
+      <div>
+        <h3>404 - Page Not Found</h3>
+        <p className="mb-4">Could not find requested resource</p>
+        <Link href="/">
+          <p>Go back home</p>
+        </Link>
+      </div>
+    )
     // return {
     //   notFound: true,
     // };
