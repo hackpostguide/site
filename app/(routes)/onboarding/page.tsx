@@ -6,7 +6,7 @@ import debounce from 'lodash.debounce';
 import { auth, firestore } from '@/app/lib/firebase';
 import { UserContext } from '@/app/lib/context';
 import { Button } from '@nextui-org/button';
-import { Checkbox, Input } from '@nextui-org/react';
+import { Checkbox, Input, Link } from '@nextui-org/react';
 import toast from 'react-hot-toast';
 import { useRouter } from 'next/navigation';
 import { signOut } from 'firebase/auth';
@@ -172,7 +172,7 @@ function UsernameForm() {
           {/* Terms and guidelines checkbox */}
           <div className="flex items-center">
             <Checkbox isSelected={agreedToTerms} onValueChange={setAgreedToTerms}>
-              I have read and agree to the Terms of Service, Privacy Policy, and Community Guidelines.
+              I have read and agree to the <Link href='terms' isExternal>Terms of Service</Link>, Privacy Policy, and Community Guidelines.
             </Checkbox>
             {/* <input
               id="terms"
