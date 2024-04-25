@@ -45,11 +45,12 @@ const Explore = () => {
 
   useEffect(() => {
     const fetchInitialPosts = async () => {
+      setLoading(true);
       const posts = await fetchNewPosts(() => limit(LIMIT));
       setPosts(posts);
+      setLoading(false);
     };
     fetchInitialPosts();
-    // fetchPosts();
   }, []);
 
   // Get next page in pagination query
