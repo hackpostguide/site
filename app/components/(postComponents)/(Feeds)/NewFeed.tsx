@@ -1,47 +1,25 @@
-'use client';
+'use server';
 
-import PostCard from '../PostCard';
-import Loader from '@/app/components/Loader';
-import { postToJSON } from '@/app/lib/firebase';
-import { query, where, orderBy, limit, collectionGroup, getDocs, getFirestore } from 'firebase/firestore';
-import { useEffect, useState } from 'react';
 import GridFeed from '../GridFeed';
 import Metatags from '../../Metatags';
+import { postToJSON, fetchNewPosts } from '@/app/lib/firebase';
+import { query, where, orderBy, limit, collectionGroup, getDocs, getFirestore } from 'firebase/firestore';
 
 // Max post to query: 6
+const LIMIT = 6;
 
-const NewFeed = ({ LIMIT = 6 }) => {
-  const [posts, setPosts] = useState<any[]>([]);
-  const [loading, setLoading] = useState(false);
+async function getData() {
+  const posts = await fetchNewPosts(() => limit(LIMIT));
+  return { posts };
+}
 
-  // Function to fetch posts
-  const fetchPosts = async () => {
-    setLoading(true);
-    const ref = collectionGroup(getFirestore(), 'posts');
-    const postsQuery = query(
-      ref,
-      where('published', '==', true),
-      orderBy('createdAt', 'desc'),
-      limit(LIMIT)
-    );
-    const querySnapshot = await getDocs(postsQuery);
-    const newPosts = querySnapshot.docs.map(doc => postToJSON(doc));
-    setPosts(newPosts);
-    setLoading(false);
-  };
-
-  useEffect(() => {
-    fetchPosts();
-  }, []);
+export default async function NewFeed() {
+  const { posts } = await getData();
 
   return (
     <main>
       <Metatags title="Explore New Posts" description="New posts from the community" />
-
       <GridFeed posts={posts} />
-      <Loader show={loading} />
     </main>
   );
-};
-
-export default NewFeed;
+}

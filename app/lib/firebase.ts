@@ -86,3 +86,16 @@ export const fetchPopularPosts = async (limit: (arg0: any) => QueryConstraint) =
   const posts = querySnapshot.docs.map(doc => postToJSON(doc));
   return posts;
 };
+
+export const fetchNewPosts = async (limit: (arg0: any) => QueryConstraint) => {
+  const ref = collectionGroup(getFirestore(), 'posts');
+  const postsQuery = query(
+    ref,
+    where('published', '==', true),
+    orderBy('createdAt', 'desc'),
+    limit(limit)
+  );
+  const querySnapshot = await getDocs(postsQuery);
+  const posts = querySnapshot.docs.map(doc => postToJSON(doc));
+  return posts;
+}

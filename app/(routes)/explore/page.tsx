@@ -14,7 +14,7 @@ import Metatags from '@/app/components/Metatags';
 // Max post to query per page
 const LIMIT = 9;
 
-const Home = () => {
+const Explore = () => {
   const [posts, setPosts] = useState<any[]>([]);
   const [loading, setLoading] = useState(false);
   const [postsEnd, setPostsEnd] = useState(false);
@@ -82,4 +82,4 @@ const Home = () => {
   );
 }
 
-export default Home
+export default Explore
