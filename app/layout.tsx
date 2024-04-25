@@ -67,6 +67,14 @@ export default function RootLayout({
                   <span className="text-default-600">Terms and Conditions</span>
                 </Link>
                 &bull;
+                <Link isExternal href="https://www.hackpost.guide/privacy" title="Privacy">
+                  <span className="text-default-600">Privacy</span>
+                </Link>
+                &bull;
+                <Link isExternal href="https://www.hackpost.guide/community-guidelines" title="Community Guidelines">
+                  <span className="text-default-600">Community Guidelines</span>
+                </Link>
+                &bull;
                 <Link isExternal href="https://nextui.org" title="nextui.org">
                   <span className="text-default-600">Powered by NextUI</span>
                 </Link>
