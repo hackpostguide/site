@@ -44,7 +44,7 @@ export default function RootLayout({
   const currentYear = new Date().getFullYear();
 
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning={true}>
       <head />
       <body
         className={clsx(
