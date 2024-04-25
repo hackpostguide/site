@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://www.hackpost.guide
+
+# Sitemaps
+Sitemap: https://www.hackpost.guide/sitemap.xml
