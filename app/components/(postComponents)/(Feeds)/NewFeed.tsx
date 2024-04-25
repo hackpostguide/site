@@ -8,12 +8,9 @@ import { useEffect, useState } from 'react';
 import GridFeed from '../GridFeed';
 import Metatags from '../../Metatags';
 
-// This component is very repetitive and unnecessary, remove + optimize later
+// Max post to query: 6
 
-// Max post to query
-const LIMIT = 3;
-
-const NewFeed = () => {
+const NewFeed = ({ LIMIT = 6 }) => {
   const [posts, setPosts] = useState<any[]>([]);
   const [loading, setLoading] = useState(false);
 
