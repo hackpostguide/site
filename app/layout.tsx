@@ -53,13 +53,13 @@ export default function RootLayout({
       >
         <GoogleTagManager gtmId="G-WTDDS3XCDR" />
         <Providers themeProps={{ attribute: "class", defaultTheme: "dark", children }}>
-          <div className="relative flex flex-col h-screen">
-            <Nav />
+          <Nav />
+          {/* <div className="relative flex flex-col h-screen"> */}
             <main className="container mx-auto max-w-7xl pt-16 px-6 flex-grow">
               {children}
             </main>
             <Footer />
-          </div>
+          {/* </div> */}
 		      <Toaster />
           <Analytics />
           <SpeedInsights />
