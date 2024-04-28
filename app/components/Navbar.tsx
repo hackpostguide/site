@@ -98,7 +98,7 @@ export const Nav = () => {
 								color="foreground"
 								href={item.href}
 							>
-								<p>{item.label}</p>
+								{item.label}
 							</NextLink>
 						</NavbarItem>
 					))}
