@@ -1,7 +1,7 @@
 'use client';
 import { doc, getFirestore, updateDoc, increment } from 'firebase/firestore';
 import { useEffect } from 'react';
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/navigation';
 
 
 export function useUpdateViews(slug: string, path: string) {

@@ -78,7 +78,7 @@ export const Nav = () => {
 	);
 
 	return (
-		<Navbar maxWidth="xl" position="sticky" isBordered isMenuOpen={menuOpen}>
+		<Navbar maxWidth="xl" position="static" isBordered isMenuOpen={menuOpen}>
 			<NavbarContent className="basis-1/5 sm:basis-full" justify="start">
 				<NavbarBrand as="li" className="gap-3 max-w-fit">
 					<NextLink className="flex justify-start items-center gap-2" href="/">
@@ -211,7 +211,7 @@ export const Nav = () => {
 								size="lg"
 								onClick={() => setMenuOpen(false)} 
 							>
-								<p>{item.label}</p>
+								{item.label}
 							</Link>
 						)}
 					</NavbarMenuItem>
@@ -231,7 +231,7 @@ export const Nav = () => {
 							size="lg"
 							onClick={() => setMenuOpen(false)} 
 						>
-							<p>{item.label}</p>
+							{item.label}
 						</Link>
 						)}
 					</NavbarMenuItem>
