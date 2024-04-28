@@ -3,7 +3,7 @@ import { Metadata } from "next";
 import { siteConfig } from "@/app/config/site";
 import { fontSans } from "@/app/config/fonts";
 import { Providers } from "./providers";
-import { Navbar } from "@/app/components/Navbar";
+import { Nav } from "@/app/components/Navbar";
 import { Link } from "@nextui-org/link";
 import clsx from "clsx";
 import { Toaster } from "react-hot-toast";
@@ -54,7 +54,7 @@ export default function RootLayout({
         <GoogleTagManager gtmId="G-WTDDS3XCDR" />
         <Providers themeProps={{ attribute: "class", defaultTheme: "dark", children }}>
           <div className="relative flex flex-col h-screen">
-            <Navbar />
+            <Nav />
             <main className="container mx-auto max-w-7xl pt-16 px-6 flex-grow">
               {children}
             </main>

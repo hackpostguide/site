@@ -1,6 +1,6 @@
 'use client';
 import {
-	Navbar as NextUINavbar,
+	Navbar,
 	NavbarContent,
 	NavbarMenu,
 	NavbarMenuToggle,
@@ -38,7 +38,7 @@ import { signOut } from "firebase/auth";
 import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
 
-export const Navbar = () => {
+export const Nav = () => {
 	const { username } = useContext(UserContext);
 	const [menuOpen, setMenuOpen] = useState(false);
 	const router = useRouter();
@@ -78,7 +78,7 @@ export const Navbar = () => {
 	);
 
 	return (
-		<NextUINavbar maxWidth="xl" position="sticky" isBordered isMenuOpen={menuOpen}>
+		<Navbar maxWidth="xl" position="sticky" isBordered isMenuOpen={menuOpen}>
 			<NavbarContent className="basis-1/5 sm:basis-full" justify="start">
 				<NavbarBrand as="li" className="gap-3 max-w-fit">
 					<NextLink className="flex justify-start items-center gap-2" href="/">
@@ -239,6 +239,6 @@ export const Navbar = () => {
 			</div>
 			</NavbarMenu>
 
-		</NextUINavbar>
+		</Navbar>
 	);
 };
