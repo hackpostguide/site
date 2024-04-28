@@ -10,7 +10,7 @@ const firestore = getFirestore();
 export function useUserData() {
   const [user] = useAuthState(auth);
   // const user = auth.currentUser;
-  const [username, setUsername] = useState<string>('');
+  const [username, setUsername] = useState<string | null>(null);
 
   useEffect(() => {
     let unsubscribe = () => {};
@@ -23,7 +23,7 @@ export function useUserData() {
         setUsername(doc.data()?.username);
       });
     } else {
-      setUsername('');
+      setUsername(null);
     }
 
     // Clean up the subscription

@@ -21,7 +21,7 @@ export function Providers({ children, themeProps }: ProvidersProps) {
   const userData = useUserData();
 
 	return (
-		<UserContext.Provider value={{ ...userData, username: userData.username || ''}}>
+		<UserContext.Provider value={userData}>
 			<ProgressBar
 				height="4px"
 				color="#006FEE"

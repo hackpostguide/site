@@ -35,12 +35,12 @@ const UserAvatar = () => {
             </DropdownItem>
             <DropdownItem key="profile">
                 <Link href={`/users/${username}`} color="foreground">
-                    My Profile
+                    <p>My Profile</p>
                 </Link>
             </DropdownItem>
             <DropdownItem key="dashboard">
                 <Link href="/dashboard" color="foreground">
-                    My Dashboard
+                    <p>My Dashboard</p>
                 </Link>
             </DropdownItem>
             {/* <DropdownItem key="settings">
