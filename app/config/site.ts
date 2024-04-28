@@ -1,7 +1,7 @@
 export type SiteConfig = typeof siteConfig;
 
 export const siteConfig = {
-	name: "Hackpost Guide - Jump Right In",
+	name: "Hackpost Guide - Jump Right In!",
 	description: "The open source resource hub for hackathoners. Free. Community Driven.",
 	navItems: [
     {
