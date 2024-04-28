@@ -12,6 +12,7 @@ import type { Viewport } from 'next';
 import { Analytics } from "@vercel/analytics/react"
 import { SpeedInsights } from "@vercel/speed-insights/next"
 import { GoogleTagManager } from '@next/third-parties/google'
+import Footer from "./components/Footer";
 
 
 export const metadata: Metadata = {
@@ -41,8 +42,6 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const currentYear = 2024;
-
   return (
     <html lang="en" suppressHydrationWarning={true}>
       <head />
@@ -59,27 +58,7 @@ export default function RootLayout({
             <main className="container mx-auto max-w-7xl pt-16 px-6 flex-grow">
               {children}
             </main>
-            <footer className="w-full flex flex-col items-center justify-center py-3 sm:flex-row px-6 mt-16">
-              <p className="flex flex-wrap items-center justify-center gap-1 text-current text-base">
-                &copy; {currentYear} HackPost Guide &bull;
-                {/* Add / update later */}
-                <Link isExternal href="https://www.hackpost.guide/terms" title="Terms and Conditions">
-                  <span className="text-default-600">Terms and Conditions</span>
-                </Link>
-                &bull;
-                <Link isExternal href="https://www.hackpost.guide/privacy" title="Privacy">
-                  <span className="text-default-600">Privacy</span>
-                </Link>
-                &bull;
-                <Link isExternal href="https://www.hackpost.guide/community-guidelines" title="Community Guidelines">
-                  <span className="text-default-600">Community Guidelines</span>
-                </Link>
-                &bull;
-                <Link isExternal href="https://nextui.org" title="nextui.org">
-                  <span className="text-default-600">Powered by NextUI</span>
-                </Link>
-              </p>
-            </footer>
+            <Footer />
           </div>
 		      <Toaster />
           <Analytics />
