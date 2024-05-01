@@ -76,8 +76,6 @@ const CreateNewPost = (): JSX.Element => {
   const { username } = useContext(UserContext);
   const [title, setTitle] = useState('');
 
-  //TODO: use server timestamp instead to generate a unique slug in the future
-
   //slug generation: 
   // Get the current timestamp in milliseconds
   const currentTimestamp = Date.now();
@@ -88,7 +86,7 @@ const CreateNewPost = (): JSX.Element => {
   // Use the number of seconds since 1/1/2000 as the slug
   // Ensure slug is URL safe
   const kebabTitle = encodeURI(kebabCase(title))
-  const slug = secondsSince2000.toString() + "-" + kebabTitle;
+  const slug = "post-" + secondsSince2000.toString() + "-" + kebabTitle;
 
 
   // Validate length
@@ -99,7 +97,6 @@ const CreateNewPost = (): JSX.Element => {
     e.preventDefault();
     const uid: any = auth?.currentUser?.uid;
     const ref = doc(getFirestore(), 'users', uid, 'posts', slug);
-    // Tip: give all fields a default value here
     const data = {
       title,
       slug,
