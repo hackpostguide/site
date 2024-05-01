@@ -55,7 +55,7 @@ export default function Home() {
 
 
 		<section id="explore" className="py-8 md:py-10">
-			<div className="flex flex-col sm:flex-row items-center justify-between mb-4">
+			<div className="flex flex-col md:flex-row items-center justify-between mb-4">
 				<h1 className={title({ size: "sm", color: "yellow" })}>Top Posts & Guides</h1>
 			</div>
 			<div className="p-0">
