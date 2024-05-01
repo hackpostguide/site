@@ -1,6 +1,6 @@
 import UserProfile from "@/app/components/UserProfile";
 import GridFeed from "@/app/components/(postComponents)/GridFeed";
-import { getUserData } from "@/app/components/getUserData";
+import { getUserData } from "@/app/components/(postComponents)/hooks/";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import Metatags from "@/app/components/Metatags";
