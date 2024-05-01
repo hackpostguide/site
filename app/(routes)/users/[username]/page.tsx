@@ -10,7 +10,7 @@ export default async function UserProfilePage({ params }: { params: { username: 
     // console.log('params: ', params);
 
     const { username } = params;
-    console.log('username: ', username);
+    // console.log('username: ', username);
     const userData = await getUserData(username);
 
     // console.log('userData from [username]/page.tsx: ', userData);

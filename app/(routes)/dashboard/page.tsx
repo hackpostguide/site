@@ -14,6 +14,7 @@ import kebabCase from 'lodash.kebabcase'
 import toast from 'react-hot-toast'
 import { title, subtitle } from "@/app/components/Primitives";
 import { Button, Input } from '@nextui-org/react';
+import { useGetDashboardPosts } from '@/app/components/(postComponents)/hooks';
 
 export default function Dashboard() {
   return (
@@ -54,11 +55,7 @@ export default function Dashboard() {
 }
 
 const PostList = (): JSX.Element => {
-  const uid: any = auth?.currentUser?.uid
-  const ref = collection(getFirestore(), 'users', uid, 'posts')
-  const postQuery = query(ref, orderBy('createdAt'))
-  const [querySnapshot] = useCollection(postQuery)
-  const posts: any = querySnapshot?.docs.map((doc: any) => doc.data())
+  const posts = useGetDashboardPosts();
 
   return (
     <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-4">
