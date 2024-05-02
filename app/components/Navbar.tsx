@@ -110,6 +110,9 @@ export const Nav = () => {
 				<div className="flex items-center gap-5">
 
 					<div className="hidden sm:flex gap-3">
+					<Link isExternal href={siteConfig.links.linktree} aria-label="Linktree">
+						<Icon icon="ph:linktree-logo-bold" className="text-default-500" width="1.4rem" height="1.4rem" />
+					</Link>
 					<Link isExternal href={siteConfig.links.discord} aria-label="Discord">
 						<DiscordIcon className="text-default-500" />
 					</Link>
@@ -167,6 +170,9 @@ export const Nav = () => {
 				{/* <Link isExternal href={siteConfig.links.twitter} aria-label="Twitter">
 					<TwitterIcon className="text-default-500" />
 				</Link> */}
+				<Link isExternal href={siteConfig.links.linktree} aria-label="Linktree">
+					<Icon icon="ph:linktree-logo-bold" className="text-default-500" width="1.4rem" height="1.4rem" />
+				</Link>
 				<Link isExternal href={siteConfig.links.discord} aria-label="Discord">
 					<DiscordIcon className="text-default-500" />
 				</Link>

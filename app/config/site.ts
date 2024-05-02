@@ -72,5 +72,6 @@ export const siteConfig = {
 	links: {
 		github: "https://github.com/hackpostguide/site",
 		discord: "https://discord.gg/UjZDQcTMjD",
+		linktree: "https://linktr.ee/hackpostguide?utm_source=hackpost.guide",
 	},
 };
