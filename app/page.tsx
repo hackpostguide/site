@@ -14,8 +14,8 @@ export default function Home() {
 	return (
 		<>
 		{/* Align the hero page text to the left later */}
-		<section className="flex flex-col items-center justify-center gap-4 pt-8 md:pt-10">
-			<div className="inline-block max-w-lg text-center justify-center">
+		<section className="flex flex-col items-center justify-center gap-4">
+			<div className="inline-block text-center justify-center max-w-xl">
 				<h1 className={title()}>Jump right in into the&nbsp;</h1>
 				<h1 className={title({color: "blue" })}>open source&nbsp;</h1>
 				<h1 className={title()}>resource hub for&nbsp;</h1>
@@ -24,24 +24,16 @@ export default function Home() {
 					The one-stop resource hub to help YOU ace your next hackathon. 
 				</h2>
 			</div>
-			<div className="w-full flex flex-col items-center gap-3 md:flex-row md:justify-center md:gap-3">
-				<StartExploringButton />
-				<Button
-				color="primary"
-				as={Link}
-				className="text-xs font-normal md:text-sm"
-				href={'/enter'}
-				variant="solid"
-				>
-				Login / Sign Up
+			<div className="w-full flex flex-col items-center gap-3 md:justify-center md:gap-3">
+				<Button color="primary" as={Link} className="font-normal" href={'/enter'} variant="shadow" size="lg">
+					Create an Account / Login
 				</Button>
-				<Link
-				isExternal
-				className={`${buttonStyles({ variant: "bordered" })} text-xs font-normal md:text-sm`}
-				href={siteConfig.links.discord}
-				>
-				<DiscordIcon size={20} /> Join our Discord
-				</Link>
+				{/* <div className="mt-6 flex flex-row gap-3">
+					<StartExploringButton />
+						<Link isExternal className={`${buttonStyles({ variant: "bordered" })} text-xs font-normal md:text-sm`} href={siteConfig.links.discord}>
+						<DiscordIcon size={20} /> Join our Discord
+					</Link>
+				</div> */}
 			</div>
 
 			{/* ProductHunt embed */}
@@ -54,7 +46,7 @@ export default function Home() {
 
 
 
-		<section id="explore" className="py-8 md:py-10">
+		<section id="explore" className="pb-8 md:pb-10">
 			<div className="flex flex-col md:flex-row items-center justify-between mb-4">
 				<h1 className={title({ size: "sm", color: "yellow" })}>Top Posts & Guides</h1>
 			</div>
