@@ -10,10 +10,10 @@ const About = () => {
   return (
     <div className="p-8 flex flex-col md:items-start">
       <div className="mb-16 md:w-2/3">
-        <h1 className={title()}>We are&nbsp;</h1>
-				<h1 className={title({color: "blue" })}>free</h1>
-        <h1 className={title()}> and </h1>
-        <h1 className={title({color: "blue" })}>open source.</h1>
+        <h1 className={title({size: "sm",})}>We are&nbsp;</h1>
+				<h1 className={title({size: "sm", color: "blue" })}>free</h1>
+        <h1 className={title({size: "sm",})}> and </h1>
+        <h1 className={title({size: "sm", color: "blue" })}>open source.</h1>
         <p className="my-4">
           The codebase is open source, and we welcome contributions from the community. If you find a bug, have a feature request, or want to contribute improvements, check out our GitHub repository.
         </p>
