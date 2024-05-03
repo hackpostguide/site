@@ -25,7 +25,7 @@ export default function Home() {
 				</h2>
 			</div>
 			<div className="w-full flex flex-col items-center gap-3 md:justify-center md:gap-3">
-				<Button color="primary" as={Link} className="font-normal" href={'/enter'} variant="shadow" size="lg">
+				<Button color="primary" as={Link} className="font-normal bobbing-animation" href={'/enter'} variant="shadow" size="lg">
 					Create an Account / Login
 				</Button>
 				{/* <div className="mt-6 flex flex-row gap-3">
