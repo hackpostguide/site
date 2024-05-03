@@ -1,9 +1,7 @@
 import React from 'react'
 
-const NewsLetter = () => {
+export default function NewsLetter(){
   return (
     <div>NewsLetter</div>
   )
 }
-
-export default NewsLetter
