@@ -37,7 +37,8 @@ export default function Home() {
 				</div> */}
 			</div>
 
-			<NewsLetter />
+			{/* Add Newsletter later */}
+			{/* <NewsLetter /> */}
 
 			{/* ProductHunt embed */}
 			<div className="w-full mb-10 md:mt-10 flex flex-col items-center gap-3 md:flex-row md:justify-end md:gap-3">
