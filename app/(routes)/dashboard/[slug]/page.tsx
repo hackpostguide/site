@@ -113,7 +113,11 @@ function PostForm({ defaultValues, postRef, preview, setPublished, setIsDirty }:
         setPublished(published);
         setIsDirty(false);
 
-        toast.success('Post updated successfully!');
+        if (published) {
+          toast.success('Post published successfully!');
+      } else {
+          toast.success('Post updated successfully!');
+      }
     };
 
     // Update the isDirty state whenever the form state changes
