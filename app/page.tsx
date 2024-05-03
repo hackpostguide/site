@@ -9,6 +9,7 @@ import PopularFeed from "./components/(postComponents)/(Feeds)/PopularFeed";
 import About from "./components/(homePage)/About";
 //import next/image
 import Image from 'next/image';
+import NewsLetter from "./components/(homePage)/NewsLetter";
 
 export default function Home() {
 	return (
@@ -35,6 +36,8 @@ export default function Home() {
 					</Link>
 				</div> */}
 			</div>
+
+			<NewsLetter />
 
 			{/* ProductHunt embed */}
 			<div className="w-full mb-10 md:mt-10 flex flex-col items-center gap-3 md:flex-row md:justify-end md:gap-3">
