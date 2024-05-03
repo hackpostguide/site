@@ -14,7 +14,7 @@ import NewsLetter from "./components/(homePage)/NewsLetter";
 export default function Home() {
 	return (
 		<>
-		<section className="flex flex-col items-center justify-center gap-4">
+		<section className="flex flex-col items-center justify-center gap-4 mt-10">
 			<div className="inline-block text-center justify-center max-w-sm md:max-w-xl">
 				<h1 className={title()}>Jump right in into the&nbsp;</h1>
 				<h1 className={title({color: "blue" })}>open source&nbsp;</h1>
@@ -47,9 +47,12 @@ export default function Home() {
 			</div>
 		</section>
 
+		<section className="py-8 md:py-10 mb-16">
+			<About />
+		</section>
 
 
-		<section id="explore" className="pb-8 md:pb-10">
+		<section id="explore" className="py-12 md:pb-16">
 			<div className="flex flex-col md:flex-row items-center justify-between mb-4">
 				<h1 className={title({ size: "sm", color: "yellow" })}>Top Posts & Guides</h1>
 			</div>
@@ -68,10 +71,6 @@ export default function Home() {
 					Explore All
 				</Button>
 			</div>
-		</section>
-
-		<section className="py-8 md:py-10 mb-16">
-			<About />
 		</section>
 
 		</>
