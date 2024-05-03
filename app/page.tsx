@@ -40,11 +40,11 @@ export default function Home() {
 			{/* <NewsLetter /> */}
 
 			{/* ProductHunt embed */}
-			<div className="w-full mb-10 md:mt-10 flex flex-col items-center gap-3 md:flex-row md:justify-end md:gap-3">
+			{/* <div className="w-full mb-10 md:mt-10 flex flex-col items-center gap-3 md:flex-row md:justify-end md:gap-3">
 				<Link href="https://www.producthunt.com/posts/hackpost-guide?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-hackpost&#0045;guide" target="_blank">
 					<img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=454402&theme=light" alt="Hackpost&#0032;Guide - The&#0032;one&#0045;stop&#0032;resource&#0032;to&#0032;help&#0032;YOU&#0032;ace&#0032;your&#0032;next&#0032;hackathon&#0046; | Product Hunt" width="250" height="54" />
 				</Link>
-			</div>
+			</div> */}
 		</section>
 
 		<section className="py-8 md:py-10 mb-16">
