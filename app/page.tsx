@@ -14,7 +14,7 @@ import NewsLetter from "./components/(homePage)/NewsLetter";
 export default function Home() {
 	return (
 		<>
-		<section className="flex flex-col items-center justify-center gap-4 mt-10">
+		<section className="flex flex-col items-center justify-center gap-4 mt-10 mb-24">
 			<div className="inline-block text-center justify-center max-w-sm md:max-w-xl">
 				<h1 className={title()}>Jump right in into the&nbsp;</h1>
 				<h1 className={title({color: "blue" })}>open source&nbsp;</h1>
