@@ -10,6 +10,7 @@ import About from "./components/(homePage)/About";
 //import next/image
 import Image from 'next/image';
 import NewsLetter from "./components/(homePage)/NewsLetter";
+import { CreatePosts } from "./components/(homePage)/CreatePosts";
 
 export default function Home() {
 	return (
@@ -47,7 +48,7 @@ export default function Home() {
 			</div>
 		</section>
 
-		<section className="mb-16">
+		<section className="">
 			<About />
 		</section>
 
@@ -71,6 +72,10 @@ export default function Home() {
 					Explore All
 				</Button>
 			</div>
+		</section>
+
+		<section className="">
+			<CreatePosts />
 		</section>
 
 		</>
