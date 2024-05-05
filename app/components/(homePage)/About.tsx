@@ -61,10 +61,10 @@ const About = () => {
           <h1 className={title({ size: "sm", color: "blue" })}>open source.</h1>
         </div>
         <p className="my-4">
-          The codebase is <u>open source</u>, and we welcome contributions from the community. If you find a bug, have a feature request, or want to contribute improvements, check out our GitHub repository. 
+          The codebase is <b>open source</b>, and we welcome contributions from the community. If you find a bug, have a feature request, or want to contribute improvements, check out our GitHub repository. 
         </p>
         <p className="mb-4">
-          Likewise, make sure to also <u>join our discord server</u>! Our Discord server is a great place to get support, share knowledge, and be part of a vibrant community.
+          Likewise, make sure to also <b>join our discord server</b>! Our Discord server is a great place to get support, share knowledge, and be part of a vibrant community.
         </p>
         <div className='py-4 flex flex-col md:flex-row gap-3'>
           <Button isExternal color="secondary" size='lg' as={Link} className='text-sm font-normal' variant='ghost' href={siteConfig.links.github}>
@@ -77,11 +77,13 @@ const About = () => {
       </div>
       <div ref={rightRef} className={`md:w-2/3 md:ml-auto flex flex-col items-start md:items-end md:text-right transition-all duration-1000 ${rightVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-20'}`}>
         <div>
-          <h1 className={title({ size: "sm" })}>Trusted by&nbsp;</h1>
+          <h1 className={title({ size: "sm" })}>Trusted by </h1>
           <h1 className={title({ size: "sm", color: "violet" })}>Hundreds.</h1>
+          <h1 className={title({ size: "sm" })}> Viewed by the </h1>
+          <h1 className={title({ size: "sm", color: "violet" })}>Thousands.</h1>
         </div>
         <p className="my-4">
-          Likewise, make sure to also join our discord server! Our Discord server is a great place to get support, share knowledge, and be part of a vibrant community. We also encourage you to follow us on social media!
+          If you found this resource helpful, please consider <b>sharing it</b> with your friends, family, and colleagues. We are a small team of developers, and your support means a lot to us. <b>Follow us</b> on social media to stay updated with the latest news and updates.
         </p>
         <div className='py-4 flex flex-col md:flex-row gap-3'>
           <Button isExternal color="success" size='lg' as={Link} className='text-sm font-normal' variant='ghost' href={siteConfig.links.linktree}>
