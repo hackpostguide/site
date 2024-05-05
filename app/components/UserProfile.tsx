@@ -20,7 +20,7 @@ export default function UserProfile({ user }: { user: any }) {
             </p>
             <h1 className="text-default-foreground mb-2 text-2xl">{user.displayName}</h1>
             {/* <h2 className="text-default-600 mb-1 text-lg">About Me:</h2> */}
-            <p className="text-default-600 text-lg">{user.bio}</p>
+            {/* <p className="text-default-600 text-lg">{user.bio}</p> */}
           </CardBody>
         </Card>
       </div>
