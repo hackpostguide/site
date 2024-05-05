@@ -28,7 +28,7 @@ const HeartCard = ({ post, path }: { post: any; path: any }) => {
                 <CardBody>
                     {/* <p className="m-3">Views: {updatedPost.views}</p> */}
                     <p className="m-3 mb-0">
-                        <strong>Likes:</strong>
+                        <strong>Hearts:</strong>
                     </p>
                     <p className="m-3 mt-0">
                         <strong>{updatedPost.heartCount || 0} 💖</strong>
@@ -37,7 +37,7 @@ const HeartCard = ({ post, path }: { post: any; path: any }) => {
                     <AuthCheck
                         fallback={
                             <Button className="m-3" color="secondary" variant="bordered" as={Link} href="/enter">
-                                💖 Sign Up
+                                💖 Heart
                             </Button>
                         }
                         >
