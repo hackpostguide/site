@@ -64,7 +64,7 @@ const About = () => {
           The codebase is <b>open source</b>, and we welcome contributions from the community. If you find a bug, have a feature request, or want to contribute improvements, check out our GitHub repository. 
         </p>
         <p className="mb-4">
-          Likewise, make sure to also <b>join our discord server</b>! Our Discord server is a great place to get support, share knowledge, and be part of a vibrant community.
+          Likewise, make sure to also <b>join our discord server</b>. Our Discord server is a great place to get support, share knowledge, and be part of a vibrant community.
         </p>
         <div className='py-4 flex flex-col md:flex-row gap-3'>
           <Button isExternal color="secondary" size='lg' as={Link} className='text-sm font-normal' variant='ghost' href={siteConfig.links.github}>
@@ -83,7 +83,7 @@ const About = () => {
           <h1 className={title({ size: "sm", color: "violet" })}>Thousands.</h1>
         </div>
         <p className="my-4">
-          If you found this resource helpful, please consider <b>sharing it</b> with your friends, family, and colleagues. We are a small team of developers, and your support means a lot to us. <b>Follow us</b> on social media to stay updated with the latest news and updates.
+          If you found this resource helpful, please consider sharing it with your friends, family, and colleagues. We are a small team of developers, and your support means a lot to us. Follow us on social media to stay updated with the latest news and updates.
         </p>
         <div className='py-4 flex flex-col md:flex-row gap-3'>
           <Button isExternal color="success" size='lg' as={Link} className='text-sm font-normal' variant='ghost' href={siteConfig.links.linktree}>
