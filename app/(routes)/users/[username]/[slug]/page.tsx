@@ -1,50 +1,56 @@
-import styles from '@/app/styles/Post.module.css';
-import PostContent from '@/app/components/(postComponents)/PostContent';
-import { firestore, getUserWithUsername, postToJSON } from '@/app/lib/firebase';
-import { getFirestore, doc, getDoc, increment, updateDoc } from 'firebase/firestore';
-import { useDocumentData } from 'react-firebase-hooks/firestore';
-import { UserContext } from '@/app/lib/context';
-import { useContext } from 'react';
-import Metatags from '@/app/components/Metatags';
-import HeartButton from '@/app/components/(postComponents)/HeartButton';
-import Link from 'next/link';
-import HeartCard from '@/app/components/(postComponents)/HeartCard';
-import { notFound } from 'next/navigation';
+import UserProfile from "@/app/components/UserProfile";
+import GridFeed from "@/app/components/(postComponents)/GridFeed";
+import { getUserData } from "@/app/components/(postComponents)/hooks/";
+import Link from "next/link";
+import { notFound } from "next/navigation";
+import Metatags from "@/app/components/Metatags";
 
-async function getPost(username: any, slug: string) {
-  const userDoc = await getUserWithUsername(username);
-  let post;
-  let path;
-  if (userDoc) {
-    const postRef = doc(getFirestore(), userDoc.ref.path, 'posts', slug);
-    post = postToJSON(await getDoc(postRef));
-    path = postRef.path;
+export default async function UserProfilePage({ params }: { params: { username: string } }) {
+    // console.log('hello from user profile page')
+    // console.log('params: ', params);
+
+    const { username } = params;
+    // console.log('username: ', username);
+    const userData = await getUserData(username);
+
+    // console.log('userData from [username]/page.tsx: ', userData);
+
+  //if no user, return 404 page
+  if (!userData) {
+    // return notFound();
+    return (
+      <div>
+        <h3>404 - Page Not Found</h3>
+        <p className="mb-4">Could not find requested resource</p>
+        <Link href="/">
+          <p>Go back home</p>
+        </Link>
+      </div>
+    )
+    // return {
+    //   notFound: true,
+    // };
   }
-  return { props: { post, path }, revalidate: 100 };
-}
 
-export default async function Post({ params }: { params: { username: any; slug: any } }) {
-  const { props } = await getPost(params.username, params.slug);
-  //works
-  // console.log('props from [username]/[slug]/page.tsx:', props);
-  if (!props){
-    notFound()
-  }
-  const { post, path } = props;
+// console.log(userData);
 
-  return (
-    <main className={`${styles.container} mb-[100px]`}>
-      <Metatags title={post?.title} description={post?.title} />
-      <section>
-        {post?.published ? (
-          <div>
-            <PostContent post={post} path={path || ''} />
-          </div>
-        ) : (
-          <p>This post is currently private.</p>
-        )}
-      </section>
-      <HeartCard post={post} path={path} />
+const { user, posts } = userData;
+
+return (
+    <main>
+        <Metatags title={user.username} description={`${user.username}'s public profile`} />
+        <div>
+          <UserProfile user={user} />
+        </div>
+
+        <div className="my-16">
+          <h3 className="my-4">Posts by {user.username}:</h3>
+          {posts.length > 0 ? (
+              <GridFeed posts={posts} />
+          ) : (
+              <p>No posts found</p> 
+          )}
+        </div>
     </main>
-  );
+);
 }
