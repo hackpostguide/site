@@ -9,8 +9,9 @@ import Metatags from '@/app/components/Metatags';
 import HeartButton from '@/app/components/(postComponents)/HeartButton';
 import Link from 'next/link';
 import HeartCard from '@/app/components/(postComponents)/HeartCard';
+import { notFound } from 'next/navigation';
 
-async function getPost(username: string, slug: string) {
+async function getPost(username: any, slug: string) {
   const userDoc = await getUserWithUsername(username);
   let post;
   let path;
@@ -22,13 +23,18 @@ async function getPost(username: string, slug: string) {
   return { props: { post, path }, revalidate: 100 };
 }
 
-export default async function Post({ params }: { params: { username: string; slug: string } }) {
+export default async function Post({ params }: { params: { username: any; slug: any } }) {
   const { props } = await getPost(params.username, params.slug);
+  //works
+  // console.log('props from [username]/[slug]/page.tsx:', props);
+  if (!props){
+    notFound()
+  }
   const { post, path } = props;
 
   return (
     <main className={`${styles.container} mb-[100px]`}>
-      <Metatags title={post?.title} description={post?.title} image='' />
+      <Metatags title={post?.title} description={post?.title} />
       <section>
         {post?.published ? (
           <div>

@@ -1,7 +1,7 @@
 import { getUserWithUsername, postToJSON } from '@/app/lib/firebase';
 import { query, collection, where, getDocs, limit, orderBy, getFirestore } from 'firebase/firestore';
 
-export async function getUserData(username: string) {
+export async function getUserData(username: any) {
   const userDoc = await getUserWithUsername(username);
 
   if (!userDoc) {

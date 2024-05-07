@@ -5,7 +5,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import Metatags from "@/app/components/Metatags";
 
-export default async function UserProfilePage({ params }: { params: { username: string } }) {
+export default async function UserProfilePage({ params }: { params: { username: any } }) {
     // console.log('hello from user profile page')
     // console.log('params: ', params);
 
@@ -17,22 +17,22 @@ export default async function UserProfilePage({ params }: { params: { username: 
 
   //if no user, return 404 page
   if (!userData) {
-    // return notFound();
-    return (
-      <div>
-        <h3>404 - Page Not Found</h3>
-        <p className="mb-4">Could not find requested resource</p>
-        <Link href="/">
-          <p>Go back home</p>
-        </Link>
-      </div>
-    )
+    notFound()
+    // return (
+    //   <div>
+    //     <h3>404 - Page Not Found</h3>
+    //     <p className="mb-4">Could not find requested resource</p>
+    //     <Link href="/">
+    //       <p>Go back home</p>
+    //     </Link>
+    //   </div>
+    // )
     // return {
     //   notFound: true,
     // };
   }
 
-// console.log(userData);
+console.log('userData from users/[username]/page.tsx:', userData);
 
 const { user, posts } = userData;
 
