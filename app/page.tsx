@@ -23,7 +23,7 @@ export default function Home() {
             The one-stop resource hub to help YOU ace your next hackathon.
           </h2>
         </div>
-        <div className="w-full flex flex-col items-center gap-3 md:justify-center md:gap-3">
+        <div className="my-6 w-full flex flex-col items-center gap-3 md:justify-center md:gap-3">
           <Button variant="default" className="bobbing-animation " size="xl" asChild>
 		  	    <Link href="/explore">Get Started</Link>
           </Button>

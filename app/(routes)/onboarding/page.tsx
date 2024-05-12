@@ -5,8 +5,10 @@ import debounce from 'lodash.debounce';
 
 import { auth, firestore } from '@/lib/firebase';
 import { UserContext } from '@/lib/context';
-import { Button } from '@nextui-org/button';
-import { Checkbox, Input, Link } from '@nextui-org/react';
+import { Button } from "@/components/ui/button";
+import { Checkbox } from '@/components/ui/checkbox';
+import { Input } from '@/components/ui/input';
+import Link from 'next/link';
 import toast from 'react-hot-toast';
 import { useRouter } from 'next/navigation';
 import { signOut } from 'firebase/auth';
@@ -40,11 +42,7 @@ function SignOutButton() {
   console.log('signed out with Google');
   return (
     <Button
-      color="default"
-      variant="bordered"
-      startContent={<Icon icon="radix-icons:chevron-left" className="text-lg" />}
-      radius="sm"
-
+      variant="outline"
       onClick={() => {
           signOut(auth)
           toast.success('Signed out successfully!');
@@ -52,7 +50,7 @@ function SignOutButton() {
       }
       className="font-sm space-y-6 my-6"
     >
-      Sign up with a different account
+      <Icon icon="radix-icons:chevron-left" className="text-lg" /> Sign up with a different account
     </Button>
   );
 }
@@ -149,7 +147,6 @@ function UsernameForm() {
               autoComplete="username"
               value={formValue}
               onChange={onChange}
-              variant="faded"
               isRequired 
               radius="sm"
               placeholder="eg: john-doe" 
@@ -171,16 +168,14 @@ function UsernameForm() {
           {/* Terms and guidelines checkbox */}
           <div className="flex items-center">
             <Checkbox isSelected={agreedToTerms} onValueChange={setAgreedToTerms}>
-              I have read and agree to the <Link href='terms' isExternal>Terms of Service</Link>, <Link href='privacy' isExternal>Privacy Policy</Link>, and <Link href='community-guidelines' isExternal>Community Guidelines</Link>.
+              I have read and agree to the <Link href='terms' target="_blank" rel="noopener noreferrer">Terms of Service</Link>, <Link href='privacy' target="_blank" rel="noopener noreferrer">Privacy Policy</Link>, and <Link href='community-guidelines' target="_blank" rel="noopener noreferrer">Community Guidelines</Link>.
             </Checkbox>
           </div>
 
           <div>
             <Button
-              color="primary"
               type="submit"
-              radius="sm"
-              isDisabled ={!isValid}
+              disabled={!isValid}
               className="flex w-full"
               // className="flex w-full justify-center rounded-md bg-primary px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
             >
