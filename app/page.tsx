@@ -13,7 +13,7 @@ import { CreatePosts } from "../components/(homePage)/CreatePosts";
 export default function Home() {
   return (
     <>
-      <section className="flex flex-col items-center justify-center gap-4">
+      <section className="mb-6 flex flex-col items-center justify-center gap-4">
         <div className="inline-block text-center justify-center max-w-sm md:max-w-3xl">
           <h1 className={title()}>Jump right into the&nbsp;</h1>
           <h1 className={title({color: "blue" })}>open source&nbsp;</h1>
@@ -24,10 +24,10 @@ export default function Home() {
           </h2>
         </div>
         <div className="w-full flex flex-col items-center gap-3 md:justify-center md:gap-3">
-          <Button variant="default" className="font-normal bobbing-animation" size="xl" asChild>
+          <Button variant="default" className="bobbing-animation " size="xl" asChild>
 		  	    <Link href="/explore">Get Started</Link>
           </Button>
-          <div className="mt-6 flex flex-row gap-3">
+          <div className="flex flex-row gap-3">
             {/* <StartExploringButton />
             <Link href={siteConfig.links.discord} target="_blank" className="font-normal text-xs md:text-sm">
               <DiscordIcon size={20} /> Join our Discord
@@ -37,10 +37,10 @@ export default function Home() {
         {/* Add Newsletter later */}
         {/* <NewsLetter /> */}
         {/* ProductHunt embed */}
-        <div className="w-full mb-10 md:mt-10 flex flex-col items-center gap-3 md:flex-row md:justify-end md:gap-3">
-				<Link href="https://www.producthunt.com/products/hackpost-guide?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-hackpost&#0045;guide" target="_blank">
-					<img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=454402&theme=light" alt="Hackpost&#0032;Guide - The&#0032;one&#0045;stop&#0032;resource&#0032;to&#0032;help&#0032;YOU&#0032;ace&#0032;your&#0032;next&#0032;hackathon&#0046; | Product Hunt" width="250" height="54" />
-				</Link>
+        <div className="w-full mb-4 md:mt-4 flex flex-col items-center gap-3 md:flex-row md:justify-end md:gap-3">
+          <Link href="https://www.producthunt.com/products/hackpost-guide?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-hackpost&#0045;guide" target="_blank">
+            <img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=454402&theme=light" alt="Hackpost&#0032;Guide - The&#0032;one&#0045;stop&#0032;resource&#0032;to&#0032;help&#0032;YOU&#0032;ace&#0032;your&#0032;next&#0032;hackathon&#0046; | Product Hunt" width="250" height="54" />
+          </Link>
         </div>
       </section>
       {/* <section className="">
