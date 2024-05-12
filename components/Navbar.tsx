@@ -36,17 +36,118 @@ export default function Nav() {
   }
 
   return (
-    <header className="max-w-7xl mx-auto flex h-20 shrink-0 items-center px-4 md:px-6">
-      <ThemeSwitch />
+    <header className="sticky top-0 z-50 backdrop-blur bg-background/80 border-b border-background">
+      <div className="flex max-w-7xl mx-auto h-16 items-center justify-between px-4 md:px-6">
+      <div className="flex items-center gap-6">
+        <Link className="flex items-center gap-2 text-lg" href="/">
+          <Logo />
+          <p className="font-bold">Hackpost</p>
+          <p className="">Guide</p>
+        </Link>
+        <ul className="hidden md:flex gap-6">
+          {siteConfig.navItems.map((item) => (
+            <li key={item.href}>
+              <Link
+                className={clsx(
+                  linkStyles({ color: "foreground" }),
+                  "data-[active=true]:text-primary data-[active=true]:font-medium"
+                )}
+                href={item.href}
+              >
+                <p>{item.label}</p>
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <div className="flex items-center">
+        <div className="flex items-center justify-between mr-6">
+          <Button
+            variant="ghost"
+            size="icon"
+            asChild
+          >
+            <Link
+              href={siteConfig.links.linktree}
+              aria-label="Linktree"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Icon
+                icon="ph:linktree-logo-bold"
+                className="text-default-500 w-5 h-5"
+              />
+            </Link>
+          </Button>
+          <Button
+            variant="ghost"
+            size="icon"
+            asChild
+          >
+            <Link
+              href={siteConfig.links.discord}
+              aria-label="Discord"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <DiscordIcon className="text-default-500 w-5 h-5" />
+            </Link>
+          </Button>
+          <Button
+            variant="ghost"
+            size="icon"
+            asChild
+          >
+            <Link
+              href={siteConfig.links.github}
+              aria-label="Github"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <GithubIcon className="text-default-500 w-5 h-5" />
+            </Link>
+          </Button>
+          <ThemeSwitch />
+        </div>
+
+        <div className="hidden md:flex">
+          {username && (
+            <div className="flex items-center gap-2">
+              <Button
+                color="warning"
+                aria-label="Dashboard"
+                variant="ghost"
+                className="text-sm font-bold"
+                asChild
+              >
+                <Link href="/dashboard">My Dashboard</Link>
+              </Button>
+              <UserAvatar />
+            </div>
+          )}
+
+          {!username && (
+            <Button color="primary" className="text-sm font-normal" asChild>
+              <Link href="/enter">Login / Sign Up</Link>
+            </Button>
+          )}
+        </div>
+
+      </div>
+
       <Sheet open={isMenuOpen} onOpenChange={setIsMenuOpen}>
         <SheetTrigger asChild>
-          <Button className="lg:hidden" size="icon" variant="outline">
-            <MenuIcon className="h-6 w-6" />
+          <Button className="md:hidden" size="icon" variant="outline">
+            <Icon
+                icon="tabler:menu-2"
+                className="text-default-500 h-6 w-6"
+              />
             <span className="sr-only">Toggle navigation menu</span>
           </Button>
         </SheetTrigger>
-        <SheetContent side="left">
-          <Link className="mr-6 hidden lg:flex" href="#">
+        <SheetContent side="right">
+          <Link className="mr-6 hidden lg:flex" href="/">
             <Logo className="h-6 w-6" />
             <span className="sr-only">Hackpost Guide</span>
           </Link>
@@ -97,97 +198,7 @@ export default function Nav() {
           </div>
         </SheetContent>
       </Sheet>
-      <Link className="mr-6 hidden lg:flex" href="/">
-        <Logo className="h-6 w-6" />
-        <span className="">Hackpost Guide</span>
-      </Link>
-      <nav className="ml-auto hidden lg:flex gap-6">
-        {siteConfig.navItems.map((item) => (
-          <Link
-            key={item.href}
-            className={clsx(
-              linkStyles({ color: "foreground" }),
-              "group inline-flex h-9 w-max items-center justify-center rounded-md bg-white px-4 py-2 text-sm font-medium transition-colors hover:bg-gray-100 hover:text-gray-900 focus:bg-gray-100 focus:text-gray-900 focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-gray-100/50 data-[state=open]:bg-gray-100/50 dark:bg-gray-950 dark:hover:bg-gray-800 dark:hover:text-gray-50 dark:focus:bg-gray-800 dark:focus:text-gray-50 dark:data-[active]:bg-gray-800/50 dark:data-[state=open]:bg-gray-800/50"
-            )}
-            href={item.href}
-          >
-            {item.label}
-          </Link>
-        ))}
-        <div className="flex items-center gap-5">
-          <Link href={siteConfig.links.linktree} aria-label="Linktree">
-            <Icon
-              icon="ph:linktree-logo-bold"
-              className="text-default-500"
-              width="1.4rem"
-              height="1.4rem"
-            />
-          </Link>
-          <Link href={siteConfig.links.discord} aria-label="Discord">
-            <DiscordIcon className="text-default-500" />
-          </Link>
-          <Link href={siteConfig.links.github} aria-label="Github">
-            <GithubIcon className="text-default-500" />
-          </Link>
-          {username && (
-            <>
-              <Button
-                // startContent={
-                //   <Icon icon="gravity-ui:folder" width="1.2rem" height="1.2rem" />
-                // }
-                color="warning"
-                aria-label="Dashboard"
-                variant="ghost"
-                className="text-sm font-bold"
-				asChild
-              >
-                <Link href="/dashboard">My Dashboard</Link>
-              </Button>
-              <UserAvatar />
-            </>
-          )}
-        </div>
-      </nav>
+    </div>
     </header>
-  )
-}
-
-function MenuIcon(props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>) {
-  return (
-    <svg
-      {...props}
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <line x1="4" x2="20" y1="12" y2="12" />
-      <line x1="4" x2="20" y1="6" y2="6" />
-      <line x1="4" x2="20" y1="18" y2="18" />
-    </svg>
-  )
-}
-
-function MountainIcon(props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>) {
-  return (
-    <svg
-      {...props}
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <path d="m8 3 4 8 5-5 5 15H2L8 3z" />
-    </svg>
   )
 }

@@ -16,7 +16,7 @@ export default function Home() {
     <>
       <section className="flex flex-col items-center justify-center gap-4">
         <div className="inline-block text-center justify-center max-w-sm md:max-w-xl">
-          <h1 className={title()}>Jump right in into the&nbsp;</h1>
+          <h1 className={title()}>Jump right into the&nbsp;</h1>
           <h1 className={title({color: "blue" })}>open source&nbsp;</h1>
           <h1 className={title()}>resource hub for&nbsp;</h1>
           <h1 className={title({ color: "violet" })}>hackathon participants.&nbsp;</h1>
@@ -26,7 +26,7 @@ export default function Home() {
         </div>
         <div className="w-full flex flex-col items-center gap-3 md:justify-center md:gap-3">
           <Button variant="default" className="font-normal bobbing-animation" asChild>
-		  	<Link href="/enter">Create an Account / Login</Link>
+		  	    <Link href="/enter">Create an Account / Login</Link>
           </Button>
           <div className="mt-6 flex flex-row gap-3">
             {/* <StartExploringButton />
@@ -52,7 +52,7 @@ export default function Home() {
           <h1 className={title({ size: "sm", color: "yellow" })}>Top Posts & Guides</h1>
         </div>
         <div className="p-0">
-          <PopularFeed />
+          {/* <PopularFeed /> */}
         </div>
         <div className="flex justify-center my-10">
 		  <Button variant="default" className="text-xs sm:text-sm" asChild>

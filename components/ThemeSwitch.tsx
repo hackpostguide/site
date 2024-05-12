@@ -19,7 +19,7 @@ export function ThemeSwitch() {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant="outline" size="icon">
+        <Button variant="ghost" size="icon">
           <SunFilledIcon
             className="*:h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all"
           />
