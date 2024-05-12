@@ -4,7 +4,6 @@ import { SheetTrigger, SheetContent, Sheet } from "@/components/ui/sheet"
 import Link from "next/link"
 import { siteConfig } from "@/app/config/site"
 import clsx from "clsx"
-import { link as linkStyles } from "@nextui-org/theme"
 import { JSX, SVGProps, useContext, useState } from "react"
 import { UserContext } from ".././lib/context"
 import UserAvatar from "./UserAvatar"
@@ -44,18 +43,20 @@ export default function Nav() {
           <p className="font-bold">Hackpost</p>
           <p className="">Guide</p>
         </Link>
-        <ul className="hidden md:flex gap-6">
+        <ul className="hidden md:flex">
           {siteConfig.navItems.map((item) => (
             <li key={item.href}>
+              <Button
+                variant="ghost"
+                asChild
+              >
               <Link
-                className={clsx(
-                  linkStyles({ color: "foreground" }),
-                  "data-[active=true]:text-primary data-[active=true]:font-medium"
-                )}
                 href={item.href}
               >
-                <p>{item.label}</p>
+                {item.label}
               </Link>
+              </Button>
+              
             </li>
           ))}
         </ul>
