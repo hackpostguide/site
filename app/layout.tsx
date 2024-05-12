@@ -52,7 +52,7 @@ export default function RootLayout({
         )}
       >
         <GoogleTagManager gtmId="G-WTDDS3XCDR" />
-        <Providers themeProps={{ attribute: "class", defaultTheme: "dark", children }}>
+        <Providers>
           <Nav />
           {/* <div className="relative flex flex-col h-screen"> */}
             <main className="container mx-auto max-w-7xl pt-16 px-6 flex-grow">

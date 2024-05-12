@@ -9,13 +9,14 @@ import { ThemeProviderProps } from "next-themes/dist/types";
 import { UserContext } from "../lib/context";
 import { useUserData } from '../lib/hooks';
 import { AppProgressBar as ProgressBar } from 'next-nprogress-bar';
+import { ThemeProvider } from "./theme-provider";
 
-export interface ProvidersProps {
-	children: React.ReactNode;
-	themeProps?: ThemeProviderProps;
-}
+// export interface ProvidersProps {
+// 	children: React.ReactNode;
+// 	themeProps?: ThemeProviderProps;
+// }
 
-export function Providers({ children, themeProps }: ProvidersProps) {
+export function Providers({ children }: { children: React.ReactNode }) {
   const router = useRouter();
 
   const userData = useUserData();
@@ -28,9 +29,19 @@ export function Providers({ children, themeProps }: ProvidersProps) {
 				options={{ showSpinner: false }}
 				shallowRouting
 			/>
-			<NextUIProvider navigate={router.push}>
-				<NextThemesProvider {...themeProps}>{children}</NextThemesProvider>
-			</NextUIProvider>
+			{/* <NextUIProvider navigate={router.push}>
+				<NextThemesProvider {...themeProps}>
+					{children}
+				</NextThemesProvider>
+			</NextUIProvider> */}
+			<ThemeProvider
+				attribute="class"
+				defaultTheme="system"
+				enableSystem
+				disableTransitionOnChange
+			>
+				{children}
+          	</ThemeProvider>
 		</UserContext.Provider>
 	);
 }
