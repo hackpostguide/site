@@ -4,7 +4,7 @@ import { Button, Link } from '@nextui-org/react';
 import React, { useEffect, useRef, useState } from 'react';
 import { DiscordIcon, GithubIcon, TwitterIcon } from '../Icons';
 import { Icon } from '@iconify/react';
-import { title, subtitle } from "@/app/components/Primitives";
+import { title, subtitle } from "@/components/Primitives";
 
 const About = () => {
   const [leftVisible, setLeftVisible] = useState(false);

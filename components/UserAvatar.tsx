@@ -3,9 +3,9 @@ import Link from 'next/link';
 import { Dropdown, DropdownTrigger, Avatar, DropdownMenu, DropdownItem } from '@nextui-org/react'
 import { signOut } from 'firebase/auth'
 import React, { useContext } from 'react'
-import { auth } from '../../lib/firebase'
+import { auth } from '.././lib/firebase'
 import toast from 'react-hot-toast'
-import { UserContext } from '../../lib/context';
+import { UserContext } from '.././lib/context';
 import { useRouter } from 'next/navigation';
 
 const UserAvatar = () => {

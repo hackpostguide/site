@@ -1,5 +1,5 @@
 import ReactMarkdown from 'react-markdown';
-import { useUpdateViews } from '@/app/components/(postComponents)/hooks/useUpdateViews';
+import { useUpdateViews } from '@/components/(postComponents)/hooks/useUpdateViews';
 import { MarkdownComponents } from './MarkdownComponents';
 import { Card, CardBody, CardHeader, Link } from '@nextui-org/react';
 

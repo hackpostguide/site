@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import { siteConfig } from '../config/site';
+import { siteConfig } from '@/app/config/site';
 
 export default function Metatags({
     title = siteConfig.name,

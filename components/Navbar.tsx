@@ -20,20 +20,20 @@ import { siteConfig } from "@/app/config/site";
 import NextLink from "next/link";
 import clsx from "clsx";
 
-import { ThemeSwitch } from "@/app/components/ThemeSwitch";
+import { ThemeSwitch } from "@/components/ThemeSwitch";
 import {
 	TwitterIcon,
 	GithubIcon,
 	DiscordIcon,
 	HeartFilledIcon,
 	SearchIcon,
-} from "@/app/components/Icons";
+} from "@/components/Icons";
 
-import { Logo } from "@/app/components/Icons";
+import { Logo } from "@/components/Icons";
 import { useContext, useEffect, useState } from "react";
-import { UserContext } from "../../lib/context";
+import { UserContext } from ".././lib/context";
 import UserAvatar from "./UserAvatar";
-import { auth } from "../../lib/firebase";
+import { auth } from ".././lib/firebase";
 import { signOut } from "firebase/auth";
 import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
