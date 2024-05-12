@@ -1,12 +1,12 @@
 'use client'
-import Loader from '@/app/components/Loader';
-import { fetchNewPosts, postToJSON } from '@/app/lib/firebase';
+import Loader from '@/components/Loader';
+import { fetchNewPosts, postToJSON } from '@/lib/firebase';
 import { Timestamp, query, where, orderBy, limit, collectionGroup, getDocs, startAfter, getFirestore } from 'firebase/firestore';
 
 import { useEffect, useState } from 'react';
 import { Button } from '@nextui-org/react';
-import GridFeed from '@/app/components/(postComponents)/GridFeed';
-import Metatags from '@/app/components/Metatags';
+import GridFeed from '@/components/(postComponents)/GridFeed';
+import Metatags from '@/components/Metatags';
 
 // Max post to query per page
 const LIMIT = 9;

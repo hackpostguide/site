@@ -1,16 +1,16 @@
 import { Link } from "@nextui-org/link";
 import { button as buttonStyles } from "@nextui-org/theme";
 import { siteConfig } from "@/app/config/site";
-import { title, subtitle } from "@/app/components/Primitives";
-import { DiscordIcon } from "@/app/components/Icons";
+import { title, subtitle } from "@/components/Primitives";
+import { DiscordIcon } from "@/components/Icons";
 import { Button } from "@nextui-org/button";
-import StartExploringButton from "./components/(homePage)/StartExploringButton";
-import PopularFeed from "./components/(postComponents)/(Feeds)/PopularFeed";
-import About from "./components/(homePage)/About";
+import StartExploringButton from "../components/(homePage)/StartExploringButton";
+import PopularFeed from "../components/(postComponents)/(Feeds)/PopularFeed";
+import About from "../components/(homePage)/About";
 //import next/image
 import Image from 'next/image';
-import NewsLetter from "./components/(homePage)/NewsLetter";
-import { CreatePosts } from "./components/(homePage)/CreatePosts";
+import NewsLetter from "../components/(homePage)/NewsLetter";
+import { CreatePosts } from "../components/(homePage)/CreatePosts";
 
 export default function Home() {
 	return (

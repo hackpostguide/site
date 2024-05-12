@@ -3,8 +3,8 @@ import React, { useContext, useEffect, useState, useCallback } from 'react';
 import { doc, getDoc, writeBatch } from 'firebase/firestore';
 import debounce from 'lodash.debounce';
 
-import { auth, firestore } from '@/app/lib/firebase';
-import { UserContext } from '@/app/lib/context';
+import { auth, firestore } from '@/lib/firebase';
+import { UserContext } from '@/lib/context';
 import { Button } from '@nextui-org/button';
 import { Checkbox, Input, Link } from '@nextui-org/react';
 import toast from 'react-hot-toast';

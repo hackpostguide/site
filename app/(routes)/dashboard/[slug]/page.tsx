@@ -1,6 +1,6 @@
 'use client';
-import AuthCheck from "@/app/components/(dashboard)/AuthCheck";
-import { auth } from "@/app/lib/firebase";
+import AuthCheck from "@/components/(dashboard)/AuthCheck";
+import { auth } from "@/lib/firebase";
 import { doc, getFirestore, updateDoc, serverTimestamp, deleteDoc } from "firebase/firestore";
 import Link from "next/link";
 import { useRouter, useSearchParams, usePathname, useSelectedLayoutSegments } from "next/navigation";
@@ -10,8 +10,8 @@ import { useDocumentDataOnce } from "react-firebase-hooks/firestore";
 import { Controller, useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import ReactMarkdown from "react-markdown";
-import ImageUploader from '@/app/components/(dashboard)/ImageUploader';
-import { MarkdownComponents } from '@/app/components/(postComponents)/MarkdownComponents';
+import ImageUploader from '@/components/(dashboard)/ImageUploader';
+import { MarkdownComponents } from '@/components/(postComponents)/MarkdownComponents';
 import { Button, Card, CardBody, Switch } from "@nextui-org/react";
 
 export default function AdminPostEdit() {

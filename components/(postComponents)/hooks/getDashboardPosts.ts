@@ -1,4 +1,4 @@
-import { auth } from '@/app/lib/firebase';
+import { auth } from '@/lib/firebase';
 import { collection, getFirestore, orderBy, query } from 'firebase/firestore';
 import { useCollection } from 'react-firebase-hooks/firestore';
 

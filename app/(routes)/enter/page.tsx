@@ -3,12 +3,12 @@ import React, { useContext, useEffect, useState, useCallback } from 'react';
 import { signInWithPopup, GoogleAuthProvider, signOut, signInWithRedirect } from 'firebase/auth';
 import Image from 'next/image';
 
-import { auth, firestore } from '@/app/lib/firebase';
-import { UserContext } from '@/app/lib/context';
+import { auth, firestore } from '@/lib/firebase';
+import { UserContext } from '@/lib/context';
 import { Button, Card, CardBody } from '@nextui-org/react';
 import toast from 'react-hot-toast';
 import { useRouter } from 'next/navigation';
-import { Logo } from "@/app/components/Icons";
+import { Logo } from "@/components/Icons";
 
 export default function Enter(props: any) {
   const { username } = useContext(UserContext);

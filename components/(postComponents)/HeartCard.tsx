@@ -1,11 +1,11 @@
 'use client';
 import Link from 'next/link'
 import React, { useContext } from 'react'
-import AuthCheck from '@/app/components/(dashboard)/AuthCheck'
+import AuthCheck from '@/components/(dashboard)/AuthCheck'
 import HeartButton from './HeartButton'
-import { UserContext } from '@/app/lib/context'
+import { UserContext } from '@/lib/context'
 import { doc, getFirestore } from 'firebase/firestore';
-import { auth, firestore } from '@/app/lib/firebase';
+import { auth, firestore } from '@/lib/firebase';
 import { useDocumentData } from 'react-firebase-hooks/firestore';
 import { Button, Card, CardBody } from '@nextui-org/react';
 

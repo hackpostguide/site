@@ -31,9 +31,9 @@ import {
 
 import { Logo } from "@/app/components/Icons";
 import { useContext, useEffect, useState } from "react";
-import { UserContext } from "../lib/context";
+import { UserContext } from "../../lib/context";
 import UserAvatar from "./UserAvatar";
-import { auth } from "../lib/firebase";
+import { auth } from "../../lib/firebase";
 import { signOut } from "firebase/auth";
 import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";

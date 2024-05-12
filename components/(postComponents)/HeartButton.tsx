@@ -1,5 +1,5 @@
 'use client';
-import { auth } from '@/app/lib/firebase';
+import { auth } from '@/lib/firebase';
 // import { useDocument } from '@/app/lib/hooks';
 import { useDocument } from 'react-firebase-hooks/firestore';
 import { increment, writeBatch, doc, getFirestore } from "firebase/firestore";

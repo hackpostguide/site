@@ -1,7 +1,7 @@
 'use client';
 
 import Loader from '@/app/components/Loader';
-import { postToJSON } from '@/app/lib/firebase';
+import { postToJSON } from '@/lib/firebase';
 import { query, where, orderBy, limit, collectionGroup, getDocs, getFirestore } from 'firebase/firestore';
 import { useEffect, useState } from 'react';
 import GridFeed from '../GridFeed';

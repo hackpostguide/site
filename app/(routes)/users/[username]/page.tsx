@@ -1,9 +1,9 @@
-import UserProfile from "@/app/components/UserProfile";
-import GridFeed from "@/app/components/(postComponents)/GridFeed";
-import { getUserData } from "@/app/components/(postComponents)/hooks/";
+import UserProfile from "@/components/UserProfile";
+import GridFeed from "@/components/(postComponents)/GridFeed";
+import { getUserData } from "@/components/(postComponents)/hooks/";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import Metatags from "@/app/components/Metatags";
+import Metatags from "@/components/Metatags";
 
 export default async function UserProfilePage({ params }: { params: { username: any } }) {
     // console.log('hello from user profile page')

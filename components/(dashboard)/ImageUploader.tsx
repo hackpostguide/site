@@ -1,5 +1,5 @@
 import { useRef, useState } from 'react';
-import { auth, storage, STATE_CHANGED } from '@/app/lib/firebase';
+import { auth, storage, STATE_CHANGED } from '@/lib/firebase';
 import Loader from '@/app/components/Loader';
 import { ref, uploadBytesResumable, getDownloadURL } from 'firebase/storage';
 import { Button, Code, Tooltip } from '@nextui-org/react';

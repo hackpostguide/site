@@ -2,7 +2,7 @@
 
 import GridFeed from '../GridFeed';
 import Metatags from '../../Metatags';
-import { postToJSON, fetchNewPosts } from '@/app/lib/firebase';
+import { postToJSON, fetchNewPosts } from '@/lib/firebase';
 import { query, where, orderBy, limit, collectionGroup, getDocs, getFirestore } from 'firebase/firestore';
 
 // Max post to query: 6

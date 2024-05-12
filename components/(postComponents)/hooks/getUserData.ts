@@ -1,4 +1,4 @@
-import { getUserWithUsername, postToJSON } from '@/app/lib/firebase';
+import { getUserWithUsername, postToJSON } from '@/lib/firebase';
 import { query, collection, where, getDocs, limit, orderBy, getFirestore } from 'firebase/firestore';
 
 export async function getUserData(username: string) {

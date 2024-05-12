@@ -2,19 +2,19 @@
 'use client';
 import React from 'react'
 import styles from '@/app/styles/Admin.module.css'
-import AuthCheck from '@/app/components/(dashboard)/AuthCheck'
-import PostCard from '@/app/components/(postComponents)/PostCard'
-import { UserContext } from '@/app/lib/context'
-import { auth } from '@/app/lib/firebase'
+import AuthCheck from '@/components/(dashboard)/AuthCheck'
+import PostCard from '@/components/(postComponents)/PostCard'
+import { UserContext } from '@/lib/context'
+import { auth } from '@/lib/firebase'
 import { serverTimestamp, query, collection, orderBy, getFirestore, setDoc, doc } from 'firebase/firestore'
 import { useContext, useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { useCollection } from 'react-firebase-hooks/firestore'
 import kebabCase from 'lodash.kebabcase'
 import toast from 'react-hot-toast'
-import { title, subtitle } from "@/app/components/Primitives";
+import { title, subtitle } from "@/components/Primitives";
 import { Button, Input } from '@nextui-org/react';
-import { useGetDashboardPosts } from '@/app/components/(postComponents)/hooks';
+import { useGetDashboardPosts } from '@/components/(postComponents)/hooks';
 
 export default function Dashboard() {
   return (
