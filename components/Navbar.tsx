@@ -3,8 +3,7 @@ import { Button } from "@/components/ui/button"
 import { SheetTrigger, SheetContent, Sheet } from "@/components/ui/sheet"
 import Link from "next/link"
 import { siteConfig } from "@/app/config/site"
-import clsx from "clsx"
-import { JSX, SVGProps, useContext, useState } from "react"
+import { useContext, useState } from "react"
 import { UserContext } from ".././lib/context"
 import UserAvatar from "./UserAvatar"
 import { signOut } from "firebase/auth"
@@ -35,7 +34,7 @@ export default function Nav() {
   }
 
   return (
-    <header className="sticky top-0 z-50 backdrop-blur bg-background/80 border-b border-background">
+    <header className="sticky top-0 z-50 backdrop-blur bg-background/80 border-b border-foreground/10">
       <div className="flex max-w-7xl mx-auto h-16 items-center justify-between px-4 md:px-6">
       <div className="flex items-center gap-6">
         <Link className="flex items-center gap-2 text-lg" href="/">

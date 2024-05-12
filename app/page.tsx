@@ -6,7 +6,6 @@ import { Button } from "@/components/ui/button";
 import StartExploringButton from "../components/(homePage)/StartExploringButton";
 import PopularFeed from "../components/(postComponents)/(Feeds)/PopularFeed";
 import About from "../components/(homePage)/About";
-//import next/image
 import Image from 'next/image';
 import NewsLetter from "../components/(homePage)/NewsLetter";
 import { CreatePosts } from "../components/(homePage)/CreatePosts";
@@ -15,7 +14,7 @@ export default function Home() {
   return (
     <>
       <section className="flex flex-col items-center justify-center gap-4">
-        <div className="inline-block text-center justify-center max-w-sm md:max-w-xl">
+        <div className="inline-block text-center justify-center max-w-sm md:max-w-3xl">
           <h1 className={title()}>Jump right into the&nbsp;</h1>
           <h1 className={title({color: "blue" })}>open source&nbsp;</h1>
           <h1 className={title()}>resource hub for&nbsp;</h1>
@@ -25,8 +24,8 @@ export default function Home() {
           </h2>
         </div>
         <div className="w-full flex flex-col items-center gap-3 md:justify-center md:gap-3">
-          <Button variant="default" className="font-normal bobbing-animation" asChild>
-		  	    <Link href="/enter">Create an Account / Login</Link>
+          <Button variant="default" className="font-normal bobbing-animation" size="xl" asChild>
+		  	    <Link href="/explore">Get Started</Link>
           </Button>
           <div className="mt-6 flex flex-row gap-3">
             {/* <StartExploringButton />
