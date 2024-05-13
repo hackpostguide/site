@@ -1,5 +1,7 @@
 import Link from 'next/link';
-import { Card, CardHeader, CardBody, CardFooter, Divider, Button } from "@nextui-org/react";
+import { Button } from '@/components/ui/button';
+import { Card, CardDescription, CardFooter, CardHeader } from '@/components/ui/card';
+
 import markdownToTxt from 'markdown-to-txt';
 
 export default function PostCard({ posts, admin = false }: { posts: any[], admin?: boolean }) {
@@ -15,7 +17,7 @@ function PostItem({ post, admin }: { post: any, admin: boolean }) {
   return (
     <Card
       className="max-w-[400px] p-3 relative hover:-translate-y-1 after:content-[''] after:absolute after:inset-0 after:bg-background/40 after:z-[-1] after:transition after:!duration-500 hover:after:scale-150 hover:after:opacity-0 flex flex-col justify-between"
-      isPressable
+
     >
       <div className="w-full">
         <CardHeader className="text-secondary flex gap-3 justify-between items-center">
@@ -25,19 +27,20 @@ function PostItem({ post, admin }: { post: any, admin: boolean }) {
           {/* If admin view, show extra controls for user */}
           {admin && (
             <>
-              <Button as={Link} href={`/dashboard/${post.slug}`} size="sm" className="whitespace-nowrap">
-                Edit
+              <Button className="whitespace-nowrap" asChild>
+                <Link  href={`/dashboard/${post.slug}`}>
+                  Edit
+                </Link>
               </Button>
             </>
           )}
         </CardHeader>
-        <Divider />
         <Link passHref href={`/users/${post.username}/${post.slug}`}>
-          <CardBody className="p-3">
+          <CardDescription className="p-3">
             <h2 className="text-xl font-bold text-primary-500">{post.title}</h2>
             <p className="text-default-600 line-clamp-5">{markdownToTxt(post.content)}</p>
             {admin && (post.published ? <p className="text-success">Published</p> : <p className="text-danger">Unpublished</p>)}
-          </CardBody>
+          </CardDescription>
         </Link>
       </div>
       <CardFooter className="flex justify-between text-warning font-bold mt-4">
