@@ -4,7 +4,7 @@ import { fetchNewPosts, postToJSON } from '@/lib/firebase';
 import { Timestamp, query, where, orderBy, limit, collectionGroup, getDocs, startAfter, getFirestore } from 'firebase/firestore';
 
 import { useEffect, useState } from 'react';
-import { Button } from '@nextui-org/react';
+import { Button } from '@/components/ui/button';
 import GridFeed from '@/components/(postComponents)/GridFeed';
 import Metatags from '@/components/Metatags';
 
@@ -75,7 +75,7 @@ const Explore = () => {
 
       {!loading && !postsEnd && 
         <div className="flex justify-center my-5">
-          <Button variant="ghost" color="secondary" onClick={getMorePosts}>Load more</Button>
+          <Button onClick={getMorePosts}>Load more</Button>
         </div>}
 
       <Loader show={loading} />
