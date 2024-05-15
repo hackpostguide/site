@@ -3,7 +3,7 @@ import { auth } from '@/lib/firebase';
 // import { useDocument } from '@/app/lib/hooks';
 import { useDocument } from 'react-firebase-hooks/firestore';
 import { increment, writeBatch, doc, getFirestore } from "firebase/firestore";
-import { Button } from '@nextui-org/react';
+import { Button } from '@/components/ui/button';
 import confetti from 'canvas-confetti';
 import { useEffect, useRef, useState } from 'react';
 
@@ -63,14 +63,13 @@ export default function Heart({ postRef }: any) {
           };
           confetti({ particleCount: 100, spread: 70, origin });
         }
+        addHeart();
       };
     
       return heartDoc?.exists() ? (
         <Button
           className="m-3"
           size="lg"
-          color="secondary"
-          variant="ghost"
           onClick={removeHeart}
         >
           💔 Unheart
@@ -80,10 +79,7 @@ export default function Heart({ postRef }: any) {
           ref={buttonRef}
           className="m-3"
           size="lg"
-          onPress={handleConfetti}
-          color="secondary"
-          variant="ghost"
-          onClick={addHeart}
+          onClick={handleConfetti}
         >
           💖 Heart
         </Button>
