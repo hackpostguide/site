@@ -7,16 +7,10 @@ import toast from 'react-hot-toast'
 import { UserContext } from '.././lib/context';
 import { useRouter } from 'next/navigation';
 import { Avatar } from './ui/avatar';
-import {
-    Menubar,
-    MenubarContent,
-    MenubarItem,
-    MenubarMenu,
-    MenubarSeparator,
-    MenubarShortcut,
-    MenubarTrigger,
-  } from "@/components/ui/menubar"
+
 import { AvatarFallback, AvatarImage } from '@radix-ui/react-avatar';
+import { Button } from './ui/button';
+import { DropdownMenu, DropdownMenuTrigger, DropdownMenuContent, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuItem } from './ui/dropdown-menu';
 
 const UserAvatar = () => {
   const { username } = useContext(UserContext);
@@ -24,47 +18,45 @@ const UserAvatar = () => {
   const router = useRouter()
 
   return (
-    <Menubar>
-    <MenubarMenu>
-        <MenubarTrigger>
+    <DropdownMenu>
+      <DropdownMenuTrigger asChild>
         <Avatar>
             <AvatarImage src={user?.photoURL ?? ''} alt={user?.displayName ?? ''} />
             <AvatarFallback>{user?.displayName?.charAt(0)}</AvatarFallback>
         </Avatar>
-        </MenubarTrigger>
-        <MenubarContent aria-label="Profile Actions">
-            <MenubarItem key="signedInProfile" className="h-14 gap-2">
+        </DropdownMenuTrigger>
+
+        <DropdownMenuContent aria-label="Profile Actions">
+            <DropdownMenuLabel key="signedInProfile" className="gap-2 font-semibold">
+                Signed in as {user?.email}
+            </DropdownMenuLabel>
+            <DropdownMenuSeparator />
+            <DropdownMenuItem key="profile">
                 <Link href={`/users/${username}`} color="foreground">
-                    <p className="font-semibold">Signed in as {user?.email}</p>
+                    My Profile
                 </Link>
-            </MenubarItem>
-            <MenubarItem key="profile">
-                <Link href={`/users/${username}`} color="foreground">
-                    <p>My Profile</p>
-                </Link>
-            </MenubarItem>
-            <MenubarItem key="dashboard">
+            </DropdownMenuItem>
+            <DropdownMenuItem key="dashboard">
                 <Link href="/dashboard" color="foreground">
-                    <p>My Dashboard</p>
+                    My Dashboard
                 </Link>
-            </MenubarItem>
+            </DropdownMenuItem>
             {/* <DropdownItem key="settings">
                 <Link href="/" color="foreground">
                     <p>My Settings</p>
                 </Link>
             </DropdownItem> */}
-            <MenubarItem key="logout" color="danger" 
+            <DropdownMenuItem key="logout" color="danger" 
                 onClick={() => {
                     signOut(auth)
                     router.push('/')
                     toast.success('Signed out successfully!');
                 }
             }>
-                <p>Log Out</p>
-            </MenubarItem>
-        </MenubarContent>
-    </MenubarMenu>
-    </Menubar>
+                Log Out
+            </DropdownMenuItem>
+        </DropdownMenuContent>
+    </DropdownMenu>
   )
 }
 

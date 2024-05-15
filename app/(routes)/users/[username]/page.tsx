@@ -32,7 +32,7 @@ export default async function UserProfilePage({ params }: { params: { username: 
     // };
   }
 
-console.log('userData from users/[username]/page.tsx:', userData);
+// console.log('userData from users/[username]/page.tsx:', userData);
 
 const { user, posts } = userData;
 
