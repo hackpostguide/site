@@ -24,17 +24,9 @@ function PostItem({ post, admin }: { post: any, admin: boolean }) {
           <Link passHref href={`/users/${post.username}`}>
             <strong>By @{post.username}</strong>
           </Link>
-          <CardTitle>{post.title}</CardTitle>
-          {/* If admin view, show extra controls for user */}
-          {admin && (
-            <>
-              <Button className="whitespace-nowrap" asChild>
-                <Link  href={`/dashboard/${post.slug}`}>
-                  Edit
-                </Link>
-              </Button>
-            </>
-          )}
+          <Link passHref href={`/users/${post.username}/${post.slug}`}>
+            <CardTitle className="text-2xl">{post.title}</CardTitle>
+          </Link>
         </CardHeader>
         <Link passHref href={`/users/${post.username}/${post.slug}`}>
           <CardContent className="">
@@ -47,6 +39,17 @@ function PostItem({ post, admin }: { post: any, admin: boolean }) {
         <span>~{minutesToRead} min</span>
         <span className="">💖 {post.heartCount || 0} Hearts</span>
         {/* <span>Views: {post.views}</span> */}
+      
+        {/* If admin view, show extra controls for user */}
+        {admin && (
+          <>
+            <Button className="whitespace-nowrap" asChild>
+              <Link  href={`/dashboard/${post.slug}`}>
+                Edit
+              </Link>
+            </Button>
+          </>
+        )}
       </CardFooter>
     </Card>
   );
