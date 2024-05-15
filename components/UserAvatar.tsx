@@ -46,7 +46,7 @@ const UserAvatar = () => {
                     <p>My Settings</p>
                 </Link>
             </DropdownItem> */}
-            <DropdownMenuItem key="logout" color="danger" 
+            <DropdownMenuItem key="logout" className="text-danger focus:text-danger-hover"
                 onClick={() => {
                     signOut(auth)
                     router.push('/')
