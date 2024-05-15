@@ -1,12 +1,22 @@
 'use client';
 import Link from 'next/link';
-import { Dropdown, DropdownTrigger, Avatar, DropdownMenu, DropdownItem } from '@nextui-org/react'
 import { signOut } from 'firebase/auth'
 import React, { useContext } from 'react'
 import { auth } from '.././lib/firebase'
 import toast from 'react-hot-toast'
 import { UserContext } from '.././lib/context';
 import { useRouter } from 'next/navigation';
+import { Avatar } from './ui/avatar';
+import {
+    Menubar,
+    MenubarContent,
+    MenubarItem,
+    MenubarMenu,
+    MenubarSeparator,
+    MenubarShortcut,
+    MenubarTrigger,
+  } from "@/components/ui/menubar"
+import { AvatarFallback, AvatarImage } from '@radix-ui/react-avatar';
 
 const UserAvatar = () => {
   const { username } = useContext(UserContext);
@@ -14,41 +24,36 @@ const UserAvatar = () => {
   const router = useRouter()
 
   return (
-    <Dropdown placement="bottom-end">
-        <DropdownTrigger>
-        <Avatar
-            showFallback // Show fallback avatar if src is not provided
-            isBordered
-            as="button"
-            className="hidden sm:flex transition-transform"
-            color="primary"
-            name={user?.displayName ?? ''}
-            size="sm"
-            src={user?.photoURL ?? ''}
-        />
-        </DropdownTrigger>
-        <DropdownMenu aria-label="Profile Actions" variant="flat">
-            <DropdownItem key="signedInProfile" className="h-14 gap-2">
+    <Menubar>
+    <MenubarMenu>
+        <MenubarTrigger>
+        <Avatar>
+            <AvatarImage src={user?.photoURL ?? ''} alt={user?.displayName ?? ''} />
+            <AvatarFallback>{user?.displayName?.charAt(0)}</AvatarFallback>
+        </Avatar>
+        </MenubarTrigger>
+        <MenubarContent aria-label="Profile Actions">
+            <MenubarItem key="signedInProfile" className="h-14 gap-2">
                 <Link href={`/users/${username}`} color="foreground">
                     <p className="font-semibold">Signed in as {user?.email}</p>
                 </Link>
-            </DropdownItem>
-            <DropdownItem key="profile">
+            </MenubarItem>
+            <MenubarItem key="profile">
                 <Link href={`/users/${username}`} color="foreground">
                     <p>My Profile</p>
                 </Link>
-            </DropdownItem>
-            <DropdownItem key="dashboard">
+            </MenubarItem>
+            <MenubarItem key="dashboard">
                 <Link href="/dashboard" color="foreground">
                     <p>My Dashboard</p>
                 </Link>
-            </DropdownItem>
+            </MenubarItem>
             {/* <DropdownItem key="settings">
                 <Link href="/" color="foreground">
                     <p>My Settings</p>
                 </Link>
             </DropdownItem> */}
-            <DropdownItem key="logout" color="danger" 
+            <MenubarItem key="logout" color="danger" 
                 onClick={() => {
                     signOut(auth)
                     router.push('/')
@@ -56,9 +61,10 @@ const UserAvatar = () => {
                 }
             }>
                 <p>Log Out</p>
-            </DropdownItem>
-        </DropdownMenu>
-    </Dropdown>
+            </MenubarItem>
+        </MenubarContent>
+    </MenubarMenu>
+    </Menubar>
   )
 }
 

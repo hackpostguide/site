@@ -117,7 +117,6 @@ export default function Nav() {
               <Button
                 color="warning"
                 aria-label="Dashboard"
-                variant="ghost"
                 className="text-sm font-bold"
                 asChild
               >
