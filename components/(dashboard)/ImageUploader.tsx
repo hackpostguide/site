@@ -2,7 +2,13 @@ import { useRef, useState } from 'react';
 import { auth, storage, STATE_CHANGED } from '@/lib/firebase';
 import Loader from '@/components/Loader';
 import { ref, uploadBytesResumable, getDownloadURL } from 'firebase/storage';
-import { Button, Code, Tooltip } from '@nextui-org/react';
+import { Button } from '@/components/ui/button';
+import {
+    Tooltip,
+    TooltipContent,
+    TooltipProvider,
+    TooltipTrigger,
+  } from "@/components/ui/tooltip"
 import { Icon } from '@iconify/react';
 
 export default function ImageUploader(): JSX.Element {
@@ -61,16 +67,15 @@ export default function ImageUploader(): JSX.Element {
 
     return (
         <div className="box max-w-6xl">
+        <TooltipProvider>
         <Loader show={uploading} />
         {uploading && <h3>{progress}%</h3>}
         {error && <div className="text-danger">{error}</div>}
         {!uploading && (
-            <Tooltip 
-                offset={15}
-                placement= "top-end"
-                content="After you upload your image, you will be able to copy-paste markdown code to insert your image"
-            >
-                <Button color="secondary" onClick={handleFileChange} endContent={<Icon icon="tabler:camera-plus" width="24" height="24" />}>
+            <Tooltip>
+            <TooltipTrigger asChild>
+                <Button color="secondary" onClick={handleFileChange}>
+                    <Icon icon="tabler:camera-plus" width="24" height="24" />
                     Upload Image
                     <input
                     type="file"
@@ -80,6 +85,10 @@ export default function ImageUploader(): JSX.Element {
                     onChange={uploadFile}
                     />
                 </Button>
+            </TooltipTrigger>
+            <TooltipContent>
+                <p>After you upload your image, you will be able to copy-paste markdown code to insert your image</p>
+            </TooltipContent>
             </Tooltip>
         )}
         {downloadURL && 
@@ -91,6 +100,7 @@ export default function ImageUploader(): JSX.Element {
             </div>
             
         }
+        </TooltipProvider>
         </div>
     );
 }

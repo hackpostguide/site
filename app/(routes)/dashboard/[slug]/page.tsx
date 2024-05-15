@@ -12,7 +12,9 @@ import toast from "react-hot-toast";
 import ReactMarkdown from "react-markdown";
 import ImageUploader from '@/components/(dashboard)/ImageUploader';
 import { MarkdownComponents } from '@/components/(postComponents)/MarkdownComponents';
-import { Button, Card, CardBody, Switch } from "@nextui-org/react";
+import { Button } from '@/components/ui/button';
+import { Card, CardContent } from '@/components/ui/card';
+
 
 export default function AdminPostEdit() {
     return (
@@ -56,17 +58,17 @@ function PostManager() {
                 {isDirty && (
                   <div className="mb-4">
                     <Card className="bg-danger/60">
-                      <CardBody>
+                      <CardContent>
                         <p>You have changes to be saved!</p>
-                      </CardBody>
+                      </CardContent>
                     </Card>
                   </div>
                 )}
                 <Card className='p-5 my-5'>
-                  <CardBody className="flex text-center">
+                  <CardContent className="flex text-center">
                     <h2 className='text-center mb-6'>{post?.title}</h2>
                     <p className="text-warning">Preview/Editing Mode</p>
-                  </CardBody>
+                  </CardContent>
                 </Card>
                 {/* <p className="mb-4">ID: {post.slug}</p> */}
                 <PostForm postRef={postRef} defaultValues={post} preview={preview} setPublished={setPublished} setIsDirty={setIsDirty} />
@@ -80,13 +82,14 @@ function PostManager() {
                   {preview ? 'Edit' : 'Preview'}
                 </Button>
                 <Button 
-                    as={Link} 
-                    href={`/users/${post.username}/${post.slug}`}
                     color="primary"
                     className="mb-4"
-                    isDisabled={!published}
+                    disabled={!published}
+                    asChild
                 >
+                  <Link href={`/${post.username}/${post.slug}`}>
                     Live View
+                  </Link>
                 </Button>
                 <DeletePostButton postRef={postRef} />
               </aside>
@@ -148,14 +151,7 @@ function PostForm({ defaultValues, postRef, preview, setPublished, setIsDirty }:
             {errors.content && typeof errors.content === 'string' && <p className="text-danger">{errors.content}</p>}
     
             <div className="flex items-center">
-                <Controller
-                    name="published"
-                    control={control}
-                    defaultValue={defaultValues.published}
-                    render={({ field: { onChange, value, ref } }) => (
-                    <Switch defaultSelected={defaultValues.published} onValueChange={onChange} checked={value} ref={ref} />
-                    )}
-                />
+                <input type="checkbox" {...register("published")} />
                 <label className="ml-2">Published</label>
             </div>
     
@@ -163,7 +159,7 @@ function PostForm({ defaultValues, postRef, preview, setPublished, setIsDirty }:
               type="submit"
               color="success"
               className="w-full"
-              isDisabled={!isDirty || !isValid}
+              disabled={!isDirty || !isValid}
             >
               {isDirty ? 'Save Changes' : 'Saved!'}
             </Button>
