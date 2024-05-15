@@ -37,7 +37,7 @@ export default function Enter(props: any) {
           <Logo size={50} className="mx-auto my-4" />
           <CardTitle className="text-center mb-4">Welcome to Hackpost Guide</CardTitle>
         </CardHeader>
-        <p className="mb-6">Join our community of friendly developers who are creating and sharing free resources for hackathons.</p>
+        <p className="mb-6">Get started by signing in below. Free forever. </p>
         <SignInButton />
         <p className="text-gray-500 text-sm my-6">
           We only offer signing in with Google as of right now. More options are
@@ -55,7 +55,7 @@ function SignInButton() {
   const signInWithGoogle = async () => {
     const provider = new GoogleAuthProvider();
     try {
-      await signInWithPopup(auth, provider);
+      await signInWithRedirect(auth, provider);
       console.log('Signed in with Google');
       toast.success('Logged in successfully! Redirecting...');
     } catch (error) {

@@ -13,7 +13,8 @@ import { useCollection } from 'react-firebase-hooks/firestore'
 import kebabCase from 'lodash.kebabcase'
 import toast from 'react-hot-toast'
 import { title, subtitle } from "@/components/Primitives";
-import { Button, Input } from '@nextui-org/react';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
 import { useGetDashboardPosts } from '@/components/(postComponents)/hooks';
 
 export default function Dashboard() {
@@ -121,16 +122,15 @@ const CreateNewPost = (): JSX.Element => {
     <form onSubmit={createPost}>
       <div className="flex items-center">
         <Input
-          size="lg"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
-          label="Your title here..."
-          className="flex-grow mr-2"
+          placeholder="Your title here..."
+          className="flex-grow mr-2 h-16"
         />
         {/* <p>
           <strong>Slug:</strong> {slug}
         </p> */}
-        <Button type="submit" color="success" isDisabled={!isValid} size="lg" className="h-16">
+        <Button type="submit" color="success" disabled={!isValid} size="lg" className="h-16">
           Create New
         </Button>
       </div>
