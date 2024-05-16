@@ -22,7 +22,7 @@ const UserAvatar = () => {
       <DropdownMenuTrigger asChild>
         <Avatar>
             <AvatarImage src={user?.photoURL ?? ''} alt={user?.displayName ?? ''} />
-            <AvatarFallback>{user?.displayName?.charAt(0)}</AvatarFallback>
+            <AvatarFallback className='bg-foreground'>{user?.displayName?.substring(0, 2)}</AvatarFallback>
         </Avatar>
         </DropdownMenuTrigger>
 

@@ -2,7 +2,6 @@
 "use client";
 
 import * as React from "react";
-import { NextUIProvider } from "@nextui-org/system";
 import { useRouter } from 'next/navigation'
 import { ThemeProvider as NextThemesProvider } from "next-themes";
 import { ThemeProviderProps } from "next-themes/dist/types";
@@ -29,11 +28,6 @@ export function Providers({ children }: { children: React.ReactNode }) {
 				options={{ showSpinner: false }}
 				shallowRouting
 			/>
-			{/* <NextUIProvider navigate={router.push}>
-				<NextThemesProvider {...themeProps}>
-					{children}
-				</NextThemesProvider>
-			</NextUIProvider> */}
 			<ThemeProvider
 				attribute="class"
 				defaultTheme="system"

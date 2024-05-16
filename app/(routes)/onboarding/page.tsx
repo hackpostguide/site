@@ -6,7 +6,6 @@ import debounce from 'lodash.debounce';
 import { auth, firestore } from '@/lib/firebase';
 import { UserContext } from '@/lib/context';
 import { Button } from "@/components/ui/button";
-import { Checkbox } from '@/components/ui/checkbox';
 import { Input } from '@/components/ui/input';
 import Link from 'next/link';
 import toast from 'react-hot-toast';
@@ -147,8 +146,6 @@ function UsernameForm() {
               autoComplete="username"
               value={formValue}
               onChange={onChange}
-              isRequired 
-              radius="sm"
               placeholder="eg: john-doe" 
 
             />
@@ -160,16 +157,40 @@ function UsernameForm() {
           
           {/* Age requirement checkbox */}
           <div className="flex items-center">
-            <Checkbox isSelected={isOver13} onValueChange={setIsOver13}>
+            <input
+              type="checkbox"
+              id="age-requirement"
+              checked={isOver13}
+              onChange={(e) => setIsOver13(e.target.checked)}
+            />
+            <label htmlFor="age-requirement" className="ml-2">
               I am 13 years old or older.
-            </Checkbox>
+            </label>
           </div>
 
           {/* Terms and guidelines checkbox */}
           <div className="flex items-center">
-            <Checkbox isSelected={agreedToTerms} onValueChange={setAgreedToTerms}>
-              I have read and agree to the <Link href='terms' target="_blank" rel="noopener noreferrer">Terms of Service</Link>, <Link href='privacy' target="_blank" rel="noopener noreferrer">Privacy Policy</Link>, and <Link href='community-guidelines' target="_blank" rel="noopener noreferrer">Community Guidelines</Link>.
-            </Checkbox>
+            <input
+              type="checkbox"
+              id="terms-agreement"
+              checked={agreedToTerms}
+              onChange={(e) => setAgreedToTerms(e.target.checked)}
+            />
+            <label htmlFor="terms-agreement" className="ml-2">
+              I agree to the{" "}
+              <Link href="terms" target="_blank" rel="noopener noreferrer">
+                Terms of Service
+              </Link>
+              ,{" "}
+              <Link href="privacy" target="_blank" rel="noopener noreferrer">
+                Privacy Policy
+              </Link>
+              , and{" "}
+              <Link href="community-guidelines" target="_blank" rel="noopener noreferrer">
+                Community Guidelines
+              </Link>
+              .
+            </label>
           </div>
 
           <div>

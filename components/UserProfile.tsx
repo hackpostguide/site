@@ -14,7 +14,7 @@ export default function UserProfile({ user }: { user: any }) {
           <CardContent>
             <Avatar className="w-40 h-40 mb-4">
               <AvatarImage src={user?.photoURL ?? ''} alt={user?.displayName ?? ''} /> 
-              <AvatarFallback>{user?.displayName.charAt(0) ?? ''}</AvatarFallback>
+              <AvatarFallback className="text-4xl">{user?.displayName?.substring(0, 2)}</AvatarFallback>
             </Avatar>
               
             <p className="mb-2 text-default-600 text-xl">
