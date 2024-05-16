@@ -55,7 +55,7 @@ function SignInButton() {
   const signInWithGoogle = async () => {
     const provider = new GoogleAuthProvider();
     try {
-      await signInWithPopup(auth, provider);
+      await signInWithRedirect(auth, provider);
       console.log('Signed in with Google');
       toast.success('Logged in successfully! Redirecting...');
     } catch (error) {
