@@ -7,6 +7,7 @@ import { useEffect, useState } from 'react';
 import { Button } from '@/components/ui/button';
 import GridFeed from '@/components/(postComponents)/GridFeed';
 import Metatags from '@/components/Metatags';
+import { CreatePosts } from '@/components/(homePage)/CreatePosts';
 
 // Max post to query per page
 const LIMIT = 9;
@@ -64,9 +65,13 @@ const Explore = () => {
   return (
     <main>
       <Metatags title="Explore All" description="All posts from the community" />
-      <div className='py-9 text-center'>
-        <h2>From the Community</h2>
-      </div>
+      <section className='my-9 text-center'>
+        <h1>From the Community</h1>
+      </section>
+
+      <section className='my-16'>
+        <CreatePosts />
+      </section>
 
       {/* Put tags here, search bar, etc. */}
       

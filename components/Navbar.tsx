@@ -113,7 +113,7 @@ export default function Nav() {
 
         <div className="hidden md:flex">
           {username && (
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-4">
               <Button
                 color="warning"
                 aria-label="Dashboard"
