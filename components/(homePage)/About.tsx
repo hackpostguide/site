@@ -70,12 +70,12 @@ const About = () => {
         <div className='py-4 flex flex-col md:flex-row gap-3'>
           <Button color="secondary" size='lg' className='text-sm font-normal' asChild>
             <Link href={siteConfig.links.github}>
-              <GithubIcon size={20} /> Github
+              <GithubIcon size={20} className='mr-2' /> Github
             </Link>
           </Button>
           <Button color="primary" size='lg' className='text-sm font-normal' asChild>
             <Link href={siteConfig.links.discord}>
-              <DiscordIcon size={20} /> Join our Discord
+              <DiscordIcon size={20} className='mr-2' /> Join our Discord
             </Link>
           </Button>
         </div>
@@ -93,9 +93,9 @@ const About = () => {
         <div className='py-4 flex flex-col md:flex-row gap-3'>
           <Button color="success" size='lg' className='text-sm font-normal' asChild>
             <Link href={siteConfig.links.linktree}>
-              <Icon icon="bi:instagram" width="1.4rem" height="1.4rem" />
-              <Icon icon="bi:youtube" width="1.4rem" height="1.4rem" />
-              <TwitterIcon /> Follow us on Social Media
+              <Icon icon="bi:instagram" width="1.4rem" height="1.4rem" className='mr-3'/>
+              <Icon icon="bi:youtube" width="1.4rem" height="1.4rem" className='mr-3'/>
+              <TwitterIcon className='mr-2'/> Follow us on Social Media
             </Link>
           </Button>
         </div>
