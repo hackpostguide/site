@@ -5,8 +5,8 @@ import Metatags from '../../Metatags';
 import { postToJSON, fetchNewPosts } from '@/lib/firebase';
 import { query, where, orderBy, limit, collectionGroup, getDocs, getFirestore } from 'firebase/firestore';
 
-// Max post to query: 6
-const LIMIT = 6;
+// Max post to query: 3
+const LIMIT = 3;
 
 async function getData() {
   const posts = await fetchNewPosts(() => limit(LIMIT));

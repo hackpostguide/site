@@ -1,93 +1,38 @@
-'use client'
-import Loader from '@/components/Loader';
-import { fetchNewPosts, postToJSON } from '@/lib/firebase';
-import { Timestamp, query, where, orderBy, limit, collectionGroup, getDocs, startAfter, getFirestore } from 'firebase/firestore';
 
-import { useEffect, useState } from 'react';
-import { Button } from '@/components/ui/button';
-import GridFeed from '@/components/(postComponents)/GridFeed';
 import Metatags from '@/components/Metatags';
 import { CreatePosts } from '@/components/(homePage)/CreatePosts';
-
-// Max post to query per page
-const LIMIT = 9;
+import NewFeedExtendable from '@/components/(explorePage)/NewFeedExtendable';
+import PopularFeedExtendable from '@/components/(explorePage)/PopularFeedExtendable';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import { Separator } from '@/components/ui/separator';
 
 const Explore = () => {
-  const [posts, setPosts] = useState<any[]>([]);
-  const [loading, setLoading] = useState(false);
-  const [postsEnd, setPostsEnd] = useState(false);
-
-  // Function to fetch posts
-  const fetchPosts = async (startAfterCursor = null) => {
-    setLoading(true);
-
-    const ref = collectionGroup(getFirestore(), 'posts'); 
-    let postsQuery = query(
-      ref,
-      where('published', '==', true),
-      orderBy('createdAt', 'desc'),
-      limit(LIMIT),
-    );
-
-    if (startAfterCursor) {
-      postsQuery = query(postsQuery, startAfter(startAfterCursor));
-    }
-
-    const querySnapshot = await getDocs(postsQuery);
-    const newPosts = querySnapshot.docs.map(doc => postToJSON(doc));
-
-    setPosts(posts.concat(newPosts));
-    setLoading(false);
-
-    if (newPosts.length < LIMIT) {
-      setPostsEnd(true);
-    }
-  };
-
-  useEffect(() => {
-    const fetchInitialPosts = async () => {
-      setLoading(true);
-      const posts = await fetchNewPosts(() => limit(LIMIT));
-      setPosts(posts);
-      setLoading(false);
-    };
-    fetchInitialPosts();
-  }, []);
-
-  // Get next page in pagination query
-  const getMorePosts = async () => {
-    const last = posts[posts.length - 1];
-    const cursor = last && last.createdAt ? typeof last.createdAt === 'number' ? Timestamp.fromMillis(last.createdAt) : last.createdAt : null;
-
-    fetchPosts(cursor);
-  };
-
   return (
     <main>
       <Metatags title="Explore All" description="All posts from the community" />
       <section className='my-9 text-center'>
         <h1>From the Community</h1>
       </section>
-
       <section className='my-16'>
         <CreatePosts />
       </section>
-
       {/* Put tags here, search bar, etc. */}
-      
-
-      <GridFeed posts={posts} />
-
-      {!loading && !postsEnd && 
-        <div className="flex justify-center my-5">
-          <Button onClick={getMorePosts}>Show me more</Button>
-        </div>}
-
-      <Loader show={loading} />
-
-      {postsEnd && 'You have reached the end!'}
+      <section>
+        <Tabs defaultValue="top" className="">
+          <TabsList className="grid w-[400px] grid-cols-2">
+            <TabsTrigger value="top">Top</TabsTrigger>
+            <TabsTrigger value="latest">Latest</TabsTrigger>
+          </TabsList>
+          <TabsContent value="top">
+            <PopularFeedExtendable />
+          </TabsContent>
+          <TabsContent value="latest">
+            <NewFeedExtendable />
+          </TabsContent>
+        </Tabs>
+      </section>
     </main>
   );
 }
 
-export default Explore
+export default Explore;
