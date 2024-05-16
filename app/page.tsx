@@ -51,7 +51,7 @@ export default function Home() {
           <h1 className={title({ size: "sm", color: "yellow" })}>Community Posts & Guides</h1>
         </div>
         <div className="p-0">
-          {/* <PopularFeed /> */}
+          <PopularFeed />
         </div>
         <div className="flex justify-center my-10">
 		  <Button variant="default" className="text-xs sm:text-sm" asChild>
