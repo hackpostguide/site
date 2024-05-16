@@ -64,8 +64,8 @@ const Explore = () => {
   return (
     <main>
       <Metatags title="Explore All" description="All posts from the community" />
-      <div className='py-9'>
-        <h2>Explore Community Posts</h2>
+      <div className='py-9 text-center'>
+        <h2>From the Community</h2>
       </div>
 
       {/* Put tags here, search bar, etc. */}

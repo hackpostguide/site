@@ -48,7 +48,7 @@ export default function Home() {
       </section> */}
       <section id="explore" className="py-12 md:pb-16">
         <div className="flex flex-col md:flex-row items-center justify-between mb-4">
-          <h1 className={title({ size: "sm", color: "yellow" })}>Top Posts & Guides</h1>
+          <h1 className={title({ size: "sm", color: "yellow" })}>Community Posts & Guides</h1>
         </div>
         <div className="p-0">
           {/* <PopularFeed /> */}

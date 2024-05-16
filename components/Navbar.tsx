@@ -151,49 +151,54 @@ export default function Nav() {
             <span className="sr-only">Hackpost Guide</span>
           </Link>
           <div className="grid gap-2 py-6">
-            {siteConfig.navMenuItems.map((item) => (
-              <Link
-                key={item.href}
-                className="flex w-full items-center py-2 text-lg font-semibold"
-                href={item.href}
-                onClick={() => setIsMenuOpen(false)}
-              >
-                {item.label}
-              </Link>
-            ))}
-            {username ? (
-              <>
-                <Link
-                  className="flex w-full items-center py-2 text-lg font-semibold"
-                  href={`/profile/${username}`}
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  My Profile
-                </Link>
-                <Link
-                  className="flex w-full items-center py-2 text-lg font-semibold"
-                  href="/dashboard"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  Dashboard
-                </Link>
-                <Button
-                  color="danger"
-                  className="mt-2 w-full"
-                  onClick={handleLogout}
-                >
-                  <p>Log Out</p>
-                </Button>
-              </>
-            ) : (
-              <Button
-                className="mt-2 w-full"
-                onClick={() => setIsMenuOpen(false)}
-				asChild
-              >
-				<Link href="/enter">Login / Sign Up</Link>
-              </Button>
-            )}
+            {username
+              ? siteConfig.navMenuItemsLoggedIn.map((item, index) => (
+                  <div key={`${item}-${index}`}>
+                    {index === siteConfig.navMenuItemsLoggedIn.length - 1 ? (
+                      <Button
+                        color="danger"
+                        className="mt-2"
+                        onClick={handleLogout}
+                        size="lg"
+                      >
+                        <p>Log Out</p>
+                      </Button>
+                    ) : (
+                      <Link
+                        color={"foreground"}
+                        href={item.label === "My Profile" ? `${item.href}/${username}` : item.href}
+                        onClick={() => setIsMenuOpen(false)}
+                      >
+                        <p>{item.label}</p>
+                      </Link>
+                    )}
+                  </div>
+                ))
+              : siteConfig.navMenuItems.map((item, index) => (
+                  <div key={`${item}-${index}`}>
+                    {index === siteConfig.navMenuItems.length - 1 ? (
+                      <Button
+                        onClick={() => setIsMenuOpen(false)}
+                        color="primary"
+                        className="mt-2"
+                        size="lg"
+                        asChild
+                      >
+                        <Link href="/enter">
+                          <p>Login / Sign Up</p>
+                        </Link>
+                      </Button>
+                    ) : (
+                      <Link
+                        color={"foreground"}
+                        href={item.href}
+                        onClick={() => setIsMenuOpen(false)}
+                      >
+                        <p>{item.label}</p>
+                      </Link>
+                    )}
+                  </div>
+                ))}
           </div>
         </SheetContent>
       </Sheet>
