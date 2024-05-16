@@ -80,7 +80,7 @@ const Explore = () => {
 
       {!loading && !postsEnd && 
         <div className="flex justify-center my-5">
-          <Button onClick={getMorePosts}>Load more</Button>
+          <Button onClick={getMorePosts}>Show me more</Button>
         </div>}
 
       <Loader show={loading} />
