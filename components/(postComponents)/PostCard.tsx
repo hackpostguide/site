@@ -22,15 +22,15 @@ function PostItem({ post, admin }: { post: any, admin: boolean }) {
       <div className="w-full">
         <CardHeader className="">
           <Link passHref href={`/users/${post.username}`}>
-            <strong>By @{post.username}</strong>
+            <strong className='text-warning'>By @{post.username}</strong>
           </Link>
           <Link passHref href={`/users/${post.username}/${post.slug}`}>
-            <CardTitle className="text-2xl">{post.title}</CardTitle>
+            <CardTitle className="text-2xl font-bold">{post.title}</CardTitle>
           </Link>
         </CardHeader>
         <Link passHref href={`/users/${post.username}/${post.slug}`}>
           <CardContent className="">
-            <p className="text-default-600 line-clamp-5">{markdownToTxt(post.content)}</p>
+            <p className="text-foreground/70 line-clamp-5">{markdownToTxt(post.content)}</p>
             {admin && (post.published ? <p className="text-success">Published</p> : <p className="text-danger">Unpublished</p>)}
           </CardContent>
         </Link>

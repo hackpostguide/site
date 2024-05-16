@@ -11,7 +11,7 @@ export const CreatePosts = () => {
             </div>
             <Button color="warning" size='lg' className='text-sm font-bold my-8' asChild>
                 <Link href="/enter">
-                    Start posting now
+                    Create an Account
                 </Link>
             </Button>
         </div>
