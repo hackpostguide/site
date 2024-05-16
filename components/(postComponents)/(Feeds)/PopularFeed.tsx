@@ -7,9 +7,9 @@ import { useEffect, useState } from 'react';
 import GridFeed from '../GridFeed';
 import Metatags from '../../Metatags';
 
-// Max post to query: 6
+// Max post to query: 3
 
-const PopularFeed = ({ LIMIT = 6 }) => {
+const PopularFeed = ({ LIMIT = 3 }) => {
   const [posts, setPosts] = useState<any[]>([]);
   const [loading, setLoading] = useState(false);
 

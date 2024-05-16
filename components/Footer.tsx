@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import React from 'react'
+import { siteConfig } from "@/app/config/site";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear(); //2024
@@ -17,6 +18,10 @@ const Footer = () => {
         &bull;
         <Link target="_blank" rel="noopener noreferrer" href="https://www.hackpost.guide/community-guidelines" title="Community Guidelines">
             <span className="text-default-600">Community Guidelines</span>
+        </Link>
+        &bull;
+        <Link target="_blank" rel="noopener noreferrer" href={siteConfig.links.github} title="Github Repo">
+            <span className="text-default-600">Github</span>
         </Link>
         </p>
     </footer>
