@@ -75,7 +75,7 @@ export default function ImageUploader(): JSX.Element {
             <Tooltip>
             <TooltipTrigger asChild>
                 <Button color="secondary" onClick={handleFileChange}>
-                    <Icon icon="tabler:camera-plus" width="24" height="24" />
+                    <Icon icon="tabler:camera-plus" width="24" height="24" className='mr-2' />
                     Upload Image
                     <input
                     type="file"
@@ -87,7 +87,7 @@ export default function ImageUploader(): JSX.Element {
                 </Button>
             </TooltipTrigger>
             <TooltipContent>
-                <p>After you upload your image, you will be able to copy-paste markdown code to insert your image</p>
+                After you upload your image, you will be able to copy-paste markdown code to insert your image
             </TooltipContent>
             </Tooltip>
         )}

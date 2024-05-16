@@ -145,7 +145,7 @@ function PostForm({ defaultValues, postRef, preview, setPublished, setIsDirty }:
                 minLength: { value: 10, message: 'content is too short' },
                 required: { value: true, message: 'content is required' },
               })}
-              className="textArea h-60 bg-default text-foreground p-4 rounded-md resize-y focus:outline-none"
+              className="textArea h-60 bg-default text-foreground p-4 rounded-md resize-y"
             ></textarea>
     
             {errors.content && typeof errors.content === 'string' && <p className="text-danger">{errors.content}</p>}
@@ -157,7 +157,6 @@ function PostForm({ defaultValues, postRef, preview, setPublished, setIsDirty }:
     
             <Button
               type="submit"
-              color="success"
               className="w-full"
               disabled={!isDirty || !isValid}
             >
@@ -182,9 +181,9 @@ function DeletePostButton({ postRef }: { postRef: any }) {
 
     return (
         <Button 
-            color="danger" 
+            className="text-danger hover:text-danger"
             onClick={deletePost}
-            variant="ghost"
+            variant="outline"
         >
             Delete
         </Button>
