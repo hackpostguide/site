@@ -13,7 +13,7 @@ import ReactMarkdown from "react-markdown";
 import ImageUploader from '@/components/(dashboard)/ImageUploader';
 import { MarkdownComponents } from '@/components/(postComponents)/MarkdownComponents';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent } from '@/components/ui/card';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 
 
 export default function AdminPostEdit() {
@@ -65,10 +65,14 @@ function PostManager() {
                   </div>
                 )}
                 <Card className='p-5 my-5'>
-                  <CardContent className="flex text-center">
-                    <h2 className='text-center mb-6'>{post?.title}</h2>
-                    <p className="text-warning">Preview/Editing Mode</p>
-                  </CardContent>
+                  <CardHeader className="flex text-center">
+                    <CardTitle className='text-center mb-6'>
+                      <h2>{post?.title}</h2>
+                    </CardTitle>
+                    <CardDescription className="text-warning">
+                      <p>Preview/Editing Mode</p>
+                    </CardDescription>
+                  </CardHeader>
                 </Card>
                 {/* <p className="mb-4">ID: {post.slug}</p> */}
                 <PostForm postRef={postRef} defaultValues={post} preview={preview} setPublished={setPublished} setIsDirty={setIsDirty} />
@@ -87,7 +91,7 @@ function PostManager() {
                     disabled={!published}
                     asChild
                 >
-                  <Link href={`/${post.username}/${post.slug}`}>
+                  <Link href={`/users/${post.username}/${post.slug}`}>
                     Live View
                   </Link>
                 </Button>

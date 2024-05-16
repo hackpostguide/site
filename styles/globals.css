@@ -28,11 +28,11 @@
       --danger: 0 84.2% 60.2%;
       --danger-foreground: 0 0% 98%;
 
-      --success: #17c964;
+      --success: 146 79% 44%;
       --success-foreground: 0 0% 98%;
 
-      --warning: #f5a524;
-      --warning-foreground: 0 0% 98%;
+      --warning: 38 92% 50%;
+      --warning-foreground: 48 96% 89%;
 
       --border: 240 5.9% 90%;
       --input: 240 5.9% 90%;
@@ -66,11 +66,11 @@
       --danger: 0 62.8% 30.6%;
       --danger-foreground: 0 0% 98%;
 
-      --success: #17c964;
+      --success: 146 79% 44%;
       --success-foreground: 0 0% 98%;
 
-      --warning: #f5a524;
-      --warning-foreground: 0 0% 98%;
+      --warning: 48 96% 89%;
+      --warning-foreground: 38 92% 50%;
 
       --border: 240 3.7% 15.9%;
       --input: 240 3.7% 15.9%;
