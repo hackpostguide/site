@@ -44,13 +44,13 @@ const Explore = () => {
   };
 
   useEffect(() => {
-    // const fetchInitialPosts = async () => {
-    //   setLoading(true);
-    //   const posts = await fetchNewPosts(() => limit(LIMIT));
-    //   setPosts(posts);
-    //   setLoading(false);
-    // };
-    fetchPosts();
+    const fetchInitialPosts = async () => {
+      setLoading(true);
+      const posts = await fetchNewPosts(() => limit(LIMIT));
+      setPosts(posts);
+      setLoading(false);
+    };
+    fetchInitialPosts();
   }, []);
 
   // Get next page in pagination query

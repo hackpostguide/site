@@ -26,7 +26,7 @@ const HeartCard = ({ post, path }: { post: any; path: any }) => {
     return (
         <aside className="">
             <Card className="w-[200px] h-[600px]">
-                <CardContent>
+                <CardContent className='flex flex-col justify-between p-6'>
                     {/* <p className="m-3">Views: {updatedPost.views}</p> */}
                     <p className="m-3 mb-0">
                         <strong>Hearts:</strong>
