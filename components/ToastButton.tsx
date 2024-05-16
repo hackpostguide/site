@@ -1,5 +1,5 @@
 'use client'
-import { Button } from '@nextui-org/button'
+import { Button } from '@/components/ui/button'
 import React from 'react'
 import { toast } from 'react-hot-toast'
 

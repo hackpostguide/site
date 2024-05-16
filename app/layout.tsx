@@ -4,7 +4,6 @@ import { siteConfig } from "@/app/config/site";
 import { fontSans } from "@/app/config/fonts";
 import { Providers } from "./providers";
 import Nav from "@/components/Navbar";
-import { Link } from "@nextui-org/link";
 import clsx from "clsx";
 import { Toaster } from "react-hot-toast";
 import type { Viewport } from 'next';

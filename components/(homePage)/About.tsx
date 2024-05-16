@@ -1,6 +1,7 @@
 'use client';
 import { siteConfig } from '@/app/config/site';
-import { Button, Link } from '@nextui-org/react';
+import { Button } from '@/components/ui/button';
+import Link from 'next/link';
 import React, { useEffect, useRef, useState } from 'react';
 import { DiscordIcon, GithubIcon, TwitterIcon } from '../Icons';
 import { Icon } from '@iconify/react';
@@ -67,11 +68,15 @@ const About = () => {
           Likewise, make sure to also <b>join our discord server</b>. Our Discord server is a great place to get support, share knowledge, and be part of a vibrant community.
         </p>
         <div className='py-4 flex flex-col md:flex-row gap-3'>
-          <Button isExternal color="secondary" size='lg' as={Link} className='text-sm font-normal' variant='ghost' href={siteConfig.links.github}>
-            <GithubIcon size={20} /> Github
+          <Button color="secondary" size='lg' className='text-sm font-normal' asChild>
+            <Link href={siteConfig.links.github}>
+              <GithubIcon size={20} /> Github
+            </Link>
           </Button>
-          <Button isExternal color="primary" size='lg' as={Link} className='text-sm font-normal' variant='ghost' href={siteConfig.links.discord}>
-            <DiscordIcon size={20} /> Join our Discord
+          <Button color="primary" size='lg' className='text-sm font-normal' asChild>
+            <Link href={siteConfig.links.discord}>
+              <DiscordIcon size={20} /> Join our Discord
+            </Link>
           </Button>
         </div>
       </div>
@@ -86,10 +91,12 @@ const About = () => {
           If you found this resource helpful, please consider sharing it with your friends, family, and colleagues. We are a small team of developers, and your support means a lot to us. Follow us on social media to stay updated with the latest news and updates.
         </p>
         <div className='py-4 flex flex-col md:flex-row gap-3'>
-          <Button isExternal color="success" size='lg' as={Link} className='text-sm font-normal' variant='ghost' href={siteConfig.links.linktree}>
-            <Icon icon="bi:instagram" width="1.4rem" height="1.4rem" />
-            <Icon icon="bi:youtube" width="1.4rem" height="1.4rem" />
-            <TwitterIcon /> Follow us on Social Media
+          <Button color="success" size='lg' className='text-sm font-normal' asChild>
+            <Link href={siteConfig.links.linktree}>
+              <Icon icon="bi:instagram" width="1.4rem" height="1.4rem" />
+              <Icon icon="bi:youtube" width="1.4rem" height="1.4rem" />
+              <TwitterIcon /> Follow us on Social Media
+            </Link>
           </Button>
         </div>
       </div>

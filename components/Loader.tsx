@@ -1,6 +1,4 @@
-import { CircularProgress } from "@nextui-org/react";
-
-// Loading Spinner
+// Loading text
 export default function Loader({ show }: { show: boolean }) {
-    return show ? <CircularProgress label="Loading..." /> : null;
+    return show ? <p>Loading...</p> : null;
 }
