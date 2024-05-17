@@ -11,7 +11,7 @@ const Explore = () => {
     <main>
       <Metatags title="Explore All" description="All posts from the community" />
       <section className='my-9 text-center'>
-        <h1>From the Community</h1>
+        <h1>Explore</h1>
       </section>
       <section className='my-16'>
         <CreatePosts />
@@ -19,7 +19,7 @@ const Explore = () => {
       {/* Put tags here, search bar, etc. */}
       <section>
         <Tabs defaultValue="top" className="">
-          <TabsList className="grid w-[400px] grid-cols-2">
+          <TabsList className="grid w-full sm:w-[300px] grid-cols-2">
             <TabsTrigger value="top">Top</TabsTrigger>
             <TabsTrigger value="latest">Latest</TabsTrigger>
           </TabsList>
