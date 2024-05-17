@@ -12,9 +12,9 @@ export const CreatePosts = () => {
   return (
     <div className=''>
       <Card>
-        <CardContent className='mt-10 flex justify-center gap-10'>
+        <CardContent className='mt-10 flex flex-col sm:flex-row justify-center gap-10'>
           <div>
-            <h2>Want to write guides?</h2>
+            <h2>Want to write posts?</h2>
             <p>{username ? 'Go to your dashboard to start posting' : "It's free - Create an account today to start posting!"}</p>
           </div>
           <Button
