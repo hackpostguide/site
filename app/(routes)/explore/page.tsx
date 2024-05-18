@@ -10,10 +10,10 @@ const Explore = () => {
   return (
     <main>
       <Metatags title="Explore All" description="All posts from the community" />
-      <section className='my-9 text-center'>
+      <section className='mb-4 text-center'>
         <h1>Explore</h1>
       </section>
-      <section className='my-16'>
+      <section className='my-10'>
         <CreatePosts />
       </section>
       {/* Put tags here, search bar, etc. */}
