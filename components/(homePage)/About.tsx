@@ -54,20 +54,18 @@ const About = () => {
 
   return (
     <div className="p-8 flex flex-col md:items-start">
-      <div ref={leftRef} className={`mb-16 md:w-3/4 transition-all duration-1000 ${leftVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-20'}`}>
+      <div ref={leftRef} className={`mt-30 mb-60 md:w-3/4 transition-all duration-1000 ${leftVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-20'}`}>
         <div>
-          <h1 className={title({ size: "sm" })}>We are&nbsp;</h1>
-          <h1 className={title({ size: "sm", color: "blue" })}>free</h1>
-          <h1 className={title({ size: "sm" })}> and </h1>
-          <h1 className={title({ size: "sm", color: "blue" })}>open source.</h1>
+          <h1 className={title({ color: "blue" })}>Free,  &nbsp;</h1>
+          <h1 className={title({ size: "sm" })}></h1>
         </div>
         <p className="my-4">
-          The codebase is <b>open source</b>, and we welcome contributions from the community. If you find a bug, have a feature request, or want to contribute improvements, check out our GitHub repository. 
-        </p>
+          Sorted by how much the community enjoys them, our popular feed is a great place to find inspiration and learn from the best. 
+          </p>
         <p className="mb-4">
           Likewise, make sure to also <b>join our discord server</b>. Our Discord server is a great place to get support, share knowledge, and be part of a vibrant community.
         </p>
-        <div className='py-4 flex flex-col md:flex-row gap-3'>
+        {/* <div className='py-4 flex flex-col md:flex-row gap-3'>
           <Button color="secondary" size='lg' className='text-sm font-normal' asChild>
             <Link href={siteConfig.links.github}>
               <GithubIcon size={20} className='mr-2' /> Github
@@ -78,9 +76,9 @@ const About = () => {
               <DiscordIcon size={20} className='mr-2' /> Join our Discord
             </Link>
           </Button>
-        </div>
+        </div> */}
       </div>
-      <div ref={rightRef} className={`md:w-2/3 md:ml-auto flex flex-col items-start md:items-end md:text-right transition-all duration-1000 ${rightVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-20'}`}>
+      <div ref={rightRef} className={`mb-40 md:w-2/3 md:ml-auto flex flex-col items-start md:items-end md:text-right transition-all duration-1000 ${rightVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-20'}`}>
         <div>
           <h1 className={title({ size: "sm" })}>Trusted by </h1>
           <h1 className={title({ size: "sm", color: "violet" })}>Hundreds.</h1>
@@ -90,7 +88,7 @@ const About = () => {
         <p className="my-4">
           If you found this resource helpful, please consider sharing it with your friends, family, and colleagues. We are a small team of developers, and your support means a lot to us. Follow us on social media to stay updated with the latest news and updates.
         </p>
-        <div className='py-4 flex flex-col md:flex-row gap-3'>
+        {/* <div className='py-4 flex flex-col md:flex-row gap-3'>
           <Button color="success" size='lg' className='text-sm font-normal' asChild>
             <Link href={siteConfig.links.linktree}>
               <Icon icon="bi:instagram" width="1.4rem" height="1.4rem" className='mr-3'/>
@@ -98,7 +96,7 @@ const About = () => {
               <TwitterIcon className='mr-2'/> Follow us on Social Media
             </Link>
           </Button>
-        </div>
+        </div> */}
       </div>
     </div>
   );
