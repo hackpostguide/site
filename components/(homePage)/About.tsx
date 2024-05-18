@@ -56,14 +56,11 @@ const About = () => {
     <div className="p-8 flex flex-col md:items-start">
       <div ref={leftRef} className={`mt-30 mb-60 md:w-3/4 transition-all duration-1000 ${leftVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-20'}`}>
         <div>
-          <h1 className={title({ color: "blue" })}>Free,  &nbsp;</h1>
-          <h1 className={title({ size: "sm" })}></h1>
+          <h1 className={title({ size: "md", bold: "bold" })}>Learn the Essential Skills.&nbsp;</h1>
+          <h1 className={title({ size: "md", bold: "extra", color: "blue" })}>Quickly.</h1>
         </div>
-        <p className="my-4">
-          Sorted by how much the community enjoys them, our popular feed is a great place to find inspiration and learn from the best. 
-          </p>
-        <p className="mb-4">
-          Likewise, make sure to also <b>join our discord server</b>. Our Discord server is a great place to get support, share knowledge, and be part of a vibrant community.
+        <p className={subtitle({ size: "sm", class: "my-4" })}>
+          Stop wasting time searching for tutorials online. Or worse, reinventing the wheel during your hackathon. Hackpost Guide provides guides made by the community on a wide variety of topics to help you stay on track and focus on building your project. If one guide isn&apos;t what you&apos;re looking for, check out others!
         </p>
         {/* <div className='py-4 flex flex-col md:flex-row gap-3'>
           <Button color="secondary" size='lg' className='text-sm font-normal' asChild>
@@ -78,25 +75,28 @@ const About = () => {
           </Button>
         </div> */}
       </div>
-      <div ref={rightRef} className={`mb-40 md:w-2/3 md:ml-auto flex flex-col items-start md:items-end md:text-right transition-all duration-1000 ${rightVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-20'}`}>
+      <div ref={rightRef} className={`mb-40 md:w-4/5 md:ml-auto flex flex-col items-start md:items-end md:text-right transition-all duration-1000 ${rightVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-20'}`}>
         <div>
-          <h1 className={title({ size: "sm" })}>Trusted by </h1>
-          <h1 className={title({ size: "sm", color: "violet" })}>Hundreds.</h1>
-          <h1 className={title({ size: "sm" })}> Viewed by the </h1>
-          <h1 className={title({ size: "sm", color: "violet" })}>Thousands.</h1>
+          <h1 className={title({ size: "md"}) + "pb-10"}>Free. </h1>
+          <h1 className={title({ size: "md", color: "violet", bold: "bold" })}>Forever.</h1>
         </div>
-        <p className="my-4">
-          If you found this resource helpful, please consider sharing it with your friends, family, and colleagues. We are a small team of developers, and your support means a lot to us. Follow us on social media to stay updated with the latest news and updates.
+        <p className={subtitle({ size: "sm", class: "my-4" })}>
+          This resource isn&apos;t just for people participating in hackathons. If you&apos;re interested in hacking and want to learn, check out some of our popular guides! If you&apos;re more experienced and want to help out, you can either share projects that you&apos;ve created or write guides and share other resources that you&apos;ve found helpful. To chat with others, join our Discord server!
         </p>
-        {/* <div className='py-4 flex flex-col md:flex-row gap-3'>
-          <Button color="success" size='lg' className='text-sm font-normal' asChild>
+        <div className='py-4 flex flex-col md:flex-row gap-3'>
+          <Button size='lg' className='text-sm font-bold' asChild>
+            <Link href={siteConfig.links.discord}>
+              <DiscordIcon size={20} className='mr-2' /> Join our Discord
+            </Link>
+          </Button>
+          {/* <Button color="success" size='lg' className='text-sm font-normal' asChild>
             <Link href={siteConfig.links.linktree}>
               <Icon icon="bi:instagram" width="1.4rem" height="1.4rem" className='mr-3'/>
               <Icon icon="bi:youtube" width="1.4rem" height="1.4rem" className='mr-3'/>
               <TwitterIcon className='mr-2'/> Follow us on Social Media
             </Link>
-          </Button>
-        </div> */}
+          </Button> */}
+        </div>
       </div>
     </div>
   );
