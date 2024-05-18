@@ -15,7 +15,8 @@ export default function Home() {
     <>
       <section className="my-16 flex flex-col items-center justify-center gap-4">
         <div className="inline-block text-center justify-center max-w-sm md:max-w-3xl">
-          <h1 className="text-8xl font-extrabold">Hackpost Guide</h1>
+          <h1 className={title({color: "yellow", size: "xl", bold: "extra" })}>Hackpost&nbsp;</h1>
+          <h1 className={title({size: "xl" })}>Guide</h1>
           {/* <h1 className={title()}>The&nbsp;</h1>
           <h1 className={title({color: "blue" })}>open source&nbsp;</h1>
           <h1 className={title()}>resource hub for&nbsp;</h1>
@@ -45,10 +46,14 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="">
+        <About />
+      </section>
+
       <section id="explore" className="py-12 md:pb-16">
-        {/* <div className="flex flex-col md:flex-row items-center justify-between mb-4">
-          <h1 className={title({ size: "sm", color: "yellow" })}>Community Posts & Guides</h1>
-        </div> */}
+        <div className="flex flex-col md:flex-row items-center justify-between mb-4">
+          <h1 className={title({ size: "sm", color: "yellow" })}>Popular</h1>
+        </div>
         <div className="p-0">
           <PopularFeed />
         </div>
@@ -57,10 +62,6 @@ export default function Home() {
 		  	<Link href="/explore">Explore All</Link>
           </Button>
         </div>
-      </section>
-
-      <section className="">
-        <About />
       </section>
 
       <section className="">
