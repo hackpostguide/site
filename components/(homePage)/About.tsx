@@ -77,11 +77,11 @@ const About = () => {
       </div>
       <div ref={rightRef} className={`mb-40 md:w-4/5 md:ml-auto flex flex-col items-start md:items-end md:text-right transition-all duration-1000 ${rightVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-20'}`}>
         <div>
-          <h1 className={title({ size: "md"}) + "pb-10"}>Free. </h1>
+          <h1 className={title({ size: "md"}) + "pb-10"}>All Posts & Guides are Free. </h1>
           <h1 className={title({ size: "md", color: "violet", bold: "bold" })}>Forever.</h1>
         </div>
         <p className={subtitle({ size: "sm", class: "my-4" })}>
-          This resource isn&apos;t just for people participating in hackathons. If you&apos;re interested in hacking and want to learn, check out some of our popular guides! If you&apos;re more experienced and want to help out, you can either share projects that you&apos;ve created or write guides and share other resources that you&apos;ve found helpful. To chat with others, join our Discord server!
+          This resource isn&apos;t just for people participating in hackathons. If you&apos;re interested in hacking and want to learn, check out some of our popular guides - all content is free forever. If you&apos;re more experienced and want to help out, you can either share projects that you&apos;ve created, write guides, or share resources that you&apos;ve found helpful in the past. To chat with others, join our Discord server!
         </p>
         <div className='py-4 flex flex-col md:flex-row gap-3'>
           <Button size='lg' className='text-sm font-bold' asChild>
