@@ -11,7 +11,7 @@ const Explore = () => {
     <main>
       <Metatags title="Explore All" description="All posts from the community" />
       <section className='mb-4 text-center'>
-        <h1>Explore</h1>
+        <h1>Explore Posts</h1>
       </section>
       <section className='my-10'>
         <CreatePosts />

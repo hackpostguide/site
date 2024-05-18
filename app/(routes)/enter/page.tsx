@@ -23,7 +23,7 @@ export default function Enter(props: any) {
 
   useEffect(() => {
     if (auth.currentUser && username) {
-      router.push('/dashboard');
+      router.push('/explore');
     }
     else if(auth.currentUser && !username) {
       router.push('/onboarding');
@@ -50,38 +50,25 @@ export default function Enter(props: any) {
   );
 }
 
-// Sign in with Google button
 function SignInButton() {
   const signInWithGoogle = async () => {
     const provider = new GoogleAuthProvider();
     try {
-      await signInWithRedirect(auth, provider);
+      await signInWithPopup(auth, provider);
       console.log('Signed in with Google');
-      toast.success('Logged in successfully! Redirecting...');
     } catch (error) {
       console.error('Error signing in with Google:', error);
     }
   };
 
   return (
-    <form className="space-y-6" action="#" method="POST">
-      <div>
-        <Button
-          variant="outline"
-          size="lg"
-          onClick={signInWithGoogle}
-          className="font-sm w-full text-center gap-5"
-        >
-          <Image src="/google-icon-logo-png-transparent.png" alt="Google" width="20" height="20" /> Sign Up/In with Google
-        </Button>
-
-        {/* Debugging:
-        <p>
-          User: {String(auth.currentUser)}
-          <br />
-          Username: {username}; 
-        </p> */}
-      </div>
-    </form>
+    <Button
+      variant="outline"
+      size="lg"
+      onClick={signInWithGoogle}
+      className="font-sm w-full text-center gap-5"
+    >
+      <Image src="/google-icon-logo-png-transparent.png" alt="Google" width="20" height="20" /> Sign Up/In with Google
+    </Button>
   );
 }
