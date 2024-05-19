@@ -1,7 +1,6 @@
 import Link from 'next/link'
 import { siteConfig } from "@/app/config/site";
 import { title, subtitle } from "@/components/Primitives";
-import { DiscordIcon } from "@/components/Icons";
 import { Button } from "@/components/ui/button";
 import StartExploringButton from "../components/(homePage)/StartExploringButton";
 import PopularFeed from "../components/(postComponents)/(Feeds)/PopularFeed";
@@ -9,6 +8,13 @@ import About from "../components/(homePage)/About";
 import Image from 'next/image';
 import NewsLetter from "../components/(homePage)/NewsLetter";
 import { CreatePosts } from "../components/(homePage)/CreatePosts";
+import {
+  TwitterIcon,
+  GithubIcon,
+  DiscordIcon,
+  HeartFilledIcon,
+  SearchIcon,
+} from "@/components/Icons"
 
 export default function Home() {
   return (
@@ -28,6 +34,11 @@ export default function Home() {
         <div className="my-10 w-full flex flex-col items-center gap-3 md:justify-center md:gap-3">
           <Button variant="default" className="bobbing-animation " size="xl" asChild>
 		  	    <Link href="/explore">Get Started</Link>
+          </Button>
+          <Button variant="outline" className="" size="lg" asChild>
+		  	    <Link href={siteConfig.links.github} aria-label="Github"
+              target="_blank"
+              rel="noopener noreferrer"><GithubIcon className="text-default-500 w-6 h-6 mr-2" /> Star on Github</Link>
           </Button>
           <div className="flex flex-row gap-3">
             {/* <StartExploringButton />
