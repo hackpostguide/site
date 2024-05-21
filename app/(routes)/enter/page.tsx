@@ -35,7 +35,7 @@ export default function Enter(props: any) {
       <Card className="mx-auto w-full max-w-md p-10">
         <CardHeader>
           <Logo size={50} className="mx-auto my-4" />
-          <CardTitle className="text-center mb-4">Welcome to Hackpost Guide</CardTitle>
+          <CardTitle className="text-center mb-4">Sign In / Sign Up</CardTitle>
         </CardHeader>
         <p className="mb-6">Get started by signing in below. Free forever. </p>
         <SignInButton />
