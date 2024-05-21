@@ -63,7 +63,7 @@ export default function Home() {
 
       <section id="explore" className="py-12 md:pb-16">
         <div className="flex flex-col md:flex-row items-center justify-between mb-4">
-          <h1 className={title({ size: "sm", color: "yellow" })}>Popular</h1>
+          <h2 className={title({ size: "md", bold: "bold", color: "yellow" })}>Popular</h2>
         </div>
         <div className="p-0">
           <PopularFeed />
