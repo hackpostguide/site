@@ -36,7 +36,7 @@ export default async function Post({ params }: { params: { username: string; slu
             <PostContent post={post} path={path || ''} />
           </div>
         ) : (
-          <p>This post is currently private.</p>
+          notFound()
         )}
       </section>
       <HeartCard post={post} path={path} />
