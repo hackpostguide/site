@@ -6,6 +6,7 @@ import Metatags from '@/components/Metatags';
 import HeartButton from '@/components/(postComponents)/HeartButton';
 import Link from 'next/link';
 import HeartCard from '@/components/(postComponents)/HeartCard';
+import { notFound } from 'next/navigation';
 
 async function getPost(username: string, slug: string) {
   const userDoc = await getUserWithUsername(username);
@@ -15,6 +16,9 @@ async function getPost(username: string, slug: string) {
     const postRef = doc(getFirestore(), userDoc.ref.path, 'posts', slug);
     post = postToJSON(await getDoc(postRef));
     path = postRef.path;
+  }
+  else{
+    notFound();
   }
   return { props: { post, path }, revalidate: 100 };
 }

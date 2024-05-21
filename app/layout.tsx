@@ -62,7 +62,7 @@ export default function RootLayout({
       </head>
       <body
         className={clsx(
-          "min-h-screen bg-background font-sans antialiased",
+          "bg-background font-sans antialiased",
           fontSans.variable
         )}
       >
@@ -70,7 +70,7 @@ export default function RootLayout({
         <Providers>
           <Nav />
           {/* <div className="relative flex flex-col h-screen"> */}
-            <main className="container mx-auto max-w-7xl pt-16 px-6 flex-grow">
+            <main className="container mx-auto max-w-7xl pt-16 px-6 min-h-screen flex-grow">
               {children}
             </main>
             <Footer />
