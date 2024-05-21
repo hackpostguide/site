@@ -12,6 +12,9 @@ import { Card, CardContent } from '@/components/ui/card';
 
 const HeartCard = ({ post, path }: { post: any; path: any }) => {
 
+    // console.log('HeartCard post: ', post);
+    // console.log('HeartCard path: ', path);
+
     const postRef = path ? doc(firestore, path) : null;
     const user = auth.currentUser;
 

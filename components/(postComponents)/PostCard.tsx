@@ -1,8 +1,15 @@
+'use client';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 
 import markdownToTxt from 'markdown-to-txt';
+import HeartCard from './HeartCard';
+import { auth, firestore, getUserWithUsername } from '@/lib/firebase';
+import { getUIDWithUsername } from './hooks';
+import { useState, useEffect } from 'react';
+import { useDocumentData } from 'react-firebase-hooks/firestore';
+import { doc } from 'firebase/firestore';
 
 export default function PostCard({ posts, admin = false }: { posts: any[], admin?: boolean }) {
   return posts && posts.length ? <>{posts.map((post: any, i: number) => <PostItem post={post} key={i} admin={admin} />)}</> : <></>;
@@ -13,6 +20,28 @@ function PostItem({ post, admin }: { post: any, admin: boolean }) {
   const wordCount = post?.content.trim().split(/\s+/g).length;
   const minutesToRead = (wordCount / 100 + 1).toFixed(0);
 
+  const [uid, setUID] = useState<string | null>(null);
+
+  useEffect(() => {
+    const fetchUID = async () => {
+      const fetchedUID = await getUIDWithUsername(post.username);
+      setUID(fetchedUID);
+      // console.log('fetchedUID: ', fetchedUID);
+    };
+    fetchUID();
+  }, [post.username]);
+
+  const path = uid ? `users/${uid}/posts/${post.slug}` : null;
+  const postRef = path ? doc(firestore, path) : null;
+  const user = auth.currentUser;
+
+  const [realtimePost] = useDocumentData(postRef);
+
+  const updatedPost = realtimePost || post;
+
+  if (!updatedPost.published) {
+      return null;
+  }
 
   return (
     <Card
@@ -39,6 +68,7 @@ function PostItem({ post, admin }: { post: any, admin: boolean }) {
         <span>~{minutesToRead} min</span>
         <span className="">💖 {post.heartCount || 0} Hearts</span>
         {/* <span>Views: {post.views}</span> */}
+        <HeartCard post={post} path={`users/${uid}/posts/${post.slug}`}/>
       
         {/* If admin view, show extra controls for user */}
         {admin && (
