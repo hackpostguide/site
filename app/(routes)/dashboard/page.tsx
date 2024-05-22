@@ -16,6 +16,7 @@ import { title, subtitle } from "@/components/Primitives";
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { useGetDashboardPosts } from '@/components/(postComponents)/hooks';
+import { Card, CardContent, CardTitle, CardDescription, CardFooter } from '@/components/ui/card';
 
 export default function Dashboard() {
   return (
@@ -27,18 +28,26 @@ export default function Dashboard() {
           My dashboard
         </h1>
         <div className='mb-16'>
-          <h2 className={`${title({ size: "sm" })}`}>
-            Create new post
-          </h2>
-          <div className='my-6'>
-            <CreateNewPost />
-          </div>
-          <p className='my-6'>
-            The title has to be at least 3 characters long and less than 100 characters long.
-            You will also <strong>not</strong> be able to edit the title after creating the post - make sure it is concise and informative!
-            <br />
-            After creating your post, you will be able to edit the content.
-          </p>
+          <Card className="p-8 pt-16">
+            <CardContent>
+              <CardTitle>
+                <h2 className={`${title({ size: "sm" })}`}>
+                  Create new post
+                </h2>
+              </CardTitle>
+              <div className='my-6'>
+                <CreateNewPost />
+              </div>
+            </CardContent>
+            <CardFooter>
+              <p className=''>
+                The title has to be at least 3 characters long and less than 100 characters long.
+                You will also <strong>not</strong> be able to edit the title after creating the post - make sure it is concise and informative!
+                <br />
+                After creating your post, you will be able to edit the content.
+              </p>
+            </CardFooter>
+          </Card>
         </div>
         
         <div>
