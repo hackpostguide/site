@@ -73,7 +73,7 @@ function PostItem({ post, admin }: { post: any, admin: boolean }) {
         {/* If admin view, show extra controls for user */}
         {admin && (
           <>
-            <Button className="whitespace-nowrap" asChild>
+            <Button className="whitespace-nowrap h-12" asChild>
               <Link  href={`/dashboard/${post.slug}`}>
                 Edit
               </Link>
