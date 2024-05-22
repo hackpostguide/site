@@ -1,5 +1,5 @@
 'use client';
-import AuthCheck from "@/components/(dashboard)/AuthCheck";
+import AuthCheck from "@/components/routeComponents/dashboard/AuthCheck";
 import { auth } from "@/lib/firebase";
 import { doc, getFirestore, updateDoc, serverTimestamp, deleteDoc } from "firebase/firestore";
 import Link from "next/link";
@@ -10,8 +10,8 @@ import { useDocumentDataOnce } from "react-firebase-hooks/firestore";
 import { Controller, useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import ReactMarkdown from "react-markdown";
-import ImageUploader from '@/components/(dashboard)/ImageUploader';
-import { MarkdownComponents } from '@/components/(postComponents)/MarkdownComponents';
+import ImageUploader from '@/components/routeComponents/dashboard/ImageUploader';
+import { MarkdownComponents } from '@/components/postComponents/MarkdownComponents';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 

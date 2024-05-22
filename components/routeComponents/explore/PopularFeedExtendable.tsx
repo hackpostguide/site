@@ -4,7 +4,7 @@ import { postToJSON, fetchPopularPosts } from '@/lib/firebase';
 import { query, where, orderBy, limit, collectionGroup, getDocs, startAfter, getFirestore } from 'firebase/firestore';
 import { useEffect, useState } from 'react';
 import { Button } from '@/components/ui/button';
-import GridFeed from '@/components/(postComponents)/GridFeed';
+import GridFeed from '@/components/postComponents/GridFeed';
 
 // Max post to query per page
 const LIMIT = 12;

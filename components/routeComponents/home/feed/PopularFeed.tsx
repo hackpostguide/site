@@ -4,8 +4,8 @@ import Loader from '@/components/Loader';
 import { postToJSON } from '@/lib/firebase';
 import { query, where, orderBy, limit, collectionGroup, getDocs, getFirestore } from 'firebase/firestore';
 import { useEffect, useState } from 'react';
-import GridFeed from '../GridFeed';
-import Metatags from '../../Metatags';
+import GridFeed from '../../../postComponents/GridFeed';
+import Metatags from '../../../Metatags';
 
 // Max post to query: 3
 

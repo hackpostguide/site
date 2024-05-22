@@ -2,8 +2,8 @@
 'use client';
 import React from 'react'
 import styles from '@/app/styles/Admin.module.css'
-import AuthCheck from '@/components/(dashboard)/AuthCheck'
-import PostCard from '@/components/(postComponents)/PostCard'
+import AuthCheck from '@/components/routeComponents/dashboard/AuthCheck'
+import PostCard from '@/components/postComponents/PostCard'
 import { UserContext } from '@/lib/context'
 import { auth } from '@/lib/firebase'
 import { serverTimestamp, query, collection, orderBy, getFirestore, setDoc, doc } from 'firebase/firestore'
@@ -15,7 +15,7 @@ import toast from 'react-hot-toast'
 import { title, subtitle } from "@/components/Primitives";
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import { useGetDashboardPosts } from '@/components/(postComponents)/hooks';
+import { useGetDashboardPosts } from '@/components/postComponents/hooks';
 import { Card, CardContent, CardTitle, CardDescription, CardFooter } from '@/components/ui/card';
 
 export default function Dashboard() {

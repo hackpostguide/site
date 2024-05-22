@@ -1,6 +1,6 @@
 'use client';
 import React from 'react'
-import { MailIcon } from '../Icons'
+import { MailIcon } from '../../Icons'
 // import { Input } from '@nextui-org/react'
 
 export default function NewsLetter(){

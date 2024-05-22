@@ -1,8 +1,8 @@
 
 import Metatags from '@/components/Metatags';
-import { CreatePosts } from '@/components/(homePage)/CreatePosts';
-import NewFeedExtendable from '@/components/(explorePage)/NewFeedExtendable';
-import PopularFeedExtendable from '@/components/(explorePage)/PopularFeedExtendable';
+import { CreatePosts } from '@/components/routeComponents/home/CreatePosts';
+import NewFeedExtendable from '@/components/routeComponents/explore/NewFeedExtendable';
+import PopularFeedExtendable from '@/components/routeComponents/explore/PopularFeedExtendable';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Separator } from '@/components/ui/separator';
 

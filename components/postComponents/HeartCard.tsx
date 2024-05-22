@@ -1,7 +1,7 @@
 'use client';
 import Link from 'next/link'
 import React, { useContext } from 'react'
-import AuthCheck from '@/components/(dashboard)/AuthCheck'
+import AuthCheck from '@/components/routeComponents/dashboard/AuthCheck'
 import HeartButton from './HeartButton'
 import { UserContext } from '@/lib/context'
 import { doc, getFirestore } from 'firebase/firestore';

@@ -1,5 +1,5 @@
 import ReactMarkdown from 'react-markdown';
-import { useUpdateViews } from '@/components/(postComponents)/hooks/useUpdateViews';
+import { useUpdateViews } from '@/components/postComponents/hooks/useUpdateViews';
 import { MarkdownComponents } from './MarkdownComponents';
 import { Card, CardHeader } from '@/components/ui/card';
 import Link from 'next/link';

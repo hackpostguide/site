@@ -1,7 +1,7 @@
 'use server';
 
-import GridFeed from '../GridFeed';
-import Metatags from '../../Metatags';
+import GridFeed from '../../../postComponents/GridFeed';
+import Metatags from '../../../Metatags';
 import { postToJSON, fetchNewPosts } from '@/lib/firebase';
 import { query, where, orderBy, limit, collectionGroup, getDocs, getFirestore } from 'firebase/firestore';
 
