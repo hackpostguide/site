@@ -27,11 +27,11 @@ export default function Home() {
           <h1 className={title({color: "blue" })}>open source&nbsp;</h1>
           <h1 className={title()}>resource hub for&nbsp;</h1>
           <h1 className={title({ color: "violet" })}>hackathon participants.&nbsp;</h1> */}
-          <h2 className={subtitle({ class: "mt-10" })}>
-            The one-stop resource hub to help YOU ace your next hackathon.
+          <h2 className={subtitle({ class: "mt-10 md:mt-12" })}>
+            A free collection of guides to help you win your next hackathon.
           </h2>
         </div>
-        <div className="my-10 w-full flex flex-col items-center gap-3 md:justify-center md:gap-3">
+        <div className="my-10 w-full flex flex-col items-center gap-6 md:justify-center md:gap-8">
           <Button variant="default" className="bobbing-animation " size="xl" asChild>
 		  	    <Link href="/explore">Get Started</Link>
           </Button>
@@ -50,11 +50,11 @@ export default function Home() {
         {/* Add Newsletter later */}
         {/* <NewsLetter /> */}
         {/* ProductHunt embed */}
-        <div className="w-full mb-4 md:mt-4 flex flex-col items-center gap-3 md:flex-row md:justify-end md:gap-3">
+        {/* <div className="w-full mb-4 md:mt-4 flex flex-col items-center gap-3 md:flex-row md:justify-end md:gap-3">
           <Link href="https://www.producthunt.com/products/hackpost-guide?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-hackpost&#0045;guide" target="_blank">
             <img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=454402&theme=light" alt="Hackpost&#0032;Guide - The&#0032;one&#0045;stop&#0032;resource&#0032;to&#0032;help&#0032;YOU&#0032;ace&#0032;your&#0032;next&#0032;hackathon&#0046; | Product Hunt" width="250" height="54" />
           </Link>
-        </div>
+        </div> */}
       </section>
 
       <section className="">

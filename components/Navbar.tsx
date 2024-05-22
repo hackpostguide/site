@@ -42,9 +42,9 @@ export default function Nav() {
           <p className="font-bold">Hackpost</p>
           <p className="">Guide</p>
         </Link>
-        <ul className="hidden md:flex">
+        <div className="hidden md:flex">
           {siteConfig.navItems.map((item) => (
-            <li key={item.href}>
+            <div key={item.href}>
               <Button
                 variant="ghost"
                 asChild
@@ -56,9 +56,9 @@ export default function Nav() {
               </Link>
               </Button>
               
-            </li>
+            </div>
           ))}
-        </ul>
+        </div>
       </div>
 
       <div className="flex items-center">
