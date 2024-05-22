@@ -4,8 +4,8 @@ import { dracula as prismTheme } from 'react-syntax-highlighter/dist/cjs/styles/
 
 export const MarkdownComponents = {
   p: (props: React.HTMLAttributes<HTMLParagraphElement>) => <p className="py-2" {...props} />,
-  ul: (props: React.HTMLAttributes<HTMLUListElement>) => <ul className="text-lg list-disc list-inside py-4 pl-4" {...props} />,
-  ol: (props: React.HTMLAttributes<HTMLOListElement>) => <ol className="text-lg list-decimal list-inside py-4 pl-4" {...props} />,
+  ul: (props: React.HTMLAttributes<HTMLUListElement>) => <ul className="text-lg my-6 ml-8 list-disc [&>li]:mt-2" {...props} />,
+  ol: (props: React.HTMLAttributes<HTMLOListElement>) => <ol className="text-lg my-6 ml-8 list-decimal [&>li]:mt-2" {...props} />,
   blockquote: (props: React.HTMLAttributes<HTMLQuoteElement>) => <blockquote className="text-lg border-l-4 pl-4 py-2 italic" {...props} />,
   code: (props: any) => {
     const { node, inline, className, children, ...rest } = props;
