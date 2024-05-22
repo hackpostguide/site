@@ -25,7 +25,7 @@ export default async function Post({ params }: { params: { username: string; slu
           notFound()
         )}
       </section>
-      <HeartCard post={post} path={path} />
+      <HeartCard post={post} path={path} onPostPage={true} />
     </main>
   );
 }

@@ -66,9 +66,9 @@ function PostItem({ post, admin }: { post: any, admin: boolean }) {
       </div>
       <CardFooter className="flex justify-between text-warning font-bold mt-4">
         <span>~{minutesToRead} min</span>
-        <span className="">💖 {post.heartCount || 0} Hearts</span>
+        {/* <span className="">💖 {post.heartCount || 0} Hearts</span> */}
         {/* <span>Views: {post.views}</span> */}
-        <HeartCard post={post} path={`users/${uid}/posts/${post.slug}`}/>
+        <HeartCard post={post} path={`users/${uid}/posts/${post.slug}`} onPostPage={false}/>
       
         {/* If admin view, show extra controls for user */}
         {admin && (

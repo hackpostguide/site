@@ -6,9 +6,11 @@ import { increment, writeBatch, doc, getFirestore } from "firebase/firestore";
 import { Button } from '@/components/ui/button';
 import confetti from 'canvas-confetti';
 import { useEffect, useRef, useState } from 'react';
+import { Icon } from '@iconify/react/dist/iconify.js';
+import { HeartFilledIcon } from '@/components/Icons';
 
 // Allows user to heart or like a post
-export default function Heart({ postRef }: any) {
+export default function Heart({ postRef, heartCount }: {postRef: any, heartCount: number}) {
 
     const buttonRef = useRef<HTMLButtonElement>(null);
     const [windowSize, setWindowSize] = useState({ width: 0, height: 0 });
@@ -68,20 +70,23 @@ export default function Heart({ postRef }: any) {
     
       return heartDoc?.exists() ? (
         <Button
-          className="m-3"
+          className="m-3 font-bold"
           size="lg"
+          variant={'outline'}
           onClick={removeHeart}
         >
-          💔 Unheart
+          {/* <Icon icon="foundation:arrow-up" /> */}
+          💖 {heartCount} Hearted!
         </Button>
       ) : (
         <Button
           ref={buttonRef}
-          className="m-3"
+          className="m-3 font-bold"
           size="lg"
+          variant={'default'}
           onClick={handleConfetti}
         >
-          💖 Heart
+          💖 {heartCount} Hearts
         </Button>
       );
     }
