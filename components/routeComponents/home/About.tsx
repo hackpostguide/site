@@ -54,12 +54,12 @@ const About = () => {
 
   return (
     <div className="p-8 flex flex-col md:items-start">
-      <div ref={leftRef} className={`mt-30 mb-60 md:w-3/4 transition-all duration-1000 ${leftVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-20'}`}>
+      <div ref={leftRef} className={`mb-40 md:w-3/4 transition-all duration-1000 ${leftVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-20'}`}>
         <div>
           <h1 className={title({ size: "md", bold: "bold" })}>Learn the Essential Skills.&nbsp;</h1>
           <h1 className={title({ size: "md", bold: "extra", color: "blue" })}>Quickly.</h1>
         </div>
-        <p className={subtitle({ size: "sm", class: "my-4" })}>
+        <p className="text-xl my-4">
           Stop wasting time searching for tutorials online. Or worse, reinventing the wheel during your hackathon. Hackpost Guide provides guides made by the community on a wide variety of topics to help you stay on track and focus on building your project. If one guide isn&apos;t what you&apos;re looking for, check out others!
         </p>
         {/* <div className='py-4 flex flex-col md:flex-row gap-3'>
@@ -75,12 +75,12 @@ const About = () => {
           </Button>
         </div> */}
       </div>
-      <div ref={rightRef} className={`mb-40 md:w-4/5 md:ml-auto flex flex-col items-start md:items-end md:text-right transition-all duration-1000 ${rightVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-20'}`}>
+      <div ref={rightRef} className={`md:w-4/5 md:ml-auto flex flex-col items-start md:items-end md:text-right transition-all duration-1000 ${rightVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-20'}`}>
         <div>
           <h1 className={title({ size: "md"}) + "pb-10"}>All Posts & Guides are Free. </h1>
           <h1 className={title({ size: "md", color: "violet", bold: "bold" })}>Forever.</h1>
         </div>
-        <p className={subtitle({ size: "sm", class: "my-4" })}>
+        <p className="text-xl my-4">
           This resource isn&apos;t just for people participating in hackathons. If you&apos;re interested in hacking and want to learn, check out some of our popular guides - all content is free forever. If you&apos;re more experienced and want to help out, you can either share projects that you&apos;ve created, write guides, or share resources that you&apos;ve found helpful in the past. To chat with others, join our Discord server!
         </p>
         <div className='py-4 flex flex-col md:flex-row gap-3'>

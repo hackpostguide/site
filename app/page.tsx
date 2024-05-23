@@ -15,6 +15,7 @@ import {
   HeartFilledIcon,
   SearchIcon,
 } from "@/components/Icons"
+import { LandingStatistics } from '@/components/routeComponents/home/LandingStatistics';
 
 export default function Home() {
   return (
@@ -57,9 +58,14 @@ export default function Home() {
         </div> */}
       </section>
 
-      <section className="">
+      <section className="my-10">
         <About />
       </section>
+
+      <section className="">
+        <LandingStatistics />
+      </section>
+
 
       <section id="explore" className="py-12 md:pb-16">
         <div className="flex flex-col md:flex-row items-center justify-between mb-4">
