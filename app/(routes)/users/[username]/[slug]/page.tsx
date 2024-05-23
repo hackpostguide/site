@@ -22,7 +22,10 @@ export default async function Post({ params }: { params: { username: string; slu
             <PostContent post={post} path={path || ''} />
           </div>
         ) : (
-          notFound()
+          <div>
+            <h3>This post is private. </h3>
+            <p>If you are the owner, make sure to visit the post through the &quot;Edit&quot; button.</p>
+          </div>
         )}
       </section>
       <HeartCard post={post} path={path} onPostPage={true} />
