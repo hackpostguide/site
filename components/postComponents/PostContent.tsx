@@ -17,7 +17,7 @@ export default function PostContent({ post, path }: { post: any, path: string })
 
   return (
     <div className="max-w-3xl mx-auto">
-      <Card className='p-5'>
+      <Card className='md:p-5 '>
         <CardHeader>
           <h1 className='text-center mb-6'>{post?.title}</h1>
           <div className='flex justify-center items-center mb-6'>
