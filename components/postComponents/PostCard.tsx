@@ -31,17 +31,13 @@ function PostItem({ post, admin }: { post: any, admin: boolean }) {
     fetchUID();
   }, [post.username]);
 
-  const path = uid ? `users/${uid}/posts/${post.slug}` : null;
-  const postRef = path ? doc(firestore, path) : null;
-  const user = auth.currentUser;
+  // const path = uid ? `users/${uid}/posts/${post.slug}` : null;
+  // const postRef = path ? doc(firestore, path) : null;
+  // const user = auth.currentUser;
 
-  const [realtimePost] = useDocumentData(postRef);
+  // const [realtimePost] = useDocumentData(postRef);
 
-  const updatedPost = realtimePost || post;
-
-  if (!updatedPost.published) {
-      return null;
-  }
+  // const updatedPost = realtimePost || post;
 
   return (
     <Card
