@@ -71,7 +71,7 @@ const HeartCard = ({ post, path, onPostPage }: { post: any; path: any, onPostPag
                     fallback={
                         <Button className="m-3" size="lg" variant="outline" asChild>
                             <Link href="/enter">
-                                {updatedPost.heartCount || 0} Hearts 💖
+                                {updatedPost.heartCount || 0} Hearted! 💖
                             </Link>
                         </Button>
                     }
