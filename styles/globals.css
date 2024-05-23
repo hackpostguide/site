@@ -2,6 +2,7 @@
   @tailwind components;
   @tailwind utilities;
 
+  /* Colors are in HSL color model */
   @layer base {
     :root {
       --background: 0 0% 100%;
@@ -20,7 +21,7 @@
       --secondary-foreground: 240 5.9% 10%;
 
       --muted: 240 4.8% 95.9%;
-      --muted-foreground: 240 3.8% 46.1%;
+      --muted-foreground: 240 4% 15%;
 
       --accent: 240 4.8% 95.9%;
       --accent-foreground: 240 5.9% 10%;
@@ -58,7 +59,7 @@
       --secondary-foreground: 0 0% 98%;
 
       --muted: 240 3.7% 15.9%;
-      --muted-foreground: 240 5% 64.9%;
+      --muted-foreground: 240 5% 85%;
 
       --accent: 240 3.7% 15.9%;
       --accent-foreground: 0 0% 98%;
@@ -99,13 +100,13 @@
       @apply scroll-m-20 text-xl font-semibold tracking-tight;
     }
     p {
-      @apply leading-7 text-lg my-3;
+      @apply leading-7 text-lg my-3 text-muted-foreground;
     }
     blockquote {
-      @apply mt-6 border-l-2 pl-6 italic;
+      @apply mt-6 border-l-2 pl-6 italic text-muted-foreground;
     }
     ul {
-      @apply my-6 ml-8 list-disc [&>li]:mt-2;
+      @apply my-6 ml-8 list-disc [&>li]:mt-2 text-muted-foreground;
     }
     code {
       @apply relative rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm font-semibold;
