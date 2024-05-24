@@ -37,7 +37,7 @@ export default function Complete({ postRef, completed }: {postRef: any, complete
     const [heartDoc] = useDocument(heartRef);
 
     // Create a user-to-post relationship
-    const addHeart = async () => {
+    const markComplete = async () => {
         const batch = writeBatch(getFirestore());
 
         batch.update(postRef, { heartCount: increment(1) });
@@ -65,7 +65,7 @@ export default function Complete({ postRef, completed }: {postRef: any, complete
           };
           confetti({ particleCount: 100, spread: 70, origin });
         }
-        addHeart();
+        markComplete();
       };
     
       return heartDoc?.exists() ? (
