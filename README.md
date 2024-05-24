@@ -10,7 +10,7 @@ Note: The project is still work in progress.
 
 ## Discord:
 
-Join our discord server here! [https://discord.gg/UjZDQcTMjD](https://discord.gg/UjZDQcTMjD)
+Join our discord server here! [https://discord.gg/5QBDjTGAmP](https://discord.gg/5QBDjTGAmP)
 
 ## Documentation + Contributing
 
