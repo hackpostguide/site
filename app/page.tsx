@@ -62,7 +62,7 @@ export default function Home() {
         <About />
       </section>
 
-      <section className="my-10">
+      <section className="my-32">
         <LandingStatistics />
       </section>
 

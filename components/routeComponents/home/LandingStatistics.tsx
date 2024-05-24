@@ -1,5 +1,7 @@
 import { LucideIcon, Globe, UserRoundCheck, Users } from "lucide-react";
 import { title, subtitle } from "@/components/Primitives";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 export function Statistic({ icon: Icon, stat, label }: { icon: LucideIcon; stat: string; label: string }) {
   return (
@@ -16,6 +18,7 @@ export async function LandingStatistics() {
     <section className="text-center">
       <div className="mb-16">
         <h1 className={title({ size: "md", bold: "bold" })}>Used by Hundreds.</h1>
+        <p className={subtitle({size: "sm"})}>We empower hackers around the world.</p>
       </div>
       {/* TODO: make the landing statistics dynamic from vercel analytics */}
       <div className="grid grid-cols-1 gap-8 md:grid-cols-3 mb-16">
@@ -23,6 +26,9 @@ export async function LandingStatistics() {
         <Statistic icon={UserRoundCheck} stat="500+" label={"Visitors"} />
         <Statistic icon={Globe} stat="60+" label={"Countries"} />
       </div>
+      <Button variant="default" size="xl" asChild>
+          <Link href="/explore">Get Started</Link>
+      </Button>
     </section>
   );
 }
