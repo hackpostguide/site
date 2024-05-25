@@ -1,12 +1,12 @@
 import { useState, useEffect } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { doc, onSnapshot, getFirestore } from 'firebase/firestore';
-import { auth } from './firebase';
+import { auth, firestore } from './firebase';
 
 // Initialize Firestore
-const firestore = getFirestore();
+// const firestore = getFirestore();
 
-// Custom hook to read auth record and user profile doc
+// a custom hook to read auth record and user profile doc
 export function useUserData() {
   const [user] = useAuthState(auth);
   // const user = auth.currentUser;
@@ -16,9 +16,9 @@ export function useUserData() {
     let unsubscribe = () => {};
 
     if (user) {
-      // Create a reference to the user document
+      // created a reference to the user document
       const ref = doc(firestore, 'users', user.uid);
-      // Listen for document updates
+      // listening for document updates
       unsubscribe = onSnapshot(ref, (doc) => {
         setUsername(doc.data()?.username);
       });
@@ -32,3 +32,13 @@ export function useUserData() {
 
   return { username };
 }
+
+export const getSeoConfig = (slug: string) => {
+  const seoConfig = {
+    title: `${slug}`,
+    description: `${slug}`,
+    // Add other SEO properties as needed
+  };
+
+  return seoConfig;
+};
