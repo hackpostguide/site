@@ -28,8 +28,9 @@ export async function generateMetadata(
   return getMetadata({
     title: post?.title,
     description: post?.title,
+    author: post?.username,
   });
-}
+} 
 
 
 export default async function Post({ params }: { params: { username: string; slug: string } }) {

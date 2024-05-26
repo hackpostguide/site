@@ -5,11 +5,13 @@ interface MetadataParams {
   title?: string;
   description?: string;
   image?: string;
+  author?: string;    
 }
 
 export const getMetadata = ({
   title,
   description,
+  author,
   image = '/apple-touch-icon.png',
 }: MetadataParams): Metadata => {
   const metadata: Metadata = {
@@ -24,6 +26,9 @@ export const getMetadata = ({
         shortcut: "/favicon-16x16.png",
         apple: "/apple-touch-icon.png",
     },
+    applicationName: 'Hackpost Guide',
+    keywords: ['Hackathon', 'Help', 'Guide', 'Hack', 'Hackathon Guide'],
+    authors: author ? [{ name: author }] : [{ name: 'Hackpost Guide' }],
     openGraph: {
       title: title || siteConfig.name,
       description: description || siteConfig.description,
