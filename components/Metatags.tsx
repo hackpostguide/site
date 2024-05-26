@@ -12,7 +12,7 @@ export const getMetadata = ({
   title,
   description,
   author,
-  image = '/apple-touch-icon.png',
+  image = 'https://www.hackpost.guide/hackpost-guide-thumbnail.png',
 }: MetadataParams): Metadata => {
   const metadata: Metadata = {
     metadataBase: new URL('https://hackpost.guide'),

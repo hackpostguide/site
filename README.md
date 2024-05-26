@@ -1,3 +1,5 @@
+![HackPost.Guide Thumbnail](https://www.hackpost.guide/hackpost-guide-thumbnail.png)
+
 # HackPost.Guide
 
 The new, updated website for hackpost.guide - the premier resource hub for hackathoners - made with Next.JS and Firebase. Free. Open Source. Community Driven.
