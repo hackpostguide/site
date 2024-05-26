@@ -1,15 +1,24 @@
 
-import Metatags from '@/components/Metatags';
+
 import { CreatePosts } from '@/components/routeComponents/home/CreatePosts';
 import NewFeedExtendable from '@/components/routeComponents/explore/NewFeedExtendable';
 import PopularFeedExtendable from '@/components/routeComponents/explore/PopularFeedExtendable';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Separator } from '@/components/ui/separator';
+import { Metadata } from 'next';
+import { get } from 'lodash';
+import { getMetadata } from '@/components/Metatags';
+
+export const metadata: Metadata = getMetadata({
+  title: 'Explore Feed',
+  description: 'All posts from the community',
+});
+ 
 
 const Explore = () => {
   return (
     <main>
-      <Metatags title="Explore All" description="All posts from the community" />
+      {/* <Metatags title="Explore All" description="All posts from the community" /> */}
       <section className='mb-4 text-center'>
         <h1>Explore Feed</h1>
       </section>

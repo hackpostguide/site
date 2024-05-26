@@ -1,7 +1,6 @@
 'use server';
 
 import GridFeed from '../../../postComponents/GridFeed';
-import Metatags from '../../../Metatags';
 import { postToJSON, fetchNewPosts } from '@/lib/firebase';
 import { query, where, orderBy, limit, collectionGroup, getDocs, getFirestore } from 'firebase/firestore';
 
@@ -18,7 +17,6 @@ export default async function NewFeed() {
 
   return (
     <main>
-      <Metatags title="Explore New Posts" description="New posts from the community" />
       <GridFeed posts={posts} />
     </main>
   );

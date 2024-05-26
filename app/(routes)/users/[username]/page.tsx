@@ -1,9 +1,28 @@
+import { getMetadata } from "@/components/Metatags";
 import UserProfile from "@/components/UserProfile";
 import GridFeed from "@/components/postComponents/GridFeed";
 import { getUserData } from "@/components/postComponents/hooks";
-import Link from "next/link";
+import { Metadata } from "next";
 import { notFound } from "next/navigation";
-import Metatags from "@/components/Metatags";
+
+export async function generateMetadata(
+  { params }: { params: { username: any } },
+): Promise<Metadata> {
+  const { username } = params;
+  const userData = await getUserData(username);
+
+  //if no user, return 404 page
+  if (!userData) {
+    notFound()
+  }
+
+  const { user, posts } = userData;
+ 
+  return getMetadata({
+    title: `${user.displayName} (@${user.username})`,
+    description: `${user.displayName}'s Hackpost Guide profile`,
+  });
+}
 
 export default async function UserProfilePage({ params }: { params: { username: any } }) {
     // console.log('hello from user profile page')
@@ -38,7 +57,6 @@ const { user, posts } = userData;
 
 return (
     <main>
-        <Metatags title={user.username} description={`${user.username}'s public profile`} />
         <div>
           <UserProfile user={user} />
         </div>

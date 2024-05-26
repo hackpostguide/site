@@ -5,7 +5,6 @@ import { postToJSON } from '@/lib/firebase';
 import { query, where, orderBy, limit, collectionGroup, getDocs, getFirestore } from 'firebase/firestore';
 import { useEffect, useState } from 'react';
 import GridFeed from '../../../postComponents/GridFeed';
-import Metatags from '../../../Metatags';
 
 // Max post to query: 3
 
@@ -35,8 +34,6 @@ const PopularFeed = ({ LIMIT = 3 }) => {
 
   return (
     <main>
-      <Metatags title="Explore Popular Posts" description="Popular posts from the community" />
-
       <GridFeed posts={posts} />
       <Loader show={loading} />
     </main>

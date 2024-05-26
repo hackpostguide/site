@@ -16,6 +16,11 @@ import {
   SearchIcon,
 } from "@/components/Icons"
 import { LandingStatistics } from '@/components/routeComponents/home/LandingStatistics';
+import { Metadata } from 'next';
+import { get } from 'lodash';
+import { getMetadata } from '@/components/Metatags';
+
+export const metadata: Metadata = getMetadata({});
 
 export default function Home() {
   return (
