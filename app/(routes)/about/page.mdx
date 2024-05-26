@@ -1,5 +1,10 @@
 import Link from 'next/link';
 import { siteConfig } from "@/app/config/site";
+import { getMetadata } from '@/components/Metatags';
+
+export const metadata = getMetadata({
+  title: 'About',
+})
 
 <div className="max-w-3xl mx-auto">
 

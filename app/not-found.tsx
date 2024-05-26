@@ -1,6 +1,12 @@
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 
+import { getMetadata } from '@/components/Metatags';
+
+export const metadata = getMetadata({
+  title: '404',
+})
+
  
 export default function NotFound() {
   return (

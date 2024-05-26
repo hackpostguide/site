@@ -21,6 +21,6 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "app/utils/mdxComponents.js", "app/(routes)/(legal)/terms/page.mdx", "app/(routes)/(legal)/community-guidelines/page.mdx", "app/(routes)/(legal)/privacy/page.mdx", "app/(routes)/about/page.mdx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "app/utils/mdxComponents.js", "app/(routes)/(legal)/terms/page.mdx", "app/(routes)/(legal)/community-guidelines/page.mdx", "app/(routes)/(legal)/privacy/page.mdx", "app/(routes)/about/page.tsx"],
   "exclude": ["node_modules"]
 }

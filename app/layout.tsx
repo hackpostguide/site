@@ -13,20 +13,10 @@ import { SpeedInsights } from "@vercel/speed-insights/next"
 import { GoogleTagManager } from '@next/third-parties/google'
 import Script from 'next/script';
 import Footer from "../components/Footer";
+import { getMetadata } from "@/components/Metatags";
 
 
-export const metadata: Metadata = {
-  title: {
-    default: siteConfig.name,
-    template: `%s - ${siteConfig.name}`,
-  },
-  description: siteConfig.description,
-  icons: {
-    icon: "/favicon.ico",
-    shortcut: "/favicon-16x16.png",
-    apple: "/apple-touch-icon.png",
-  },
-};
+export const metadata: Metadata = getMetadata({});
 
 const viewport: Viewport = {
   themeColor: [

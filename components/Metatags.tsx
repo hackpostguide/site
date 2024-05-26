@@ -13,11 +13,17 @@ export const getMetadata = ({
   image = '/apple-touch-icon.png',
 }: MetadataParams): Metadata => {
   const metadata: Metadata = {
+    metadataBase: new URL('https://hackpost.guide'),
     title: {
       default: title || siteConfig.name,
-      template: `%s | ${siteConfig.name}`,
+      template: `%s - ${siteConfig.name}`,
     },
     description: description || siteConfig.description,
+    icons: {
+        icon: "/favicon.ico",
+        shortcut: "/favicon-16x16.png",
+        apple: "/apple-touch-icon.png",
+    },
     openGraph: {
       title: title || siteConfig.name,
       description: description || siteConfig.description,
