@@ -11,6 +11,7 @@ import { getPost } from '@/components/postComponents/hooks';
 import { Metadata, ResolvingMetadata } from 'next';
 import { Props } from 'next/script';
 import { get } from 'lodash';
+import { Button } from '@/components/ui/button';
 
 // export const metadata: Metadata = {
 //   title: 'skibidibop and a dadadidoo',
@@ -39,7 +40,12 @@ export default async function Post({ params }: { params: { username: string; slu
 
   return (
     <main className={`${styles.container} mb-[100px]`}>
-      <section>
+      <section className="max-w-4xl mx-auto pr-32">
+        <Button className="mb-10" asChild>
+          <Link href='/explore'>
+            ← Back to Explore Feed ✨
+          </Link>
+        </Button>
         {post?.published ? (
           <div>
             <PostContent post={post} path={path || ''} />
@@ -50,6 +56,14 @@ export default async function Post({ params }: { params: { username: string; slu
             <p>If you are the owner, make sure to visit the post through the &quot;Edit&quot; button.</p>
           </div>
         )}
+        <div className="flex justify-center">
+          <Button className="mt-10" size="lg" asChild>
+          <Link href='/explore'>
+            Check out more guides 🚀
+          </Link>
+        </Button>
+        </div>
+        
       </section>
       <HeartCard post={post} path={path} onPostPage={true} />
     </main>
