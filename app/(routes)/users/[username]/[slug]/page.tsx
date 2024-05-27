@@ -40,7 +40,7 @@ export default async function Post({ params }: { params: { username: string; slu
 
   return (
     <main className={`${styles.container} mb-[100px]`}>
-      <section className="max-w-4xl mx-auto pr-32">
+      <section className="max-w-4xl mx-auto lg:pr-32">
         <Button className="mb-10" asChild>
           <Link href='/explore'>
             ← Back to Explore Feed ✨
