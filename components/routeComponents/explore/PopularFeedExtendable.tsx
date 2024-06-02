@@ -7,7 +7,7 @@ import { Button } from '@/components/ui/button';
 import GridFeed from '@/components/postComponents/GridFeed';
 
 // Max post to query per page
-const LIMIT = 12;
+const LIMIT = 9;
 
 const PopularFeedExtendable = () => {
   const [posts, setPosts] = useState<any[]>([]);
@@ -21,7 +21,7 @@ const PopularFeedExtendable = () => {
     let postsQuery = query(
       ref,
       where('published', '==', true),
-      orderBy('heartsCount', 'desc'), // Order by heartsCount
+      orderBy('heartCount', 'desc'), // Order by heartCount
       limit(LIMIT),
     );
 
@@ -53,8 +53,8 @@ const PopularFeedExtendable = () => {
   // Get next page in pagination query
   const getMorePosts = async () => {
     const last = posts[posts.length - 1];
-    const cursor = last && last.heartsCount
-      ? last.heartsCount
+    const cursor = last && last.heartCount
+      ? last.heartCount
       : null;
 
     fetchPosts(cursor);
