@@ -23,8 +23,8 @@ export async function LandingStatistics() {
       </div>
       {/* TODO: make the landing statistics dynamic from vercel analytics */}
       <div className="grid grid-cols-1 gap-8 md:grid-cols-3 mb-16">
-        <Statistic icon={Users} stat="4K+" label={"Page Views"} />
-        <Statistic icon={UserRoundCheck} stat="800+" label={"Visitors"} />
+        <Statistic icon={Users} stat="4.2K+" label={"Total Views"} />
+        <Statistic icon={UserRoundCheck} stat="850+" label={"Users"} />
         <Statistic icon={Globe} stat="75" label={"Countries"} />
       </div>
       <Button variant="default" size="xl" asChild>

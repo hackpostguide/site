@@ -47,7 +47,10 @@ function PostItem({ post, admin }: { post: any, admin: boolean }) {
       <div className="w-full">
         <CardHeader className="">
           <Link passHref href={`/users/${post.username}`}>
-            <strong className='text-warning'>By @{post.username}</strong>
+            <div>
+              
+              <strong className='text-warning'>@{post.username}</strong>
+            </div>
           </Link>
           <Link passHref href={`/users/${post.username}/${post.slug}`}>
             <CardTitle className="text-2xl font-bold">{post.title}</CardTitle>
