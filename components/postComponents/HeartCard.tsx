@@ -9,6 +9,8 @@ import { auth, firestore } from '@/lib/firebase';
 import { useDocumentData } from 'react-firebase-hooks/firestore';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
+import Complete from './CompleteButton';
+import CompleteButton from './CompleteButton';
 
 const HeartCard = ({ post, path, onPostPage }: { post: any; path: any, onPostPage: boolean }) => {
 
@@ -49,6 +51,7 @@ const HeartCard = ({ post, path, onPostPage }: { post: any; path: any, onPostPag
                             }
                             >
                             <HeartButton postRef={postRef} heartCount={updatedPost.heartCount}/>
+                            <CompleteButton postRef={postRef} completed={updatedPost.completed}/>
                         </AuthCheck>
 
                         {user?.uid === updatedPost.uid && (

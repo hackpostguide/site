@@ -8,6 +8,15 @@ import confetti from 'canvas-confetti';
 import { useEffect, useRef, useState } from 'react';
 import { Icon } from '@iconify/react/dist/iconify.js';
 import { HeartFilledIcon } from '@/components/Icons';
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuLabel,
+  DropdownMenuRadioGroup,
+  DropdownMenuRadioItem,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu"
 
 // Allows user to heart or like a post
 export default function Complete({ postRef, completed }: {postRef: any, completed: boolean}) {
@@ -33,25 +42,35 @@ export default function Complete({ postRef, completed }: {postRef: any, complete
 
     // Listen to heart document for currently logged in user
     // const heartRef = doc(getFirestore(), postRef.path, 'hearts', uid);
-    const heartRef = doc(getFirestore(), postRef?.path, 'hearts', uid);
-    const [heartDoc] = useDocument(heartRef);
+    const completeRef = doc(getFirestore(), postRef?.path, 'completes', uid);
+    const [completeDoc] = useDocument(completeRef);
 
     // Create a user-to-post relationship
     const markComplete = async () => {
         const batch = writeBatch(getFirestore());
 
-        batch.update(postRef, { heartCount: increment(1) });
-        batch.set(heartRef, { uid });
+        // batch.update(postRef, { heartCount: increment(1) });
+        batch.set(completeRef, { uid, "completeStatus": "complete" });
 
         await batch.commit();
     };
 
+    // Create a user-to-post relationship
+    const markStarted = async () => {
+      const batch = writeBatch(getFirestore());
+
+      // batch.update(postRef, { heartCount: increment(1) });
+      batch.set(completeRef, { uid, "completeStatus": "started" });
+
+      await batch.commit();
+  };
+
     // Remove a user-to-post relationship
-    const removeHeart = async () => {
+    const markNotStarted = async () => {
         const batch = writeBatch(getFirestore());
 
-        batch.update(postRef, { heartCount: increment(-1) });
-        batch.delete(heartRef);
+        // batch.update(postRef, { heartCount: increment(-1) });
+        batch.delete(completeRef);
 
         await batch.commit();
     };
@@ -67,13 +86,16 @@ export default function Complete({ postRef, completed }: {postRef: any, complete
         }
         markComplete();
       };
+
+      const [status, setStatus] = useState("bottom")
+      
     
-      return heartDoc?.exists() ? (
+      return completeDoc?.exists() ? (
         <Button
           className="m-3 font-bold"
           size="lg"
           variant={'outline'}
-          onClick={removeHeart}
+          onClick={markNotStarted}
         >
           {/* <Icon icon="foundation:arrow-up" /> */}
           Completed!
