@@ -11,6 +11,8 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import Complete from './CompleteButton';
 import CompleteButton from './CompleteButton';
+import { Circle } from 'lucide-react';
+import { TooltipProvider, Tooltip, TooltipTrigger, TooltipContent } from '@/components/ui/tooltip';
 
 const HeartCard = ({ post, path, onPostPage }: { post: any; path: any, onPostPage: boolean }) => {
 
@@ -43,11 +45,28 @@ const HeartCard = ({ post, path, onPostPage }: { post: any; path: any, onPostPag
 
                         <AuthCheck
                             fallback={
-                                <Button className="m-3" variant="default" asChild>
-                                    <Link href="/enter">
-                                        💖 Heart
-                                    </Link>
-                                </Button>
+                                <div>
+                                    <TooltipProvider>
+                                        <Tooltip>
+                                        <TooltipTrigger asChild>
+                                            <Button className="m-3" size="lg" variant="default" asChild>
+                                                <Link href="/enter">
+                                                    💖 Heart
+                                                </Link>
+                                            </Button>
+                                        </TooltipTrigger>
+                                        <TooltipContent>
+                                            Sign up / Sign in to heart this post!
+                                        </TooltipContent>
+                                        </Tooltip>
+                                    </TooltipProvider>
+
+                                    <Button className="m-3 bg-red-500 hover:bg-red-600 text-white" size="lg" variant="default" asChild>
+                                        <Link href="/enter">
+                                            <Circle className="w-6 h-6 mr-2" /> Not Complete
+                                        </Link>
+                                    </Button>
+                                </div>
                             }
                             >
                             <HeartButton postRef={postRef} heartCount={updatedPost.heartCount}/>
