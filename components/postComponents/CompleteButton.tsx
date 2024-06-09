@@ -1,13 +1,10 @@
 'use client';
 import { auth } from '@/lib/firebase';
-// import { useDocument } from '@/app/lib/hooks';
 import { useDocument } from 'react-firebase-hooks/firestore';
-import { increment, writeBatch, doc, getFirestore } from "firebase/firestore";
+import { writeBatch, doc, getFirestore } from "firebase/firestore";
 import { Button } from '@/components/ui/button';
 import confetti from 'canvas-confetti';
 import { useEffect, useRef, useState } from 'react';
-import { Icon } from '@iconify/react/dist/iconify.js';
-import { HeartFilledIcon } from '@/components/Icons';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -18,97 +15,95 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 
-// Allows user to heart or like a post
-export default function Complete({ postRef, completed }: {postRef: any, completed: boolean}) {
+export default function Complete({ postRef, completed }: { postRef: any, completed: boolean }) {
+  const buttonRef = useRef<HTMLButtonElement>(null);
+  const [windowSize, setWindowSize] = useState({ width: 0, height: 0 });
 
-    const buttonRef = useRef<HTMLButtonElement>(null);
-    const [windowSize, setWindowSize] = useState({ width: 0, height: 0 });
-
-    useEffect(() => {
-        const handleResize = () => {
-          setWindowSize({
-            width: window.innerWidth,
-            height: window.innerHeight,
-          });
-        };
-    
-        window.addEventListener('resize', handleResize);
-        handleResize();
-    
-        return () => window.removeEventListener('resize', handleResize);
-      }, []);
-
-    const uid: any = auth?.currentUser?.uid;
-
-    // Listen to heart document for currently logged in user
-    // const heartRef = doc(getFirestore(), postRef.path, 'hearts', uid);
-    const completeRef = doc(getFirestore(), postRef?.path, 'completes', uid);
-    const [completeDoc] = useDocument(completeRef);
-
-    // Create a user-to-post relationship
-    const markComplete = async () => {
-        const batch = writeBatch(getFirestore());
-
-        // batch.update(postRef, { heartCount: increment(1) });
-        batch.set(completeRef, { uid, "completeStatus": "complete" });
-
-        await batch.commit();
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowSize({
+        width: window.innerWidth,
+        height: window.innerHeight,
+      });
     };
 
-    // Create a user-to-post relationship
-    const markStarted = async () => {
-      const batch = writeBatch(getFirestore());
+    window.addEventListener('resize', handleResize);
+    handleResize();
 
-      // batch.update(postRef, { heartCount: increment(1) });
-      batch.set(completeRef, { uid, "completeStatus": "started" });
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
-      await batch.commit();
+  const uid: any = auth?.currentUser?.uid;
+
+  const completeRef = doc(getFirestore(), postRef?.path, 'completes', uid);
+  const [completeDoc] = useDocument(completeRef);
+
+  const markComplete = async () => {
+    const batch = writeBatch(getFirestore());
+    batch.set(completeRef, { uid, completeStatus: 'Completed' });
+    await batch.commit();
   };
 
-    // Remove a user-to-post relationship
-    const markNotStarted = async () => {
-        const batch = writeBatch(getFirestore());
+  const markStarted = async () => {
+    const batch = writeBatch(getFirestore());
+    batch.set(completeRef, { uid, completeStatus: 'In Progress' });
+    await batch.commit();
+  };
 
-        // batch.update(postRef, { heartCount: increment(-1) });
-        batch.delete(completeRef);
+  const markNotStarted = async () => {
+    const batch = writeBatch(getFirestore());
+    batch.delete(completeRef);
+    await batch.commit();
+  };
 
-        await batch.commit();
-    };
-
-    const handleConfetti = () => {
-        const buttonRect = buttonRef.current?.getBoundingClientRect();
-        if (buttonRect) {
-          const origin = {
-            x: (buttonRect.left + buttonRect.width / 2) / windowSize.width,
-            y: (buttonRect.top + buttonRect.height / 2) / windowSize.height,
-          };
-          confetti({ particleCount: 100, spread: 70, origin });
-        }
-        markComplete();
+  const handleConfetti = () => {
+    const buttonRect = buttonRef.current?.getBoundingClientRect();
+    if (buttonRect) {
+      const origin = {
+        x: (buttonRect.left + buttonRect.width / 2) / windowSize.width,
+        y: (buttonRect.top + buttonRect.height / 2) / windowSize.height,
       };
-
-      const [status, setStatus] = useState("bottom")
-      
-    
-      return completeDoc?.exists() ? (
-        <Button
-          className="m-3 font-bold"
-          size="lg"
-          variant={'outline'}
-          onClick={markNotStarted}
-        >
-          {/* <Icon icon="foundation:arrow-up" /> */}
-          Completed!
-        </Button>
-      ) : (
-        <Button
-          ref={buttonRef}
-          className="m-3 font-bold"
-          size="lg"
-          variant={'default'}
-          onClick={handleConfetti}
-        >
-          Not Completed
-        </Button>
-      );
+      confetti({ particleCount: 100, spread: 70, origin });
     }
+    markComplete();
+  };
+
+  const [status, setStatus] = useState("Not Started");
+
+  useEffect(() => {
+    if (completeDoc?.exists()) {
+      setStatus(completeDoc.data().completeStatus);
+    } else {
+      setStatus("Not Started");
+    }
+  }, [completeDoc]);
+
+  const handleStatusChange = (newStatus: string) => {
+    if (newStatus === "Completed") {
+      handleConfetti();
+    } else if (newStatus === "In Progress") {
+      markStarted();
+    } else {
+      markNotStarted();
+    }
+    setStatus(newStatus);
+  };
+
+  return (
+    <DropdownMenu>
+      <DropdownMenuTrigger asChild>
+        <Button ref={buttonRef} className="m-3 font-bold" size="lg" variant={status === 'Not Started' ? 'default' : 'outline'}>
+          {status}
+        </Button>
+      </DropdownMenuTrigger>
+      <DropdownMenuContent>
+        <DropdownMenuLabel>Set status</DropdownMenuLabel>
+        <DropdownMenuRadioGroup value={status} onValueChange={handleStatusChange}>
+          <DropdownMenuRadioItem value="Not Started">Not Started</DropdownMenuRadioItem>
+          <DropdownMenuRadioItem value="In Progress">In Progress</DropdownMenuRadioItem>
+          <DropdownMenuRadioItem value="Completed">Completed</DropdownMenuRadioItem>
+        </DropdownMenuRadioGroup>
+      </DropdownMenuContent>
+    </DropdownMenu>
+  );
+}
