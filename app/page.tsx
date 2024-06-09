@@ -27,7 +27,7 @@ export default function Home() {
     <>
       <section className="my-16 flex flex-col items-center justify-center gap-4">
         {/* Circular Glow Background */}
-        <div className="absolute top-1/2 left-1/2 w-96 h-96 bg-gradient-to-r from-purple-600 via-pink-500 to-red-500 rounded-full opacity-30 filter blur-2xl transform -translate-x-1/2 -translate-y-1/2"></div>
+        <div className="absolute top-1/2 left-1/2 w-96 h-96 bg-gradient-to-r from-purple-600 via-pink-500 to-red-500 rounded-full opacity-25 filter blur-2xl transform -translate-x-1/2 -translate-y-1/2"></div>
 
 
         <div className="inline-block text-center justify-center max-w-sm md:max-w-3xl">

@@ -58,7 +58,6 @@ function UsernameForm() {
   const [formValue, setFormValue] = useState('');
   const [isValid, setIsValid] = useState(false);
   const [loading, setLoading] = useState(false);
-  const [isOver13, setIsOver13] = useState(false);
   const [agreedToTerms, setAgreedToTerms] = useState(false);
 
   const { username } = useContext(UserContext);
@@ -67,8 +66,8 @@ function UsernameForm() {
   const onSubmit = async (e: any) => {
     e.preventDefault();
 
-    if (!isOver13 || !agreedToTerms) {
-      toast.error('Please agree to the age and terms requirements to continue.');
+    if (!agreedToTerms) {
+      toast.error('Please agree to the terms of service, privacy policy, and community guidelines to continue.');
       return;
     }
 
@@ -155,19 +154,6 @@ function UsernameForm() {
 
           <p className="text-sm">Usernames can only include alphanumeric characters (letters A-Z, numbers 0-9) and dashes (-) and must be 3-15 characters long. <br/> No spaces or special characters allowed. Profanity and obscene usernames are not allowed. You will not be able to change your username after you create your account.</p>
           
-          {/* Age requirement checkbox */}
-          <div className="flex items-center">
-            <input
-              type="checkbox"
-              id="age-requirement"
-              checked={isOver13}
-              onChange={(e) => setIsOver13(e.target.checked)}
-            />
-            <label htmlFor="age-requirement" className="ml-2">
-              I am 13 years old or older.
-            </label>
-          </div>
-
           {/* Terms and guidelines checkbox */}
           <div className="flex items-center">
             <input
