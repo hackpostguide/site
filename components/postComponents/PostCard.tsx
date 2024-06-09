@@ -10,6 +10,7 @@ import { getUIDWithUsername } from './hooks';
 import { useState, useEffect } from 'react';
 import { useDocumentData } from 'react-firebase-hooks/firestore';
 import { doc } from 'firebase/firestore';
+import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar';
 
 export default function PostCard({ posts, admin = false }: { posts: any[], admin?: boolean }) {
   return posts && posts.length ? <>{posts.map((post: any, i: number) => <PostItem post={post} key={i} admin={admin} />)}</> : <></>;
@@ -22,11 +23,16 @@ function PostItem({ post, admin }: { post: any, admin: boolean }) {
 
   const [uid, setUID] = useState<string | null>(null);
 
+  const [user, setUser] = useState<any | null>(null);
+
   useEffect(() => {
     const fetchUID = async () => {
       const fetchedUID = await getUIDWithUsername(post.username);
       setUID(fetchedUID);
-      // console.log('fetchedUID: ', fetchedUID);
+
+      const fetchedUser = await getUserWithUsername(post.username);
+      setUser(fetchedUser);
+      // console.log('user: ', fetchedUser.data().photoURL);
     };
     fetchUID();
   }, [post.username]);
@@ -47,8 +53,11 @@ function PostItem({ post, admin }: { post: any, admin: boolean }) {
       <div className="w-full">
         <CardHeader className="">
           <Link passHref href={`/users/${post.username}`}>
-            <div>
-              
+            <div className="flex items-center gap-4">
+              <Avatar>
+                <AvatarImage src={user?.data().photoURL} alt={`@${post.username}`} />
+                <AvatarFallback>{post.username.slice(0, 2)}</AvatarFallback>
+              </Avatar>
               <strong className='text-warning'>@{post.username}</strong>
             </div>
           </Link>
