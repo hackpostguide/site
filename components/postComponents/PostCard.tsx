@@ -77,18 +77,17 @@ function PostItem({ post, admin }: { post: any, admin: boolean }) {
         {/* <span className="">💖 {post.heartCount || 0} Hearts</span> */}
         {/* <span>Views: {post.views}</span> */}
         <HeartCard post={post} path={`users/${uid}/posts/${post.slug}`} onPostPage={false}/>
-      
-        {/* If admin view, show extra controls for user */}
-        {admin && (
-          <>
-            <Button className="whitespace-nowrap h-12" asChild>
-              <Link  href={`/dashboard/${post.slug}`}>
-                Edit
-              </Link>
-            </Button>
-          </>
-        )}
       </CardFooter>
+      {/* If admin view, show extra controls for user */}
+      {admin && (
+        <>
+          <Button className="whitespace-nowrap h-12 mb-5" asChild>
+            <Link  href={`/dashboard/${post.slug}`}>
+              Edit
+            </Link>
+          </Button>
+        </>
+      )}
     </Card>
   );
 }
