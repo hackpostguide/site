@@ -20,15 +20,14 @@ export default function PostContent({ post, path }: { post: any, path: string })
       <Card className='md:p-5 '>
         <CardHeader>
           <h1 className='text-center mb-6'>{post?.title}</h1>
-          <div className='flex justify-center items-center mb-6'>
+          <div className='flex flex-col sm:flex-row justify-center items-center mb-6'>
             <p>Written by</p>
-            <Button variant="link" size="sm" className='px-2' asChild>
+            <Button variant="link" size="sm" className='' asChild>
               <Link href={`/users/${post.username}/`} className="">
                 <p>@{post.username}</p>
               </Link>
             </Button>
-            <p>on</p>
-            <p className="ml-2">{formattedDate}</p>
+            <p className="">on {formattedDate}</p>
           </div>
         </CardHeader>
       </Card>
