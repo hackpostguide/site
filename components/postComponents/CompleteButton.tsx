@@ -11,11 +11,11 @@ import {
   DropdownMenuLabel,
   DropdownMenuRadioGroup,
   DropdownMenuRadioItem,
-  DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
+} from "@/components/ui/dropdown-menu";
+import { Circle, CircleDashed, CheckCircle } from 'lucide-react';
 
-export default function Complete({ postRef, completed }: { postRef: any, completed: boolean }) {
+export default function Complete({ postRef, completed, isIcon }: { postRef: any, completed: boolean, isIcon: boolean }) {
   const buttonRef = useRef<HTMLButtonElement>(null);
   const [windowSize, setWindowSize] = useState({ width: 0, height: 0 });
 
@@ -44,7 +44,7 @@ export default function Complete({ postRef, completed }: { postRef: any, complet
     await batch.commit();
   };
 
-  const markStarted = async () => {
+  const markInProgress = async () => {
     const batch = writeBatch(getFirestore());
     batch.set(completeRef, { uid, completeStatus: 'In Progress' });
     await batch.commit();
@@ -52,7 +52,7 @@ export default function Complete({ postRef, completed }: { postRef: any, complet
 
   const markNotStarted = async () => {
     const batch = writeBatch(getFirestore());
-    batch.delete(completeRef);
+    batch.set(completeRef, { uid, completeStatus: 'Not Started' });
     await batch.commit();
   };
 
@@ -82,18 +82,42 @@ export default function Complete({ postRef, completed }: { postRef: any, complet
     if (newStatus === "Completed") {
       handleConfetti();
     } else if (newStatus === "In Progress") {
-      markStarted();
+      markInProgress();
     } else {
       markNotStarted();
     }
     setStatus(newStatus);
   };
 
+  const getButtonClasses = () => {
+    switch (status) {
+      case "Completed":
+        return "bg-green-500 hover:bg-green-600 text-white";
+      case "In Progress":
+        return "bg-yellow-500 hover:bg-yellow-600 text-white";
+      case "Not Started":
+      default:
+        return "bg-red-500 hover:bg-red-600 text-white";
+    }
+  };
+
+  const getIcon = () => {
+    switch (status) {
+      case "Completed":
+        return <CheckCircle className='mx-2' />;
+      case "In Progress":
+        return <CircleDashed className='mx-2' />;
+      case "Not Started":
+      default:
+        return <Circle className='mx-2' />;
+    }
+  };
+
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button ref={buttonRef} className="m-3 font-bold" size="lg" variant={status === 'Not Started' ? 'default' : 'outline'}>
-          {status}
+        <Button ref={buttonRef} className={`m-3 font-bold ${getButtonClasses()}`} size={isIcon ? "icon" : "lg"}>
+          {isIcon ? getIcon() : <>{getIcon()} {status}</>}
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent>

@@ -70,7 +70,7 @@ export default function Heart({ postRef, heartCount }: {postRef: any, heartCount
     
       return heartDoc?.exists() ? (
         <Button
-          className="m-3 font-bold"
+          className="my-3 font-bold"
           size="lg"
           variant={'outline'}
           onClick={removeHeart}
@@ -81,7 +81,7 @@ export default function Heart({ postRef, heartCount }: {postRef: any, heartCount
       ) : (
         <Button
           ref={buttonRef}
-          className="m-3 font-bold"
+          className="my-3 font-bold"
           size="lg"
           variant={'default'}
           onClick={handleConfetti}

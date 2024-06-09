@@ -31,7 +31,7 @@ const HeartCard = ({ post, path, onPostPage }: { post: any; path: any, onPostPag
     if(onPostPage){
         return (
             <aside className="">
-                <Card className="w-[200px] h-[600px]">
+                <Card className="min-w-[200px] h-[600px]">
                     <CardContent className='flex flex-col justify-between p-6'>
                         {/* <p className="m-3">Views: {updatedPost.views}</p> */}
                         <p className="m-3 mb-0">
@@ -51,7 +51,7 @@ const HeartCard = ({ post, path, onPostPage }: { post: any; path: any, onPostPag
                             }
                             >
                             <HeartButton postRef={postRef} heartCount={updatedPost.heartCount}/>
-                            <CompleteButton postRef={postRef} completed={updatedPost.completed}/>
+                            <CompleteButton postRef={postRef} completed={updatedPost.completed} isIcon={false}/>
                         </AuthCheck>
 
                         {user?.uid === updatedPost.uid && (
@@ -80,6 +80,7 @@ const HeartCard = ({ post, path, onPostPage }: { post: any; path: any, onPostPag
                     }
                     >
                     <HeartButton postRef={postRef} heartCount={updatedPost.heartCount}/>
+                    <CompleteButton postRef={postRef} completed={updatedPost.completed} isIcon={true}/>
                 </AuthCheck>
             </div>
         )
