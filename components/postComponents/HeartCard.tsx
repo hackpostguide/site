@@ -59,13 +59,22 @@ const HeartCard = ({ post, path, onPostPage }: { post: any; path: any, onPostPag
                                             Sign up / Sign in to heart this post!
                                         </TooltipContent>
                                         </Tooltip>
-                                    </TooltipProvider>
 
-                                    <Button className="m-3 bg-red-500 hover:bg-red-600 text-white" size="lg" variant="default" asChild>
-                                        <Link href="/enter">
-                                            <Circle className="w-6 h-6 mr-2" /> Not Complete
-                                        </Link>
-                                    </Button>
+
+
+                                        <Tooltip>
+                                        <TooltipTrigger asChild>
+                                            <Button className="m-3 bg-red-500 hover:bg-red-600 text-white" size="lg" variant="default" asChild>
+                                                <Link href="/enter">
+                                                    <Circle className="w-6 h-6 mr-2" /> Not Complete
+                                                </Link>
+                                            </Button>
+                                        </TooltipTrigger>
+                                        <TooltipContent>
+                                            Sign up / Sign in to save your progress
+                                        </TooltipContent>
+                                        </Tooltip>
+                                    </TooltipProvider>
                                 </div>
                             }
                             >
@@ -88,14 +97,32 @@ const HeartCard = ({ post, path, onPostPage }: { post: any; path: any, onPostPag
     }
     else {
         return (
-            <div className="flex items-center">
+            <div className="flex items-center justify-center">
                 <AuthCheck
                     fallback={
-                        <Button className="m-3" size="lg" variant="outline" asChild>
-                            <Link href="/enter">
-                                {updatedPost.heartCount || 0} Hearted! 💖
-                            </Link>
-                        </Button>
+                        <TooltipProvider>
+                            <Tooltip>
+                            <TooltipTrigger asChild>
+                                <div className='flex items-center justify-center'>
+                                    <Button className="m-3" size="lg" variant="outline" asChild>
+                                        <Link href="/enter">
+                                            {updatedPost.heartCount || 0} Hearted! 💖
+                                        </Link>
+                                    </Button>
+
+                                    <Button className="bg-red-500 hover:bg-red-600 text-white" size="icon" variant="default" asChild>
+                                        <Link href="/enter">
+                                            <Circle className="w-6 h-6 mx-2" />
+                                        </Link>
+                                    </Button>
+                                </div>
+                            </TooltipTrigger>
+                            <TooltipContent>
+                                Sign up / Sign in to heart and save your progress
+                            </TooltipContent>
+                            </Tooltip>
+
+                        </TooltipProvider>
                     }
                     >
                     <HeartButton postRef={postRef} heartCount={updatedPost.heartCount}/>
