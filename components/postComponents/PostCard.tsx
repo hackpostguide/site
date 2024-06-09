@@ -47,7 +47,7 @@ function PostItem({ post, admin }: { post: any, admin: boolean }) {
 
   return (
     <Card
-      className="max-w-[400px] p-3 relative flex flex-col justify-between"
+      className="max-w-[400px] p-3 relative flex flex-col justify-between hover:shadow-lg hover:scale-105 transition-transform duration-300"
       
     >
       <div className="w-full">
