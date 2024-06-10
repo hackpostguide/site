@@ -118,7 +118,7 @@ const HeartCard = ({ post, path, onPostPage }: { post: any; path: any, onPostPag
                                 </div>
                             </TooltipTrigger>
                             <TooltipContent>
-                                Sign up / Sign in to heart and save your progress
+                                Sign up / Sign in to save your progress
                             </TooltipContent>
                             </Tooltip>
 

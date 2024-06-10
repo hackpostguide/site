@@ -31,10 +31,10 @@ export default function Dashboard() {
         </section>
 
         <section>
-          <Tabs defaultValue="complete" className="">
-            <TabsList className="grid w-full sm:w-[300px] grid-cols-2">
-              <TabsTrigger value="complete">In Progress</TabsTrigger>
-              <TabsTrigger value="create">Write Posts</TabsTrigger>
+          <Tabs defaultValue="create" className="">
+            <TabsList className="grid w-full sm:w-[300px] grid-cols-2 mb-6">
+              <TabsTrigger value="complete">My Progress</TabsTrigger>
+              <TabsTrigger value="create">My Posts</TabsTrigger>
             </TabsList>
             <TabsContent value="complete">
               <CompletedPosts />
@@ -54,7 +54,7 @@ export default function Dashboard() {
 const UserPosts = (): JSX.Element => {
   return (
     <>
-      <div className='mt-4 mb-16'>
+      <div className='mb-16'>
         <Card className="p-8 pt-16">
           <CardContent>
             <CardTitle className={`${title({ size: "sm" })}`}>
@@ -90,42 +90,52 @@ const CompletedPosts = (): JSX.Element => {
   const completedPosts = useGetCompletedPosts();
   const inProgressPosts = useGetInProgressPosts();
 
+  return (
+    <div>
+      <h2>
+        Coming soon!
+      </h2>
+    </div>
+  );
+
+  // TODO: Fix issue with both functions always returning undefined
+
   // console.log('completedPosts: ', completedPosts);  
   // console.log('inProgressPosts: ', inProgressPosts);
 
-  if (!completedPosts || !inProgressPosts) {
-    return <p>Loading...</p>;
-  }
+  // if (!completedPosts || !inProgressPosts) {
+  //   return <p>Loading...</p>;
+  // }
 
-  return (
-    <div>
-      <h1>In Progress Posts</h1>
-      {inProgressPosts.length > 0 ? (
-        inProgressPosts.map((post: any, index: number) => (
-          <div key={index}>
-            <h2>{post.title}</h2>
-            <p>{post.content}</p>
-            <p>Hearts: {post.heartCount}</p>
-          </div>
-        ))
-      ) : (
-        <p>No in progress posts found.</p>
-      )}
+  // return (
+  //   <div>
+  //     <h1>In Progress Posts</h1>
+  //     {inProgressPosts.length > 0 ? (
+  //       inProgressPosts.map((post: any, index: number) => (
+  //         <div key={index}>
+  //           <h2>{post.title}</h2>
+  //           <p>{post.content}</p>
+  //           <p>Hearts: {post.heartCount}</p>
+  //         </div>
+  //       ))
+  //     ) : (
+  //       <p>No in progress posts found.</p>
+  //     )}
 
-      <h1>Completed Posts</h1>
-      {completedPosts.posts.length > 0 ? (
-        completedPosts.posts.map((post: any, index: number) => (
-          <div key={index}>
-            <h2>{post.title}</h2>
-            <p>{post.content}</p>
-            <p>Hearts: {post.heartCount}</p>
-          </div>
-        ))
-      ) : (
-        <p>No completed posts found.</p>
-      )}
-    </div>
-  );
+  //     <h1>Completed Posts</h1>
+  //     {completedPosts.posts.length > 0 ? (
+  //       completedPosts.posts.map((post: any, index: number) => (
+  //         <div key={index}>
+  //           <h2>{post.title}</h2>
+  //           <p>{post.content}</p>
+  //           <p>Hearts: {post.heartCount}</p>
+  //         </div>
+  //       ))
+  //     ) : (
+  //       <p>No completed posts found.</p>
+  //     )}
+  //   </div>
+  // );
 }
 
 const PostList = (): JSX.Element => {
