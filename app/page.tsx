@@ -19,6 +19,7 @@ import { LandingStatistics } from '@/components/routeComponents/home/LandingStat
 import { Metadata } from 'next';
 import { get } from 'lodash';
 import { getMetadata } from '@/components/Metatags';
+import { Partners } from '@/components/routeComponents/home/Partners';
 
 export const metadata: Metadata = getMetadata({});
 
@@ -84,6 +85,9 @@ export default function Home() {
         <LandingStatistics />
       </section>
 
+      <section className="my-32">
+        <Partners />
+      </section>
 
       <section id="explore" className="py-12 md:pb-16">
         <div className="flex flex-col md:flex-row items-center justify-between mb-4">
