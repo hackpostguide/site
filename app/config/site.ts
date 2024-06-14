@@ -12,10 +12,10 @@ export const siteConfig = {
       label: "Explore",
       href: "/explore",
     },
-	// {
-		// 	label: "Blog",
-		// 	href: "/blog",
-	// },
+	{
+			label: "Hackathon!",
+			href: "https://hackathon.hackpost.guide",
+	},
 	],
 	navMenuItems: [
 		{
@@ -30,10 +30,10 @@ export const siteConfig = {
 			label: "Explore",
 			href: "/explore",
 		},
-		// {
-		// 	label: "Blog",
-		// 	href: "/blog",
-		// },
+		{
+			label: "Hackathon!",
+			href: "https://hackathon.hackpost.guide",
+		},
 		{
 			label: "Login / Sign Up",
 			href: "/enter",
@@ -52,10 +52,10 @@ export const siteConfig = {
 			label: "Explore",
 			href: "/explore",
 		},
-		// {
-		// 	label: "Blog",
-		// 	href: "/blog",
-		// },
+		{
+			label: "Hackathon!",
+			href: "https://hackathon.hackpost.guide",
+		},
 		{
 			label: "My Profile",
 			href: "/users",

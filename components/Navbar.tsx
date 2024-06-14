@@ -156,12 +156,12 @@ export default function Nav() {
                   <div key={`${item}-${index}`}>
                     {index === siteConfig.navMenuItemsLoggedIn.length - 1 ? (
                       <Button
-                        color="danger"
+                        variant="default"
                         className="mt-2"
                         onClick={handleLogout}
                         size="lg"
                       >
-                        <p>Log Out</p>
+                        <p className="text-background">Log Out</p>
                       </Button>
                     ) : (
                       <Link
@@ -179,13 +179,13 @@ export default function Nav() {
                     {index === siteConfig.navMenuItems.length - 1 ? (
                       <Button
                         onClick={() => setIsMenuOpen(false)}
-                        color="primary"
+                        variant="default"
                         className="mt-2"
                         size="lg"
                         asChild
                       >
                         <Link href="/enter">
-                          <p>Login / Sign Up</p>
+                          <p className="text-background">Login / Sign Up</p>
                         </Link>
                       </Button>
                     ) : (
