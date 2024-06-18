@@ -1,8 +1,8 @@
 import { auth } from '@/lib/firebase';
-import { collectionGroup, getFirestore, query, where, orderBy } from 'firebase/firestore';
+import { collectionGroup, getFirestore, query, where, orderBy, getDocs } from 'firebase/firestore';
 import { useCollection } from 'react-firebase-hooks/firestore';
 
-export function useGetCompletedPosts() {
+export async function useGetCompletedPosts() {
   const user = auth.currentUser;
   const uid = user?.uid;
   const db = getFirestore();
@@ -10,17 +10,17 @@ export function useGetCompletedPosts() {
   console.log("uid: ", uid); 
   
   // Reference to the completes collection group
-  const completesCollectionGroupRef = collectionGroup(db, 'completes');
-  const postQuery = query(
-    completesCollectionGroupRef,
-    // where('uid', '==', uid),
-    // where('completeStatus', '==', 'Completed'),
-    // orderBy('heartCount', 'desc')
-  );
-
-  console.log(postQuery);
+  const completesQuery = query(collectionGroup(db, 'completes'), 
+    where('uid', '==', uid),
+    where('completeStatus', '==', 'Completed'),
+    orderBy('heartCount', 'desc'));
+  const querySnapshot = await getDocs(completesQuery);
   
-  const [querySnapshot] = useCollection(postQuery);
+  querySnapshot.forEach((doc) => {
+    console.log(doc.id, ' => ', doc.data());
+  });
+  
+  console.log("completesQuery query:", completesQuery);
 
   console.log("Query snapshot: ", querySnapshot);
   
