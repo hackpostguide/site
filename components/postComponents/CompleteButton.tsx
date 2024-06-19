@@ -36,23 +36,28 @@ export default function Complete({ postRef, completed, isIcon }: { postRef: any,
   const uid: any = auth?.currentUser?.uid;
 
   const completeRef = doc(getFirestore(), postRef?.path, 'completes', uid);
+  // const userCompleteRef = doc(getFirestore(), 'users', uid, 'completes', postRef?.path);
   const [completeDoc] = useDocument(completeRef);
+  // const [userCompleteDoc] = useDocument(userCompleteRef);
 
   const markComplete = async () => {
     const batch = writeBatch(getFirestore());
     batch.set(completeRef, { uid, completeStatus: 'Completed' });
+    // batch.set(userCompleteRef, { uid, completeStatus: 'Completed' });
     await batch.commit();
   };
 
   const markInProgress = async () => {
     const batch = writeBatch(getFirestore());
     batch.set(completeRef, { uid, completeStatus: 'In Progress' });
+    // batch.set(userCompleteRef, { uid, completeStatus: 'In Progress' });
     await batch.commit();
   };
 
   const markNotStarted = async () => {
     const batch = writeBatch(getFirestore());
     batch.set(completeRef, { uid, completeStatus: 'Not Started' });
+    // batch.set(userCompleteRef, { uid, completeStatus: 'Not Started' });
     await batch.commit();
   };
 
