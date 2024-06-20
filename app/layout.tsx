@@ -14,6 +14,7 @@ import { GoogleTagManager } from '@next/third-parties/google'
 import Script from 'next/script';
 import Footer from "../components/Footer";
 import { getMetadata } from "@/components/Metatags";
+import HGHackathonBanner from "@/components/banners/HGHackathon";
 
 
 export const metadata: Metadata = getMetadata({});
@@ -58,6 +59,7 @@ export default function RootLayout({
       >
         {/* <GoogleTagManager gtmId="G-WTDDS3XCDR" /> */}
         <Providers>
+          <HGHackathonBanner />
           <Nav />
           {/* <div className="relative flex flex-col h-screen"> */}
             <main className="container mx-auto max-w-7xl pt-16 px-6 min-h-screen flex-grow">

@@ -23,6 +23,14 @@ const Footer = () => {
         <Link target="_blank" rel="noopener noreferrer" href={siteConfig.links.github} title="Github Repo">
             <span className="text-default-600">Github</span>
         </Link>
+        &bull;
+        <Link target="_blank" rel="noopener noreferrer" href={siteConfig.links.donate} title="Donate Link">
+            <span className="text-default-600">Donate</span>
+        </Link>
+        &bull;
+        <Link target="_blank" rel="noopener noreferrer" href={siteConfig.links.join} title="Join Team">
+            <span className="text-default-600">Join our Team</span>
+        </Link>
         </p>
     </footer>
   )

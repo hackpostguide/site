@@ -73,5 +73,8 @@ export const siteConfig = {
 		github: "https://github.com/hackpostguide/site",
 		discord: "https://discord.gg/5QBDjTGAmP",
 		linktree: "https://linktr.ee/hackpostguide?utm_source=hackpost.guide",
+		hackathon: "https://hackathon.hackpost.guide",
+		donate: "https://hcb.hackclub.com/donations/start/hackpost-guide?amount=5000",
+		join: "https://forms.gle/Rm6AUWLip1ZkkJBb7",
 	},
 };
