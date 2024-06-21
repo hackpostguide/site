@@ -17,7 +17,7 @@ export const partners = {
         },
         {
             name: "Hackpost Guide Hackathon",
-            image: "https://www.hackpost.guide/partners/hg-hackathon.wbackground.png",
+            image: "https://www.hackpost.guide/partners/hg-hackathon-wbackground.png",
             url: "https://hackathon.hackpost.guide/",
         },
     ],
