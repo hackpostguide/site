@@ -3,17 +3,22 @@ export const partners = {
         {
             name: "SandCodes",
             image: "https://www.hackpost.guide/partners/Sandcodes.jpeg",
-            url: "https://sandcodes.com/",
+            url: "https://sandcodes.devpost.com/",
         },
         {
             name: "IngeniumSTEM Summer Hacks 1.0",
             image: "https://www.hackpost.guide/partners/IngeniumStem-Technology.png",
-            url: "https://ingeniumstem.com/",
+            url: "https://ingeniumstem.tech",
         },
         {
             name: "Hackabyte 2024 Summer Hackathon",
             image: "https://www.hackpost.guide/partners/Hackabyte-Logo.png",
-            url: "https://hackabyte.com/",
+            url: "https://forms.gle/gTtUpB46V2tyJySw9",
+        },
+        {
+            name: "Hackpost Guide Hackathon",
+            image: "https://www.hackpost.guide/partners/hg-hackathon.wbackground.png",
+            url: "https://hackathon.hackpost.guide/",
         },
     ],
 };
