@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import { siteConfig } from "@/app/config/site";
-import { title, subtitle } from "@/components/Primitives";
+import { title, subtitle } from "@/components/misc/Primitives";
 import { Button } from "@/components/ui/button";
 import StartExploringButton from "../components/routeComponents/home/StartExploringButton";
 import PopularFeed from "../components/routeComponents/home/feed/PopularFeed";
@@ -14,11 +14,11 @@ import {
   DiscordIcon,
   HeartFilledIcon,
   SearchIcon,
-} from "@/components/Icons"
+} from "@/components/misc/Icons"
 import { LandingStatistics } from '@/components/routeComponents/home/LandingStatistics';
 import { Metadata } from 'next';
 import { get } from 'lodash';
-import { getMetadata } from '@/components/Metatags';
+import { getMetadata } from '@/components/misc/Metatags';
 import { Partners } from '@/components/routeComponents/home/Partners';
 
 export const metadata: Metadata = getMetadata({});

@@ -3,7 +3,7 @@ import {
   AvatarFallback,
   AvatarImage,
 } from "@/components/ui/avatar"
-import { Card, CardContent } from './ui/card';
+import { Card, CardContent } from '../ui/card';
 import Img from 'next/image';
 
 export default function UserProfile({ user }: { user: any }) {

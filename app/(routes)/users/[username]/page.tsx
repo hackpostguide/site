@@ -1,5 +1,5 @@
-import { getMetadata } from "@/components/Metatags";
-import UserProfile from "@/components/UserProfile";
+import { getMetadata } from "@/components/misc/Metatags";
+import UserProfile from "@/components/misc/UserProfile";
 import GridFeed from "@/components/postComponents/GridFeed";
 import { getUserData } from "@/components/postComponents/hooks";
 import { Metadata } from "next";

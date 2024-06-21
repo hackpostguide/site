@@ -2,7 +2,7 @@ import styles from '@/styles/Post.module.css';
 import PostContent from '@/components/postComponents/PostContent';
 import { firestore, getUserWithUsername, postToJSON } from '@/lib/firebase';
 import { getFirestore, doc, getDoc, increment, updateDoc } from 'firebase/firestore';
-import { getMetadata } from '@/components/Metatags';
+import { getMetadata } from '@/components/misc/Metatags';
 import HeartButton from '@/components/postComponents/HeartButton';
 import Link from 'next/link';
 import HeartCard from '@/components/postComponents/HeartCard';

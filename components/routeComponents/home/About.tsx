@@ -3,9 +3,9 @@ import { siteConfig } from '@/app/config/site';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import React, { useEffect, useRef, useState } from 'react';
-import { DiscordIcon, GithubIcon, TwitterIcon } from '../../Icons';
+import { DiscordIcon, GithubIcon, TwitterIcon } from '../../misc/Icons';
 import { Icon } from '@iconify/react';
-import { title, subtitle } from "@/components/Primitives";
+import { title, subtitle } from "@/components/misc/Primitives";
 
 const About = () => {
   const [leftVisible, setLeftVisible] = useState(false);

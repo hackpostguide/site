@@ -1,5 +1,5 @@
 import { LucideIcon, Globe, UserRoundCheck, Users } from "lucide-react";
-import { title, subtitle } from "@/components/Primitives";
+import { title, subtitle } from "@/components/misc/Primitives";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 

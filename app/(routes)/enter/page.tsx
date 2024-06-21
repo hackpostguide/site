@@ -8,7 +8,7 @@ import { UserContext } from '@/lib/context';
 import { Button } from '@/components/ui/button';
 import toast from 'react-hot-toast';
 import { useRouter } from 'next/navigation';
-import { Logo } from "@/components/Icons";
+import { Logo } from "@/components/misc/Icons";
 import {
   Card,
   CardContent,

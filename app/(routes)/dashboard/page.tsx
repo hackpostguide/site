@@ -11,7 +11,7 @@ import { useRouter } from 'next/navigation'
 import { useCollection } from 'react-firebase-hooks/firestore'
 import kebabCase from 'lodash.kebabcase'
 import toast from 'react-hot-toast'
-import { title, subtitle } from "@/components/Primitives";
+import { title, subtitle } from "@/components/misc/Primitives";
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { useGetCompletedPosts, useGetDashboardPosts, useGetInProgressPosts } from '@/components/postComponents/hooks';

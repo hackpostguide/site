@@ -2,7 +2,7 @@
 
 import * as React from "react";
 import { useTheme } from "next-themes";
-import { SunFilledIcon, MoonFilledIcon } from "@/components/Icons";
+import { SunFilledIcon, MoonFilledIcon } from "@/components/misc/Icons";
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,

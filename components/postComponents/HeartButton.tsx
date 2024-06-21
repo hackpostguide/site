@@ -7,7 +7,7 @@ import { Button } from '@/components/ui/button';
 import confetti from 'canvas-confetti';
 import { useEffect, useRef, useState } from 'react';
 import { Icon } from '@iconify/react/dist/iconify.js';
-import { HeartFilledIcon } from '@/components/Icons';
+import { HeartFilledIcon } from '@/components/misc/Icons';
 
 // Allows user to heart or like a post
 export default function Heart({ postRef, heartCount }: {postRef: any, heartCount: number}) {

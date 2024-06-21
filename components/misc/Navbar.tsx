@@ -4,7 +4,7 @@ import { SheetTrigger, SheetContent, Sheet } from "@/components/ui/sheet"
 import Link from "next/link"
 import { siteConfig } from "@/app/config/site"
 import { useContext, useState } from "react"
-import { UserContext } from ".././lib/context"
+import { UserContext } from "../../lib/context"
 import UserAvatar from "./UserAvatar"
 import { signOut } from "firebase/auth"
 import toast from "react-hot-toast"
@@ -15,9 +15,9 @@ import {
   DiscordIcon,
   HeartFilledIcon,
   SearchIcon,
-} from "@/components/Icons"
-import { Logo } from "@/components/Icons";
-import { ThemeSwitch } from "@/components/ThemeSwitch"
+} from "@/components/misc/Icons"
+import { Logo } from "@/components/misc/Icons";
+import { ThemeSwitch } from "@/components/misc/ThemeSwitch"
 import { auth } from "@/lib/firebase"
 import { Icon } from "@iconify/react/dist/iconify.js"
 

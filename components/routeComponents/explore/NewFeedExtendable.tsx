@@ -1,5 +1,5 @@
 'use client';
-import Loader from '@/components/Loader';
+import Loader from '@/components/misc/Loader';
 import { fetchNewPosts, postToJSON } from '@/lib/firebase';
 import { Timestamp, query, where, orderBy, limit, collectionGroup, getDocs, startAfter, getFirestore } from 'firebase/firestore';
 import { useEffect, useState } from 'react';

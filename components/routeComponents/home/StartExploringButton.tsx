@@ -2,7 +2,7 @@
 
 import React from 'react'
 import { Button } from "@/components/ui/button";
-import { title, subtitle } from "@/components/Primitives";
+import { title, subtitle } from "@/components/misc/Primitives";
 
 const StartExploringButton = () => {
     const handleExploreClick = () => {
