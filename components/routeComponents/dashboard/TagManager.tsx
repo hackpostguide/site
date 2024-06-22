@@ -26,22 +26,28 @@ const FormSchema = z.object({
 
 export function TagManager({ postRef }: { postRef: any }) {
   const [initialTags, setInitialTags] = useState<string[]>([]);
-
-  useEffect(() => {
-    const fetchInitialTags = async () => {
-      const docSnap = await getDoc(postRef);
-      if (docSnap.exists()) {
-        const data: any = docSnap.data();
-        setInitialTags(data.tags || []);
-      }
-    };
-    fetchInitialTags();
-  }, [postRef]);
+  const [isLoading, setIsLoading] = useState(true);
 
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
-    defaultValues: { tags: initialTags },
+    defaultValues: { tags: [] },
   });
+
+  useEffect(() => {
+    const fetchInitialTags = async () => {
+      setIsLoading(true);
+      const docSnap = await getDoc(postRef);
+      if (docSnap.exists()) {
+        const data: any = docSnap.data();
+        const currentTags = data.tags || [];
+        setInitialTags(currentTags);
+        form.reset({ tags: currentTags });
+      }
+      setIsLoading(false);
+    };
+
+    fetchInitialTags();
+  }, [postRef, form]);
 
   async function onSubmit(data: z.infer<typeof FormSchema>) {
     try {
@@ -79,43 +85,47 @@ export function TagManager({ postRef }: { postRef: any }) {
                         </p>
                       </FormDescription>
                     </div>
-                    <div className="max-h-60 overflow-y-auto pr-2">
-                      {[...tags.difficulty, ...tags.topics].map((item) => (
-                        <Controller
-                          key={item.name}
-                          name="tags"
-                          control={form.control}
-                          render={({ field }) => (
-                            <FormItem className="flex flex-row items-center space-x-3 space-y-0 mb-2">
-                              <FormControl>
-                                <Checkbox
-                                  checked={field.value.includes(item.name)}
-                                  onCheckedChange={(checked) => {
-                                    const updatedValue = checked
-                                      ? [...field.value, item.name]
-                                      : field.value.filter((value) => value !== item.name);
-                                    if (updatedValue.length <= MAX_TAGS) {
-                                      field.onChange(updatedValue);
-                                    } else {
-                                      toast.error(`You can select up to ${MAX_TAGS} tags`);
-                                    }
-                                  }}
-                                  disabled={!field.value.includes(item.name) && field.value.length >= MAX_TAGS}
-                                />
-                              </FormControl>
-                              <FormLabel className="font-normal cursor-pointer">
-                                {item.name}
-                              </FormLabel>
-                            </FormItem>
-                          )}
-                        />
-                      ))}
-                    </div>
+                    {isLoading ? (
+                      <p>Loading tags...</p>
+                    ) : (
+                      <div className="max-h-60 overflow-y-auto pr-2">
+                        {[...tags.difficulty, ...tags.topics].map((item) => (
+                          <Controller
+                            key={item.name}
+                            name="tags"
+                            control={form.control}
+                            render={({ field }) => (
+                              <FormItem className="flex flex-row items-center space-x-3 space-y-0 mb-2">
+                                <FormControl>
+                                  <Checkbox
+                                    checked={field.value.includes(item.name)}
+                                    onCheckedChange={(checked) => {
+                                      const updatedValue = checked
+                                        ? [...field.value, item.name]
+                                        : field.value.filter((value) => value !== item.name);
+                                      if (updatedValue.length <= MAX_TAGS) {
+                                        field.onChange(updatedValue);
+                                      } else {
+                                        toast.error(`You can select up to ${MAX_TAGS} tags`);
+                                      }
+                                    }}
+                                    disabled={!field.value.includes(item.name) && field.value.length >= MAX_TAGS}
+                                  />
+                                </FormControl>
+                                <FormLabel className="font-normal cursor-pointer">
+                                  {item.name}
+                                </FormLabel>
+                              </FormItem>
+                            )}
+                          />
+                        ))}
+                      </div>
+                    )}
                     <FormMessage />
                   </FormItem>
                 )}
               />
-              <Button type="submit">Update Tags</Button>
+              <Button type="submit" disabled={isLoading}>Update Tags</Button>
             </form>
           </Form>
         </div>
