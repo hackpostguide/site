@@ -1,4 +1,3 @@
-'use client';
 import { useState, useEffect } from 'react';
 import { useForm, Controller } from 'react-hook-form';
 import { z } from 'zod';
@@ -16,26 +15,24 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { tags } from "@/app/config/tags";
-import { doc, getDoc, updateDoc } from 'firebase/firestore';
+import { getDoc, updateDoc } from 'firebase/firestore';
 import toast from 'react-hot-toast';
 
+const MAX_TAGS = 5;
+
 const FormSchema = z.object({
-  difficulty: z.array(z.string()),
-  topics: z.array(z.string()),
+  tags: z.array(z.string()).max(MAX_TAGS, `You can select up to ${MAX_TAGS} tags`),
 });
 
 export function TagManager({ postRef }: { postRef: any }) {
-  const [initialTags, setInitialTags] = useState({ difficulty: [], topics: [] });
+  const [initialTags, setInitialTags] = useState<string[]>([]);
 
   useEffect(() => {
     const fetchInitialTags = async () => {
       const docSnap = await getDoc(postRef);
       if (docSnap.exists()) {
         const data: any = docSnap.data();
-        setInitialTags({
-          difficulty: data.difficulty || [],
-          topics: data.topics || [],
-        });
+        setInitialTags(data.tags || []);
       }
     };
     fetchInitialTags();
@@ -43,15 +40,12 @@ export function TagManager({ postRef }: { postRef: any }) {
 
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
-    defaultValues: initialTags,
+    defaultValues: { tags: initialTags },
   });
 
   async function onSubmit(data: z.infer<typeof FormSchema>) {
     try {
-      await updateDoc(postRef, {
-        difficulty: data.difficulty,
-        topics: data.topics,
-      });
+      await updateDoc(postRef, { tags: data.tags });
       toast.success('Tags updated successfully');
     } catch (error) {
       console.error('Error updating tags:', error);
@@ -68,89 +62,56 @@ export function TagManager({ postRef }: { postRef: any }) {
       </PopoverTrigger>
       <PopoverContent className="w-80">
         <div className="grid gap-4">
-          <div className="space-y-2">
-            <h4 className="font-medium leading-none">Tags</h4>
-            <p className="text-sm text-muted-foreground">
-              Add or remove tags.
-            </p>
-          </div>
           <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
               <FormField
                 control={form.control}
-                name="difficulty"
+                name="tags"
                 render={() => (
                   <FormItem>
                     <div className="mb-4">
-                      <FormLabel className="text-base">Difficulty</FormLabel>
+                      <FormLabel className="text-base">
+                        <h4 className="font-medium leading-none">Tags</h4>
+                      </FormLabel>
                       <FormDescription>
-                        Select the difficulty level.
+                        <p className="text-sm text-muted-foreground">
+                            Select up to {MAX_TAGS} tags.
+                        </p>
                       </FormDescription>
                     </div>
-                    {tags.difficulty.map((item) => (
-                      <Controller
-                        key={item.name}
-                        name="difficulty"
-                        control={form.control}
-                        render={({ field }) => (
-                          <FormItem className="flex flex-row items-start space-x-3 space-y-0">
-                            <FormControl>
-                              <Checkbox
-                                checked={field.value.includes(item.name)}
-                                onCheckedChange={(checked) => {
-                                  const updatedValue = checked
-                                    ? [...field.value, item.name]
-                                    : field.value.filter((value) => value !== item.name);
-                                  field.onChange(updatedValue);
-                                }}
-                              />
-                            </FormControl>
-                            <FormLabel className="font-normal">
-                              {item.name}
-                            </FormLabel>
-                          </FormItem>
-                        )}
-                      />
-                    ))}
-                  </FormItem>
-                )}
-              />
-              <FormField
-                control={form.control}
-                name="topics"
-                render={() => (
-                  <FormItem>
-                    <div className="mb-4">
-                      <FormLabel className="text-base">Topics</FormLabel>
-                      <FormDescription>
-                        Select the relevant topics.
-                      </FormDescription>
+                    <div className="max-h-60 overflow-y-auto pr-2">
+                      {[...tags.difficulty, ...tags.topics].map((item) => (
+                        <Controller
+                          key={item.name}
+                          name="tags"
+                          control={form.control}
+                          render={({ field }) => (
+                            <FormItem className="flex flex-row items-center space-x-3 space-y-0 mb-2">
+                              <FormControl>
+                                <Checkbox
+                                  checked={field.value.includes(item.name)}
+                                  onCheckedChange={(checked) => {
+                                    const updatedValue = checked
+                                      ? [...field.value, item.name]
+                                      : field.value.filter((value) => value !== item.name);
+                                    if (updatedValue.length <= MAX_TAGS) {
+                                      field.onChange(updatedValue);
+                                    } else {
+                                      toast.error(`You can select up to ${MAX_TAGS} tags`);
+                                    }
+                                  }}
+                                  disabled={!field.value.includes(item.name) && field.value.length >= MAX_TAGS}
+                                />
+                              </FormControl>
+                              <FormLabel className="font-normal cursor-pointer">
+                                {item.name}
+                              </FormLabel>
+                            </FormItem>
+                          )}
+                        />
+                      ))}
                     </div>
-                    {tags.topics.map((item) => (
-                      <Controller
-                        key={item.name}
-                        name="topics"
-                        control={form.control}
-                        render={({ field }) => (
-                          <FormItem className="flex flex-row items-start space-x-3 space-y-0">
-                            <FormControl>
-                              <Checkbox
-                                checked={field.value.includes(item.name)}
-                                onCheckedChange={(checked) => {
-                                  const updatedValue = checked
-                                    ? [...field.value, item.name]
-                                    : field.value.filter((value) => value !== item.name);
-                                  field.onChange(updatedValue);
-                                }}
-                              />
-                            </FormControl>
-                            <FormLabel className="font-normal">
-                              {item.name}
-                            </FormLabel>
-                          </FormItem>
-                        )}
-                      />
-                    ))}
+                    <FormMessage />
                   </FormItem>
                 )}
               />
