@@ -12,6 +12,9 @@ import { useDocumentData } from 'react-firebase-hooks/firestore';
 import { doc } from 'firebase/firestore';
 import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar';
 
+import { Badge } from "@/components/ui/badge";
+import { tags as tagConfig } from "@/app/config/tags";
+
 export default function PostCard({ posts, admin = false }: { posts: any[], admin?: boolean }) {
   return posts && posts.length ? <>{posts.map((post: any, i: number) => <PostItem post={post} key={i} admin={admin} />)}</> : <></>;
 }
@@ -45,10 +48,17 @@ function PostItem({ post, admin }: { post: any, admin: boolean }) {
 
   // const updatedPost = realtimePost || post;
 
+
+  // Helper function to get tag color
+  const getTagColor = (tagName: string) => {
+    const allTags = [...tagConfig.difficulty, ...tagConfig.topics];
+    const tag = allTags.find(t => t.name === tagName);
+    return tag ? tag.color : "bg-gray-400"; // default color if not found
+  };
+
   return (
     <Card
       className="max-w-[400px] p-3 relative flex flex-col justify-between hover:shadow-lg hover:scale-105 transition-transform duration-300"
-      
     >
       <div className="w-full">
         <CardHeader className="">
@@ -62,8 +72,16 @@ function PostItem({ post, admin }: { post: any, admin: boolean }) {
             </div>
           </Link>
           <Link passHref href={`/users/${post.username}/${post.slug}`}>
-            <CardTitle className="text-2xl font-bold">{post.title}</CardTitle>
+            <CardTitle className="text-2xl mb-5 font-bold">{post.title}</CardTitle>
           </Link>
+          {/* Render tags */}
+          <div className="flex flex-wrap gap-2 mt-5">
+            {post.tags && post.tags.map((tag: string) => (
+              <Badge key={tag} className={`${getTagColor(tag)} text-white`}>
+                {tag}
+              </Badge>
+            ))}
+          </div>
         </CardHeader>
         <Link passHref href={`/users/${post.username}/${post.slug}`}>
           <CardContent className="">
@@ -74,15 +92,13 @@ function PostItem({ post, admin }: { post: any, admin: boolean }) {
       </div>
       <CardFooter className="flex justify-between text-warning font-bold mt-4">
         <span>~{minutesToRead} min</span>
-        {/* <span className="">💖 {post.heartCount || 0} Hearts</span> */}
-        {/* <span>Views: {post.views}</span> */}
         <HeartCard post={post} path={`users/${uid}/posts/${post.slug}`} onPostPage={false}/>
       </CardFooter>
       {/* If admin view, show extra controls for user */}
       {admin && (
         <>
           <Button className="whitespace-nowrap h-12 mb-5" asChild>
-            <Link  href={`/dashboard/${post.slug}`}>
+            <Link href={`/dashboard/${post.slug}`}>
               Edit
             </Link>
           </Button>
@@ -90,4 +106,4 @@ function PostItem({ post, admin }: { post: any, admin: boolean }) {
       )}
     </Card>
   );
-}
+  }
