@@ -84,11 +84,19 @@ export const tags = {
         },
         {
             name: "Tips",
-            color: "bg-red-300",
+            color: "bg-yellow-500",
         },
         {
-            name: "Misc",
-            color: "bg-gray-400",
-        }
+            name: "Miscellaneous",
+            color: "bg-orange-400",
+        },
+        {
+            name: "Front End",
+            color: "bg-blue-300",
+        },
+        {
+            name: "Back End",
+            color: "bg-green-800",
+        },
     ],
 };
