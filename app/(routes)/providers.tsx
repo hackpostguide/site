@@ -5,8 +5,8 @@ import * as React from "react";
 import { useRouter } from 'next/navigation'
 import { ThemeProvider as NextThemesProvider } from "next-themes";
 import { ThemeProviderProps } from "next-themes/dist/types";
-import { UserContext } from "../lib/context";
-import { useUserData } from '../lib/hooks';
+import { UserContext } from "../../lib/context";
+import { useUserData } from '../../lib/hooks';
 import { AppProgressBar as ProgressBar } from 'next-nprogress-bar';
 import { ThemeProvider } from "./theme-provider";
 

@@ -2,12 +2,12 @@ import Link from 'next/link'
 import { siteConfig } from "@/app/config/site";
 import { title, subtitle } from "@/components/misc/Primitives";
 import { Button } from "@/components/ui/button";
-import StartExploringButton from "../components/routeComponents/home/StartExploringButton";
-import PopularFeed from "../components/routeComponents/home/feed/PopularFeed";
-import About from "../components/routeComponents/home/About";
+import StartExploringButton from "../../components/routeComponents/home/StartExploringButton";
+import PopularFeed from "../../components/routeComponents/home/feed/PopularFeed";
+import About from "../../components/routeComponents/home/About";
 import Image from 'next/image';
-import NewsLetter from "../components/routeComponents/home/NewsLetter";
-import { CreatePosts } from "../components/routeComponents/home/CreatePosts";
+import NewsLetter from "../../components/routeComponents/home/NewsLetter";
+import { CreatePosts } from "../../components/routeComponents/home/CreatePosts";
 import {
   TwitterIcon,
   GithubIcon,
