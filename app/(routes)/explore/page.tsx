@@ -20,7 +20,10 @@ const Explore = () => {
     <main>
       {/* <Metatags title="Explore All" description="All posts from the community" /> */}
       <section className='mb-4 text-center'>
-        <h1>Explore Feed</h1>
+        <h1>All Modules</h1>
+        <p>
+          A collection of all modules from the community. <br />
+        </p>
       </section>
       <section className='my-10'>
         <CreatePosts />

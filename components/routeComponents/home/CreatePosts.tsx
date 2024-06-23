@@ -14,19 +14,21 @@ export const CreatePosts = () => {
       <Card>
         <CardContent className='mt-10 flex flex-col sm:flex-row justify-center gap-10'>
           <div>
-            <h2>Want to write posts & guides?</h2>
-            <p>{username ? 'Go to your dashboard to start posting' : "It's free - Create an account today to start posting!"}</p>
+            <h2>Want to save your progress?</h2>
+            <p>{username ? 'You can now mark modules as not started, in progress, and completed!' : "It's free - Sign up / Sign in today!"}</p>
           </div>
-          <Button
-            color="warning"
-            size='lg'
-            className='text-sm font-bold my-8'
-            asChild
-          >
-            <Link href={username ? '/dashboard' : '/enter'}>
-              {username ? 'Go to Dashboard' : 'Create an Account'}
-            </Link>
-          </Button>
+          {!username && (
+            <Button
+              color="warning"
+              size='lg'
+              className='text-sm font-bold my-8'
+              asChild
+            >
+              <Link href='/enter'>
+                Create an Account
+              </Link>
+            </Button>)
+          }
         </CardContent>
       </Card>
     </div>
