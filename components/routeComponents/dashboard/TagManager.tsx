@@ -40,8 +40,20 @@ export function TagManager({ postRef }: { postRef: any }) {
       if (docSnap.exists()) {
         const data: any = docSnap.data();
         const currentTags = data.tags || [];
-        setInitialTags(currentTags);
-        form.reset({ tags: currentTags });
+        
+        // Check if all tags are valid and remove invalid ones
+        const validTags = currentTags.filter((tag: string) => 
+          tags.difficulty.some(t => t.name === tag) || tags.topics.some(t => t.name === tag)
+        );
+        
+        // If some tags were removed, update the document
+        if (validTags.length !== currentTags.length) {
+          await updateDoc(postRef, { tags: validTags });
+          // toast.success('Some invalid tags were removed');
+        }
+        
+        setInitialTags(validTags);
+        form.reset({ tags: validTags });
       }
       setIsLoading(false);
     };
