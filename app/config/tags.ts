@@ -51,23 +51,11 @@ export const tags = {
             color: "bg-yellow-600",
         },
         {
-            name: "Node.js",
-            color: "bg-green-800",
+            name: "Databases",
+            color: "bg-purple-600",
         },
         {
-            name: "Prisma",
-            color: "bg-pink-300",
-        },
-        {
-            name: "Firebase",
-            color: "bg-yellow-300",
-        },
-        {
-            name: "Netlify",
-            color: "bg-purple-500",
-        },
-        {
-            name: "Vercel",
+            name: "Hosting",
             color: "bg-black",
         },
         {
@@ -87,6 +75,10 @@ export const tags = {
             color: "bg-yellow-500",
         },
         {
+            name: "Tutorials",
+            color: "bg-red-400",
+        },
+        {
             name: "Miscellaneous",
             color: "bg-orange-400",
         },
@@ -98,5 +90,17 @@ export const tags = {
             name: "Back End",
             color: "bg-green-800",
         },
+        {
+            name: "Project Ideas",
+            color: "bg-purple-600",
+        },
+        {
+            name: "Game Dev",
+            color: "bg-black",
+        },
+        {
+            name: "Web Dev",
+            color: "bg-red-600",
+        }
     ],
 };
