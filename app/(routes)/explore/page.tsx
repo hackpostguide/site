@@ -10,8 +10,8 @@ import { get } from 'lodash';
 import { getMetadata } from '@/components/misc/Metatags';
 
 export const metadata: Metadata = getMetadata({
-  title: 'Explore Feed',
-  description: 'All posts from the community',
+  title: 'Explore Guides',
+  description: 'All guides from the community',
 });
  
 
@@ -20,9 +20,9 @@ const Explore = () => {
     <main>
       {/* <Metatags title="Explore All" description="All posts from the community" /> */}
       <section className='mb-4 text-center'>
-        <h1>All Modules</h1>
+        <h1>All Guides</h1>
         <p>
-          A collection of all modules from the community. <br />
+          A collection of all guides from the community. <br />
         </p>
       </section>
       <section className='my-10'>
