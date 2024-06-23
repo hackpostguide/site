@@ -7,7 +7,7 @@ import { Button } from '@/components/ui/button';
 import GridFeed from '@/components/postComponents/GridFeed';
 
 // Max post to query per page
-const LIMIT = 9;
+const LIMIT = 6;
 
 const PopularFeedExtendable = () => {
   const [posts, setPosts] = useState<any[]>([]);
