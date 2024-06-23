@@ -6,7 +6,7 @@ export const tags = {
         },
         {
             name: "Intermediate",
-            color: "bg-warning",
+            color: "bg-purple-900",
         },
         {
             name: "Advanced",
