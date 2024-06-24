@@ -36,7 +36,7 @@ export default function Dashboard() {
           <Tabs defaultValue="create" className="">
             <TabsList className="grid w-full sm:w-[300px] grid-cols-2 mb-6">
               <TabsTrigger value="complete">My Progress</TabsTrigger>
-              <TabsTrigger value="create">My Posts</TabsTrigger>
+              <TabsTrigger value="create">My Guides</TabsTrigger>
             </TabsList>
             <TabsContent value="complete">
               <CompletedPosts />
@@ -60,7 +60,7 @@ const UserPosts = (): JSX.Element => {
         <Card className="p-8 pt-16">
           <CardContent>
             <CardTitle className={`${title({ size: "sm" })}`}>
-                Create new post
+                Create new guide
             </CardTitle>
             <div className='my-6'>
               <CreateNewPost />
@@ -69,16 +69,16 @@ const UserPosts = (): JSX.Element => {
           <CardFooter>
             <p className=''>
               The title has to be at least 3 characters long and less than 100 characters long.
-              You will also <strong>not</strong> be able to edit the title after creating the post - make sure it is concise and informative!
+              You will also <strong>not</strong> be able to edit the title after creating the guide - make sure it is concise and informative!
               <br />
-              After creating your post, you will be able to edit the content.
+              After creating your guide, you will be able to edit the content.
             </p>
           </CardFooter>
         </Card>
       </div>
       <div>
         <h2 className={`${title({ size: "sm" })}`}>
-          Existing posts:
+          Existing guides:
         </h2>
         <div className='my-6'>
           <PostList />
@@ -96,7 +96,7 @@ const PostList = (): JSX.Element => {
       {posts && posts.length > 0 ? (
         <PostCard posts={posts} admin />
       ) : (
-        <p>You have yet to create your first post</p>
+        <p>You have yet to create your first guide</p>
       )}
     </div>
   )
