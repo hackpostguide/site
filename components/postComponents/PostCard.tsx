@@ -87,7 +87,7 @@ function PostItem({ post, admin }: { post: any, admin: boolean }) {
         </CardHeader>
         <Link passHref href={`/users/${post.username}/${post.slug}`}>
           <CardContent className="">
-            <p className="text-foreground/70 line-clamp-5">{markdownToTxt(post.content)}</p>
+            <p className="text-foreground/85 line-clamp-5">{post.description}</p>
             {admin && (post.published ? <p className="text-success">Published</p> : <p className="text-danger">Unpublished</p>)}
           </CardContent>
         </Link>
