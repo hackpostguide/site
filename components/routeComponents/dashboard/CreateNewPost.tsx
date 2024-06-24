@@ -34,7 +34,8 @@ export const CreateNewPost = (): JSX.Element => {
   
   
     // Validate length
-    const isValid = title.length > 3 && title.length < 100;
+    const isTitleValid = title.length > 3 && title.length < 100;
+    const isDescriptionValid = description.length <= 300;
   
      // Create a new post in firestore
      const createPost = async (e: React.FormEvent<HTMLFormElement>): Promise<void> => {
@@ -67,6 +68,11 @@ export const CreateNewPost = (): JSX.Element => {
       router.push(`/dashboard/${slug}`);
     };
   
+    const handleDescriptionChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+      const newDescription = e.target.value.slice(0, 300);
+      setDescription(newDescription);
+    };
+
     return (
       <form onSubmit={createPost}>
         <div className="flex flex-col gap-5">
@@ -77,15 +83,23 @@ export const CreateNewPost = (): JSX.Element => {
             className="flex-grow mr-2 h-16"
           />
           <div className="grid w-full gap-1.5">
-            <Label htmlFor="description">Description</Label>
+            <Label htmlFor="description">Description (max 300 characters)</Label>
             <Textarea 
               placeholder="Insert a description here." 
               id="description"
               value={description}
-              onChange={(e) => setDescription(e.target.value)}
+              onChange={handleDescriptionChange}
+              maxLength={300}
             />
+            <p className="text-sm text-gray-500">{description.length}/300</p>
           </div>
-          <Button type="submit" color="success" disabled={!isValid} size="lg" className="h-16">
+          <Button 
+            type="submit" 
+            color="success" 
+            disabled={!isTitleValid || !isDescriptionValid} 
+            size="lg" 
+            className="h-16"
+          >
             Create New
           </Button>
         </div>
