@@ -11,11 +11,14 @@ import toast from 'react-hot-toast'
 import { title, subtitle } from "@/components/misc/Primitives";
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label'
+import { Textarea } from '@/components/ui/textarea'
 
 export const CreateNewPost = (): JSX.Element => {
-    const router = useRouter();
-    const { username } = useContext(UserContext);
-    const [title, setTitle] = useState('');
+  const router = useRouter();
+  const { username } = useContext(UserContext);
+  const [title, setTitle] = useState('');
+  const [description, setDescription] = useState('');
   
     //slug generation: 
     // Get the current timestamp in milliseconds
@@ -33,10 +36,12 @@ export const CreateNewPost = (): JSX.Element => {
     // Validate length
     const isValid = title.length > 3 && title.length < 100;
   
-    // Create a new post in firestore
-    const createPost = async (e: any): Promise<void> => {
+     // Create a new post in firestore
+     const createPost = async (e: React.FormEvent<HTMLFormElement>): Promise<void> => {
       e.preventDefault();
-      const uid: any = auth?.currentUser?.uid;
+      const uid = auth?.currentUser?.uid;
+      if (!uid) return;
+
       const ref = doc(getFirestore(), 'users', uid, 'posts', slug);
       const data = {
         title,
@@ -44,35 +49,42 @@ export const CreateNewPost = (): JSX.Element => {
         uid,
         username,
         published: false,
+        description,
         content: "# hello world! \nPosts use markdown - if you are unfamiliar with markdown, check out [this guide](https://guides.github.com/features/mastering-markdown/). You can click on the link after previewing your post (using the preview button). After publishing, you may view your post's public page using the 'Live Post' button. \n\nHappy writing! 🚀" ,
         createdAt: serverTimestamp(),
         updatedAt: serverTimestamp(),
         heartCount: 0,
-        views: 0, // Initialize views to 0
+        views: 0,
         tags: [],
       };
+      
       toast.promise(setDoc(ref, data), {
         loading: 'Creating post...',
         success: 'Post created!',
         error: 'Failed to create post',
-      })
-      // toast.success('Post created!');
-      // Imperative navigation after doc is set
+      });
+
       router.push(`/dashboard/${slug}`);
     };
   
     return (
       <form onSubmit={createPost}>
-        <div className="flex items-center">
+        <div className="flex flex-col gap-5">
           <Input
             value={title}
             onChange={(e) => setTitle(e.target.value)}
             placeholder="Your title here..."
             className="flex-grow mr-2 h-16"
           />
-          {/* <p>
-            <strong>Slug:</strong> {slug}
-          </p> */}
+          <div className="grid w-full gap-1.5">
+            <Label htmlFor="description">Description</Label>
+            <Textarea 
+              placeholder="Insert a description here." 
+              id="description"
+              value={description}
+              onChange={(e) => setDescription(e.target.value)}
+            />
+          </div>
           <Button type="submit" color="success" disabled={!isValid} size="lg" className="h-16">
             Create New
           </Button>
