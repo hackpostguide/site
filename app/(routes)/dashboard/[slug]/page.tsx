@@ -121,13 +121,18 @@ function PostForm({ defaultValues, postRef, preview, setIsDirty }: PostFormProps
     mode: 'onChange' 
   });
 
+  const [localIsDirty, setLocalIsDirty] = useState(false);
+
   useEffect(() => {
     const subscription = watch((value, { name, type }) => {
-      if (name === 'description' || name === 'content') {
+      if (name === 'description' || name === 'content' || name === 'published') {
         const formValues = getValues();
         const isContentDirty = formValues.content !== defaultValues.content;
         const isDescriptionDirty = formValues.description !== defaultValues.description;
-        setIsDirty(isContentDirty || isDescriptionDirty);
+        const isPublishedDirty = formValues.published !== defaultValues.published;
+        const newIsDirty = isContentDirty || isDescriptionDirty || isPublishedDirty;
+        setLocalIsDirty(newIsDirty);
+        setIsDirty(newIsDirty);
       }
     });
     return () => subscription.unsubscribe();
@@ -137,10 +142,11 @@ function PostForm({ defaultValues, postRef, preview, setIsDirty }: PostFormProps
     await updateDoc(postRef, {
       content,
       published,
-      description,
+      description: description || '',
       updatedAt: serverTimestamp(),
     });
 
+    setLocalIsDirty(false);
     setIsDirty(false);
     toast.success('Post updated successfully!');
   };
@@ -157,12 +163,11 @@ function PostForm({ defaultValues, postRef, preview, setIsDirty }: PostFormProps
             <Label htmlFor="description">Description (max 300 characters)</Label>
             <Textarea 
               {...register("description", {
-                required: { value: true, message: 'Description is required' },
+                maxLength: { value: 300, message: 'Description cannot exceed 300 characters' },
               })}
-              placeholder="Enter post description" 
+              placeholder="Enter post description (optional)" 
               id="description"
               className="h-20"
-              maxLength={300}
             />
             {watch('description')?.length === 300 && <p className="text-warning">Maximum length reached</p>}
             <p className="text-sm text-gray-500">{watch('description')?.length || 0}/300</p>
@@ -187,16 +192,15 @@ function PostForm({ defaultValues, postRef, preview, setIsDirty }: PostFormProps
           <Button
             type="submit"
             className="w-full"
-            disabled={!isDirty || !isValid}
+            disabled={!localIsDirty || !isValid}
           >
-            {isDirty ? 'Save Changes' : 'No Changes'}
+            {localIsDirty ? 'Save Changes' : 'No Changes'}
           </Button>
         </>
       )}
     </form>
   );
 }
-
 interface DeletePostButtonProps {
   postRef: any;
 }
