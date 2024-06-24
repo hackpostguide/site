@@ -41,6 +41,7 @@ export default function AdminPostEdit(): JSX.Element {
 
 function PostManager(): JSX.Element {
   const [preview, setPreview] = useState<boolean>(false);
+  const [isDirty, setIsDirty] = useState<boolean>(false);
   const pathname = usePathname();
   const slugSegment = pathname?.split('/').pop();
   const slug = slugSegment ? slugSegment : '';
@@ -54,6 +55,15 @@ function PostManager(): JSX.Element {
       {post && (
         <>
           <section className="flex-1">
+            {isDirty && (
+              <div className="mb-4">
+                <Card className="bg-danger/60">
+                  <CardContent>
+                    <p>You have changes to be saved!</p>
+                  </CardContent>
+                </Card>
+              </div>
+            )}
             <Card className='p-5 my-5'>
               <CardHeader className="flex text-center">
                 <CardTitle className='text-center mb-6'>
@@ -62,7 +72,12 @@ function PostManager(): JSX.Element {
                 </CardTitle>
               </CardHeader>
             </Card>
-            <PostForm postRef={postRef} defaultValues={post as PostData} preview={preview} />
+            <PostForm 
+              postRef={postRef} 
+              defaultValues={post as PostData} 
+              preview={preview} 
+              setIsDirty={setIsDirty}
+            />
           </section>
           <aside className="flex flex-col bg-default px-8 py-4 rounded-md items-start">
             <Button 
@@ -97,13 +112,26 @@ interface PostFormProps {
   defaultValues: PostData;
   postRef: any;
   preview: boolean;
+  setIsDirty: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-function PostForm({ defaultValues, postRef, preview }: PostFormProps): JSX.Element {
-  const { register, handleSubmit, watch, formState: { errors, isDirty, isValid } } = useForm<PostData>({ 
+function PostForm({ defaultValues, postRef, preview, setIsDirty }: PostFormProps): JSX.Element {
+  const { register, handleSubmit, watch, formState: { isDirty, isValid }, getValues } = useForm<PostData>({ 
     defaultValues, 
     mode: 'onChange' 
   });
+
+  useEffect(() => {
+    const subscription = watch((value, { name, type }) => {
+      if (name === 'description' || name === 'content') {
+        const formValues = getValues();
+        const isContentDirty = formValues.content !== defaultValues.content;
+        const isDescriptionDirty = formValues.description !== defaultValues.description;
+        setIsDirty(isContentDirty || isDescriptionDirty);
+      }
+    });
+    return () => subscription.unsubscribe();
+  }, [watch, getValues, setIsDirty, defaultValues]);
 
   const updatePost = async ({ content, published, description }: PostData) => {
     await updateDoc(postRef, {
@@ -113,6 +141,7 @@ function PostForm({ defaultValues, postRef, preview }: PostFormProps): JSX.Eleme
       updatedAt: serverTimestamp(),
     });
 
+    setIsDirty(false);
     toast.success('Post updated successfully!');
   };
 
@@ -128,14 +157,14 @@ function PostForm({ defaultValues, postRef, preview }: PostFormProps): JSX.Eleme
             <Label htmlFor="description">Description (max 300 characters)</Label>
             <Textarea 
               {...register("description", {
-                maxLength: { value: 300, message: 'Description is too long' },
                 required: { value: true, message: 'Description is required' },
               })}
               placeholder="Enter post description" 
               id="description"
               className="h-20"
+              maxLength={300}
             />
-            {errors.description && <p className="text-danger">{errors.description.message}</p>}
+            {watch('description')?.length === 300 && <p className="text-warning">Maximum length reached</p>}
             <p className="text-sm text-gray-500">{watch('description')?.length || 0}/300</p>
           </div>
 
@@ -149,8 +178,6 @@ function PostForm({ defaultValues, postRef, preview }: PostFormProps): JSX.Eleme
             })}
             className="textArea h-60 bg-default text-foreground p-4 rounded-md resize-y"
           ></textarea>
-
-          {errors.content && <p className="text-danger">{errors.content.message}</p>}
 
           <div className="flex items-center">
             <input type="checkbox" {...register("published")} />
