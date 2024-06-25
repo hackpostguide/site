@@ -33,21 +33,14 @@ export default function Home() {
   
 
         <div className="inline-block text-center justify-center max-w-sm md:max-w-3xl">
-          <h1 className={title({size: "xl", bold: "extra", color: "yellow" })}>Hackpost&nbsp;</h1>
-          <h1 className={title({size: "xl" })}>Guide</h1>
-          {/* <h1 className={title()}>The&nbsp;</h1>
-          <h1 className={title({color: "blue" })}>open source&nbsp;</h1>
-          <h1 className={title()}>resource hub for&nbsp;</h1>
-          <h1 className={title({ color: "violet" })}>hackathon participants.&nbsp;</h1> */}
+          <h1 className={title({size: "xl"})}>
+            <span className={title({size: "xl", bold: "extra", color: "yellow" })}>Hackpost </span> Guide
+          </h1>
           <div className="mt-10">
             <h2 className={subtitle({ class: "mt-10 md:mt-12", size: "lg" })}>
-              A&nbsp;
-            </h2>
-            <h2 className={subtitle({ class: "mt-10 md:mt-12", size: "lg", color: "yellow", bold: "semi"  })}>
-              free collection of guides&nbsp;
-            </h2>
-            <h2 className={subtitle({ class: "mt-10 md:mt-12", size: "lg"  })}>
-              to help you win your next hackathon.
+              A <span className={subtitle({ class: "mt-10 md:mt-12", size: "lg", color: "yellow", bold: "semi"  })}>
+                free collection of guides 
+              </span> to help you win your next hackathon.
             </h2>
           </div>
         </div>
