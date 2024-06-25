@@ -7,7 +7,7 @@ import Link from 'next/link';
 export const Partners = () => {
   return (
     <div>
-        <h1 className='mb-8'>Partners</h1>
+        <h2 className='mb-8'>Hackathon Partners</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {partners.hackathons.map((partner: any, index: any) => (
                 <Link key={index} href={partner.url} target="_blank">
