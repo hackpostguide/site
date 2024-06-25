@@ -1,8 +1,14 @@
+# *
 User-agent: *
-Disallow: /dashboard/
+Allow: /
+Disallow: /dashboard
+Disallow: /onboarding
+Disallow: /discord
+Disallow: /enter
 
 # Host
 Host: https://www.hackpost.guide
 
 # Sitemaps
 Sitemap: https://www.hackpost.guide/sitemap.xml
+Sitemap: https://www.hackpost.guide/api/guides-sitemap
