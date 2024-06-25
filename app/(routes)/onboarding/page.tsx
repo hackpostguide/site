@@ -19,7 +19,7 @@ export default function Onboarding(props: any) {
 
   useEffect(() => {
     if (auth.currentUser && username) {
-      router.push('/dashboard');
+      router.push('/explore');
     }
     else if(!auth.currentUser) {
       router.push('/enter');
