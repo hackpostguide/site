@@ -42,7 +42,7 @@ export default function Nav() {
           <p className="font-bold">Hackpost</p>
           <p className="">Guide</p>
         </Link>
-        <div className="hidden md:flex">
+        <div className="hidden lg:flex">
           {siteConfig.navItems.map((item) => (
             <div key={item.href}>
               <Button
@@ -111,7 +111,7 @@ export default function Nav() {
           <ThemeSwitch />
         </div>
 
-        <div className="hidden md:flex">
+        <div className="hidden lg:flex">
           {username && (
             <div className="flex items-center gap-4">
               <Button
@@ -137,7 +137,7 @@ export default function Nav() {
 
       <Sheet open={isMenuOpen} onOpenChange={setIsMenuOpen}>
         <SheetTrigger asChild>
-          <Button className="md:hidden" size="icon" variant="outline">
+          <Button className="lg:hidden" size="icon" variant="outline">
             <Icon
                 icon="tabler:menu-2"
                 className="text-default-500 h-6 w-6"
