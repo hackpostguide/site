@@ -28,7 +28,7 @@ export async function generateMetadata(
  
   return getMetadata({
     title: post?.title,
-    description: post?.title,
+    description: post?.description?.length > 0 ? post?.description : post?.title,
     author: post?.username,
   });
 } 
