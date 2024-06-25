@@ -14,7 +14,7 @@ export const CreatePosts = () => {
       <Card>
         <CardContent className='mt-10 flex flex-col sm:flex-row justify-center gap-10'>
           <div>
-            <h2>Want to save your progress?</h2>
+            <h2>{username ? 'You are now logged in! ✅' : "Want to save your progress?"}</h2>
             <p>{username ? 'You can now mark guides as not started, in progress, and completed!' : "It's free - Sign up / Sign in today!"}</p>
           </div>
           {!username && (

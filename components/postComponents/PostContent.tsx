@@ -21,6 +21,8 @@ export default function PostContent({ post, path }: { post: any, path: string })
       <Card className='md:p-5 '>
         <CardHeader>
           <h1 className='text-center mb-6'>{post?.title}</h1>
+          <p className="text-foreground/85 font-bold text-center">{post.description}</p>
+          <Separator className="my-4" />
           <div className='flex flex-col sm:flex-row justify-center items-center mb-6'>
             <p>Written by</p>
             <Button variant="link" size="sm" className='' asChild>
@@ -30,8 +32,6 @@ export default function PostContent({ post, path }: { post: any, path: string })
             </Button>
             <p className="">on {formattedDate}</p>
           </div>
-          <Separator className="my-4" />
-          <p className="text-foreground/85 font-bold text-center">{post.description}</p>
         </CardHeader>
       </Card>
       <ReactMarkdown components={MarkdownComponents} className="my-5">{post?.content}</ReactMarkdown>
