@@ -30,7 +30,7 @@ export const CreateNewPost = (): JSX.Element => {
     // Use the number of seconds since 1/1/2000 as the slug
     // Ensure slug is URL safe
     const kebabTitle = encodeURI(kebabCase(title))
-    const slug = secondsSince2000.toString() + "-" + kebabTitle;
+    const slug = "post-" + secondsSince2000.toString() + "-" + kebabTitle;
   
   
     // Validate length
