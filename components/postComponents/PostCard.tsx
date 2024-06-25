@@ -72,22 +72,22 @@ function PostItem({ post, admin }: { post: any, admin: boolean }) {
             </div>
           </Link>
           <Link passHref href={`/users/${post.username}/${post.slug}`}>
-            <CardTitle className="text-2xl font-bold mb-3">{post.title}</CardTitle>
+            <CardTitle className="text-2xl font-bold">{post.title}</CardTitle>
           </Link>
-          {/* Render tags */}
-          {post.tags && post.tags.length > 0 && (
-            <div className="flex flex-wrap gap-2">
-              {post.tags.map((tag: string) => (
-                <Badge key={tag} className={`${getTagColor(tag)} text-white`}>
-                  {tag}
-                </Badge>
-              ))}
-            </div>
-          )}
         </CardHeader>
         <Link passHref href={`/users/${post.username}/${post.slug}`}>
           <CardContent className="">
-            <p className="text-foreground/85 line-clamp-5">{post.description}</p>
+            {/* Render tags */}
+            {post.tags && post.tags.length > 0 && (
+              <div className="flex flex-wrap gap-2">
+                {post.tags.map((tag: string) => (
+                  <Badge key={tag} className={`${getTagColor(tag)} text-white`}>
+                    {tag}
+                  </Badge>
+                ))}
+              </div>
+            )}
+            <p className="text-foreground/85 line-clamp-5 mt-6">{post.description}</p>
             {admin && (post.published ? <p className="text-success">Published</p> : <p className="text-danger">Unpublished</p>)}
           </CardContent>
         </Link>
