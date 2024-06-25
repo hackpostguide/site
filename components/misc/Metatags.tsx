@@ -52,7 +52,7 @@ export const getMetadata = ({
     },
     twitter: {
       card: 'summary_large_image',
-      site: '@hackpostguide', // Replace with your Twitter handle
+      site: '@hackpostguide',
       title: fullTitle,
       description: description || siteConfig.description,
       images: [image],
