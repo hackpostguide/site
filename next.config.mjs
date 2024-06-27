@@ -16,6 +16,12 @@ const nextConfig = {
           port: '',
           pathname: '/partners/**',
         },
+        {
+          protocol: 'https',
+          hostname: 'hackathon.hackpost.guide',
+          port: '',
+          pathname: '/**',
+        },
       ],
     },
     // Configure `pageExtensions` to include markdown and MDX files

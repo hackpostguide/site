@@ -20,6 +20,7 @@ import { Metadata } from 'next';
 import { get } from 'lodash';
 import { getMetadata } from '@/components/misc/Metatags';
 import { Partners } from '@/components/routeComponents/home/Partners';
+import Hackathon from '@/components/routeComponents/home/Hackathon';
 
 export const metadata: Metadata = getMetadata({});
 
@@ -78,8 +79,8 @@ export default function Home() {
           <PopularFeed />
         </div>
         <div className="flex justify-center my-10">
-		  <Button variant="default" size="xl" asChild>
-		  	<Link href="/explore">Explore All</Link>
+		      <Button variant="default" size="xl" asChild>
+		  	    <Link href="/explore">Explore All</Link>
           </Button>
         </div>
       </section>
@@ -94,6 +95,10 @@ export default function Home() {
 
       <section className="my-32">
         <Partners />
+      </section>
+
+      <section className="my-32">
+        <Hackathon />
       </section>
 
       <section className="">
