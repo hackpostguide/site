@@ -70,21 +70,9 @@ export default function Home() {
         </div> */}
       </section>
 
-      <section className="my-10">
-        <About />
-      </section>
-
-      <section className="my-32">
-        <LandingStatistics />
-      </section>
-
-      <section className="my-32">
-        <Partners />
-      </section>
-
       <section id="explore" className="py-12 md:pb-16">
         <div className="flex flex-col md:flex-row items-center justify-between mb-4">
-          <h2 className={title({ size: "md", bold: "bold", color: "yellow" })}>Popular</h2>
+          <h2 className={title({ size: "md", bold: "bold", color: "yellow" })}>Popular:</h2>
         </div>
         <div className="p-0">
           <PopularFeed />
@@ -94,6 +82,18 @@ export default function Home() {
 		  	<Link href="/explore">Explore All</Link>
           </Button>
         </div>
+      </section>
+
+      <section className="my-32">
+        <LandingStatistics />
+      </section>
+
+      <section className="my-10">
+        <About />
+      </section>
+
+      <section className="my-32">
+        <Partners />
       </section>
 
       <section className="">
