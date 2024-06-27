@@ -1,6 +1,10 @@
 export const tags = {
     difficulty: [
         {
+            name: "First Hackathon",
+            color: "bg-orange-500",
+        },
+        {
             name: "Beginner",
             color: "bg-success",
         },
@@ -11,6 +15,32 @@ export const tags = {
         {
             name: "Advanced",
             color: "bg-danger",
+        },
+    ],
+    type: [
+        {
+            name: "Workshop",
+            color: "bg-blue-500",
+        },
+        {
+            name: "Blog",
+            color: "bg-blue-400",
+        },
+        {
+            name: "Tutorial",
+            color: "bg-yellow-500",
+        },
+        {
+            name: "Project",
+            color: "bg-green-500",
+        },
+        {
+            name: "Event",
+            color: "bg-red-600",
+        },
+        {
+            name: "Tips",
+            color: "bg-purple-600",
         },
     ],
 	topics: [
@@ -71,14 +101,6 @@ export const tags = {
             color: "bg-blue-300",
         },
         {
-            name: "Tips",
-            color: "bg-yellow-500",
-        },
-        {
-            name: "Tutorials",
-            color: "bg-red-400",
-        },
-        {
             name: "Miscellaneous",
             color: "bg-orange-400",
         },
@@ -101,6 +123,6 @@ export const tags = {
         {
             name: "Web Dev",
             color: "bg-red-600",
-        }
+        },
     ],
 };
