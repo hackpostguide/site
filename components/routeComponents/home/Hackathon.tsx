@@ -16,7 +16,7 @@ const Hackathon = () => {
             className="object-cover"
           />
         </div>
-        <div className="absolute inset-0 z-10 bg-purple-900/60"></div>
+        <div className="absolute inset-0 z-10 bg-purple-950/60"></div>
         <div className="relative mx-auto max-w-5xl z-20">
           <p className="text-2xl sm:text-3xl font-bold text-white">
             Spice up this summer with the very first
@@ -33,7 +33,7 @@ const Hackathon = () => {
         </div>
         <div className="z-20">
             <Button variant="default" size="xl" asChild>
-		  	    <Link href={siteConfig.links.hackathon}>Learn More</Link>
+		  	    <Link href={siteConfig.links.hackathon} target='_blank'>Learn More</Link>
             </Button>
         </div>
     </section>
