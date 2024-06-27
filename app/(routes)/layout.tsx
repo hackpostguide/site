@@ -28,6 +28,13 @@ const viewport: Viewport = {
 
 export { viewport };
 
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Hackpost Guide",
+  "url": "https://hackpost.guide"
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -49,6 +56,13 @@ export default function RootLayout({
           
             gtag('config', 'G-GRQQQGTNL5');
           `}
+        </Script>
+        <Script
+          id="json-ld"
+          type="application/ld+json"
+          strategy="beforeInteractive"
+        >
+          {JSON.stringify(jsonLd)}
         </Script>
       </head>
       <body
