@@ -20,5 +20,10 @@ export const partners = {
             image: "https://www.hackpost.guide/partners/hg-hackathon-wbackground.png",
             url: "https://hackathon.hackpost.guide/",
         },
+        {
+            name: "HackVortex Codestorm #3",
+            image: "https://www.hackpost.guide/partners/hackVortex-logo.png",
+            url: "https://hackvortex.net/",
+        }
     ],
 };
