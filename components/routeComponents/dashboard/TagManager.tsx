@@ -101,7 +101,7 @@ export function TagManager({ postRef }: { postRef: any }) {
                       <p>Loading tags...</p>
                     ) : (
                       <div className="max-h-60 overflow-y-auto pr-2">
-                        {[...tags.difficulty, ...tags.topics].map((item) => (
+                        {[...tags.difficulty, ...tags.type, ...tags.topics].map((item) => (
                           <Controller
                             key={item.name}
                             name="tags"
