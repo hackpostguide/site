@@ -51,7 +51,7 @@ function PostItem({ post, admin }: { post: any, admin: boolean }) {
 
   // Helper function to get tag color
   const getTagColor = (tagName: string) => {
-    const allTags = [...tagConfig.difficulty, ...tagConfig.topics];
+    const allTags = [...tagConfig.difficulty, ...tagConfig.type, ...tagConfig.topics];
     const tag = allTags.find(t => t.name === tagName);
     return tag ? tag.color : "bg-gray-400"; // default color if not found
   };
@@ -79,7 +79,7 @@ function PostItem({ post, admin }: { post: any, admin: boolean }) {
           <CardContent className="">
             {/* Render tags */}
             {post.tags && post.tags.length > 0 && (
-              <div className="flex flex-wrap gap-2">
+              <div className="flex flex-wrap gap-2 mb-4">
                 {post.tags.map((tag: string) => (
                   <Badge key={tag} className={`${getTagColor(tag)} text-white`}>
                     {tag}
