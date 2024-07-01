@@ -20,6 +20,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { CreateNewPost } from '@/components/routeComponents/dashboard/CreateNewPost';
 import { CompletedPosts } from '@/components/routeComponents/dashboard/CompletedPosts';
 import Link from 'next/link';
+import { Rules } from '@/components/routeComponents/dashboard/Rules';
 
 export default function Dashboard() {
   return (
@@ -72,15 +73,17 @@ const UserPosts = (): JSX.Element => {
             <div className='my-6'>
               <CreateNewPost />
             </div>
-          </CardContent>
-          <CardFooter>
             <p className=''>
               The title has to be at least 3 characters long and less than 100 characters long.
               You will also <strong>not</strong> be able to edit the title after creating the guide - make sure it is concise and informative!
-              <br />
+              <br /> <br />
               After creating your guide, you will be able to edit the content.
             </p>
+          </CardContent>
+          <CardFooter>
+            <Rules />
           </CardFooter>
+
         </Card>
       </div>
       <div>
