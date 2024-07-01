@@ -19,6 +19,7 @@ import { Card, CardContent, CardTitle, CardDescription, CardFooter } from '@/com
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { CreateNewPost } from '@/components/routeComponents/dashboard/CreateNewPost';
 import { CompletedPosts } from '@/components/routeComponents/dashboard/CompletedPosts';
+import Link from 'next/link';
 
 export default function Dashboard() {
   return (
@@ -30,6 +31,12 @@ export default function Dashboard() {
           >
             My dashboard
           </h1>
+        </section>
+
+        <section className='my-10 flex justify-center'>
+          <Button size="lg" asChild>
+            <Link href="/explore">Explore Existing Guides ✨</Link>
+          </Button>
         </section>
 
         <section>
