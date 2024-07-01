@@ -88,7 +88,7 @@ function UsernameForm() {
 
     await batch.commit();
     // console.log('Username created!');
-    toast.success('Signed up successfully! Redirecting to dashboard...');
+    toast.success('Signed up successfully! Redirecting...');
   };
   
   const checkUsername = useCallback(
