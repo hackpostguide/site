@@ -90,6 +90,20 @@ function UsernameForm() {
     // console.log('Username created!');
     toast.success('Signed up successfully! Redirecting to dashboard...');
   };
+  
+  const checkUsername = useCallback(
+    debounce(async (username) => {
+      if (username.length >= 3) {
+        const usernameRef = doc(firestore, `usernames/${username}`);
+        const docSnap = await getDoc(usernameRef);
+        console.log('Firestore read executed!');
+        setIsValid(!docSnap.exists());
+        setLoading(false);
+      }
+    }, 500),
+    []
+  );
+
 
   const onChange = (e: any) => {
     const val = e.target.value.toLowerCase();
@@ -110,20 +124,8 @@ function UsernameForm() {
 
   useEffect(() => {
     checkUsername(formValue);
-  }, [formValue]);
+  }, [formValue, checkUsername]);
 
-  const checkUsername = useCallback(
-    debounce(async (username) => {
-      if (username.length >= 3) {
-        const usernameRef = doc(firestore, `usernames/${username}`);
-        const docSnap = await getDoc(usernameRef);
-        console.log('Firestore read executed!');
-        setIsValid(!docSnap.exists());
-        setLoading(false);
-      }
-    }, 500),
-    []
-  );
 
   if (!username) {
     return (
@@ -189,19 +191,6 @@ function UsernameForm() {
               Choose
             </Button>
           </div>
-
-          {/* <h3>Debug State</h3>
-          <div>
-            UID: {user?.uid}
-            <br />
-            Username: {formValue}
-            <br />
-            Loading: {loading.toString()}
-            <br />
-            Username Valid: {isValid.toString()}
-            <br />
-            Selected IsOver13: {isOver13 ? "true" : "false"}
-          </div> */}
         </form>
       </section>
       <SignOutButton />
