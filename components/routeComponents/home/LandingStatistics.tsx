@@ -30,7 +30,7 @@ export async function LandingStatistics() {
         <Statistic icon={BookOpenText} stat="10+" label={"Guides"} />
       </div>
       <Button variant="default" size="xl" asChild>
-          <Link href="/explore">Start Exploring</Link>
+          <Link href="/explore">Explore Guides</Link>
       </Button>
     </section>
   );

@@ -33,7 +33,7 @@ const Hackathon = () => {
         </div>
         <div className="z-20">
             <Button variant="default" size="xl" asChild>
-		  	    <Link href={siteConfig.links.hackathon} target='_blank'>Learn More</Link>
+		  	      <Link href={siteConfig.links.hackathon} target='_blank'>Register Now</Link>
             </Button>
         </div>
     </section>
