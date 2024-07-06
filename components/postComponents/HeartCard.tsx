@@ -13,6 +13,7 @@ import Complete from './CompleteButton';
 import CompleteButton from './CompleteButton';
 import { Circle } from 'lucide-react';
 import { TooltipProvider, Tooltip, TooltipTrigger, TooltipContent } from '@/components/ui/tooltip';
+import { ExternalLink } from 'lucide-react';
 
 const HeartCard = ({ post, path, onPostPage }: { post: any; path: any, onPostPage: boolean }) => {
 
@@ -75,11 +76,24 @@ const HeartCard = ({ post, path, onPostPage }: { post: any; path: any, onPostPag
                                         </TooltipContent>
                                         </Tooltip>
                                     </TooltipProvider>
+
+                                    <Button className="m-3" size="lg" variant="default" asChild>
+                                        <Link href="/explore"  target="_blank">
+                                            Explore More Guides 
+                                            <ExternalLink className='ml-2'/>
+                                        </Link>
+                                    </Button>
                                 </div>
                             }
                             >
                             <HeartButton postRef={postRef} heartCount={updatedPost.heartCount}/>
                             <CompleteButton postRef={postRef} completed={updatedPost.completed} isIcon={false}/>
+                            <Button className="m-3" size="lg" variant="default" asChild>
+                                <Link href="/explore"  target="_blank">
+                                    Explore More Guides  
+                                    <ExternalLink className='ml-2' />
+                                </Link>
+                            </Button>
                         </AuthCheck>
 
                         {user?.uid === updatedPost.uid && (
