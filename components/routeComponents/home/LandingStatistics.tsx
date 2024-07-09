@@ -25,7 +25,7 @@ export async function LandingStatistics() {
       {/* Last update: 7/9/24 */}
       <div className="grid grid-cols-1 gap-8 md:grid-cols-4 mb-16">
         <Statistic icon={Users} stat="5.4K+" label={"Total Views"} />
-        <Statistic icon={UserRoundCheck} stat="1.2k+" label={"Users"} />
+        <Statistic icon={UserRoundCheck} stat="1.2K+" label={"Users"} />
         <Statistic icon={Globe} stat="75" label={"Countries"} />
         <Statistic icon={BookOpenText} stat="14+" label={"Guides"} />
       </div>
