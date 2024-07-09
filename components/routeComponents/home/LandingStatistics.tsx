@@ -22,7 +22,7 @@ export async function LandingStatistics() {
         </h2>
         <p className={subtitle({size: "sm", fullWidth: true})}>We empower hackers around the world.</p>
       </div>
-      {/* Last update: 6/23/24 */}
+      {/* Last update: 7/9/24 */}
       <div className="grid grid-cols-1 gap-8 md:grid-cols-4 mb-16">
         <Statistic icon={Users} stat="5.4K+" label={"Total Views"} />
         <Statistic icon={UserRoundCheck} stat="1.2k+" label={"Users"} />
