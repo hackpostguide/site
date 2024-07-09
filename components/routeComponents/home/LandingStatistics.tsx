@@ -18,16 +18,16 @@ export async function LandingStatistics() {
     <section className="text-center">
       <div className="mb-16">
         <h2 className={title({ size: "md", bold: "bold" })}>
-          Used by <span className={title({ size: "md", bold: "extra", color: "yellow" })}> Hundreds. </span>
+          Used by <span className={title({ size: "md", bold: "extra", color: "yellow" })}> Thousands. </span>
         </h2>
         <p className={subtitle({size: "sm", fullWidth: true})}>We empower hackers around the world.</p>
       </div>
       {/* Last update: 6/23/24 */}
       <div className="grid grid-cols-1 gap-8 md:grid-cols-4 mb-16">
-        <Statistic icon={Users} stat="4.6K+" label={"Total Views"} />
-        <Statistic icon={UserRoundCheck} stat="950+" label={"Users"} />
+        <Statistic icon={Users} stat="5.4K+" label={"Total Views"} />
+        <Statistic icon={UserRoundCheck} stat="1.2k+" label={"Users"} />
         <Statistic icon={Globe} stat="75" label={"Countries"} />
-        <Statistic icon={BookOpenText} stat="10+" label={"Guides"} />
+        <Statistic icon={BookOpenText} stat="14+" label={"Guides"} />
       </div>
       <Button variant="default" size="xl" asChild>
           <Link href="/explore">Explore Guides</Link>
