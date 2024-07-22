@@ -10,7 +10,7 @@ const HGHackathonBanner = () => {
   if (!isVisible) return null;
 
   return (
-    <div className="bg-warning text-black text-left sm:text-center font-bold p-3 relative">
+    <div className="bg-orange-500 text-black text-left sm:text-center font-bold p-3 relative">
       <span className="text-lg">The Hackpost Guide Hackathon is happening this summer! </span>
       <Link target="_blank" rel="noopener noreferrer" href={siteConfig.links.hackathon} className="text-lg ml-2 underline" title="Join Team">
         <span className="text-default-600">Register now</span>
