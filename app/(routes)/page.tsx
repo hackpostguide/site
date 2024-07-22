@@ -45,14 +45,9 @@ export default function Home() {
             </h2>
           </div>
         </div>
-        <div className="my-10 w-full flex flex-col items-center gap-6 md:justify-center md:gap-8">
+        <div className="mt-10 w-full flex flex-col items-center gap-6 md:justify-center md:gap-8">
           <Button variant="default" className="z-30 bobbing-animation " size="xl" asChild>
 		  	    <Link href="/explore">Explore Guides</Link>
-          </Button>
-          <Button variant="outline" className="z-30" size="lg" asChild>
-		  	    <Link href={siteConfig.links.github} aria-label="Github"
-              target="_blank"
-              rel="noopener noreferrer"><GithubIcon className="text-default-500 w-6 h-6 mr-2" /> Star on Github</Link>
           </Button>
           <div className="flex flex-row gap-3">
             {/* <StartExploringButton />
