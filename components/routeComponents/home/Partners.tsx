@@ -8,7 +8,7 @@ import { title } from '@/components/misc/Primitives';
 export const Partners = () => {
   return (
     <div>
-        <h2 className={title({ size: "md", bold: "bold" })}>Hackathon Partners:</h2>
+        <h2 className={title({ size: "md", bold: "bold" })}>Hackathons We&apos;ve Collaborated With:</h2>
         <div className="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {partners.hackathons.map((partner: any, index: any) => (
                 <Link key={index} href={partner.url} target="_blank">

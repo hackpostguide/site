@@ -50,14 +50,14 @@ const About = () => {
         observer.unobserve(rightRef.current);
       }
     };
-  }, []);
+  }, [leftRef, rightRef]);
 
   return (
     <div className="p-8 flex flex-col md:items-start">
       <div ref={leftRef} className={`mb-40 md:w-3/4 transition-all duration-1000 ${leftVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-20'}`}>
         <div>
           <h2 className={title({ size: "md", bold: "bold" })}>
-            Learn the Essential Skills. <span className={title({ size: "md", bold: "extra", color: "blue" })}>Quickly.</span>
+            Learn the Essential Skills. <span className={title({ size: "md", bold: "bold", color: "yellow" })}>Quickly.</span>
           </h2>
         </div>
         <p className="text-xl my-4">
@@ -78,8 +78,8 @@ const About = () => {
       </div>
       <div ref={rightRef} className={`md:w-4/5 md:ml-auto flex flex-col items-start md:items-end md:text-right transition-all duration-1000 ${rightVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-20'}`}>
         <div>
-          <h2 className={title({ size: "md", bold: "bold" }) + "pb-10"}>
-            All Posts & Guides are Free. <span className={title({ size: "md", color: "violet", bold: "extra" })}>Forever.</span>
+          <h2 className={title({ size: "md", bold: "bold" })}>
+            All Posts & Guides are Free. <span className={title({ size: "md", color: "yellow", bold: "bold" })}>Forever.</span>
           </h2>
         </div>
         <p className="text-xl my-4">
