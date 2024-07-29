@@ -24,6 +24,11 @@ export const partners = {
             name: "HackVortex Codestorm #3",
             image: "https://www.hackpost.guide/partners/hackVortex-logo.png",
             url: "https://hackvortex.net/",
-        }
+        },
+        {
+            name: "HackVortex Codestorm #4",
+            image: "https://www.hackpost.guide/partners/hackvortex-codestorm-4-logo.png",
+            url: "https://hackvortex-codestorm-4.devpost.com/",
+        },
     ],
 };
