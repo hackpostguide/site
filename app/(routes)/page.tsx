@@ -84,12 +84,12 @@ export default function Home() {
         <LandingStatistics />
       </section>
 
-      <section className="my-10">
-        <About />
-      </section>
-
       <section className="my-32">
         <Partners />
+      </section>
+
+      <section className="my-10">
+        <About />
       </section>
 
       <section className="my-32">

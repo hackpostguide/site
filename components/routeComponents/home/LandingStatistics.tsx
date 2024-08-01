@@ -18,14 +18,14 @@ export async function LandingStatistics() {
     <section className="text-center">
       <div className="mb-16">
         <h2 className={title({ size: "md", bold: "bold" })}>
-          Used by <span className={title({ size: "md", bold: "extra", color: "yellow" })}> Thousands. </span>
+          Trusted by <span className={title({ size: "md", bold: "extra", color: "yellow" })}> Thousands. </span>
         </h2>
         <p className={subtitle({size: "sm", fullWidth: true})}>We empower hackers around the world.</p>
       </div>
-      {/* Last update: 7/9/24 */}
+      {/* Last update: 8/1/24 */}
       <div className="grid grid-cols-1 gap-8 md:grid-cols-4 mb-16">
-        <Statistic icon={Users} stat="6.1K+" label={"Total Views"} />
-        <Statistic icon={UserRoundCheck} stat="1.2K+" label={"Users"} />
+        <Statistic icon={Users} stat="9.1K+" label={"Total Views"} />
+        <Statistic icon={UserRoundCheck} stat="1.4K+" label={"Users"} />
         <Statistic icon={Globe} stat="75" label={"Countries"} />
         <Statistic icon={BookOpenText} stat="16+" label={"Guides"} />
       </div>
