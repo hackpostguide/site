@@ -30,5 +30,15 @@ export const partners = {
             image: "https://www.hackpost.guide/partners/hackvortex-codestorm-4-logo.png",
             url: "https://hackvortex-codestorm-4.devpost.com/",
         },
+        {
+            name: "Reveriehacks",
+            image: "https://www.hackpost.guide/partners/Reveriehacks-logo.png",
+            url: "https://www.reveriehacks.org/",
+        },
+        {
+            name: "Devnest Hacks",
+            image: "https://www.hackpost.guide/partners/DevnestLogo.png",
+            url: "https://devnest.devpost.com/",
+        },
     ],
 };
