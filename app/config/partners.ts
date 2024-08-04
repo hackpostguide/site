@@ -1,6 +1,11 @@
 export const partners = {
 	hackathons: [
         {
+            name: "HackPrinceton Fall 2024: HACKHEIST",
+            image: "https://www.hackpost.guide/partners/HACKHEIST.png",
+            url: "https://www.hackprinceton.com/",
+        },
+        {
             name: "SandCodes",
             image: "https://www.hackpost.guide/partners/Sandcodes.jpeg",
             url: "https://sandcodes.devpost.com/",
@@ -39,6 +44,11 @@ export const partners = {
             name: "Devnest Hacks",
             image: "https://www.hackpost.guide/partners/DevnestLogo.png",
             url: "https://devnest.devpost.com/",
+        },
+        {
+            name: "MedHacks Season 2",
+            image: "https://www.hackpost.guide/partners/MedHacks-logo.png",
+            url: "https://medhacks.devpost.com/",
         },
     ],
 };
