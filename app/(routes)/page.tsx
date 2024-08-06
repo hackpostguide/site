@@ -51,15 +51,7 @@ export default function Home() {
           <Button variant="default" className="z-30 bobbing-animation " size="xl" asChild>
 		  	    <Link href="/explore">Explore Guides</Link>
           </Button>
-          <div className="flex flex-row gap-3">
-            {/* <StartExploringButton />
-            <Link href={siteConfig.links.discord} target="_blank" className="font-normal text-xs md:text-sm">
-              <DiscordIcon size={20} /> Join our Discord
-            </Link> */}
-          </div>
         </div>
-        {/* Add Newsletter later */}
-        {/* <NewsLetter /> */}
         {/* ProductHunt embed */}
         {/* <div className="w-full mb-4 md:mt-4 flex flex-col items-center gap-3 md:flex-row md:justify-end md:gap-3">
           <Link href="https://www.producthunt.com/products/hackpost-guide?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-hackpost&#0045;guide" target="_blank">
